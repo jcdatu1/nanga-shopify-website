@@ -113,16 +113,12 @@
     "footer": {
       "type": "footer",
       "blocks": {
-        "1601374680247": {
-          "type": "text",
+        "menu_dake37": {
+          "type": "menu",
           "settings": {
-            "title": "Talk about your store",
-            "text": "<p>Use this text area to tell your customers about your brand and vision. You can change it in the theme editor.</p>",
-            "image": "{{ shop.brand.logo }}",
-            "image_width": 160,
-            "show_social_icons": true,
-            "soc_icons_large": false,
-            "enable_follow_on_shop": false
+            "title": "Quick links",
+            "menu": "footer",
+            "link_layout": "collapse"
           }
         },
         "1601374621546": {
@@ -133,24 +129,34 @@
             "link_layout": "collapse"
           }
         },
-        "1601374580731": {
-          "type": "newsletter",
+        "menu_pMWDAN": {
+          "type": "menu",
           "settings": {
-            "title": "Newsletter",
-            "text": "<p>Sign up for exclusive offers, original stories, events and more.</p>",
-            "button_style": "inherit",
-            "show_social_icons": false,
-            "soc_icons_large": false
+            "title": "Quick links",
+            "menu": "footer",
+            "link_layout": "collapse"
+          }
+        },
+        "text_t88MVY": {
+          "type": "text",
+          "settings": {
+            "title": "Talk about your store",
+            "text": "<p>Use this text area to tell your customers about your brand and vision. You can change it in the theme editor.</p>",
+            "image_width": 100,
+            "show_social_icons": true,
+            "soc_icons_large": false,
+            "enable_follow_on_shop": false
           }
         }
       },
       "block_order": [
-        "1601374680247",
+        "menu_dake37",
         "1601374621546",
-        "1601374580731"
+        "menu_pMWDAN",
+        "text_t88MVY"
       ],
       "settings": {
-        "lower_menu": "",
+        "lower_menu": "footer",
         "show_powered_by": true,
         "show_payment_icons": true,
         "enable_country_selector": true,
