@@ -58,6 +58,7 @@
     "featured_collection_carousel_CbBpQp": {
       "type": "featured-collection-carousel",
       "custom_css": [
+        ".fcc__title {font-weight: 500 !important;}",
         ".product-card__price * {font-weight: 500 !important;}"
       ],
       "name": "C Featured collection",
