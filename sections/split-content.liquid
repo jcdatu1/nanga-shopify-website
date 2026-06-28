@@ -1,3 +1,16 @@
+{% style %}
+  .split-content__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4em;
+    color: rgb(var(--text-color));
+    text-decoration: none;
+  }
+  .split-content__link:hover {
+    text-decoration: none;
+  }
+{% endstyle %}
+
 <div class="relative {% if section.settings.color_scheme != 'default' %}use-color-scheme use-color-scheme--{{ section.settings.color_scheme }} fully-padded-row--medium{% else %}fully-spaced-row--medium{% endif %}">
   <div class="container{% if section.settings.full_width %} container--no-max{% endif %}">
     <div class="flexible-layout valign-middle">
@@ -32,7 +45,11 @@
 
               {% when 'button' %}
                 <div class="lightly-spaced-row button-row" {{ block.shopify_attributes }}>
-                  <a class="{% if block.settings.button_style != 'link' %}btn btn--{{ block.settings.button_style }}{% else %}small-feature-link{% endif %} button-row__btn" href="{{ block.settings.button_link }}">{{ block.settings.button_label | escape }}</a>
+                  {%- if block.settings.button_style == 'link' -%}
+                    <a class="small-feature-link split-content__link button-row__btn" href="{{ block.settings.button_link }}">{{ block.settings.button_label | escape }}{% render 'icon', icon: 'arrow-right', size: 'small', stroke_width: 2 %}</a>
+                  {%- else -%}
+                    <a class="btn btn--{{ block.settings.button_style }} button-row__btn" href="{{ block.settings.button_link }}">{{ block.settings.button_label | escape }}</a>
+                  {%- endif -%}
                 </div>
             {% endcase %}
           {% endfor %}
