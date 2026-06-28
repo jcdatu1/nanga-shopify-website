@@ -149,12 +149,61 @@
         "text_alignment": "left",
         "color_scheme": "1"
       }
+    },
+    "collection_list_carousel_category": {
+      "type": "collection-list-carousel",
+      "blocks": {
+        "collection_wear": {
+          "type": "collection",
+          "settings": { "collection": "", "label": "WEAR" }
+        },
+        "collection_sleeping_bag": {
+          "type": "collection",
+          "settings": { "collection": "", "label": "SLEEPING BAG" }
+        },
+        "collection_good_sleeping": {
+          "type": "collection",
+          "settings": { "collection": "", "label": "GOOD SLEEPING" }
+        },
+        "collection_accessory": {
+          "type": "collection",
+          "settings": { "collection": "", "label": "ACCESSORY" }
+        },
+        "collection_down_wear": {
+          "type": "collection",
+          "settings": { "collection": "", "label": "DOWN WEAR" }
+        },
+        "collection_collaboration": {
+          "type": "collection",
+          "settings": { "collection": "", "label": "COLLABORATION" }
+        }
+      },
+      "block_order": [
+        "collection_wear",
+        "collection_sleeping_bag",
+        "collection_good_sleeping",
+        "collection_accessory",
+        "collection_down_wear",
+        "collection_collaboration"
+      ],
+      "settings": {
+        "title": "CATEGORY",
+        "description": "",
+        "cards_desktop": 6,
+        "cards_mobile": 2,
+        "full_width": true,
+        "show_view_all": false,
+        "view_all_link": "",
+        "view_all_label": "View all",
+        "color_scheme": "default"
+      }
     }
   },
   "order": [
     "slideshow_yFaybj",
     "featured_collection_carousel_CbBpQp",
     "featured_collection_carousel_DG8aWb",
-    "split_content_craftsmanship"
+    "split_content_craftsmanship",
+    "collection_list_carousel_category"
   ]
 }

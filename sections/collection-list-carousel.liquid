@@ -1,0 +1,216 @@
+{%- comment -%}
+  Collection list (carousel) — NANGA.
+  Renders merchant-curated collections as a horizontal carousel of circular image tiles,
+  reusing the theme's native <carousel-slider> engine (assets/slider.js). No 3rd-party libs.
+  Each tile is a 'collection' block: links to the collection, defaults image/label from the
+  collection with optional per-block overrides. Mirrors sections/featured-collection-carousel.
+{%- endcomment -%}
+<link rel="stylesheet" href="{{ 'collection-list-carousel.css' | asset_url }}" {%- render 'lazy-stylesheet-attrs' %}>
+
+<div class="section-id-{{ section.id }} clc{% if section.settings.color_scheme != 'default' %} use-color-scheme use-color-scheme--{{ section.settings.color_scheme }}{% endif %}">
+  <div class="container{% if section.settings.full_width %} container--no-max{% endif %}">
+    <div class="clc__header" {%- render 'animation-attrs', attrs: 'data-cc-animate data-cc-animate-delay="0.3s"' -%}>
+      <div class="clc__header-text">
+        <h2 class="clc__title">{{ section.settings.title | escape }}</h2>
+        {%- if section.settings.description != blank -%}
+          <p class="clc__subtitle">{{ section.settings.description | escape }}</p>
+        {%- endif -%}
+      </div>
+
+      {%- if section.settings.show_view_all and section.settings.view_all_link != blank -%}
+        <a class="clc__view-all clc__view-all--desktop" href="{{ section.settings.view_all_link }}">
+          {{ section.settings.view_all_label | escape }}
+          {%- render 'icon-chevron-right' -%}
+        </a>
+      {%- endif -%}
+    </div>
+
+    <carousel-slider class="carousel block clc__carousel" {%- render 'animation-attrs', attrs: 'data-cc-animate' -%}>
+      <div class="slider slider--edge-peek slider--mobile-container-pad slider--no-scrollbar" id="slider-{{ section.id }}">
+        <div class="product-grid product-grid--per-row-{{ section.settings.cards_desktop }} product-grid--per-row-mob-{{ section.settings.cards_mobile }} slider__grid product-grid--carousel clc__grid">
+          {%- if section.blocks.size == 0 -%}
+            {%- for i in (1..6) -%}
+              <div class="slider__item">
+                <div class="clc__card">
+                  <div class="clc__media">
+                    <div class="clc__media-empty placeholder-image">{{ 'collection-' | append: i | placeholder_svg_tag: 'placeholder-svg' }}</div>
+                  </div>
+                  <span class="clc__label">{{ 'onboarding.collection.title' | t }}</span>
+                </div>
+              </div>
+            {%- endfor -%}
+          {%- else -%}
+            {%- for block in section.blocks -%}
+              {%- liquid
+                assign coll = block.settings.collection
+                assign tile_image = block.settings.image | default: coll.featured_image
+                assign tile_label = block.settings.label | default: coll.title
+              -%}
+              <div class="slider__item" {{ block.shopify_attributes }}>
+                {%- if coll.url != blank -%}<a class="clc__card" href="{{ coll.url }}">{%- else -%}<div class="clc__card">{%- endif -%}
+                  <div class="clc__media">
+                    {%- if tile_image != blank -%}
+                      {%- render 'image', image: tile_image, class: 'clc__img', size_cols_desktop: section.settings.cards_desktop, size_cols_mobile: section.settings.cards_mobile, custom_aspect_ratio: 1, custom_crop: 'contain' -%}
+                    {%- else -%}
+                      <div class="clc__media-empty"></div>
+                    {%- endif -%}
+                  </div>
+                  {%- if tile_label != blank -%}
+                    <span class="clc__label">{{ tile_label | escape }}</span>
+                  {%- endif -%}
+                {%- if coll.url != blank -%}</a>{%- else -%}</div>{%- endif -%}
+              </div>
+            {%- endfor -%}
+          {%- endif -%}
+        </div>
+      </div>
+
+      <div class="slider-nav clc__nav js-only">
+        <button type="button" name="prev" class="slider-nav__btn clc__nav-btn has-ltr-icon" aria-controls="slider-{{ section.id }}">
+          <span class="visually-hidden">{{ 'general.slider.previous' | t }}</span>
+          {%- render 'icon-chevron-left' -%}
+        </button>
+        <button type="button" name="next" class="slider-nav__btn clc__nav-btn has-ltr-icon" aria-controls="slider-{{ section.id }}">
+          <span class="visually-hidden">{{ 'general.slider.next' | t }}</span>
+          {%- render 'icon-chevron-right' -%}
+        </button>
+      </div>
+    </carousel-slider>
+
+    {%- if section.settings.show_view_all and section.settings.view_all_link != blank -%}
+      <a class="clc__view-all clc__view-all--mobile" href="{{ section.settings.view_all_link }}">
+        {{ section.settings.view_all_label | escape }}
+        {%- render 'icon-chevron-right' -%}
+      </a>
+    {%- endif -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "C Collection list",
+  "class": "section-collection-list-carousel",
+  "disabled_on": {
+    "templates": ["password"],
+    "groups": ["aside"]
+  },
+  "max_blocks": 12,
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "CATEGORY"
+    },
+    {
+      "type": "text",
+      "id": "description",
+      "label": "Description",
+      "info": "Short subtext shown beneath the heading."
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "cards_desktop",
+      "label": "Tiles per row (desktop)",
+      "info": "Scroll and arrows appear when there are more collections than this.",
+      "min": 2,
+      "max": 6,
+      "step": 1,
+      "default": 6
+    },
+    {
+      "type": "range",
+      "id": "cards_mobile",
+      "label": "Tiles per row (mobile)",
+      "info": "Scroll appears when there are more collections than this.",
+      "min": 1,
+      "max": 4,
+      "step": 1,
+      "default": 2
+    },
+    {
+      "type": "checkbox",
+      "id": "full_width",
+      "label": "Full page width",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "View all"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_view_all",
+      "label": "Show 'View all' link",
+      "default": false
+    },
+    {
+      "type": "url",
+      "id": "view_all_link",
+      "label": "View all link"
+    },
+    {
+      "type": "text",
+      "id": "view_all_label",
+      "label": "View all label",
+      "default": "View all"
+    },
+    {
+      "type": "header",
+      "content": "Color"
+    },
+    {
+      "type": "select",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "default",
+      "options": [
+        { "value": "default", "label": "Default" },
+        { "value": "1", "label": "1" },
+        { "value": "2", "label": "2" }
+      ]
+    }
+  ],
+  "blocks": [
+    {
+      "type": "collection",
+      "name": "Collection",
+      "settings": [
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "Collection"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image",
+          "info": "Optional. Defaults to the collection's featured image."
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label",
+          "info": "Optional. Defaults to the collection's title."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "C Collection list",
+      "category": "Collections",
+      "blocks": [
+        { "type": "collection" },
+        { "type": "collection" },
+        { "type": "collection" },
+        { "type": "collection" }
+      ]
+    }
+  ]
+}
+{% endschema %}

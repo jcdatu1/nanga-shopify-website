@@ -1,0 +1,198 @@
+/* Collection list (carousel) — NANGA. Scoped to .clc; reuses theme slider engine/vars. */
+
+.clc {
+  margin: var(--section-vertical-spacing, 40px) 0;
+}
+
+/* ---- Heading row: left text + subtext, right "View All" (desktop) ---- */
+.clc__header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.clc__title {
+  margin: 0 0 8px;
+  font-size: clamp(1.75rem, 1.2rem + 2vw, 2.25rem);
+  line-height: 1.1;
+}
+
+.clc__subtitle {
+  margin: 0;
+  color: #000000;
+}
+
+.clc__view-all {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+  font-size: 0.875rem;
+  text-decoration: none;
+  color: inherit;
+  transition: gap 200ms ease;
+}
+
+.clc__view-all:hover {
+  gap: 10px;
+}
+
+.clc__view-all svg {
+  width: 14px;
+  height: 14px;
+}
+
+.clc__view-all--mobile {
+  display: none;
+  justify-content: center;
+  margin-top: 28px;
+}
+
+/* ---- Carousel: gap + peek tuned to circular tiles, scoped via --gutter ---- */
+.clc__carousel {
+  position: relative;
+  display: block;
+}
+
+.clc__grid {
+  --gutter: 16px;
+}
+
+@media (min-width: 768px) {
+  .clc__grid {
+    --gutter: 24px;
+  }
+}
+
+/* ---- Tile: circular gray image well + label beneath ---- */
+.clc__card {
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  color: inherit;
+}
+
+.clc__media {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #ededed;
+}
+
+.clc__img,
+.clc__media-empty {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.clc__img {
+  object-fit: contain;
+  padding: 14%;
+}
+
+.clc__media-empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.clc__media-empty svg {
+  width: 60%;
+  height: 60%;
+}
+
+.clc__label {
+  display: block;
+  margin-top: 16px;
+  font-size: 0.875rem;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+/* ---- Floating circular arrows overlapping the carousel edges ---- */
+.clc__nav {
+  --clc-nav-size: 40px;
+  /* Tiles are a circle + label beneath, so center the arrows on the circle, not the whole card. */
+  --clc-nav-top: 42%;
+}
+
+@media (min-width: 768px) {
+  .clc__nav {
+    --clc-nav-size: 48px;
+  }
+}
+
+.clc__nav-btn {
+  position: absolute;
+  top: var(--clc-nav-top);
+  z-index: 3;
+  width: var(--clc-nav-size);
+  height: var(--clc-nav-size);
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 50%;
+  background: #fff;
+  color: #000;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
+  cursor: pointer;
+  transform: translateY(-50%);
+  transition: background-color 200ms ease, opacity 200ms ease;
+}
+
+.clc__nav-btn:hover {
+  background: #f1f1f1;
+}
+
+.clc__nav-btn svg {
+  width: 24px;
+  height: 24px;
+}
+
+.clc__nav-btn[name="prev"] {
+  left: 0;
+  transform: translate(-50%, -50%);
+}
+
+.clc__nav-btn[name="next"] {
+  right: 0;
+  transform: translate(50%, -50%);
+}
+
+[dir="rtl"] .clc__nav-btn[name="prev"] {
+  left: auto;
+  right: 0;
+  transform: translate(50%, -50%);
+}
+
+[dir="rtl"] .clc__nav-btn[name="next"] {
+  right: auto;
+  left: 0;
+  transform: translate(-50%, -50%);
+}
+
+/* Disabled / inactive states from the slider engine */
+carousel-slider .clc__nav-btn[disabled] {
+  opacity: 0;
+  pointer-events: none;
+}
+/* When tiles fit, the engine adds [inactive] to <carousel-slider> and the
+   global ".carousel[inactive] .slider-nav { display:none }" rule hides .clc__nav. */
+
+/* ---- Responsive: arrows + View All swap for mobile ---- */
+@media (max-width: 767.98px) {
+  .clc__view-all--desktop {
+    display: none;
+  }
+
+  .clc__view-all--mobile {
+    display: flex;
+  }
+}
