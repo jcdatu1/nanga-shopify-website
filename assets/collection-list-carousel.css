@@ -56,13 +56,19 @@
   display: block;
 }
 
-.clc__grid {
+/* Drive the column count from the section settings via inline --clc-cols-* vars.
+   The shared product-grid--per-row-* classes only define desktop 2-5 / mobile 1-2,
+   so we set the grid's --product-columns-desktop var directly to support any count
+   (e.g. 6-up on desktop, per the design). Scoped under .clc to win on specificity. */
+.clc .clc__grid {
   --gutter: 16px;
+  --product-columns-desktop: var(--clc-cols-mobile, 2);
 }
 
 @media (min-width: 768px) {
-  .clc__grid {
+  .clc .clc__grid {
     --gutter: 24px;
+    --product-columns-desktop: var(--clc-cols-desktop, 6);
   }
 }
 

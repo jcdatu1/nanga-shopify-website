@@ -27,7 +27,7 @@
 
     <carousel-slider class="carousel block clc__carousel" {%- render 'animation-attrs', attrs: 'data-cc-animate' -%}>
       <div class="slider slider--edge-peek slider--mobile-container-pad slider--no-scrollbar" id="slider-{{ section.id }}">
-        <div class="product-grid product-grid--per-row-{{ section.settings.cards_desktop }} product-grid--per-row-mob-{{ section.settings.cards_mobile }} slider__grid product-grid--carousel clc__grid">
+        <div class="product-grid slider__grid product-grid--carousel clc__grid" style="--clc-cols-desktop: {{ section.settings.cards_desktop }}; --clc-cols-mobile: {{ section.settings.cards_mobile }};">
           {%- if section.blocks.size == 0 -%}
             {%- for i in (1..6) -%}
               <div class="slider__item">
