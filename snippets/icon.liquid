@@ -1,8 +1,10 @@
 {%- if icon != blank -%}
-  <svg class="icon icon--{{ size | default: 'medium' }} icon--type-{{ icon }}" viewBox="0 0 24 24" fill="none"  stroke="currentColor" stroke-width="{% if size == 'small' %}1.5{% else %}1{% endif %}" stroke-linecap="round"  stroke-linejoin="round" aria-hidden="true" focusable="false" role="presentation" xmlns="http://www.w3.org/2000/svg">
+  <svg class="icon icon--{{ size | default: 'medium' }} icon--type-{{ icon }}" viewBox="0 0 24 24" fill="none"  stroke="currentColor" stroke-width="{% if stroke_width %}{{ stroke_width }}{% elsif size == 'small' %}1.5{% else %}1{% endif %}" stroke-linecap="round"  stroke-linejoin="round" aria-hidden="true" focusable="false" role="presentation" xmlns="http://www.w3.org/2000/svg">
     {%- case icon -%}
     {%- when 'accessible' -%}
       <path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" /><path d="M10 16.5l2 -3l2 3m-2 -3v-2l3 -1m-6 0l3 1" /><circle cx="12" cy="7.5" r=".5" fill="currentColor" />
+    {%- when 'arrow-right' -%}
+      <path d="M5 12h14" /><path d="m12 5 7 7 -7 7" />
     {%- when 'award' -%}
       <path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M12 9m-6 0a6 6 0 1 0 12 0a6 6 0 1 0 -12 0" /><path d="M12 15l3.4 5.89l1.598 -3.233l3.598 .232l-3.4 -5.889" /><path d="M6.802 12l-3.4 5.89l3.598 -.233l1.598 3.232l3.4 -5.889" />
     {%- when 'beach' -%}

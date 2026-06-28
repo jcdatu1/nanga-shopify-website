@@ -157,17 +157,17 @@
                     <div class="text-overlay__button-row">
                       {%- if wrap_slide_with_link -%}
                         {%- if block.settings.button_label_1 != blank -%}
-                          <span class="text-overlay__button btn btn--secondary">{{ block.settings.button_label_1 | escape }}</span>
+                          <span class="text-overlay__button btn btn--secondary">{{ block.settings.button_label_1 | escape }}{%- if block.settings.show_button_arrow_1 -%}{% render 'icon', icon: 'arrow-right', size: 'small', stroke_width: 2 %}{%- endif -%}</span>
                         {%- endif -%}
                         {%- if block.settings.button_label_2 != blank -%}
-                          <span class="text-overlay__button btn btn--secondary">{{ block.settings.button_label_2 | escape }}</span>
+                          <span class="text-overlay__button btn btn--secondary">{{ block.settings.button_label_2 | escape }}{%- if block.settings.show_button_arrow_2 -%}{% render 'icon', icon: 'arrow-right', size: 'small', stroke_width: 2 %}{%- endif -%}</span>
                         {%- endif -%}
                       {%- else -%}
                         {%- if block.settings.button_label_1 != blank -%}
-                          <a class="text-overlay__button btn btn--secondary" href="{{ block.settings.button_url_1 }}">{{ block.settings.button_label_1 | escape }}</a>
+                          <a class="text-overlay__button btn btn--secondary" href="{{ block.settings.button_url_1 }}">{{ block.settings.button_label_1 | escape }}{%- if block.settings.show_button_arrow_1 -%}{% render 'icon', icon: 'arrow-right', size: 'small', stroke_width: 2 %}{%- endif -%}</a>
                         {%- endif -%}
                         {%- if block.settings.button_label_2 != blank -%}
-                          <a class="text-overlay__button btn btn--secondary" href="{{ block.settings.button_url_2 }}">{{ block.settings.button_label_2 | escape }}</a>
+                          <a class="text-overlay__button btn btn--secondary" href="{{ block.settings.button_url_2 }}">{{ block.settings.button_label_2 | escape }}{%- if block.settings.show_button_arrow_2 -%}{% render 'icon', icon: 'arrow-right', size: 'small', stroke_width: 2 %}{%- endif -%}</a>
                         {%- endif -%}
                       {%- endif -%}
                     </div>
@@ -488,6 +488,12 @@
           "label": "Button 1 link"
         },
         {
+          "type": "checkbox",
+          "id": "show_button_arrow_1",
+          "label": "Show arrow on button 1",
+          "default": false
+        },
+        {
           "type": "text",
           "id": "button_label_2",
           "label": "Button 2 label",
@@ -497,6 +503,12 @@
           "type": "url",
           "id": "button_url_2",
           "label": "Button 2 link"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_button_arrow_2",
+          "label": "Show arrow on button 2",
+          "default": false
         },
         {
           "type": "select",

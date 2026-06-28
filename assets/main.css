@@ -5065,6 +5065,13 @@ shopify-payment-terms {
 .text-overlay__button-row .text-overlay__button {
   margin: 10px 0.5em 0;
 }
+.text-overlay__button .icon--type-arrow-right {
+  width: 1em;
+  height: 1em;
+  margin-left: 0.5em;
+  vertical-align: middle;
+  flex-shrink: 0;
+}
 
 @media (max-width: 767.98px) {
   .slideshow--navigation-arrows .text-overlay__inner,
