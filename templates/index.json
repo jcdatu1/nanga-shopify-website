@@ -99,6 +99,52 @@
         "color_scheme": "default"
       }
     },
+    "1521034575223": {
+      "type": "image-with-text",
+      "blocks": {
+        "subheading_pphBPq": {
+          "type": "subheading",
+          "settings": {
+            "subheading": "Beach Ready"
+          }
+        },
+        "1cf41ea7-69dd-443c-b2fd-00932a1c34a4": {
+          "type": "heading",
+          "settings": {
+            "title": "Swimsuit Update",
+            "use_h1": false
+          }
+        },
+        "c16e1af7-d56e-4907-b7a1-f074ee3e61d9": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Whether you're looking for a classic one-piece, a dazzling two-piece bikini or a luxe cover-up that will go from the sand to the city - you'll be ready to soak up the sunshine in no time.</p>",
+            "enlarge_text": false
+          }
+        },
+        "b8d8eb99-2e6d-4e98-982d-dc8102682d22": {
+          "type": "button",
+          "settings": {
+            "button_label": "Shop collections",
+            "button_link": "",
+            "button_style": "primary"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_pphBPq",
+        "1cf41ea7-69dd-443c-b2fd-00932a1c34a4",
+        "c16e1af7-d56e-4907-b7a1-f074ee3e61d9",
+        "b8d8eb99-2e6d-4e98-982d-dc8102682d22"
+      ],
+      "settings": {
+        "image_width": 640,
+        "image_link": "",
+        "image_position": "right",
+        "text_alignment": "left",
+        "color_scheme": "default"
+      }
+    },
     "1617293273c37b524b": {
       "type": "rich-text",
       "blocks": {
@@ -492,52 +538,6 @@
         "text_alignment": "top left",
         "mobile_overlay_over": true,
         "overlay_style": "shadow"
-      }
-    },
-    "1521034575223": {
-      "type": "image-with-text",
-      "blocks": {
-        "subheading_pphBPq": {
-          "type": "subheading",
-          "settings": {
-            "subheading": "Beach Ready"
-          }
-        },
-        "1cf41ea7-69dd-443c-b2fd-00932a1c34a4": {
-          "type": "heading",
-          "settings": {
-            "title": "Swimsuit Update",
-            "use_h1": false
-          }
-        },
-        "c16e1af7-d56e-4907-b7a1-f074ee3e61d9": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Whether you're looking for a classic one-piece, a dazzling two-piece bikini or a luxe cover-up that will go from the sand to the city - you'll be ready to soak up the sunshine in no time.</p>",
-            "enlarge_text": false
-          }
-        },
-        "b8d8eb99-2e6d-4e98-982d-dc8102682d22": {
-          "type": "button",
-          "settings": {
-            "button_label": "Shop collections",
-            "button_link": "",
-            "button_style": "primary"
-          }
-        }
-      },
-      "block_order": [
-        "subheading_pphBPq",
-        "1cf41ea7-69dd-443c-b2fd-00932a1c34a4",
-        "c16e1af7-d56e-4907-b7a1-f074ee3e61d9",
-        "b8d8eb99-2e6d-4e98-982d-dc8102682d22"
-      ],
-      "settings": {
-        "image_width": 640,
-        "image_link": "",
-        "image_position": "right",
-        "text_alignment": "left",
-        "color_scheme": "default"
       }
     },
     "1521035976582": {
@@ -969,6 +969,7 @@
     "slideshow_yFaybj",
     "featured_collection_carousel_CbBpQp",
     "featured_collection_carousel_DG8aWb",
+    "1521034575223",
     "1617293273c37b524b",
     "1619015739944f86f6",
     "custom_content_pkGWkD",
@@ -978,7 +979,6 @@
     "rich_text_V8xJDU",
     "gallery_3HQxcH",
     "50830f37-1ae2-4f43-8f92-52e9c5c1d736",
-    "1521034575223",
     "1521035976582",
     "image_with_text_overlay_kU6UU7",
     "16117511238528a364",
