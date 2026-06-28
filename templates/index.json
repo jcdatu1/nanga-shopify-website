@@ -59,8 +59,8 @@
       "type": "featured-collection-carousel",
       "name": "C Featured collection",
       "settings": {
-        "title": "Featured collection",
-        "description": "",
+        "title": "NEW ARRIVAL",
+        "description": "Latest additions to our collection",
         "collection": "",
         "limit": 12,
         "cards_desktop": 3,
