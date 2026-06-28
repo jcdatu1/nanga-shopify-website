@@ -8,3 +8,6 @@
 
 # Shopify
 .shopify/
+
+# Context
+/context
