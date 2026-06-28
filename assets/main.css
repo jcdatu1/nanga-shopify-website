@@ -11475,7 +11475,7 @@ model-viewer .container {
 
 .product-card__type {
   margin-bottom: 4px;
-  color: var(--text-color-secondary, #6b6b6b);
+  color: rgb(75, 98, 116);
   font-size: var(--smaller-text-size-3);
 }
 
@@ -11487,17 +11487,17 @@ model-viewer .container {
 .product-card__title {
   margin: 0 0 4px;
   font-size: inherit;
-  font-weight: inherit;
+  font-weight: 500;
   transition: color 0.2s ease;
 }
 
 .product-card:hover .product-card__title {
-  color: var(--text-color-secondary, #6b6b6b);
+  color: var(--text-color-secondary, #000000);
 }
 
 .product-card__value-props {
   margin-bottom: 6px;
-  color: var(--text-color-secondary, #6b6b6b);
+  color: rgb(75, 98, 116);
   font-size: var(--smaller-text-size-3);
 }
 
