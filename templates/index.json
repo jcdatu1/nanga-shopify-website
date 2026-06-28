@@ -42,9 +42,9 @@
         "h3 {font-weight: normal;}"
       ],
       "settings": {
-        "height": "full",
-        "height_desktop": 960,
-        "height_mobile": 600,
+        "height": "fixed",
+        "height_desktop": 980,
+        "height_mobile": 760,
         "full_width": true,
         "mobile_overlay_under": false,
         "overlay_style": "shadow",
