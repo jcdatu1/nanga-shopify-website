@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "type": "footer",
   "name": "Footer Group",
@@ -8,7 +17,6 @@
         "image_keEhkp": {
           "type": "image",
           "settings": {
-            "image": "",
             "image_width": 100,
             "link": ""
           }
@@ -16,7 +24,6 @@
         "image_Gid6mx": {
           "type": "image",
           "settings": {
-            "image": "",
             "image_width": 100,
             "link": ""
           }
@@ -24,7 +31,6 @@
         "image_4kAxwy": {
           "type": "image",
           "settings": {
-            "image": "",
             "image_width": 100,
             "link": ""
           }
@@ -32,7 +38,6 @@
         "image_tzapRT": {
           "type": "image",
           "settings": {
-            "image": "",
             "image_width": 100,
             "link": ""
           }
@@ -44,6 +49,7 @@
         "image_4kAxwy",
         "image_tzapRT"
       ],
+      "disabled": true,
       "settings": {
         "full_width": true,
         "color_scheme": "default",
@@ -110,6 +116,8 @@
         "1601374680247": {
           "type": "text",
           "settings": {
+            "title": "Talk about your store",
+            "text": "<p>Use this text area to tell your customers about your brand and vision. You can change it in the theme editor.</p>",
             "image": "{{ shop.brand.logo }}",
             "image_width": 160,
             "show_social_icons": true,
@@ -120,12 +128,16 @@
         "1601374621546": {
           "type": "menu",
           "settings": {
-            "menu": "footer"
+            "title": "Quick links",
+            "menu": "footer",
+            "link_layout": "collapse"
           }
         },
         "1601374580731": {
           "type": "newsletter",
           "settings": {
+            "title": "Newsletter",
+            "text": "<p>Sign up for exclusive offers, original stories, events and more.</p>",
             "button_style": "inherit",
             "show_social_icons": false,
             "soc_icons_large": false
@@ -138,6 +150,7 @@
         "1601374580731"
       ],
       "settings": {
+        "lower_menu": "",
         "show_powered_by": true,
         "show_payment_icons": true,
         "enable_country_selector": true,
