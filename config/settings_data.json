@@ -9,8 +9,8 @@
  */
 {
   "current": {
-    "max_page_width": 1400,
-    "use_fullwidth_layout": true,
+    "max_page_width": 1200,
+    "use_fullwidth_layout": false,
     "font_col_base": "#000000",
     "font_col_link": "#bf570a",
     "font_col_heads": "#000000",
