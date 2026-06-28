@@ -1,0 +1,224 @@
+<div class="relative {% if section.settings.color_scheme != 'default' %}use-color-scheme use-color-scheme--{{ section.settings.color_scheme }} fully-padded-row--medium{% else %}fully-spaced-row--medium{% endif %}">
+  <div class="container{% if section.settings.full_width %} container--no-max{% endif %}">
+    <div class="flexible-layout valign-middle">
+      <div class="column column--half {% if section.settings.image_position == 'right' %}column--order-push-desktop{% endif %}" {%- render 'animation-attrs', attrs: 'data-cc-animate data-cc-animate-delay="0.1s"' -%}>
+        {% if section.settings.image_link != blank %}<a class="block-link" href="{{ section.settings.image_link }}">{% endif %}
+        <div class="{% if section.settings.full_width %}container__breakout img-fill-half-section{% endif %}">
+          {%- if section.settings.image == blank -%}
+            <div class="placeholder-image">{{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}</div>
+          {%- else -%}
+            {%- render 'image' with section.settings.image, size_cols_desktop: 2 -%}
+          {%- endif -%}
+        </div>
+        {% if section.settings.image_link != blank %}</a>{% endif %}
+      </div>
+
+      <div class="column column--half align-ltr-{{ section.settings.text_alignment }}" {%- render 'animation-attrs', attrs: 'data-cc-animate' -%}>
+        <div class="feature-text-paired{% if section.settings.full_width %}-wide{% endif %}">
+          {% for block in section.blocks %}
+            {% case block.type %}
+              {% when 'heading' %}
+                {% if block.settings.use_h1 %}
+                  <h1 class="majortitle in-content" {{ block.shopify_attributes }}>{{ block.settings.title | escape }}</h1>
+                {% else %}
+                  <h2 class="majortitle in-content h1" {{ block.shopify_attributes }}>{{ block.settings.title | escape }}</h2>
+                {% endif %}
+
+              {% when 'subheading' %}
+                <div class="subheading subheading--over lightish-spaced-row-above" {{ block.shopify_attributes }}>{{ block.settings.subheading | escape }}</div>
+
+              {% when 'text' %}
+                <div class="rte lightly-spaced-row {% if block.settings.enlarge_text %}large-text{% endif %}" {{ block.shopify_attributes }}>{{ block.settings.text }}</div>
+
+              {% when 'button' %}
+                <div class="lightly-spaced-row button-row" {{ block.shopify_attributes }}>
+                  <a class="{% if block.settings.button_style != 'link' %}btn btn--{{ block.settings.button_style }}{% else %}small-feature-link{% endif %} button-row__btn" href="{{ block.settings.button_link }}">{{ block.settings.button_label | escape }}</a>
+                </div>
+            {% endcase %}
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+{% schema %}
+{
+  "name": "C Image with text",
+  "class": "section-split-content",
+  "disabled_on": {
+    "groups": [
+      "aside"
+    ]
+  },
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "url",
+      "id": "image_link",
+      "label": "Image link"
+    },
+    {
+      "type": "checkbox",
+      "id": "full_width",
+      "label": "Make section full width",
+      "info": "On: the section spans the full window and the image fills its half edge-to-edge. Off: the section is constrained to the page width with space around the image.",
+      "default": true
+    },
+    {
+      "type": "select",
+      "id": "image_position",
+      "label": "Image alignment",
+      "default": "left",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ]
+    },
+    {
+      "type": "text_alignment",
+      "id": "text_alignment",
+      "label": "Text alignment",
+      "default": "left"
+    },
+    {
+      "type": "select",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "1",
+      "options": [
+        {
+          "value": "default",
+          "label": "Default"
+        },
+        {
+          "value": "1",
+          "label": "1"
+        },
+        {
+          "value": "2",
+          "label": "2"
+        }
+      ]
+    }
+  ],
+  "blocks": [
+    {
+      "type": "heading",
+      "name": "Heading",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Heading",
+          "default": "Image with text"
+        },
+        {
+          "type": "checkbox",
+          "id": "use_h1",
+          "label": "Set as primary page heading",
+          "info": "Use <h1> tag. One per page recommended. [Read more](https://cleancanvas.co.uk/support/symmetry/section-h1-setting)",
+          "default": false
+        }
+      ]
+    },
+    {
+      "type": "subheading",
+      "name": "Subheading",
+      "settings": [
+        {
+          "type": "text",
+          "id": "subheading",
+          "label": "Subheading",
+          "default": "Subheading"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "name": "Text",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text",
+          "default": "<p>Pair text with an image to give customers insight into your brand. Tell a story, explain a product detail, or describe a new promotion.</p>"
+        },
+        {
+          "type": "checkbox",
+          "id": "enlarge_text",
+          "label": "Enlarge text",
+          "default": false
+        }
+      ]
+    },
+    {
+      "type": "button",
+      "name": "Button",
+      "settings": [
+        {
+          "type": "text",
+          "id": "button_label",
+          "label": "Button",
+          "default": "Button text"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button link"
+        },
+        {
+          "type": "select",
+          "id": "button_style",
+          "label": "Button style",
+          "default": "link",
+          "options": [
+            {
+              "label": "Primary",
+              "value": "primary"
+            },
+            {
+              "label": "Secondary",
+              "value": "secondary"
+            },
+            {
+              "label": "Link",
+              "value": "link"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "C Image with text",
+      "category": "Storytelling",
+      "settings": {
+      },
+      "blocks": [
+        {
+          "type": "heading"
+        },
+        {
+          "type": "text"
+        },
+        {
+          "type": "button"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

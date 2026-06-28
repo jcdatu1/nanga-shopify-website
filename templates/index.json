@@ -99,50 +99,51 @@
         "color_scheme": "default"
       }
     },
-    "1521034575223": {
-      "type": "image-with-text",
+    "split_content_craftsmanship": {
+      "type": "split-content",
       "blocks": {
-        "subheading_pphBPq": {
-          "type": "subheading",
-          "settings": {
-            "subheading": "Beach Ready"
-          }
-        },
-        "1cf41ea7-69dd-443c-b2fd-00932a1c34a4": {
+        "heading_craftsmanship": {
           "type": "heading",
           "settings": {
-            "title": "Swimsuit Update",
+            "title": "Japanese Craftsmanship",
             "use_h1": false
           }
         },
-        "c16e1af7-d56e-4907-b7a1-f074ee3e61d9": {
+        "text_origin": {
           "type": "text",
           "settings": {
-            "text": "<p>Whether you're looking for a classic one-piece, a dazzling two-piece bikini or a luxe cover-up that will go from the sand to the city - you'll be ready to soak up the sunshine in no time.</p>",
+            "text": "<p>Named after Nanga Parbat, the 8,126-meter peak in the Himalayas feared as the \"Man-Eater Mountain,\" NANGA was founded in 1994 in Maibara, Shiga Prefecture as a down manufacturer. The brand name, inspired by this formidable mountain that has claimed countless lives, symbolizes the spirit of challenging severe mountains.</p>",
             "enlarge_text": false
           }
         },
-        "b8d8eb99-2e6d-4e98-982d-dc8102682d22": {
+        "text_heritage": {
+          "type": "text",
+          "settings": {
+            "text": "<p>In this region renowned for Omi cotton quilts, we have inherited the techniques and expertise of our predecessor futon manufacturer. For 30 years, NANGA has grown steadily, and today our down products are taking flight around the world.</p>",
+            "enlarge_text": false
+          }
+        },
+        "button_our_story": {
           "type": "button",
           "settings": {
-            "button_label": "Shop collections",
+            "button_label": "Our Story",
             "button_link": "",
-            "button_style": "primary"
+            "button_style": "link"
           }
         }
       },
       "block_order": [
-        "subheading_pphBPq",
-        "1cf41ea7-69dd-443c-b2fd-00932a1c34a4",
-        "c16e1af7-d56e-4907-b7a1-f074ee3e61d9",
-        "b8d8eb99-2e6d-4e98-982d-dc8102682d22"
+        "heading_craftsmanship",
+        "text_origin",
+        "text_heritage",
+        "button_our_story"
       ],
       "settings": {
-        "image_width": 640,
         "image_link": "",
-        "image_position": "right",
+        "full_width": true,
+        "image_position": "left",
         "text_alignment": "left",
-        "color_scheme": "default"
+        "color_scheme": "1"
       }
     },
     "1617293273c37b524b": {
@@ -969,7 +970,7 @@
     "slideshow_yFaybj",
     "featured_collection_carousel_CbBpQp",
     "featured_collection_carousel_DG8aWb",
-    "1521034575223",
+    "split_content_craftsmanship",
     "1617293273c37b524b",
     "1619015739944f86f6",
     "custom_content_pkGWkD",
