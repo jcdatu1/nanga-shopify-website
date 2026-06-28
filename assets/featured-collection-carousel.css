@@ -1,0 +1,154 @@
+/* Featured collection (carousel) — NANGA. Scoped to .fcc; reuses theme slider engine/vars. */
+
+.fcc {
+  margin: var(--section-vertical-spacing, 40px) 0;
+}
+
+/* ---- Heading row: left text + subtext, right "View All" (desktop) ---- */
+.fcc__header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.fcc__title {
+  margin: 0 0 8px;
+  font-size: clamp(1.75rem, 1.2rem + 2vw, 2.25rem);
+  line-height: 1.1;
+}
+
+.fcc__title a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.fcc__subtitle {
+  margin: 0;
+  color: rgba(var(--text-color)/0.65);
+}
+
+.fcc__view-all {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+  font-size: 0.875rem;
+  text-decoration: none;
+  color: inherit;
+  transition: gap 200ms ease;
+}
+
+.fcc__view-all:hover {
+  gap: 10px;
+}
+
+.fcc__view-all svg {
+  width: 14px;
+  height: 14px;
+}
+
+.fcc__view-all--mobile {
+  display: none;
+  justify-content: center;
+  margin-top: 28px;
+}
+
+/* ---- Carousel: gap + peek tuned to the design, scoped via --gutter ---- */
+.fcc__carousel {
+  position: relative;
+  display: block;
+}
+
+.fcc__grid {
+  --gutter: 24px;
+}
+
+@media (min-width: 768px) {
+  .fcc__grid {
+    --gutter: 32px;
+  }
+}
+
+/* ---- Floating circular arrows overlapping the carousel edges ---- */
+.fcc__nav {
+  --fcc-nav-size: 40px;
+  --fcc-nav-top: 33%;
+}
+
+@media (min-width: 768px) {
+  .fcc__nav {
+    --fcc-nav-size: 48px;
+  }
+}
+
+.fcc__nav-btn {
+  position: absolute;
+  top: var(--fcc-nav-top);
+  z-index: 3;
+  width: var(--fcc-nav-size);
+  height: var(--fcc-nav-size);
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 50%;
+  background: #fff;
+  color: #000;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
+  cursor: pointer;
+  transform: translateY(-50%);
+  transition: background-color 200ms ease, opacity 200ms ease;
+}
+
+.fcc__nav-btn:hover {
+  background: #f1f1f1;
+}
+
+.fcc__nav-btn svg {
+  width: 24px;
+  height: 24px;
+}
+
+.fcc__nav-btn[name="prev"] {
+  left: 0;
+  transform: translate(-50%, -50%);
+}
+
+.fcc__nav-btn[name="next"] {
+  right: 0;
+  transform: translate(50%, -50%);
+}
+
+[dir="rtl"] .fcc__nav-btn[name="prev"] {
+  left: auto;
+  right: 0;
+  transform: translate(50%, -50%);
+}
+
+[dir="rtl"] .fcc__nav-btn[name="next"] {
+  right: auto;
+  left: 0;
+  transform: translate(-50%, -50%);
+}
+
+/* Disabled / inactive states from the slider engine */
+carousel-slider .fcc__nav-btn[disabled] {
+  opacity: 0;
+  pointer-events: none;
+}
+/* When too few products, the engine adds [inactive] to <carousel-slider> and the
+   global ".carousel[inactive] .slider-nav { display:none }" rule hides .fcc__nav. */
+
+/* ---- Responsive: arrows + View All swap for mobile ---- */
+@media (max-width: 767.98px) {
+  .fcc__view-all--desktop {
+    display: none;
+  }
+
+  .fcc__view-all--mobile {
+    display: flex;
+  }
+}

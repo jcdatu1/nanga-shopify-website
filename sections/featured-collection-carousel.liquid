@@ -1,0 +1,202 @@
+{%- comment -%}
+  Featured collection (carousel) — NANGA.
+  Renders a collection as a horizontal carousel of lean 'product-card' snippets,
+  reusing the theme's native <carousel-slider> engine (assets/slider.js). No 3rd-party libs.
+  Left heading + subtext, responsive "View All" link, and floating circular arrows.
+{%- endcomment -%}
+<link rel="stylesheet" href="{{ 'featured-collection-carousel.css' | asset_url }}" {%- render 'lazy-stylesheet-attrs' %}>
+
+{%- liquid
+  assign collection = collections[section.settings.collection]
+  assign product_limit = section.settings.limit
+
+  if section.settings.tag_style == 'dark'
+    assign badge_bg = '#000000'
+    assign badge_text = '#ffffff'
+  else
+    assign badge_bg = '#ffffff'
+    assign badge_text = '#000000'
+  endif
+-%}
+
+<div class="section-id-{{ section.id }} fcc{% if section.settings.color_scheme != 'default' %} use-color-scheme use-color-scheme--{{ section.settings.color_scheme }}{% endif %}">
+  <div class="container{% if section.settings.full_width %} container--no-max{% endif %}">
+    <div class="fcc__header" {%- render 'animation-attrs', attrs: 'data-cc-animate data-cc-animate-delay="0.3s"' -%}>
+      <div class="fcc__header-text">
+        <h2 class="fcc__title">
+          {%- if collection.url -%}
+            <a href="{{ collection.url }}">{{ section.settings.title | escape }}</a>
+          {%- else -%}
+            {{ section.settings.title | escape }}
+          {%- endif -%}
+        </h2>
+        {%- if section.settings.description != blank -%}
+          <p class="fcc__subtitle">{{ section.settings.description | escape }}</p>
+        {%- endif -%}
+      </div>
+
+      {%- if section.settings.show_view_all and collection.url -%}
+        <a class="fcc__view-all fcc__view-all--desktop" href="{{ collection.url }}">
+          {{ 'sections.featured_collection.view_all' | t }}
+          {%- render 'icon-chevron-right' -%}
+        </a>
+      {%- endif -%}
+    </div>
+
+    <carousel-slider class="carousel block fcc__carousel" {%- render 'animation-attrs', attrs: 'data-cc-animate' -%}>
+      <div class="slider slider--edge-peek slider--mobile-container-pad slider--no-scrollbar" id="slider-{{ section.id }}">
+        <div class="product-grid product-grid--per-row-{{ section.settings.cards_desktop }} product-grid--per-row-mob-{{ section.settings.cards_mobile }} slider__grid product-grid--carousel fcc__grid">
+          {%- if collection == blank -%}
+            {%- for i in (1..product_limit) -%}
+              <div class="slider__item">
+                {%- render 'onboarding-product-block', forloop: forloop -%}
+              </div>
+            {%- endfor -%}
+          {%- else -%}
+            {%- for product in collection.products limit: product_limit -%}
+              <div class="slider__item">
+                {%- render 'product-card', product: product, show_vendor: section.settings.show_vendor, badge_bg: badge_bg, badge_text: badge_text -%}
+              </div>
+            {%- endfor -%}
+          {%- endif -%}
+        </div>
+      </div>
+
+      <div class="slider-nav fcc__nav js-only">
+        <button type="button" name="prev" class="fcc__nav-btn has-ltr-icon" aria-controls="slider-{{ section.id }}">
+          <span class="visually-hidden">{{ 'general.slider.previous' | t }}</span>
+          {%- render 'icon-chevron-left' -%}
+        </button>
+        <button type="button" name="next" class="fcc__nav-btn has-ltr-icon" aria-controls="slider-{{ section.id }}">
+          <span class="visually-hidden">{{ 'general.slider.next' | t }}</span>
+          {%- render 'icon-chevron-right' -%}
+        </button>
+      </div>
+    </carousel-slider>
+
+    {%- if section.settings.show_view_all and collection.url -%}
+      <a class="fcc__view-all fcc__view-all--mobile" href="{{ collection.url }}">
+        {{ 'sections.featured_collection.view_all' | t }}
+        {%- render 'icon-chevron-right' -%}
+      </a>
+    {%- endif -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "C Featured collection",
+  "class": "section-featured-collection-carousel",
+  "disabled_on": {
+    "templates": ["password"],
+    "groups": ["aside"]
+  },
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Featured collection"
+    },
+    {
+      "type": "text",
+      "id": "description",
+      "label": "Description",
+      "info": "Short subtext shown beneath the heading."
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Collection"
+    },
+    {
+      "type": "range",
+      "id": "limit",
+      "label": "Maximum products",
+      "min": 4,
+      "max": 24,
+      "step": 1,
+      "default": 12
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "cards_desktop",
+      "label": "Cards per row (desktop)",
+      "min": 2,
+      "max": 5,
+      "step": 1,
+      "default": 3
+    },
+    {
+      "type": "range",
+      "id": "cards_mobile",
+      "label": "Cards per row (mobile)",
+      "min": 1,
+      "max": 3,
+      "step": 1,
+      "default": 1
+    },
+    {
+      "type": "checkbox",
+      "id": "full_width",
+      "label": "Full page width",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Cards"
+    },
+    {
+      "type": "select",
+      "id": "tag_style",
+      "label": "Tag style",
+      "info": "Controls the product badge colors.",
+      "default": "dark",
+      "options": [
+        { "value": "dark", "label": "Dark (black background)" },
+        { "value": "light", "label": "Light (white background)" }
+      ]
+    },
+    {
+      "type": "checkbox",
+      "id": "show_vendor",
+      "label": "Show product vendor",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "show_view_all",
+      "label": "Show 'View all' link",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Color"
+    },
+    {
+      "type": "select",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "default",
+      "options": [
+        { "value": "default", "label": "Default" },
+        { "value": "1", "label": "1" },
+        { "value": "2", "label": "2" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Featured collection (carousel)",
+      "category": "Collections",
+      "settings": {
+        "title": "Featured collection"
+      }
+    }
+  ]
+}
+{% endschema %}
