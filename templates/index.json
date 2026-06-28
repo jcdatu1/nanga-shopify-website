@@ -57,6 +57,9 @@
     },
     "featured_collection_carousel_CbBpQp": {
       "type": "featured-collection-carousel",
+      "custom_css": [
+        ".product-card__price * {font-weight: 500 !important;}"
+      ],
       "name": "C Featured collection",
       "settings": {
         "title": "NEW ARRIVAL",
