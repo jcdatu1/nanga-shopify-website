@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "type": "header",
   "name": "Header Group",
@@ -8,7 +17,7 @@
         "e33df8e3-c667-49c7-9da7-a23fac96c44d": {
           "type": "announcement",
           "settings": {
-            "text": "<a href=\"#\" title=\"FAQs\">Free shipping<\/a> on orders over $50",
+            "text": "<a href=\"#\" title=\"FAQs\">Free shipping</a> on orders over $50",
             "show_countdown": true,
             "hide_on_end": false,
             "end_date": "",
@@ -24,7 +33,7 @@
         "ab92b476-2d4e-4c0c-991e-4f528236c2d9": {
           "type": "announcement",
           "settings": {
-            "text": "New eco friendly arrivals. <a href=\"#\" title=\"New In\">Shop the capsule.<\/a>",
+            "text": "New eco friendly arrivals. <a href=\"#\" title=\"New In\">Shop the capsule.</a>",
             "show_countdown": false,
             "hide_on_end": false,
             "end_date": "",
@@ -40,7 +49,7 @@
         "779702cf-d8cf-4f96-b433-b424480b158b": {
           "type": "announcement",
           "settings": {
-            "text": "Swim Capsule. Be the first to <a href=\"#\" title=\"New In\">shop the drop<\/a>.",
+            "text": "Swim Capsule. Be the first to <a href=\"#\" title=\"New In\">shop the drop</a>.",
             "show_countdown": false,
             "hide_on_end": false,
             "end_date": "",
@@ -59,6 +68,7 @@
         "ab92b476-2d4e-4c0c-991e-4f528236c2d9",
         "779702cf-d8cf-4f96-b433-b424480b158b"
       ],
+      "disabled": true,
       "settings": {
         "message_font_size": 12,
         "announcement_bar_col": "#232323",
@@ -73,23 +83,28 @@
     "header": {
       "type": "header",
       "settings": {
-        "logo": "{{ shop.brand.logo }}",
         "logo_img_width_int": 155,
         "mobile_logo_img_width_int": 135,
         "logo_h1": true,
         "enable_sticky": true,
-        "enable_transparent": true,
-        "transparent_logo": "",
+        "enable_transparent": false,
         "transparent_color": "#ffffff",
         "transparent_fade": "#000000",
         "transparent_fade_strength": 25,
-        "menu_layout": "inline-menu-left",
+        "menu_linklist": "main-menu",
+        "menu_layout": "inline-menu-center",
         "nav_featured_link": "Clearance",
+        "enable_legacy_customer_account_link": false,
+        "customer_account_menu": "customer-account-main-menu",
         "menu_linklist_mobile": "",
         "mobile_expand_with_entire_link": true,
         "enable_mobile_promo_carousel": true,
         "enable_nav_mob_products": true,
+        "nav_mob_products_title": "Best Sellers",
+        "nav_mob_products_collection": "",
         "enable_search": true,
+        "search_recommendations_title": "",
+        "search_recommendations_menu": "",
         "icon_strategy": "icons_only",
         "cart_icon": "bag"
       }
