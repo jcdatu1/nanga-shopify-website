@@ -26,8 +26,10 @@
             "enlarge_text": false,
             "button_label_1": "SHOP NEW COLLECTION",
             "button_url_1": "",
+            "show_button_arrow_1": true,
             "button_label_2": "",
             "button_url_2": "",
+            "show_button_arrow_2": false,
             "text_alignment": "center center"
           }
         }
