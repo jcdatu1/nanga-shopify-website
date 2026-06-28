@@ -155,27 +155,45 @@
       "blocks": {
         "collection_wear": {
           "type": "collection",
-          "settings": { "collection": "", "label": "WEAR" }
+          "settings": {
+            "collection": "wear",
+            "label": "WEAR"
+          }
         },
         "collection_sleeping_bag": {
           "type": "collection",
-          "settings": { "collection": "", "label": "SLEEPING BAG" }
+          "settings": {
+            "collection": "",
+            "label": "SLEEPING BAG"
+          }
         },
         "collection_good_sleeping": {
           "type": "collection",
-          "settings": { "collection": "", "label": "GOOD SLEEPING" }
+          "settings": {
+            "collection": "",
+            "label": "GOOD SLEEPING"
+          }
         },
         "collection_accessory": {
           "type": "collection",
-          "settings": { "collection": "", "label": "ACCESSORY" }
+          "settings": {
+            "collection": "",
+            "label": "ACCESSORY"
+          }
         },
         "collection_down_wear": {
           "type": "collection",
-          "settings": { "collection": "", "label": "DOWN WEAR" }
+          "settings": {
+            "collection": "",
+            "label": "DOWN WEAR"
+          }
         },
         "collection_collaboration": {
           "type": "collection",
-          "settings": { "collection": "", "label": "COLLABORATION" }
+          "settings": {
+            "collection": "",
+            "label": "COLLABORATION"
+          }
         }
       },
       "block_order": [
