@@ -67,7 +67,7 @@
 {%- endif -%}
 <page-header data-section-id="{{ section.id }}" {%- render 'animation-attrs', attrs: 'data-cc-animate' -%}>
   <div id="pageheader" class="pageheader pageheader--layout-{{ section.settings.menu_layout }}{% if section.settings.enable_transparent and template.name == 'index' %} pageheader--transparent-permitted pageheader--transparent{% endif %}{% if section.settings.enable_sticky %} pageheader--sticky{% endif %}">
-    <div class="logo-area container container--no-max">
+    <div class="logo-area container {% comment %}container--no-max{% endcomment %}">
       <div class="logo-area__middle logo-area__middle--logo-{% if section.settings.logo != blank %}image{% else %}text{% endif %}">
         <div class="logo-area__middle__inner">
           <div class="logo">
