@@ -113,14 +113,14 @@
           "type": "text",
           "settings": {
             "text": "<p>Named after Nanga Parbat, the 8,126-meter peak in the Himalayas feared as the \"Man-Eater Mountain,\" NANGA was founded in 1994 in Maibara, Shiga Prefecture as a down manufacturer. The brand name, inspired by this formidable mountain that has claimed countless lives, symbolizes the spirit of challenging severe mountains.</p>",
-            "enlarge_text": false
+            "enlarge_text": true
           }
         },
         "text_heritage": {
           "type": "text",
           "settings": {
             "text": "<p>In this region renowned for Omi cotton quilts, we have inherited the techniques and expertise of our predecessor futon manufacturer. For 30 years, NANGA has grown steadily, and today our down products are taking flight around the world.</p>",
-            "enlarge_text": false
+            "enlarge_text": true
           }
         },
         "button_our_story": {
@@ -137,6 +137,9 @@
         "text_origin",
         "text_heritage",
         "button_our_story"
+      ],
+      "custom_css": [
+        "p {color: #4a5565;}"
       ],
       "settings": {
         "image": "shopify://shop_images/photo-1740720998607-825731e469b3.jpg",
