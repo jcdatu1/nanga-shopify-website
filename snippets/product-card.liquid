@@ -1,0 +1,77 @@
+{%- comment -%}
+  Lean, design-faithful product card (NANGA). Standalone — does NOT render
+  swatches, quick-buy, hover image-swap, or reviews. For the feature-rich card
+  use 'product-block' instead.
+
+  Parameters:
+  - product {Object} - Product object (required).
+  - show_border {Boolean} - Show a border around the image container (optional, default false).
+  - badge_position {String} - 'overlay' (absolute over image) or 'inside' (top of image, in flow) (optional, default 'overlay').
+  - badge_bg {String} - Badge background color (optional).
+  - badge_text {String} - Badge text color (optional).
+  - show_vendor {Boolean} - Show the vendor as a category line above the title (optional, default false).
+  - image_fit {String} - 'contain' or 'cover' (optional, defaults to 'contain' when bordered, else 'cover').
+
+  Badge text comes from product.metafields.custom.c_product_badge (single, replaces auto labels).
+  Value props come from product.metafields.custom.c_card_value_prop (list, joined by ' • ').
+
+  Usage:
+  {% render 'product-card', product: product, show_border: true, badge_bg: '#000', badge_text: '#fff' %}
+{%- endcomment -%}
+{%- liquid
+  assign product_url = product.url
+  assign cheapest_variant = product.variants | sort: 'price' | first
+
+  assign badge_position = badge_position | default: 'overlay'
+
+  if image_fit == blank
+    if show_border
+      assign image_fit = 'contain'
+    else
+      assign image_fit = 'cover'
+    endif
+  endif
+
+  if image_fit == 'contain'
+    assign image_crop = 'contain'
+  else
+    assign image_crop = nil
+  endif
+
+  assign badge_label = product.metafields.custom.c_product_badge
+  assign value_props = product.metafields.custom.c_card_value_prop.value | join: ' • '
+-%}
+
+<div class="product-card{% if show_border %} product-card--bordered{% endif %} product-card--badge-{{ badge_position }} product-card--fit-{{ image_fit }}" data-product-id="{{ product.id }}">
+  <div class="product-card__media">
+    {%- if badge_label != blank -%}
+      <span class="product-card__badge"{% if badge_bg != blank or badge_text != blank %} style="{% if badge_bg != blank %}--pc-badge-bg: {{ badge_bg }};{% endif %}{% if badge_text != blank %}--pc-badge-text: {{ badge_text }};{% endif %}"{% endif %}>{{ badge_label | escape }}</span>
+    {%- endif -%}
+
+    <a class="product-card__image" href="{{ product_url }}" tabindex="-1" aria-hidden="true">
+      {%- if product.featured_media -%}
+        {%- render 'image' with product.featured_media.preview_image, loading: 'lazy', size_cols_mobile: 2, size_cols_desktop: 3, custom_aspect_ratio: 0.75, custom_crop: image_crop -%}
+      {%- else -%}
+        <div class="placeholder-image">{{ 'product-1' | placeholder_svg_tag }}</div>
+      {%- endif -%}
+    </a>
+  </div>
+
+  <div class="product-card__detail">
+    {%- if show_vendor and product.vendor != blank -%}
+      <div class="product-card__vendor">{{ product.vendor | escape }}</div>
+    {%- endif -%}
+
+    <a class="product-card__title-link" href="{{ product_url }}">
+      <h3 class="product-card__title">{{ product.title | escape }}</h3>
+    </a>
+
+    {%- if value_props != blank -%}
+      <div class="product-card__value-props">{{ value_props | escape }}</div>
+    {%- endif -%}
+
+    <div class="product-card__price product-price product-price--block">
+      {%- render 'price', product: product, current_variant: cheapest_variant, show_currency_code: settings.product_currency_code_enabled -%}
+    </div>
+  </div>
+</div>

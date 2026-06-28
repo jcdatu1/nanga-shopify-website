@@ -11405,3 +11405,114 @@ model-viewer .container {
     flex-direction: row-reverse;
   }
 }
+
+/* ==========================================================================
+   Product card (snippets/product-card.liquid) — lean, design-faithful card.
+   Scoped to .product-card*; does not affect .product-block.
+   ========================================================================== */
+.product-card__media {
+  position: relative;
+}
+
+.product-card__image {
+  display: block;
+  overflow: hidden;
+  background: #fff;
+}
+
+.product-card--bordered .product-card__image {
+  border: 1px solid var(--border-color, #e5e5e5);
+}
+
+/* White-product shots (contain) sit on padding inside the border. */
+.product-card--fit-contain .product-card__image {
+  padding: 16px;
+}
+
+.product-card__image img {
+  transition: transform 0.5s ease;
+}
+
+.product-card:hover .product-card__image img {
+  transform: scale(1.05);
+}
+
+/* Badge -------------------------------------------------------------------- */
+.product-card__badge {
+  display: inline-block;
+  padding: 0.4em 1em;
+  background: var(--pc-badge-bg, #000);
+  color: var(--pc-badge-text, #fff);
+  font-size: var(--smaller-text-size-3);
+  line-height: 1.2;
+  z-index: 2;
+}
+
+.product-card--badge-overlay .product-card__badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+}
+
+/* Inside: top of the image area, in normal flow, within the border. */
+.product-card--badge-inside .product-card__badge {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.product-card--badge-inside.product-card--bordered .product-card__badge,
+.product-card--badge-inside.product-card--fit-contain .product-card__badge {
+  top: 1px;
+  left: 1px;
+}
+
+/* Detail ------------------------------------------------------------------- */
+.product-card__detail {
+  margin-top: 12px;
+  font-size: var(--smaller-text-size-2);
+}
+
+.product-card__vendor {
+  margin-bottom: 4px;
+  color: var(--text-color-secondary, #6b6b6b);
+  font-size: var(--smaller-text-size-3);
+}
+
+.product-card__title-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.product-card__title {
+  margin: 0 0 4px;
+  font-size: inherit;
+  font-weight: inherit;
+  transition: color 0.2s ease;
+}
+
+.product-card:hover .product-card__title {
+  color: var(--text-color-secondary, #6b6b6b);
+}
+
+.product-card__value-props {
+  margin-bottom: 6px;
+  color: var(--text-color-secondary, #6b6b6b);
+  font-size: var(--smaller-text-size-3);
+}
+
+/* Price: original (was) first + struck through, discounted (current) in red.
+   Reuses .product-price--block; .price__was already has line-through there. */
+.product-card__price .price__was {
+  order: 0;
+  margin-inline-start: 0;
+  margin-inline-end: 0.5em;
+}
+
+.product-card__price .price__current {
+  order: 1;
+}
+
+.product-card__price .price--on-sale .price__current {
+  color: var(--product-label-sale-text);
+}
