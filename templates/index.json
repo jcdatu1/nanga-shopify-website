@@ -67,7 +67,8 @@
         "cards_mobile": 1,
         "full_width": true,
         "tag_style": "dark",
-        "show_vendor": false,
+        "tag_position": "inside",
+        "show_border": false,
         "show_view_all": true,
         "color_scheme": "default"
       }
