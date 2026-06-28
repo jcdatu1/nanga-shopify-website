@@ -55,7 +55,7 @@
           {%- else -%}
             {%- for product in collection.products limit: product_limit -%}
               <div class="slider__item">
-                {%- render 'product-card', product: product, show_vendor: section.settings.show_vendor, badge_bg: badge_bg, badge_text: badge_text -%}
+                {%- render 'product-card', product: product, badge_position: section.settings.tag_position, show_border: section.settings.show_border, badge_bg: badge_bg, badge_text: badge_text -%}
               </div>
             {%- endfor -%}
           {%- endif -%}
@@ -63,11 +63,11 @@
       </div>
 
       <div class="slider-nav fcc__nav js-only">
-        <button type="button" name="prev" class="fcc__nav-btn has-ltr-icon" aria-controls="slider-{{ section.id }}">
+        <button type="button" name="prev" class="slider-nav__btn fcc__nav-btn has-ltr-icon" aria-controls="slider-{{ section.id }}">
           <span class="visually-hidden">{{ 'general.slider.previous' | t }}</span>
           {%- render 'icon-chevron-left' -%}
         </button>
-        <button type="button" name="next" class="fcc__nav-btn has-ltr-icon" aria-controls="slider-{{ section.id }}">
+        <button type="button" name="next" class="slider-nav__btn fcc__nav-btn has-ltr-icon" aria-controls="slider-{{ section.id }}">
           <span class="visually-hidden">{{ 'general.slider.next' | t }}</span>
           {%- render 'icon-chevron-right' -%}
         </button>
@@ -162,9 +162,20 @@
       ]
     },
     {
+      "type": "select",
+      "id": "tag_position",
+      "label": "Tag position",
+      "info": "Where the product badge sits on the image.",
+      "default": "overlay",
+      "options": [
+        { "value": "overlay", "label": "Over image" },
+        { "value": "inside", "label": "On top of image" }
+      ]
+    },
+    {
       "type": "checkbox",
-      "id": "show_vendor",
-      "label": "Show product vendor",
+      "id": "show_border",
+      "label": "Show card border",
       "default": false
     },
     {

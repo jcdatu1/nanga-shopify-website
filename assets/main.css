@@ -11473,7 +11473,7 @@ model-viewer .container {
   font-size: var(--smaller-text-size-2);
 }
 
-.product-card__vendor {
+.product-card__type {
   margin-bottom: 4px;
   color: var(--text-color-secondary, #6b6b6b);
   font-size: var(--smaller-text-size-3);

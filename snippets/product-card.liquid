@@ -9,9 +9,9 @@
   - badge_position {String} - 'overlay' (absolute over image) or 'inside' (top of image, in flow) (optional, default 'overlay').
   - badge_bg {String} - Badge background color (optional).
   - badge_text {String} - Badge text color (optional).
-  - show_vendor {Boolean} - Show the vendor as a category line above the title (optional, default false).
-  - image_fit {String} - 'contain' or 'cover' (optional, defaults to 'contain' when bordered, else 'cover').
+  - image_fit {String} - 'contain' or 'cover' (optional, default 'contain').
 
+  The product type (product.type) renders as a category line above the title when present.
   Badge text comes from product.metafields.custom.c_product_badge (single, replaces auto labels).
   Value props come from product.metafields.custom.c_card_value_prop (list, joined by ' • ').
 
@@ -24,13 +24,7 @@
 
   assign badge_position = badge_position | default: 'overlay'
 
-  if image_fit == blank
-    if show_border
-      assign image_fit = 'contain'
-    else
-      assign image_fit = 'cover'
-    endif
-  endif
+  assign image_fit = image_fit | default: 'contain'
 
   if image_fit == 'contain'
     assign image_crop = 'contain'
@@ -58,8 +52,8 @@
   </div>
 
   <div class="product-card__detail">
-    {%- if show_vendor and product.vendor != blank -%}
-      <div class="product-card__vendor">{{ product.vendor | escape }}</div>
+    {%- if product.type != blank -%}
+      <div class="product-card__type">{{ product.type | escape }}</div>
     {%- endif -%}
 
     <a class="product-card__title-link" href="{{ product_url }}">
