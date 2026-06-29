@@ -1,0 +1,105 @@
+/* Collection product grid — NANGA. Scoped to .cmc. Reuses the theme's
+   filter-container (sidebar + drawer), product-grid, product-card, link-dropdown,
+   and pagination. Layout faithful to the Figma: desktop = filter sidebar + product
+   column (count + sort row); mobile = native filter drawer + Filter/Sort button row.
+   Sidebar/drawer breakpoint matches the theme's .filter-container--side (1000px). */
+
+.cmc {
+  margin: var(--section-vertical-spacing, 40px) 0;
+}
+
+/* Product column grid gutter (Figma: 16px mobile / 24px desktop) */
+.cmc__grid {
+  --gutter: 16px;
+}
+
+@media (min-width: 768px) {
+  .cmc__grid {
+    --gutter: 24px;
+  }
+}
+
+/* ---- Mobile Filter / Sort button row (both open the native drawer) ---- */
+.cmc__mobile-bar {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.cmc__bar-btn {
+  flex: 1 1 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 16px;
+  border: 1px solid #d1d1d1;
+  background: none;
+  color: inherit;
+  font: inherit;
+  line-height: 1;
+  cursor: pointer;
+  transition: border-color 200ms ease;
+}
+
+.cmc__bar-btn:hover {
+  border-color: #000;
+}
+
+.cmc__bar-btn-icon {
+  display: inline-flex;
+}
+
+.cmc__bar-btn-icon svg {
+  width: 16px;
+  height: 16px;
+}
+
+@media (min-width: 1000px) {
+  .cmc__mobile-bar {
+    display: none;
+  }
+}
+
+/* ---- Toolbar: product count (left) + sort dropdown (right) ---- */
+.cmc__toolbar {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.cmc__count {
+  margin: 0;
+  font-size: 0.875rem;
+  color: #4b5563;
+}
+
+.cmc__sort {
+  margin-left: auto;
+}
+
+/* Make the reused link-dropdown read like the Figma bordered select */
+.cmc__sort .link-dropdown__button {
+  gap: 8px;
+  padding: 8px 16px;
+  border: 1px solid #d1d1d1;
+  font-size: 0.875rem;
+  transition: border-color 200ms ease;
+}
+
+.cmc__sort .link-dropdown__button:hover {
+  border-color: #000;
+}
+
+/* Sort dropdown is desktop-only; on mobile, sort lives in the native drawer */
+@media (max-width: 999.98px) {
+  .cmc__sort {
+    display: none;
+  }
+}
+
+/* ---- Empty state ---- */
+.cmc__empty {
+  margin: 40px 0;
+}
