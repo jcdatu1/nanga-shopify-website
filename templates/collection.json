@@ -68,7 +68,7 @@
         "sort_show_alpha": true,
         "sort_show_price": true,
         "sort_show_date": true,
-        "tag_style": "dark",
+        "tag_style": "light",
         "tag_position": "overlay",
         "show_border": false
       }
