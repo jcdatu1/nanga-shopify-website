@@ -104,85 +104,130 @@
   margin: 40px 0;
 }
 
-/* ---- Filter UI: restyle the shared faceted-filters output to match the Figma ----
-   No edits to faceted-filters.liquid — these overrides are scoped to .cmc. The Figma
-   shows flat, always-open filter groups (no chevron, no collapse), a vertical checkbox
-   list, and a single "Clear All Filters" link (no applied-filter pill chips). */
+/* ---- Filter UI (snippets/cmc-filters.liquid) — built from scratch to match the Figma:
+   flat group titles, vertical radio (price) / checkbox (size) lists, black controls,
+   and a single underlined "Clear All Filters" link. ---- */
 
-/* Flat, static group headings — drop the collapse chevron and bold treatment */
-.cmc .filter-group__heading {
-  padding-bottom: 16px;
-  pointer-events: none; /* groups are always open; heading isn't a toggle here */
-}
-
-.cmc .filter-group__heading:not(:first-child) {
-  margin-top: 0;
-}
-
-.cmc .filter-group__heading__indicator {
-  display: none;
-}
-
-.cmc .filter-group__heading__text {
-  margin: 0;
-  font-size: 0.875rem;
-  font-weight: 500;
-}
-
-/* Group rhythm (Figma: 32px between groups) */
-.cmc .filters .filter-group {
+.cmc .cmc-filter {
   margin-bottom: 32px;
 }
 
-/* Vertical checkbox list with a smaller, square control (Figma) */
-.cmc .filter-group:not(.filter-group--swatch) .filter-group__item {
-  display: flex;
-  margin-bottom: 12px;
-  padding-inline-start: 26px;
+.cmc .cmc-filter__title {
+  margin: 0 0 16px;
   font-size: 0.875rem;
+  font-weight: 500;
+  color: #000;
 }
 
-.cmc .filter-group:not(.filter-group--swatch) .filter-group__item:last-child {
-  margin-bottom: 0;
-}
-
-.cmc .filter-group__item .filter-group__item__text::before {
-  width: 16px;
-  height: 16px;
-  border-radius: 2px;
-}
-
-/* Active filters: hide the pill chips + "Applied filters" label, keep only a clean
-   underlined "Clear All Filters" link, and move it below the filter groups */
-.cmc .filters__inner {
+.cmc .cmc-filter__options {
   display: flex;
   flex-direction: column;
 }
 
-.cmc .filters__inner > .filters__heading {
-  order: 0;
+/* One option per line */
+.cmc .cmc-filter__option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+  font-size: 0.875rem;
+  line-height: 1.3;
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
 }
 
-.cmc .filters__inner > #CollectionFilterForm {
-  order: 1;
-}
-
-.cmc .filters__inner > .filter-group--applied {
-  order: 2;
-  margin-top: 24px;
+.cmc .cmc-filter__option:last-child {
   margin-bottom: 0;
 }
 
-.cmc .filter-group--applied .filter-group__heading,
-.cmc .filter-group__applied-item {
-  display: none;
+.cmc .cmc-filter__option--disabled {
+  opacity: 0.4;
+  pointer-events: none;
 }
 
-.cmc .filter-group__clear-link {
+/* Visually-hidden native input; the .cmc-control box is the visible control */
+.cmc .cmc-filter__input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  border: 0;
+}
+
+.cmc .cmc-control {
+  position: relative;
+  flex-shrink: 0;
+  box-sizing: border-box;
+  width: 16px;
+  height: 16px;
+  border: 1px solid #000;
+  background: #fff;
+}
+
+.cmc .cmc-control--check {
+  border-radius: 2px;
+}
+
+.cmc .cmc-control--radio {
+  border-radius: 50%;
+}
+
+/* Checkbox tick (white on black) */
+.cmc .cmc-control--check::after {
+  content: "";
+  position: absolute;
+  top: 1px;
+  left: 5px;
+  width: 4px;
+  height: 8px;
+  border: solid #fff;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+  opacity: 0;
+}
+
+/* Radio dot (black) */
+.cmc .cmc-control--radio::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #000;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+}
+
+/* Selected states — checkboxes/sort radios via :checked, price brackets via .is-active */
+.cmc .cmc-filter__input:checked + .cmc-control--check {
+  background: #000;
+}
+
+.cmc .cmc-filter__input:checked + .cmc-control--check::after,
+.cmc .cmc-filter__input:checked + .cmc-control--radio::after,
+.cmc .cmc-filter__option--radio.is-active .cmc-control--radio::after {
+  opacity: 1;
+}
+
+.cmc .cmc-filter__count {
+  color: #6b7280;
+}
+
+/* "Clear All Filters" — underlined black text, below the groups */
+.cmc .cmc-filter__clear {
+  display: inline-block;
+  margin-top: 8px;
   font-size: 0.875rem;
+  color: #000;
   text-decoration: underline;
 }
 
-.cmc .filter-group__clear-link:hover {
+.cmc .cmc-filter__clear:hover {
   text-decoration: none;
 }

@@ -36,7 +36,7 @@
       data-filter-section-id="{{ section.id }}"
       data-ajax-scroll-to>
       {% if show_filters or section.settings.show_sort %}
-        {% render 'faceted-filters', filter_context: collection, clear_url: collection.url, current_sort: current_sort %}
+        {% render 'cmc-filters', filter_context: collection, clear_url: collection.url, current_sort: current_sort %}
       {% endif %}
 
       <div class="filters-adjacent collection-listing" data-ajax-container>
@@ -202,24 +202,11 @@
       "default": false
     },
     {
-      "type": "checkbox",
-      "id": "filter_two_columns",
-      "label": "Show filter values in two columns",
-      "default": false
-    },
-    {
       "type": "text",
-      "id": "button_grid_filter_name",
-      "label": "Filters to show as buttons",
-      "info": "Counts will not show. Separate options with a comma. E.g. Size,Taille,Größe. Leave empty to show every filter as a checkbox list (matches the design).",
-      "default": ""
-    },
-    {
-      "type": "checkbox",
-      "id": "auto_apply_hide_unavailable",
-      "label": "On selecting a filter, automatically apply 'Hide out of stock'",
-      "default": false,
-      "info": "Requires Availability filter to be enabled"
+      "id": "price_brackets",
+      "label": "Price filter brackets",
+      "info": "Comma-separated thresholds (in your store currency) that build the radio price ranges, e.g. 500,700,1000 → Under $500 / $500–$700 / $700–$1000 / Over $1000. Requires the Price filter to be enabled in Search & Discovery.",
+      "default": "500,700,1000"
     },
     {
       "type": "header",
