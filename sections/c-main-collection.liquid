@@ -196,19 +196,6 @@
       "default": true
     },
     {
-      "type": "select",
-      "id": "collapse_filters_method",
-      "label": "Collapse filter groups",
-      "default": "over-12",
-      "options": [
-        { "value": "none", "label": "None" },
-        { "value": "over-6", "label": "Over 6 items" },
-        { "value": "over-12", "label": "Over 12 items" },
-        { "value": "over-18", "label": "Over 18 items" },
-        { "value": "all", "label": "All groups" }
-      ]
-    },
-    {
       "type": "checkbox",
       "id": "show_filter_counts",
       "label": "Show filter counts",
@@ -224,8 +211,8 @@
       "type": "text",
       "id": "button_grid_filter_name",
       "label": "Filters to show as buttons",
-      "info": "Counts will not show. Separate options with a comma. E.g. Size,Taille,Größe",
-      "default": "Size,Taille,Größe"
+      "info": "Counts will not show. Separate options with a comma. E.g. Size,Taille,Größe. Leave empty to show every filter as a checkbox list (matches the design).",
+      "default": ""
     },
     {
       "type": "checkbox",

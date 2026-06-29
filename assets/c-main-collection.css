@@ -103,3 +103,86 @@
 .cmc__empty {
   margin: 40px 0;
 }
+
+/* ---- Filter UI: restyle the shared faceted-filters output to match the Figma ----
+   No edits to faceted-filters.liquid — these overrides are scoped to .cmc. The Figma
+   shows flat, always-open filter groups (no chevron, no collapse), a vertical checkbox
+   list, and a single "Clear All Filters" link (no applied-filter pill chips). */
+
+/* Flat, static group headings — drop the collapse chevron and bold treatment */
+.cmc .filter-group__heading {
+  padding-bottom: 16px;
+  pointer-events: none; /* groups are always open; heading isn't a toggle here */
+}
+
+.cmc .filter-group__heading:not(:first-child) {
+  margin-top: 0;
+}
+
+.cmc .filter-group__heading__indicator {
+  display: none;
+}
+
+.cmc .filter-group__heading__text {
+  margin: 0;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+/* Group rhythm (Figma: 32px between groups) */
+.cmc .filters .filter-group {
+  margin-bottom: 32px;
+}
+
+/* Vertical checkbox list with a smaller, square control (Figma) */
+.cmc .filter-group:not(.filter-group--swatch) .filter-group__item {
+  display: flex;
+  margin-bottom: 12px;
+  padding-inline-start: 26px;
+  font-size: 0.875rem;
+}
+
+.cmc .filter-group:not(.filter-group--swatch) .filter-group__item:last-child {
+  margin-bottom: 0;
+}
+
+.cmc .filter-group__item .filter-group__item__text::before {
+  width: 16px;
+  height: 16px;
+  border-radius: 2px;
+}
+
+/* Active filters: hide the pill chips + "Applied filters" label, keep only a clean
+   underlined "Clear All Filters" link, and move it below the filter groups */
+.cmc .filters__inner {
+  display: flex;
+  flex-direction: column;
+}
+
+.cmc .filters__inner > .filters__heading {
+  order: 0;
+}
+
+.cmc .filters__inner > #CollectionFilterForm {
+  order: 1;
+}
+
+.cmc .filters__inner > .filter-group--applied {
+  order: 2;
+  margin-top: 24px;
+  margin-bottom: 0;
+}
+
+.cmc .filter-group--applied .filter-group__heading,
+.cmc .filter-group__applied-item {
+  display: none;
+}
+
+.cmc .filter-group__clear-link {
+  font-size: 0.875rem;
+  text-decoration: underline;
+}
+
+.cmc .filter-group__clear-link:hover {
+  text-decoration: none;
+}
