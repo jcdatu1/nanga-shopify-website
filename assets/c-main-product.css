@@ -1,0 +1,458 @@
+/* Main product page — NANGA. Scoped to .cmp. Reuses the theme's variant-picker
+   (option-selector / opt-label markup), product-form, price snippet and modal
+   machinery; these rules only restyle them to the Figma product detail: bordered
+   3:4 gallery + 5-up thumbs, sticky info column, image-card color swatches,
+   4-up size buttons (selected = black), bordered quantity stepper, full-width
+   black add-to-cart, trust row, key features list and specification rows.
+   No font-family is set anywhere — typography inherits the theme. */
+
+.cmp {
+  margin-bottom: var(--section-vertical-spacing, 40px);
+}
+
+/* ---- Back-link bar ---- */
+.cmp__back-bar {
+  margin-bottom: 32px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.cmp__back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 16px 0;
+  font-size: 0.875rem;
+  color: inherit;
+  text-decoration: none;
+  transition: color 200ms ease;
+}
+
+.cmp__back-link:hover {
+  color: #4b5563;
+}
+
+.cmp__back-icon {
+  display: inline-flex;
+}
+
+.cmp__back-icon svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* ---- Two-column layout ---- */
+.cmp__layout {
+  display: grid;
+  gap: 32px;
+}
+
+@media (min-width: 1024px) {
+  .cmp__layout {
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: start;
+  }
+
+  .cmp__info-inner--sticky {
+    position: sticky;
+    top: calc(24px + var(--theme-sticky-header-height, 0px));
+  }
+}
+
+/* ---- Gallery ---- */
+.cmp__media {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 3 / 4;
+  margin-bottom: 16px;
+  padding: 32px;
+  border: 1px solid #e5e7eb;
+  background: #fff;
+  overflow: hidden;
+}
+
+.cmp__media img,
+.cmp__media svg {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.cmp__media--fit-cover {
+  padding: 0;
+}
+
+.cmp__media--fit-cover img {
+  object-fit: cover;
+}
+
+.cmp__thumbs {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 12px;
+}
+
+.cmp__thumb {
+  aspect-ratio: 3 / 4;
+  padding: 8px;
+  border: 2px solid #d1d5db;
+  background: #fff;
+  cursor: pointer;
+  transition: border-color 200ms ease;
+}
+
+.cmp__thumb:hover {
+  border-color: #9ca3af;
+}
+
+.cmp__thumb.is-active {
+  border-color: #000;
+}
+
+.cmp__thumb-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* ---- Info column rhythm ---- */
+.cmp__title {
+  margin: 0 0 16px;
+  font-size: 1.875rem;
+  line-height: 1.2;
+}
+
+@media (min-width: 640px) {
+  .cmp__title {
+    font-size: 2.25rem;
+  }
+}
+
+.cmp__price {
+  margin-bottom: 24px;
+}
+
+.cmp__price .price__current {
+  font-size: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .cmp__price .price__current {
+    font-size: 1.875rem;
+  }
+}
+
+.cmp__description {
+  margin-bottom: 32px;
+  color: #4b5563;
+  font-size: 0.875rem;
+  line-height: 1.625;
+}
+
+@media (min-width: 640px) {
+  .cmp__description {
+    font-size: 1rem;
+  }
+}
+
+/* ---- Variant picker (theme snippet, restyled) ---- */
+.cmp .option-selector {
+  margin-bottom: 24px;
+}
+
+.cmp .option-selector .label {
+  margin-bottom: 12px;
+  font-size: 0.875rem;
+}
+
+.cmp .size-chart-link {
+  font-size: 0.875rem;
+}
+
+/* Color: image swatch cards with a label bar underneath (Figma) */
+.cmp .option-selector__btns {
+  margin: 0;
+}
+
+.cmp .opt-label {
+  margin: 0 12px 0 0;
+  border-radius: 0;
+}
+
+.cmp .opt-label:last-of-type {
+  margin-right: 0;
+}
+
+.cmp .option-selector__btns:has(.opt-label--image) {
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  padding-bottom: 8px;
+}
+
+.cmp .opt-label--image {
+  flex: 0 0 auto;
+  flex-direction: column;
+  align-items: stretch;
+  min-width: 0;
+  min-height: 0;
+  padding: 0;
+  border: 2px solid #d1d5db;
+  background: #fff;
+  overflow: hidden;
+  transition: border-color 200ms ease;
+}
+
+.cmp .opt-label--image:hover {
+  border: 2px solid #9ca3af;
+}
+
+.cmp .opt-btn:checked + .opt-label--image {
+  border: 2px solid #000;
+  box-shadow: none;
+}
+
+.cmp .opt-label--image .opt-label__media {
+  width: 80px;
+  padding: 8px;
+  background: #fff;
+}
+
+@media (min-width: 640px) {
+  .cmp .opt-label--image .opt-label__media {
+    width: 96px;
+  }
+}
+
+.cmp .opt-label--image .theme-img {
+  border-radius: 0;
+  box-shadow: none;
+  object-fit: contain;
+}
+
+.cmp .opt-label--image .js-value {
+  display: block;
+  padding: 4px 8px;
+  border-top: 1px solid #e5e7eb;
+  background: #fff;
+  font-size: 0.75rem;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Text options (Size): 4-up grid of bordered buttons, selected = black fill */
+.cmp .option-selector__btns:has(.opt-label--btn) {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+}
+
+.cmp .option-selector__btns:has(.opt-label--btn) .opt-label {
+  justify-content: center;
+  min-width: 0;
+  min-height: 0;
+  margin: 0;
+  padding: 12px 8px;
+  border: 2px solid #d1d5db;
+  font-size: 0.875rem;
+  text-align: center;
+  transition: border-color 200ms ease, background-color 200ms ease, color 200ms ease;
+}
+
+.cmp .option-selector__btns .opt-label--btn:hover {
+  border: 2px solid #9ca3af;
+}
+
+.cmp .opt-btn:checked + .opt-label--btn {
+  border: 2px solid #000;
+  background-color: #000;
+  color: #fff;
+  box-shadow: none;
+}
+
+/* ---- Quantity ---- */
+.cmp__qty {
+  margin-bottom: 32px;
+}
+
+.cmp__qty .label {
+  display: block;
+  margin-bottom: 12px;
+  font-size: 0.875rem;
+}
+
+.cmp .cmp__qty-stepper {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: 144px;
+  border: none;
+  background: none;
+}
+
+.cmp .cmp__qty-stepper a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: 1px solid #d1d5db;
+  color: inherit;
+  transition: border-color 200ms ease;
+}
+
+.cmp .cmp__qty-stepper a:hover {
+  border-color: #9ca3af;
+}
+
+.cmp .cmp__qty-stepper svg {
+  width: 16px;
+  height: 16px;
+}
+
+.cmp .cmp__qty-stepper input {
+  flex: 1 1 auto;
+  width: auto;
+  min-width: 0;
+  padding: 0;
+  border: none;
+  background: none;
+  text-align: center;
+  -moz-appearance: textfield;
+}
+
+.cmp .cmp__qty-stepper input::-webkit-outer-spin-button,
+.cmp .cmp__qty-stepper input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* ---- Add to cart ---- */
+.cmp__submit {
+  margin-bottom: 12px;
+}
+
+.cmp .cmp__atc {
+  width: 100%;
+  padding: 16px;
+  border: none;
+  border-radius: 0;
+  background-color: #000;
+  color: #fff;
+  font-size: 0.875rem;
+  transition: background-color 200ms ease;
+}
+
+@media (min-width: 640px) {
+  .cmp .cmp__atc {
+    font-size: 1rem;
+  }
+}
+
+.cmp .cmp__atc:hover:not(:disabled) {
+  background-color: #1f2937;
+}
+
+.cmp .cmp__atc:disabled,
+.cmp .cmp__atc[aria-disabled="true"] {
+  background-color: #d1d5db;
+  color: #fff;
+  cursor: not-allowed;
+}
+
+/* ---- Trust row ---- */
+.cmp__trust {
+  display: grid;
+  gap: 24px;
+  margin-top: 32px;
+  margin-bottom: 32px;
+  padding-top: 32px;
+  border-top: 1px solid #e5e7eb;
+}
+
+@media (min-width: 640px) {
+  .cmp__trust {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.cmp__trust-item {
+  display: flex;
+  gap: 12px;
+}
+
+.cmp__trust-icon {
+  flex: 0 0 auto;
+  margin-top: 2px;
+}
+
+.cmp__trust-icon svg,
+.cmp__trust-icon img {
+  width: 20px;
+  height: 20px;
+}
+
+.cmp__trust-heading {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 0.875rem;
+}
+
+.cmp__trust-subtext {
+  display: block;
+  font-size: 0.75rem;
+  color: #4b5563;
+}
+
+/* ---- Key features & specifications ---- */
+.cmp__group-heading {
+  margin: 0 0 16px;
+  font-size: 0.875rem;
+}
+
+.cmp__features {
+  margin-bottom: 32px;
+}
+
+.cmp__features-content {
+  font-size: 0.875rem;
+  color: #4b5563;
+}
+
+.cmp__features-content ul {
+  margin: 0;
+  padding-left: 1.1em;
+}
+
+.cmp__features-content li {
+  margin-bottom: 8px;
+}
+
+.cmp__features-content li::marker {
+  color: #000;
+}
+
+.cmp__specs {
+  margin-bottom: 32px;
+}
+
+.cmp__spec-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 8px 0;
+  border-bottom: 1px solid #e5e7eb;
+  font-size: 0.875rem;
+}
+
+.cmp__spec-prop {
+  color: #4b5563;
+}
+
+.cmp__spec-val {
+  text-align: right;
+}

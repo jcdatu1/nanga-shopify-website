@@ -1,0 +1,645 @@
+{%- comment -%}
+  Main product page — NANGA.
+  Lean replica of the Figma product detail (context/NANGAv1 ProductDetail.tsx): back-link bar,
+  bordered 3:4 gallery + 5-up thumbnail grid on the left, sticky blocks column on the right.
+  Reuses the theme's native engines — variant-picker (snippets/variant-picker.liquid +
+  assets/variant-picker.js), product-form AJAX add-to-cart (assets/main.js), price snippet,
+  size-chart modal (snippets/product-popups.liquid) — restyled in the .cmp scope. The main
+  image and thumbnails re-render on variant change via data-dynamic-variant-content; the only
+  new JS (assets/c-main-product.js) swaps the preview when a thumbnail is clicked.
+
+  Store configuration this section expects (no code involved):
+  - Theme swatch settings: swatch source "theme", option name containing "Color",
+    style "variant images" — otherwise the Color option renders as text buttons.
+  - Product metafields: custom.key_features (rich text) and custom.specifications
+    (list of single line text, each entry "Property|Value"). Both keys are editable
+    per block in the theme editor.
+{%- endcomment -%}
+<link rel="stylesheet" href="{{ 'c-main-product.css' | asset_url }}" {%- render 'lazy-stylesheet-attrs' %}>
+<script src="{{ 'c-main-product.js' | asset_url }}" defer></script>
+
+{%- liquid
+  assign current_variant = product.selected_or_first_available_variant
+  assign featured_media = current_variant.featured_media | default: product.featured_media
+
+  unless product.has_only_default_variant
+    if section.settings.select_first_variant == false and product.variants_count > 1
+      assign current_variant = product.selected_variant | default: false
+      unless current_variant
+        assign featured_media = product.featured_media
+      endunless
+    endif
+  endunless
+
+  assign product_form_id = 'product-form-' | append: section.id
+-%}
+
+<div class="cmp section-id-{{ section.id }}" data-section-id="{{ section.id }}">
+  {%- if section.settings.show_back_link -%}
+    {%- liquid
+      assign back_collection = collection | default: product.collections.first
+    -%}
+    {%- if back_collection -%}
+      <div class="cmp__back-bar">
+        <div class="container{% if settings.use_fullwidth_layout %} container--no-max{% endif %}">
+          <a href="{{ back_collection.url }}" class="cmp__back-link">
+            <span class="cmp__back-icon">{% render 'icon-chevron-left', stroke_width: 1.5 %}</span>
+            <span>{{ section.settings.back_label | escape }} {{ back_collection.title | escape }}</span>
+          </a>
+        </div>
+      </div>
+    {%- endif -%}
+  {%- endif -%}
+
+  <product-form class="cmp__form block js-product" data-section-id="{{ section.id }}">
+    <div class="container{% if settings.use_fullwidth_layout %} container--no-max{% endif %}">
+      <div class="cmp__layout">
+        {%- comment -%} ---- Gallery ---- {%- endcomment -%}
+        <cmp-gallery class="cmp__gallery block">
+          <div class="cmp__media cmp__media--fit-{{ section.settings.media_fit }}" data-dynamic-variant-content="{{ section.id }}-cmp-media">
+            {%- if featured_media -%}
+              {{-
+                featured_media.preview_image
+                | image_url: width: 1200
+                | image_tag:
+                  widths: '400, 600, 800, 1000, 1200',
+                  sizes: '(min-width: 1024px) 600px, calc(100vw - 40px)',
+                  class: 'cmp__media-img'
+              -}}
+            {%- else -%}
+              {{ 'product-1' | placeholder_svg_tag: 'cmp__media-placeholder' }}
+            {%- endif -%}
+          </div>
+
+          {%- if product.media.size > 1 -%}
+            <div class="cmp__thumbs" data-dynamic-variant-content="{{ section.id }}-cmp-thumbs">
+              {%- for media in product.media -%}
+                <button
+                  type="button"
+                  class="cmp__thumb{% if media.id == featured_media.id %} is-active{% endif %}"
+                  data-media-id="{{ media.id }}"
+                  data-main-src="{{ media.preview_image | image_url: width: 1200 }}"
+                  data-main-srcset="{{ media.preview_image | image_url: width: 400 }} 400w, {{ media.preview_image | image_url: width: 600 }} 600w, {{ media.preview_image | image_url: width: 800 }} 800w, {{ media.preview_image | image_url: width: 1200 }} 1200w"
+                  data-main-alt="{{ media.preview_image.alt | default: product.title | escape }}"
+                  aria-label="{{ 'products.product.media.load_image' | t: index: forloop.index }}">
+                  {{-
+                    media.preview_image
+                    | image_url: width: 300
+                    | image_tag:
+                      widths: '150, 300',
+                      sizes: '(min-width: 1024px) 110px, 17vw',
+                      loading: 'lazy',
+                      class: 'cmp__thumb-img'
+                  -}}
+                </button>
+              {%- endfor -%}
+            </div>
+          {%- endif -%}
+        </cmp-gallery>
+
+        {%- comment -%} ---- Info column (blocks) ---- {%- endcomment -%}
+        <div class="cmp__info">
+          <div class="cmp__info-inner{% if section.settings.enable_sticky_info %} cmp__info-inner--sticky{% endif %}">
+            {%- for block in section.blocks -%}
+              {%- case block.type -%}
+                {%- when '@app' -%}
+                  {%- render block -%}
+
+                {%- when 'title' -%}
+                  <h1 class="cmp__title" {{ block.shopify_attributes }}>{{ product.title }}</h1>
+
+                {%- when 'price' -%}
+                  <div class="cmp__price" role="status" data-dynamic-variant-content="{{ block.id }}-price" {{ block.shopify_attributes }}>
+                    {%-
+                      render 'price',
+                      product: product,
+                      current_variant: current_variant,
+                      for_variant_picker: true,
+                      show_currency_code: settings.product_currency_code_enabled
+                    -%}
+                  </div>
+
+                {%- when 'description' -%}
+                  {%- if product.description != blank -%}
+                    <div class="cmp__description rte" {{ block.shopify_attributes }}>
+                      {{ product.description }}
+                    </div>
+                  {%- endif -%}
+
+                {%- when 'variant-picker' -%}
+                  <div class="cmp__variants" data-dynamic-variant-content="{{ block.id }}"{% if product.has_only_default_variant %} hidden{% endif %} {{ block.shopify_attributes }}>
+                    {%- capture size_chart_link -%}
+                      {%- if block.settings.enable_size_chart -%}
+                        {%- if block.settings.size_chart_source == 'section' or block.settings.size_chart_page != blank -%}
+                          <script src="{{ 'open-or-scroll-to.js' | asset_url }}" defer></script>
+                          <open-or-scroll-to data-target-id="size-chart-{{ product.id }}">
+                            <button type="button" class="link block text-sm size-chart-link">
+                              <span class="size-chart-link__text underline">{{- block.settings.size_chart_label -}}</span>
+                            </button>
+                          </open-or-scroll-to>
+                        {%- endif -%}
+                      {%- endif -%}
+                    {%- endcapture -%}
+                    {%
+                      render 'variant-picker',
+                      product: product,
+                      current_variant: current_variant,
+                      product_form_id: product_form_id,
+                      block: block,
+                      update_url: true,
+                      size_chart_link: size_chart_link,
+                      media_ratio: 1,
+                      swatch_style: 'listed'
+                    %}
+                  </div>
+
+                {%- when 'buy-buttons' -%}
+                  <div class="cmp__buy" {{ block.shopify_attributes }}>
+                    {% form 'product', product, id: product_form_id, class: 'form js-product-form', data-product-id: product.id %}
+                      <input type="hidden" name="id" value="{{ current_variant.id }}" required data-dynamic-variant-content="{{ block.id }}-input-id">
+
+                      {%- liquid
+                        assign enable_dynamic_payment_button = false
+                        if block.settings.enable_payment_button and product.selling_plan_groups == empty and product.gift_card? == false
+                          unless product.template_suffix contains 'preorder'
+                            assign enable_dynamic_payment_button = true
+                          endunless
+                        endif
+                      -%}
+
+                      {%- if block.settings.show_quantity_selector -%}
+                        <div class="cmp__qty">
+                          <label class="label" for="Quantity-{{ section.id }}">{{ 'products.product.quantity' | t }}</label>
+                          <quantity-wrapper class="cmp__qty-stepper buttoned-input">
+                            <a href="#" data-quantity="down" aria-label="{{ 'cart.items.decrease_quantity' | t }}">{% render 'icon-minus' %}</a>
+                            <input aria-label="{{ 'products.product.quantity' | t }}" id="Quantity-{{ section.id }}" type="number" name="quantity" value="1" min="1" />
+                            <a href="#" data-quantity="up" aria-label="{{ 'cart.items.increase_quantity' | t }}">{% render 'icon-plus' %}</a>
+                          </quantity-wrapper>
+                        </div>
+                      {%- endif -%}
+
+                      <div class="cmp__submit" data-dynamic-variant-content="{{ block.id }}-atc">
+                        <div class="js-form-error lightly-spaced-row" role="alert" hidden></div>
+
+                        {%- capture add_to_cart_text -%}
+                          {%- if product.template_suffix contains 'preorder' -%}
+                            {{- 'products.product.preorder' | t -}}
+                          {%- else -%}
+                            {{- 'products.product.add_to_cart' | t -}}
+                          {%- endif -%}
+                        {%- endcapture -%}
+
+                        {%- liquid
+                          assign atc_preselection = false
+                          if current_variant == false and block.settings.preselection_text != blank
+                            assign atc_preselection = true
+                          endif
+                        -%}
+                        <button
+                          class="cmp__atc btn btn--large add-to-cart"
+                          type="submit"
+                          name="add"
+                          data-add-to-cart-text="{{ add_to_cart_text | escape }}"
+                          {%- if block.settings.preselection_text != blank %}
+                          data-preselection-disabled="true"
+                          data-preselection-text="{{ block.settings.preselection_text | escape }}"
+                          {%- endif %}
+                          {%- unless current_variant.available %} disabled{% endunless %}>
+                          {%- if atc_preselection -%}
+                            {{- block.settings.preselection_text -}}
+                          {%- elsif current_variant.available or current_variant == false -%}
+                            {{- add_to_cart_text -}}
+                          {%- else -%}
+                            {{- 'products.variant.no_stock' | t -}}
+                          {%- endif -%}
+                        </button>
+                      </div>
+
+                      {%- if enable_dynamic_payment_button -%}
+                        <buy-buttons class="product-dynamic-payment-button">
+                          <script class="dynamic-payment-button-template" type="text/template">
+                            {{ form | payment_button }}
+                          </script>
+                        </buy-buttons>
+                      {%- endif -%}
+                    {% endform %}
+                  </div>
+
+                {%- when 'trust-item' -%}
+                  {%- comment -%} All trust items render together where the first one sits {%- endcomment -%}
+                  {%- unless trust_rendered -%}
+                    {%- assign trust_rendered = true -%}
+                    <div class="cmp__trust">
+                      {%- assign trust_items = section.blocks | where: 'type', 'trust-item' -%}
+                      {%- for item in trust_items -%}
+                        <div class="cmp__trust-item" {{ item.shopify_attributes }}>
+                          {%- if item.settings.custom_icon != blank -%}
+                            <span class="cmp__trust-icon">
+                              {{ item.settings.custom_icon | image_url: width: 48 | image_tag: widths: '24, 48', sizes: '24px', loading: 'lazy' }}
+                            </span>
+                          {%- elsif item.settings.icon != blank -%}
+                            <span class="cmp__trust-icon">{% render 'icon', icon: item.settings.icon, size: 'small' %}</span>
+                          {%- endif -%}
+                          <span class="cmp__trust-text">
+                            {%- if item.settings.heading != blank -%}
+                              <span class="cmp__trust-heading">{{ item.settings.heading | escape }}</span>
+                            {%- endif -%}
+                            {%- if item.settings.text != blank -%}
+                              <span class="cmp__trust-subtext">{{ item.settings.text | escape }}</span>
+                            {%- endif -%}
+                          </span>
+                        </div>
+                      {%- endfor -%}
+                    </div>
+                  {%- endunless -%}
+
+                {%- when 'key-features' -%}
+                  {%- liquid
+                    assign mf_ref = block.settings.metafield | strip | split: '.'
+                    assign kf_mf = false
+                    if mf_ref.size == 2
+                      assign kf_mf = product.metafields[mf_ref[0]][mf_ref[1]]
+                    endif
+                  -%}
+                  {%- if kf_mf != blank -%}
+                    <div class="cmp__features" {{ block.shopify_attributes }}>
+                      {%- if block.settings.heading != blank -%}
+                        <h3 class="cmp__group-heading">{{ block.settings.heading | escape }}</h3>
+                      {%- endif -%}
+                      <div class="cmp__features-content rte">
+                        {{ kf_mf | metafield_tag }}
+                      </div>
+                    </div>
+                  {%- endif -%}
+
+                {%- when 'specifications' -%}
+                  {%- liquid
+                    assign mf_ref = block.settings.metafield | strip | split: '.'
+                    assign spec_mf = false
+                    if mf_ref.size == 2
+                      assign spec_mf = product.metafields[mf_ref[0]][mf_ref[1]]
+                    endif
+                  -%}
+                  {%- if spec_mf != blank and spec_mf.value.size > 0 -%}
+                    <div class="cmp__specs" {{ block.shopify_attributes }}>
+                      {%- if block.settings.heading != blank -%}
+                        <h3 class="cmp__group-heading">{{ block.settings.heading | escape }}</h3>
+                      {%- endif -%}
+                      <div class="cmp__specs-list">
+                        {%- for entry in spec_mf.value -%}
+                          {%- liquid
+                            assign parts = entry | split: '|'
+                          -%}
+                          {%- if parts.size > 1 -%}
+                            {%- liquid
+                              assign spec_prop = parts | first | strip
+                              assign spec_rest = parts | slice: 1, parts.size
+                              assign spec_val = spec_rest | join: '|' | strip
+                            -%}
+                            <div class="cmp__spec-row">
+                              <span class="cmp__spec-prop">{{ spec_prop | escape }}</span>
+                              <span class="cmp__spec-val">{{ spec_val | escape }}</span>
+                            </div>
+                          {%- else -%}
+                            <div class="cmp__spec-row">
+                              <span class="cmp__spec-val">{{ entry | strip | escape }}</span>
+                            </div>
+                          {%- endif -%}
+                        {%- endfor -%}
+                      </div>
+                    </div>
+                  {%- endif -%}
+              {%- endcase -%}
+            {%- endfor -%}
+          </div>
+        </div>
+      </div>
+    </div>
+  </product-form>
+
+  {%- render 'product-popups', product: product, current_variant: current_variant -%}
+  {%- render 'structured-data-product', product: product, current_variant: product.selected_or_first_available_variant -%}
+</div>
+
+{% schema %}
+{
+  "name": "C Main product",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Back link"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_back_link",
+      "label": "Show back link",
+      "info": "Links to the current collection, or the product's first collection.",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "back_label",
+      "label": "Back link text",
+      "default": "Back to"
+    },
+    {
+      "type": "header",
+      "content": "Gallery"
+    },
+    {
+      "type": "select",
+      "id": "media_fit",
+      "label": "Image fit",
+      "options": [
+        {
+          "value": "contain",
+          "label": "Contain"
+        },
+        {
+          "value": "cover",
+          "label": "Cover"
+        }
+      ],
+      "default": "contain"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_sticky_info",
+      "label": "Sticky product info on desktop",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "select_first_variant",
+      "label": "Preselect first available variant",
+      "info": "When off, shoppers must choose options before adding to cart (matches the design).",
+      "default": false
+    }
+  ],
+  "blocks": [
+    {
+      "type": "@app"
+    },
+    {
+      "type": "title",
+      "name": "Title",
+      "limit": 1
+    },
+    {
+      "type": "price",
+      "name": "Price",
+      "limit": 1
+    },
+    {
+      "type": "description",
+      "name": "Description",
+      "limit": 1
+    },
+    {
+      "type": "variant-picker",
+      "name": "Variant picker",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "show_single",
+          "label": "Show for a single variant",
+          "default": false
+        },
+        {
+          "type": "select",
+          "id": "selector_style",
+          "label": "Variant style",
+          "options": [
+            {
+              "value": "listed",
+              "label": "Buttons"
+            },
+            {
+              "value": "dropdown",
+              "label": "Dropdown"
+            }
+          ],
+          "default": "listed"
+        },
+        {
+          "type": "select",
+          "id": "dynamic_availability",
+          "label": "Dynamic availability",
+          "info": "When an option is selected, options below it will be updated to show their availability",
+          "options": [
+            {
+              "value": "off",
+              "label": "Off"
+            },
+            {
+              "value": "show",
+              "label": "Show"
+            },
+            {
+              "value": "prune",
+              "label": "Prune"
+            }
+          ],
+          "default": "show"
+        },
+        {
+          "type": "header",
+          "content": "Size guide"
+        },
+        {
+          "type": "checkbox",
+          "id": "enable_size_chart",
+          "label": "Enable size guide",
+          "default": false
+        },
+        {
+          "type": "text",
+          "id": "size_chart_label",
+          "label": "Link text",
+          "default": "Size Chart"
+        },
+        {
+          "type": "text",
+          "id": "size_chart_variant",
+          "label": "Variant option name",
+          "info": "This is usually 'Size'. Separate multiple names with a comma.",
+          "default": "Size"
+        },
+        {
+          "type": "select",
+          "id": "size_chart_source",
+          "label": "Content source",
+          "options": [
+            {
+              "label": "Section",
+              "value": "section"
+            },
+            {
+              "label": "Page",
+              "value": "page"
+            }
+          ],
+          "default": "page"
+        },
+        {
+          "type": "page",
+          "id": "size_chart_page",
+          "label": "Page containing size guide",
+          "info": "Used when the content source is 'Page'. For 'Section', add a Size guide companion section below this one."
+        }
+      ]
+    },
+    {
+      "type": "buy-buttons",
+      "name": "Buy buttons",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "show_quantity_selector",
+          "label": "Show quantity selector",
+          "default": true
+        },
+        {
+          "type": "checkbox",
+          "id": "enable_payment_button",
+          "label": "Show dynamic checkout button",
+          "info": "Lets customers check out directly using a familiar payment method. [Learn more](https://help.shopify.com/manual/using-themes/change-the-layout/dynamic-checkout)",
+          "default": false
+        },
+        {
+          "type": "text",
+          "id": "preselection_text",
+          "label": "Button text before options are chosen",
+          "info": "Shown while the add to cart button is disabled because no variant is selected. Clear to keep the button enabled instead.",
+          "default": "Select a Size"
+        }
+      ]
+    },
+    {
+      "type": "trust-item",
+      "name": "Trust item",
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icon",
+          "options": [
+            {
+              "value": "",
+              "label": "None"
+            },
+            {
+              "value": "truck",
+              "label": "Truck"
+            },
+            {
+              "value": "return",
+              "label": "Return"
+            },
+            {
+              "value": "award",
+              "label": "Award"
+            },
+            {
+              "value": "lock",
+              "label": "Lock"
+            },
+            {
+              "value": "box",
+              "label": "Box"
+            },
+            {
+              "value": "leaf",
+              "label": "Leaf"
+            },
+            {
+              "value": "feather",
+              "label": "Feather"
+            },
+            {
+              "value": "star",
+              "label": "Star"
+            },
+            {
+              "value": "world",
+              "label": "World"
+            },
+            {
+              "value": "recycle",
+              "label": "Recycle"
+            }
+          ],
+          "default": "truck"
+        },
+        {
+          "type": "image_picker",
+          "id": "custom_icon",
+          "label": "Custom icon image",
+          "info": "Overrides the icon above. Use a square image."
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "Free Shipping"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text",
+          "default": "Orders over $150"
+        }
+      ]
+    },
+    {
+      "type": "key-features",
+      "name": "Key features",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "Key Features"
+        },
+        {
+          "type": "text",
+          "id": "metafield",
+          "label": "Metafield",
+          "info": "Product rich text metafield, as 'namespace.key'.",
+          "default": "custom.key_features"
+        }
+      ]
+    },
+    {
+      "type": "specifications",
+      "name": "Specifications",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "Specifications"
+        },
+        {
+          "type": "text",
+          "id": "metafield",
+          "label": "Metafield",
+          "info": "Product 'list of single line text' metafield, as 'namespace.key'. Each entry is 'Property|Value'.",
+          "default": "custom.specifications"
+        }
+      ]
+    }
+  ],
+  "enabled_on": {
+    "templates": ["product"]
+  }
+}
+{% endschema %}

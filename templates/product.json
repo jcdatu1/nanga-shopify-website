@@ -10,7 +10,7 @@
 {
   "sections": {
     "main": {
-      "type": "main-product",
+      "type": "c-main-product",
       "blocks": {
         "title": {
           "type": "title",
@@ -18,20 +18,11 @@
         },
         "price": {
           "type": "price",
-          "settings": {
-            "show_installments": false,
-            "show_tax_and_shipping": false,
-            "enable_product_reviews_by_price": true
-          }
+          "settings": {}
         },
         "description": {
           "type": "description",
-          "settings": {
-            "show_in_tab": false,
-            "open_tab": false,
-            "icon": "",
-            "show_in_quickbuy": false
-          }
+          "settings": {}
         },
         "variant-picker": {
           "type": "variant-picker",
@@ -50,32 +41,46 @@
           "type": "buy-buttons",
           "settings": {
             "show_quantity_selector": true,
-            "enable_payment_button": true,
-            "show_backorder_text": false,
-            "show_pickup_availability": true,
-            "show_gift_card_recipient": false
+            "enable_payment_button": false,
+            "preselection_text": "Select a Size"
           }
         },
-        "icon_columns_HbGFAy": {
-          "type": "icon-columns",
+        "trust-shipping": {
+          "type": "trust-item",
           "settings": {
-            "icon_size": "medium",
-            "text_size": "sm",
-            "enable_box": true,
-            "box_color": "#f4f4f4",
-            "icon_1": "truck",
-            "icon_1_color": "rgba(0,0,0,0)",
-            "icon_1_heading": "Asd",
-            "icon_1_text": "Icon label 1",
-            "icon_2": "map_pin",
-            "icon_2_color": "rgba(0,0,0,0)",
-            "icon_2_heading": "",
-            "icon_2_text": "Icon label 2",
-            "icon_3": "gift",
-            "icon_3_color": "rgba(0,0,0,0)",
-            "icon_3_heading": "",
-            "icon_3_text": "Icon label 3",
-            "show_in_quickbuy": false
+            "icon": "truck",
+            "heading": "Free Shipping",
+            "text": "Orders over $150"
+          }
+        },
+        "trust-returns": {
+          "type": "trust-item",
+          "settings": {
+            "icon": "return",
+            "heading": "Free Returns",
+            "text": "Within 30 days"
+          }
+        },
+        "trust-warranty": {
+          "type": "trust-item",
+          "settings": {
+            "icon": "award",
+            "heading": "Lifetime Warranty",
+            "text": "All down products"
+          }
+        },
+        "key-features": {
+          "type": "key-features",
+          "settings": {
+            "heading": "Key Features",
+            "metafield": "custom.key_features"
+          }
+        },
+        "specifications": {
+          "type": "specifications",
+          "settings": {
+            "heading": "Specifications",
+            "metafield": "custom.specifications"
           }
         }
       },
@@ -85,30 +90,18 @@
         "description",
         "variant-picker",
         "buy-buttons",
-        "icon_columns_HbGFAy"
+        "trust-shipping",
+        "trust-returns",
+        "trust-warranty",
+        "key-features",
+        "specifications"
       ],
       "settings": {
-        "show_breadcrumbs": true,
-        "select_first_variant": true,
-        "show_location_underneath": false,
-        "inventory_transfers_enable": true,
-        "enable_sticky_columns": false,
-        "enable_sticky_atc": true,
-        "sticky_atc_position": "end",
-        "sticky_atc_mobile": true,
-        "sticky_atc_behavior": "add_to_cart",
-        "sticky_atc_button_style": "secondary",
-        "gallery_size": "medium",
-        "gallery_layout": "carousel-under",
-        "collage_highlight_on_variant_change": true,
-        "enable_zoom": true,
-        "show_alt_text": false,
-        "alt_text_icon": "",
-        "show_variant_media_label": true,
-        "enable_video_autoplay": false,
-        "enable_video_looping": false,
-        "enable_media_grouping": false,
-        "media_grouping_option": "Color,Colour,Couleur,Farbe"
+        "show_back_link": true,
+        "back_label": "Back to",
+        "media_fit": "contain",
+        "enable_sticky_info": true,
+        "select_first_variant": false
       }
     },
     "related-products": {
