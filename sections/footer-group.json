@@ -156,7 +156,7 @@
         "text_t88MVY"
       ],
       "custom_css": [
-        ".section-footer__row-container{border-top: 1px solid gray;}"
+        ".section-footer__row-container {border-top: 1px solid gray !important;}"
       ],
       "settings": {
         "lower_menu": "footer",
