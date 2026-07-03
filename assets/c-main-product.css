@@ -211,8 +211,19 @@
 }
 
 /* ---- Variant picker (theme snippet, restyled) ---- */
+.cmp variant-picker {
+  display: block;
+  min-width: 0;
+  max-width: 100%;
+}
+
+/* Fieldsets default to min-inline-size: min-content and refuse to shrink
+   below their content — reset it so the button row can actually scroll */
 .cmp .option-selector {
   margin-bottom: 24px;
+  min-width: 0;
+  min-inline-size: 0;
+  max-width: 100%;
 }
 
 .cmp .option-selector .label {
