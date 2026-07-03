@@ -8,6 +8,8 @@
 
 .cmp {
   margin-bottom: var(--section-vertical-spacing, 40px);
+  /* Safety net against horizontal protrusion; 'clip' keeps position: sticky working */
+  overflow-x: clip;
 }
 
 /* ---- Back-link bar ---- */
@@ -46,6 +48,15 @@
   gap: 32px;
 }
 
+/* Grid items default to min-width auto — wide children (color-card scroller,
+   images) would otherwise blow the column out past the viewport on mobile */
+.cmp__gallery,
+.cmp__info,
+.cmp__info-inner {
+  min-width: 0;
+  max-width: 100%;
+}
+
 @media (min-width: 1024px) {
   .cmp__layout {
     grid-template-columns: 1fr 1fr;
@@ -66,10 +77,16 @@
   justify-content: center;
   aspect-ratio: 3 / 4;
   margin-bottom: 16px;
-  padding: 32px;
+  padding: 16px;
   border: 1px solid #e5e7eb;
   background: #fff;
   overflow: hidden;
+}
+
+@media (min-width: 640px) {
+  .cmp__media {
+    padding: 32px;
+  }
 }
 
 .cmp__media img,
@@ -156,6 +173,26 @@
   }
 }
 
+/* Own paragraph rhythm (no theme .rte): no stray gap after the last element */
+.cmp__description p,
+.cmp__description ul,
+.cmp__description ol {
+  margin: 0 0 1em;
+}
+
+.cmp__description > :last-child {
+  margin-bottom: 0;
+}
+
+.cmp__description p:empty {
+  display: none;
+}
+
+.cmp__description img {
+  max-width: 100%;
+  height: auto;
+}
+
 /* ---- Variant picker (theme snippet, restyled) ---- */
 .cmp .option-selector {
   margin-bottom: 24px;
@@ -186,6 +223,7 @@
 
 .cmp .option-selector__btns:has(.opt-label--image) {
   flex-wrap: nowrap;
+  max-width: 100%;
   overflow-x: auto;
   padding-bottom: 8px;
 }

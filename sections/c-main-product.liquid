@@ -37,7 +37,17 @@
 <div class="cmp section-id-{{ section.id }}" data-section-id="{{ section.id }}">
   {%- if section.settings.show_back_link -%}
     {%- liquid
-      assign back_collection = collection | default: product.collections.first
+      # Fall back to the product's first real collection — product links don't carry
+      # collection context, and 'frontpage'/'all' would read as the homepage.
+      assign back_collection = collection
+      unless back_collection
+        for c in product.collections
+          unless c.handle == 'frontpage' or c.handle == 'all'
+            assign back_collection = c
+            break
+          endunless
+        endfor
+      endunless
     -%}
     {%- if back_collection -%}
       <div class="cmp__back-bar">
@@ -121,7 +131,8 @@
 
                 {%- when 'description' -%}
                   {%- if product.description != blank -%}
-                    <div class="cmp__description rte" {{ block.shopify_attributes }}>
+                    {%- comment -%} Own styling (no theme .rte) — Figma: muted, relaxed leading, sm/base sizes {%- endcomment -%}
+                    <div class="cmp__description" {{ block.shopify_attributes }}>
                       {{ product.description }}
                     </div>
                   {%- endif -%}
