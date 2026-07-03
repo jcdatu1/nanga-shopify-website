@@ -224,26 +224,23 @@
   font-size: 0.875rem;
 }
 
-/* Color: image swatch cards with a label bar underneath (Figma) */
+/* All variant option rows are horizontal scrollers (mobile-first) —
+   fixed-size options, never stretched; overflow scrolls. */
 .cmp .option-selector__btns {
-  margin: 0;
-}
-
-.cmp .opt-label {
-  margin: 0 12px 0 0;
-  border-radius: 0;
-}
-
-.cmp .opt-label:last-of-type {
-  margin-right: 0;
-}
-
-.cmp .option-selector__btns:has(.opt-label--image) {
+  display: flex;
   flex-wrap: nowrap;
+  gap: 8px;
   max-width: 100%;
+  margin: 0;
   overflow-x: auto;
   padding-bottom: 8px;
   scrollbar-width: thin;
+}
+
+.cmp .opt-label {
+  flex: 0 0 auto;
+  margin: 0;
+  border-radius: 0;
 }
 
 /* Extra .option-selector ancestor out-specifies the theme's
@@ -310,23 +307,32 @@
   text-overflow: ellipsis;
 }
 
-/* Text options (Size): 4-up grid of bordered buttons, selected = black fill */
-.cmp .option-selector__btns:has(.opt-label--btn) {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 8px;
-}
-
-.cmp .option-selector__btns:has(.opt-label--btn) .opt-label {
+/* Text options (Size): bordered buttons, selected = black fill.
+   Mobile: fixed-width buttons in the scroll row; desktop: Figma 4-up grid. */
+.cmp .option-selector__btns .opt-label--btn {
   justify-content: center;
-  min-width: 0;
+  min-width: 64px;
   min-height: 0;
   margin: 0;
-  padding: 12px 8px;
+  padding: 12px 16px;
   border: 2px solid #d1d5db;
   font-size: 0.875rem;
   text-align: center;
   transition: border-color 200ms ease, background-color 200ms ease, color 200ms ease;
+}
+
+@media (min-width: 640px) {
+  .cmp .option-selector__btns:not(:has(.opt-label--image)) {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    overflow: visible;
+    padding-bottom: 0;
+  }
+
+  .cmp .option-selector__btns .opt-label--btn {
+    min-width: 0;
+    padding: 12px 8px;
+  }
 }
 
 .cmp .option-selector__btns .opt-label--btn:hover {
