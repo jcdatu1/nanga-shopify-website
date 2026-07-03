@@ -24,6 +24,17 @@
             "enable_product_reviews_by_price": true
           }
         },
+        "richtext_ewr76V": {
+          "type": "richtext",
+          "settings": {
+            "richtext": "{{ product.description }}",
+            "icon": "",
+            "icon_size": "small",
+            "enable_box": false,
+            "box_color": "#e0f4d5",
+            "show_in_quickbuy": false
+          }
+        },
         "divider": {
           "type": "divider",
           "disabled": true,
@@ -67,6 +78,7 @@
       "block_order": [
         "title",
         "price",
+        "richtext_ewr76V",
         "divider",
         "variant-picker",
         "buy-buttons",
