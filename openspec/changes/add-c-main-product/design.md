@@ -51,7 +51,7 @@ The section keeps the stock conventions so `variant-picker.js` and `main.js` wor
 ### Decision 3: Lean gallery with a small `<cmp-gallery>` element
 Markup: `.cmp__media` main-image well (3:4, border, inner padding) + `.cmp__thumbs` 5-per-row grid of `<button>` thumbnails from `product.media`. A ~40-line custom element in `assets/c-main-product.js` (deferred, loaded only by this section):
 - Click thumbnail → swap main image `src`/`srcset` and move the active border.
-- Listen for `on:variant:change`; when the event's variant has a `featured_media`, activate the matching thumbnail — this makes clicking a color card switch the photo, as in the design.
+- Variant sync (color card click → photo switch): **implemented server-side instead of the planned `on:variant:change` listener.** The media well and thumbnail grid are tagged `data-dynamic-variant-content`, so `variant-picker.js` re-renders them with the new variant's featured media on every full variant selection — no event-payload assumptions, and preselection changes (partial option choices) correctly leave the gallery untouched. The custom element uses event delegation from its root, so it survives those container replacements.
 - First media eager with `fetchpriority="high"`-equivalent sizing; thumbnails and non-initial images `loading="lazy"`; all via `image_url` + `srcset`/`sizes`.
 - Works without JS: the main image renders server-side; thumbnails are progressive enhancement.
 - **Alternative considered:** Reuse `media-gallery` + `gallery-viewer`. Rejected — brings zoom, slider, and thumbnail-slider machinery the design doesn't want, and its layout assumptions fight the simple grid.

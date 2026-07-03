@@ -206,7 +206,7 @@
                           {%- endif %}
                           {%- unless current_variant.available %} disabled{% endunless %}>
                           {%- if atc_preselection -%}
-                            {{- block.settings.preselection_text -}}
+                            {{- block.settings.preselection_text | escape -}}
                           {%- elsif current_variant.available or current_variant == false -%}
                             {{- add_to_cart_text -}}
                           {%- else -%}
@@ -524,6 +524,7 @@
     {
       "type": "trust-item",
       "name": "Trust item",
+      "limit": 4,
       "settings": [
         {
           "type": "select",
