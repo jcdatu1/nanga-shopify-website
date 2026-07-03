@@ -1,5 +1,5 @@
 {% if section.blocks != blank %}
-  <div class="container container--no-max section-footer__row-container">
+  <div class="container {% comment %}container--no-max{% endcomment %} section-footer__row-container">
     <div class="section-footer__row section-footer__row--blocks" data-num-blocks="{{ section.blocks.size }}">
       {% for block in section.blocks %}
         {% case block.type %}
@@ -150,7 +150,7 @@
     assign showing_localization = true
   endif
 -%}
-<div class="container container--no-max section-footer__row-container {% if showing_localization %}section-footer__row-container--with-localization{% endif %}">
+<div class="container {% comment %}container--no-max{% endcomment %} section-footer__row-container {% if showing_localization %}section-footer__row-container--with-localization{% endif %}">
   <div class="section-footer__row section-footer__row-lower">
     <div class="section-footer__row__col">
       {% if section.settings.show_payment_icons %}

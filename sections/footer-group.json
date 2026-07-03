@@ -155,6 +155,9 @@
         "menu_pMWDAN",
         "text_t88MVY"
       ],
+      "custom_css": [
+        ".section-footer__row-container {border-top: 1px solid gray !important;}"
+      ],
       "settings": {
         "lower_menu": "footer",
         "show_powered_by": true,
