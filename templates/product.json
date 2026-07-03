@@ -24,21 +24,12 @@
             "enable_product_reviews_by_price": true
           }
         },
-        "richtext_ewr76V": {
-          "type": "richtext",
+        "description": {
+          "type": "description",
           "settings": {
-            "richtext": "{{ product.description }}",
+            "show_in_tab": false,
+            "open_tab": false,
             "icon": "",
-            "icon_size": "small",
-            "enable_box": false,
-            "box_color": "#e0f4d5",
-            "show_in_quickbuy": false
-          }
-        },
-        "divider": {
-          "type": "divider",
-          "disabled": true,
-          "settings": {
             "show_in_quickbuy": false
           }
         },
@@ -65,12 +56,25 @@
             "show_gift_card_recipient": false
           }
         },
-        "description": {
-          "type": "description",
+        "icon_columns_HbGFAy": {
+          "type": "icon-columns",
           "settings": {
-            "show_in_tab": false,
-            "open_tab": false,
-            "icon": "",
+            "icon_size": "medium",
+            "text_size": "sm",
+            "enable_box": true,
+            "box_color": "#f4f4f4",
+            "icon_1": "truck",
+            "icon_1_color": "rgba(0,0,0,0)",
+            "icon_1_heading": "Asd",
+            "icon_1_text": "Icon label 1",
+            "icon_2": "map_pin",
+            "icon_2_color": "rgba(0,0,0,0)",
+            "icon_2_heading": "",
+            "icon_2_text": "Icon label 2",
+            "icon_3": "gift",
+            "icon_3_color": "rgba(0,0,0,0)",
+            "icon_3_heading": "",
+            "icon_3_text": "Icon label 3",
             "show_in_quickbuy": false
           }
         }
@@ -78,11 +82,10 @@
       "block_order": [
         "title",
         "price",
-        "richtext_ewr76V",
-        "divider",
+        "description",
         "variant-picker",
         "buy-buttons",
-        "description"
+        "icon_columns_HbGFAy"
       ],
       "settings": {
         "show_breadcrumbs": true,
