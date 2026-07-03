@@ -98,7 +98,8 @@
       ],
       "custom_css": [
         ".cmp__description {margin-bottom: 0;}",
-        ".cmp__description * {font-size: 1.12em;}"
+        ".cmp__description * {font-size: 1.12em;}",
+        ".size-chart-link__text {color: black; text-decoration-color: black;}"
       ],
       "settings": {
         "show_back_link": true,
