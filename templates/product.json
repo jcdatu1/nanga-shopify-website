@@ -96,6 +96,10 @@
         "key-features",
         "specifications"
       ],
+      "custom_css": [
+        ".cmp__description {margin-bottom: 0;}",
+        ".cmp__description * {font-size: 1.12em;}"
+      ],
       "settings": {
         "show_back_link": true,
         "back_label": "Back to",
