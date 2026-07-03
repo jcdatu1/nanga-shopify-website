@@ -49,16 +49,19 @@
         endfor
       endunless
     -%}
-    {%- if back_collection -%}
-      <div class="cmp__back-bar">
-        <div class="container{% if settings.use_fullwidth_layout %} container--no-max{% endif %}">
+    <div class="cmp__back-bar">
+      <div class="container{% if settings.use_fullwidth_layout %} container--no-max{% endif %}">
+        {%- if back_collection -%}
           <a href="{{ back_collection.url }}" class="cmp__back-link">
             <span class="cmp__back-icon">{% render 'icon-chevron-left', stroke_width: 1.5 %}</span>
             <span>{{ section.settings.back_label | escape }} {{ back_collection.title | escape }}</span>
           </a>
-        </div>
+        {%- else -%}
+          {%- comment -%} No collection to link — keep the bar's spacing, blank content {%- endcomment -%}
+          <span class="cmp__back-link" aria-hidden="true">&nbsp;</span>
+        {%- endif -%}
       </div>
-    {%- endif -%}
+    </div>
   {%- endif -%}
 
   <product-form class="cmp__form block js-product" data-section-id="{{ section.id }}">
