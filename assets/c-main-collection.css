@@ -109,6 +109,8 @@
 /* ---- Pagination: sits in the product column, below the grid ---- */
 .cmc__pagination {
   margin-top: 40px;
+  display: flex;
+  justify-content: center;
 }
 
 /* ---- Filter UI (snippets/cmc-filters.liquid) — built from scratch to match the Figma:

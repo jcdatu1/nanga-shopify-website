@@ -72,7 +72,7 @@ The section SHALL provide settings for products per row on desktop, products per
 
 ### Requirement: Dynamic filter, sort, and pagination
 
-Filter changes, sort changes, and pagination SHALL update the grid and filters dynamically via fetch, without a full page reload, by reusing the theme's existing `<filter-container>` AJAX engine (`data-ajax-filtering`, `data-filter-section-id`, `[data-ajax-container]`). The section SHALL NOT introduce new JavaScript. Browser back/forward SHALL restore prior filter/sort/page state.
+Filter changes, sort changes, and pagination SHALL update the grid and filters dynamically via fetch, without a full page reload, by reusing the theme's existing `<filter-container>` AJAX engine (`data-ajax-filtering`, `data-filter-section-id`, `[data-ajax-container]`). The section SHALL NOT introduce new JavaScript. Browser back/forward SHALL restore prior filter/sort/page state. The pagination controls SHALL render inside the product column, directly below the product grid, as part of the grid's AJAX container markup (not as a separate sibling container), so they sit visibly under the products and refresh with the grid.
 
 #### Scenario: Applying a filter does not reload the page
 
@@ -91,6 +91,12 @@ Filter changes, sort changes, and pagination SHALL update the grid and filters d
 - **WHEN** the shopper clicks a pagination link
 - **THEN** the next page of products loads into the grid via a background fetch without a full reload
 
+#### Scenario: Pagination sits below the grid
+
+- **WHEN** the collection has more products than the page size
+- **THEN** the pagination renders in the product column immediately after the product grid (not below the filter sidebar's full height)
+- **AND** after an AJAX filter/sort/page update, the pagination reflects the new state
+
 #### Scenario: Back button restores state
 
 - **WHEN** the shopper presses the browser back button after filtering or paginating
@@ -98,7 +104,7 @@ Filter changes, sort changes, and pagination SHALL update the grid and filters d
 
 ### Requirement: Desktop layout faithful to Figma
 
-On desktop, when filtering is enabled, the filters SHALL be permanently visible as a left sidebar with no Filter toggle button. The product count and the sort control SHALL sit in a row inside the product column (to the right of the sidebar), above the grid — not in a full-width bar spanning across the sidebar.
+On desktop, when filtering is enabled, the filters SHALL be permanently visible as a left sidebar with no Filter toggle button. The product count and the sort control SHALL sit in a row inside the product column (to the right of the sidebar), above the grid — not in a full-width bar spanning across the sidebar. The sort control SHALL reserve horizontal space for its dropdown icon so the selected option's label never overlaps the icon, regardless of label length.
 
 #### Scenario: Desktop sidebar always visible
 
@@ -109,6 +115,11 @@ On desktop, when filtering is enabled, the filters SHALL be permanently visible 
 
 - **WHEN** a desktop shopper views the section
 - **THEN** the product count and sort control appear in a row above the grid within the product column, not spanning the sidebar width
+
+#### Scenario: Sort label does not overlap the icon
+
+- **WHEN** the selected sort option has a long label (e.g. "Most Relevant")
+- **THEN** the label text ends before the dropdown icon's reserved space and does not render underneath it
 
 ### Requirement: Mobile filter drawer and button row
 
