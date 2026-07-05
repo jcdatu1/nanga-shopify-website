@@ -163,6 +163,7 @@
           "type": "collection",
           "settings": {
             "collection": "wear",
+            "image": "shopify://shop_images/wear-collection.jpg",
             "label": "WEAR"
           }
         },
@@ -170,6 +171,7 @@
           "type": "collection",
           "settings": {
             "collection": "sleeping-bags",
+            "image": "shopify://shop_images/sleeping-bags-collection_a468e8d2-e38a-40f8-bf7c-5947819aa178.jpg",
             "label": "SLEEPING BAG"
           }
         },
