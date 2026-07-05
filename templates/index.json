@@ -176,42 +176,28 @@
             "label": "SLEEPING BAG"
           }
         },
-        "collection_good_sleeping": {
-          "type": "collection",
-          "settings": {
-            "collection": "",
-            "label": "GOOD SLEEPING"
-          }
-        },
         "collection_accessory": {
           "type": "collection",
           "settings": {
-            "collection": "",
+            "collection": "accessories",
+            "image": "shopify://shop_images/acccessories.png",
             "label": "ACCESSORY"
           }
         },
         "collection_down_wear": {
           "type": "collection",
           "settings": {
-            "collection": "",
+            "collection": "down-wear",
+            "image": "shopify://shop_images/W2630-0B044A_KHA_1.png",
             "label": "DOWN WEAR"
-          }
-        },
-        "collection_collaboration": {
-          "type": "collection",
-          "settings": {
-            "collection": "",
-            "label": "COLLABORATION"
           }
         }
       },
       "block_order": [
         "collection_wear",
         "collection_sleeping_bag",
-        "collection_good_sleeping",
         "collection_accessory",
-        "collection_down_wear",
-        "collection_collaboration"
+        "collection_down_wear"
       ],
       "custom_css": [],
       "settings": {
