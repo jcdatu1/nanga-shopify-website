@@ -2,7 +2,7 @@
 
 ## Purpose
 
-Provide a reusable Liquid `icon` snippet that renders inline SVG icons selected by name, including an `arrow-right` glyph, with an optional stroke-width override.
+Provide a reusable Liquid `icon` snippet that renders inline SVG icons selected by name, including an `arrow-right` glyph and the feature glyphs `droplet`, `thermometer`, and `mountain`, with an optional stroke-width override.
 
 ## Requirements
 
@@ -33,3 +33,17 @@ The `icon` snippet SHALL accept an optional `stroke_width` parameter that overri
 
 - **WHEN** the snippet is rendered without `stroke_width` (e.g. `icon: 'arrow-right', size: 'small'`)
 - **THEN** the output SVG uses the size-derived stroke width (`1.5` for `small`)
+
+### Requirement: Feature icons registered
+
+The `icon` snippet (`snippets/icon.liquid`) SHALL additionally register `droplet`, `thermometer`, and `mountain` icons, rendered as inline SVGs stroke-styled consistently with the existing lucide-derived set (e.g. `feather`) and colored via `currentColor`. Registration SHALL be purely additive: existing icons, parameters, and callers SHALL be unaffected.
+
+#### Scenario: Render a new feature icon
+
+- **WHEN** the snippet is rendered with `icon: 'droplet'` (or `thermometer`, `mountain`)
+- **THEN** it outputs the inline SVG carrying the `icon--type-<name>` class, stroked with `currentColor`
+
+#### Scenario: Existing icons unaffected
+
+- **WHEN** the snippet is rendered with any previously registered icon (e.g. `arrow-right`, `feather`)
+- **THEN** the output is identical to the pre-change output
