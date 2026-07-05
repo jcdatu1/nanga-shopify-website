@@ -1,0 +1,162 @@
+{%- comment -%}
+  Link cards — NANGA.
+  Responsive grid of whole-card links in two styles: 'image' (4:3 cover well on
+  gray above the text, zoom hover) or 'box' (white padded card, shadow hover).
+  Each card: title, short text, and an arrow label with the theme's 8px → 12px
+  gap hover. Optional heading and band background so one section covers both
+  the design's plain grid and its tinted band. No JS; styles scoped to .clk in
+  assets/c-link-cards.css.
+{%- endcomment -%}
+<link rel="stylesheet" href="{{ 'c-link-cards.css' | asset_url }}" {%- render 'lazy-stylesheet-attrs' %}>
+
+<div
+  class="section-id-{{ section.id }} clk{% if section.settings.background_color.alpha > 0 %} clk--band{% endif %}"
+  style="--clk-bg: {{ section.settings.background_color }};">
+  <div class="container">
+    {%- if section.settings.title != blank -%}
+      <h2 class="clk__heading" {%- render 'animation-attrs', attrs: 'data-cc-animate' -%}>{{ section.settings.title | escape }}</h2>
+    {%- endif -%}
+
+    <div class="clk__grid" style="--clk-cols: {{ section.settings.columns_desktop }}; --clk-cols-mobile: {{ section.settings.columns_mobile }};">
+      {%- for block in section.blocks -%}
+        {%- liquid
+          assign card_classes = 'clk__card clk__card--' | append: section.settings.card_style
+        -%}
+        {%- capture card_content -%}
+          {%- if section.settings.card_style == 'image' -%}
+            <div class="clk__image">
+              {%- if block.settings.image != blank -%}
+                {%- render 'image' with block.settings.image, loading: 'lazy', size_cols_mobile: 1, size_cols_desktop: 3, custom_aspect_ratio: 1.33 -%}
+              {%- else -%}
+                <div class="placeholder-image">{{ 'lifestyle-1' | placeholder_svg_tag }}</div>
+              {%- endif -%}
+            </div>
+          {%- endif -%}
+
+          <div class="clk__body">
+            {%- if block.settings.title != blank -%}
+              <h3 class="clk__title">{{ block.settings.title | escape }}</h3>
+            {%- endif -%}
+
+            {%- if block.settings.text != blank -%}
+              <div class="clk__text rte">{{ block.settings.text }}</div>
+            {%- endif -%}
+
+            {%- if block.settings.link_label != blank -%}
+              <span class="clk__more">{{ block.settings.link_label | escape }}{% render 'icon', icon: 'arrow-right', size: 'small', stroke_width: 2 %}</span>
+            {%- endif -%}
+          </div>
+        {%- endcapture -%}
+
+        {%- if block.settings.link != blank -%}
+          <a class="{{ card_classes }}" href="{{ block.settings.link }}" {{ block.shopify_attributes }} {%- render 'animation-attrs', attrs: 'data-cc-animate' -%}>{{ card_content }}</a>
+        {%- else -%}
+          <div class="{{ card_classes }}" {{ block.shopify_attributes }} {%- render 'animation-attrs', attrs: 'data-cc-animate' -%}>{{ card_content }}</div>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "C Link cards",
+  "class": "section-c-link-cards",
+  "disabled_on": {
+    "templates": ["password"],
+    "groups": ["aside"]
+  },
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading"
+    },
+    {
+      "type": "select",
+      "id": "card_style",
+      "label": "Card style",
+      "default": "image",
+      "options": [
+        { "value": "image", "label": "Image (photo above text)" },
+        { "value": "box", "label": "Box (white card, no photo)" }
+      ]
+    },
+    {
+      "type": "range",
+      "id": "columns_desktop",
+      "label": "Columns (desktop)",
+      "min": 2,
+      "max": 4,
+      "step": 1,
+      "default": 3
+    },
+    {
+      "type": "select",
+      "id": "columns_mobile",
+      "label": "Columns (mobile)",
+      "default": "1",
+      "options": [
+        { "value": "1", "label": "1" },
+        { "value": "2", "label": "2" }
+      ]
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "info": "When set, the section renders as a full band behind the cards.",
+      "default": "rgba(0,0,0,0)"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "card",
+      "name": "Card",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image",
+          "info": "Shown with the Image card style (4:3 crop)."
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Card title"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text",
+          "default": "<p>Describe where this card leads in a short sentence.</p>"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        },
+        {
+          "type": "text",
+          "id": "link_label",
+          "label": "Link label",
+          "default": "Learn More"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 8,
+  "presets": [
+    {
+      "name": "C Link cards",
+      "category": "Storytelling",
+      "blocks": [
+        { "type": "card" },
+        { "type": "card" },
+        { "type": "card" }
+      ]
+    }
+  ]
+}
+{% endschema %}
