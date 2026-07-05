@@ -26,7 +26,8 @@
   --base-font-weight:              {{- base_font.weight }};
   --base-font-style:               {{- base_font.style }};
   --heading-font-family:           {{- heading_font.family }}, {{ heading_font.fallback_families }};
-  --heading-font-weight:           {{- heading_font.weight }};
+  --heading-font-weight:           500;
+  {% comment %} --heading-font-weight:           {{- heading_font.weight }}; {% endcomment %}
   --heading-font-style:            {{- heading_font.style }};
   --heading-font-letter-spacing:   {%- if settings.letter_spacing_heading == 0 %}normal{% else %}{{ settings.letter_spacing_heading | divided_by: 100.0 }}em{% endif %};
   --logo-font-family:              {{- logo_font.family }}, {{ logo_font.fallback_families }};
