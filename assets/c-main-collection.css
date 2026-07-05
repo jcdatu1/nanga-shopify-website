@@ -135,6 +135,7 @@
   color: #000;
   text-decoration: none;
   cursor: pointer;
+  padding: 0;
 }
 
 .cmc .cmc-filter__option:last-child {

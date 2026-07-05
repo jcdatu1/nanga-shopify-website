@@ -1,0 +1,207 @@
+{%- comment -%}
+  Icon features grid — NANGA.
+  Responsive grid of centered feature columns: an icon in a light-gray square
+  tile (theme icon set, optional image override), a title, and short text.
+  No JS; styles scoped to .cif in assets/c-icon-features.css.
+{%- endcomment -%}
+<link rel="stylesheet" href="{{ 'c-icon-features.css' | asset_url }}" {%- render 'lazy-stylesheet-attrs' %}>
+
+<div class="section-id-{{ section.id }} cif{% if section.settings.color_scheme != 'default' %} use-color-scheme use-color-scheme--{{ section.settings.color_scheme }} fully-padded-row--medium{% endif %}">
+  <div class="container{% if section.settings.full_width %} container--no-max{% endif %}">
+    <div class="cif__grid" style="--cif-cols: {{ section.settings.columns_desktop }}; --cif-cols-mobile: {{ section.settings.columns_mobile }};">
+      {%- for block in section.blocks -%}
+        <div class="cif__feature" {{ block.shopify_attributes }} {%- render 'animation-attrs', attrs: 'data-cc-animate' -%}>
+          {%- if block.settings.image != blank -%}
+            <span class="cif__tile">
+              <img
+                src="{{ block.settings.image | image_url: width: 64 }}"
+                srcset="{{ block.settings.image | image_url: width: 64 }} 64w, {{ block.settings.image | image_url: width: 128 }} 128w"
+                sizes="32px"
+                width="{{ block.settings.image.width }}"
+                height="{{ block.settings.image.height }}"
+                loading="lazy"
+                alt="{{ block.settings.image.alt | escape }}">
+            </span>
+          {%- elsif block.settings.icon != 'none' -%}
+            <span class="cif__tile">{% render 'icon', icon: block.settings.icon %}</span>
+          {%- endif -%}
+
+          {%- if block.settings.title != blank -%}
+            <h3 class="cif__title">{{ block.settings.title | escape }}</h3>
+          {%- endif -%}
+
+          {%- if block.settings.text != blank -%}
+            <div class="cif__text rte">{{ block.settings.text }}</div>
+          {%- endif -%}
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "C Icon features",
+  "class": "section-c-icon-features",
+  "disabled_on": {
+    "templates": ["password"],
+    "groups": ["aside"]
+  },
+  "settings": [
+    {
+      "type": "range",
+      "id": "columns_desktop",
+      "label": "Columns (desktop)",
+      "min": 2,
+      "max": 5,
+      "step": 1,
+      "default": 4
+    },
+    {
+      "type": "select",
+      "id": "columns_mobile",
+      "label": "Columns (mobile)",
+      "default": "2",
+      "options": [
+        { "value": "1", "label": "1" },
+        { "value": "2", "label": "2" }
+      ]
+    },
+    {
+      "type": "checkbox",
+      "id": "full_width",
+      "label": "Full page width",
+      "default": false
+    },
+    {
+      "type": "select",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "default",
+      "options": [
+        { "value": "default", "label": "Default" },
+        { "value": "1", "label": "1" },
+        { "value": "2", "label": "2" }
+      ]
+    }
+  ],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Feature",
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icon",
+          "default": "star",
+          "options": [
+            { "value": "none", "label": "None" },
+            { "value": "accessible", "label": "Accessible" },
+            { "value": "award", "label": "Award" },
+            { "value": "beach", "label": "Beach" },
+            { "value": "box", "label": "Box" },
+            { "value": "briefcase", "label": "Briefcase" },
+            { "value": "calendar", "label": "Calendar" },
+            { "value": "chat_bubble", "label": "Chat bubble" },
+            { "value": "check_mark", "label": "Check mark" },
+            { "value": "check_mark_in_circle", "label": "Check mark in circle" },
+            { "value": "clock", "label": "Clock" },
+            { "value": "credit_card", "label": "Credit card" },
+            { "value": "dollar_sign", "label": "Dollar sign" },
+            { "value": "droplet", "label": "Droplet" },
+            { "value": "dryer", "label": "Dryer" },
+            { "value": "eye", "label": "Eye" },
+            { "value": "feather", "label": "Feather" },
+            { "value": "gift", "label": "Gift" },
+            { "value": "heart", "label": "Heart" },
+            { "value": "iron", "label": "Iron" },
+            { "value": "leaf", "label": "Leaf" },
+            { "value": "leather", "label": "Leather" },
+            { "value": "lock", "label": "Lock" },
+            { "value": "map_pin", "label": "Map pin" },
+            { "value": "mountain", "label": "Mountain" },
+            { "value": "pants", "label": "Pants" },
+            { "value": "percent", "label": "Percent" },
+            { "value": "plane", "label": "Plane" },
+            { "value": "price_tag", "label": "Price tag" },
+            { "value": "question_mark", "label": "Question mark" },
+            { "value": "recycle", "label": "Recycle" },
+            { "value": "return", "label": "Return" },
+            { "value": "ruler", "label": "Ruler" },
+            { "value": "scissors", "label": "Scissors" },
+            { "value": "shirt", "label": "Shirt" },
+            { "value": "shoe", "label": "Shoe" },
+            { "value": "silhouette", "label": "Silhouette" },
+            { "value": "star", "label": "Star" },
+            { "value": "sun-high", "label": "Sun" },
+            { "value": "thermometer", "label": "Thermometer" },
+            { "value": "truck", "label": "Truck" },
+            { "value": "washing", "label": "Washing" },
+            { "value": "world", "label": "World" }
+          ]
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Custom icon image",
+          "info": "Overrides the icon when set."
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Feature"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text",
+          "default": "<p>Describe the feature in a short sentence.</p>"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 8,
+  "presets": [
+    {
+      "name": "C Icon features",
+      "category": "Storytelling",
+      "blocks": [
+        {
+          "type": "feature",
+          "settings": {
+            "icon": "droplet",
+            "title": "Water Resistance",
+            "text": "<p>Hydrophobic coating repels moisture while maintaining breathability</p>"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "icon": "thermometer",
+            "title": "Superior Warmth",
+            "text": "<p>760-1000 fill power down for maximum warmth-to-weight ratio</p>"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "icon": "feather",
+            "title": "Premium Fill",
+            "text": "<p>Hand-selected Spanish duck and European goose down</p>"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "icon": "mountain",
+            "title": "Tested Extreme",
+            "text": "<p>Field-tested in conditions from -30°C to alpine environments</p>"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

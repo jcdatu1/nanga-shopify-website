@@ -1,0 +1,213 @@
+{%- comment -%}
+  Content panel — NANGA.
+  Padded panel with per-section background/text colors (no global color scheme),
+  composed from heading / text / stat / button blocks. Two modes: constrained
+  panel (tinted box inside the container) or full-width band (background spans
+  the window, content at reading width). Consecutive stat blocks render as one
+  responsive row of left-bordered columns. No JS; styles scoped to .ccp in
+  assets/c-content-panel.css.
+{%- endcomment -%}
+<link rel="stylesheet" href="{{ 'c-content-panel.css' | asset_url }}" {%- render 'lazy-stylesheet-attrs' %}>
+
+<div
+  class="section-id-{{ section.id }} ccp{% if section.settings.full_width %} ccp--band{% endif %}"
+  style="--ccp-bg: {{ section.settings.background_color }}; --ccp-text: {{ section.settings.text_color }}; --ccp-body: {{ section.settings.body_text_color }};"
+  {%- render 'animation-attrs', attrs: 'data-cc-animate' -%}>
+  <div class="container{% if section.settings.full_width %} container--reading-width{% endif %}">
+    <div class="{% unless section.settings.full_width %}ccp__panel{% endunless %}">
+      {%- assign prev_type = '' -%}
+      {%- for block in section.blocks -%}
+        {%- case block.type -%}
+          {%- when 'heading' -%}
+            <h2 class="ccp__heading" {{ block.shopify_attributes }}>{{ block.settings.title | escape }}</h2>
+
+          {%- when 'text' -%}
+            <div class="ccp__text rte" {{ block.shopify_attributes }}>{{ block.settings.text }}</div>
+
+          {%- when 'stat' -%}
+            {%- if prev_type != 'stat' -%}
+              {%- # theme-check-disable UnclosedHTMLElement -%}
+              <div class="ccp__stats">
+              {%- # theme-check-enable UnclosedHTMLElement -%}
+            {%- endif -%}
+            <div class="ccp__stat" {{ block.shopify_attributes }}>
+              {%- if block.settings.label != blank -%}
+                <p class="ccp__stat-label">{{ block.settings.label | escape }}</p>
+              {%- endif -%}
+              {%- if block.settings.text != blank -%}
+                <p class="ccp__stat-text">{{ block.settings.text | escape }}</p>
+              {%- endif -%}
+            </div>
+            {%- assign next_block = section.blocks[forloop.index] -%}
+            {%- if forloop.last or next_block.type != 'stat' -%}
+              {%- # theme-check-disable UnclosedHTMLElement -%}
+              </div>
+              {%- # theme-check-enable UnclosedHTMLElement -%}
+            {%- endif -%}
+
+          {%- when 'button' -%}
+            <div class="ccp__button-row" {{ block.shopify_attributes }}>
+              {%- if block.settings.button_style == 'link' -%}
+                <a class="ccp__link" href="{{ block.settings.button_link }}">{{ block.settings.button_label | escape }}{% render 'icon', icon: 'arrow-right', size: 'small', stroke_width: 2 %}</a>
+              {%- else -%}
+                <a class="btn btn--{{ block.settings.button_style }}" href="{{ block.settings.button_link }}">{{ block.settings.button_label | escape }}</a>
+              {%- endif -%}
+            </div>
+        {%- endcase -%}
+        {%- assign prev_type = block.type -%}
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "C Content panel",
+  "class": "section-c-content-panel",
+  "disabled_on": {
+    "templates": ["password"],
+    "groups": ["aside"]
+  },
+  "settings": [
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#f9fafb"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Heading and stat color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "body_text_color",
+      "label": "Body text color",
+      "default": "#4b5563"
+    },
+    {
+      "type": "checkbox",
+      "id": "full_width",
+      "label": "Full-width band",
+      "info": "On: the background spans the full window and content is constrained to reading width. Off: a padded panel inside the page width.",
+      "default": false
+    }
+  ],
+  "blocks": [
+    {
+      "type": "heading",
+      "name": "Heading",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Heading",
+          "default": "Content panel"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "name": "Text",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text",
+          "default": "<p>Use this text to share information with your customers.</p>"
+        }
+      ]
+    },
+    {
+      "type": "stat",
+      "name": "Stat",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label",
+          "default": "Label"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text",
+          "default": "Short description"
+        }
+      ]
+    },
+    {
+      "type": "button",
+      "name": "Button",
+      "settings": [
+        {
+          "type": "text",
+          "id": "button_label",
+          "label": "Button",
+          "default": "Button text"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button link"
+        },
+        {
+          "type": "select",
+          "id": "button_style",
+          "label": "Button style",
+          "default": "link",
+          "options": [
+            { "label": "Primary", "value": "primary" },
+            { "label": "Secondary", "value": "secondary" },
+            { "label": "Link", "value": "link" }
+          ]
+        }
+      ]
+    }
+  ],
+  "max_blocks": 12,
+  "presets": [
+    {
+      "name": "C Content panel",
+      "category": "Storytelling",
+      "blocks": [
+        {
+          "type": "heading",
+          "settings": {
+            "title": "Understanding Fill Power"
+          }
+        },
+        {
+          "type": "text",
+          "settings": {
+            "text": "<p>Fill power measures the loft (fluffiness) of down. One ounce of 800-fill-power down will expand to fill 800 cubic inches of space.</p>"
+          }
+        },
+        {
+          "type": "stat",
+          "settings": {
+            "label": "760-800 FP",
+            "text": "Excellent warmth, versatile performance"
+          }
+        },
+        {
+          "type": "stat",
+          "settings": {
+            "label": "860-900 FP",
+            "text": "Superior loft, ultralight construction"
+          }
+        },
+        {
+          "type": "stat",
+          "settings": {
+            "label": "1000 FP",
+            "text": "Maximum performance, expedition grade"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

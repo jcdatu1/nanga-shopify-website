@@ -1,0 +1,98 @@
+/* Content panel — NANGA. Scoped to .ccp. Colors come from per-section
+   custom properties set inline: --ccp-bg, --ccp-text, --ccp-body. */
+
+.ccp {
+  margin: var(--section-vertical-spacing, 40px) 0;
+  color: var(--ccp-text, #000);
+}
+
+/* Constrained mode: tinted padded box inside the container. */
+.ccp__panel {
+  padding: 32px;
+  background: var(--ccp-bg, #f9fafb);
+}
+
+@media (min-width: 640px) {
+  .ccp__panel {
+    padding: 48px;
+  }
+}
+
+/* Band mode: background spans the window, content at reading width. */
+.ccp--band {
+  padding: 64px 0;
+  background: var(--ccp-bg, #f9fafb);
+}
+
+.ccp__heading {
+  margin: 0 0 24px;
+  color: var(--ccp-text, #000);
+  font-size: clamp(1.5rem, 1.1rem + 1.4vw, 2.25rem);
+  line-height: 1.15;
+}
+
+.ccp__text {
+  color: var(--ccp-body, #4b5563);
+  line-height: 1.625;
+}
+
+.ccp__text p {
+  margin: 0 0 16px;
+}
+
+.ccp__text p:last-child {
+  margin-bottom: 0;
+}
+
+/* Stat columns: 2px left border per the design, 3-up on desktop. */
+.ccp__stats {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 24px;
+  margin-top: 32px;
+  font-size: 0.875rem;
+}
+
+@media (min-width: 640px) {
+  .ccp__stats {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.ccp__stat {
+  border-left: 2px solid var(--ccp-text, #000);
+  padding-left: 16px;
+}
+
+.ccp__stat-label {
+  margin: 0 0 4px;
+  color: var(--ccp-text, #000);
+}
+
+.ccp__stat-text {
+  margin: 0;
+  color: var(--ccp-body, #4b5563);
+}
+
+.ccp__button-row {
+  margin-top: 32px;
+}
+
+/* Arrow link: same gap idiom as the carousel View-All (8px → 12px). */
+.ccp__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--ccp-text, #000);
+  text-decoration: none;
+  transition: gap 200ms ease;
+}
+
+.ccp__link:hover {
+  gap: 12px;
+}
+
+.ccp__link .icon {
+  width: 16px;
+  height: 16px;
+}

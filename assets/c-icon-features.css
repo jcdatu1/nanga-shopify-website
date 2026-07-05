@@ -1,0 +1,60 @@
+/* Icon features grid — NANGA. Scoped to .cif. */
+
+.cif {
+  margin: var(--section-vertical-spacing, 40px) 0;
+}
+
+.cif__grid {
+  display: grid;
+  grid-template-columns: repeat(var(--cif-cols-mobile, 2), minmax(0, 1fr));
+  gap: 32px 24px;
+}
+
+@media (min-width: 1024px) {
+  .cif__grid {
+    grid-template-columns: repeat(var(--cif-cols, 4), minmax(0, 1fr));
+    gap: 32px;
+  }
+}
+
+.cif__feature {
+  text-align: center;
+}
+
+/* 64px gray tile with a 32px glyph, per the design. */
+.cif__tile {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  margin-bottom: 16px;
+  background: #f3f4f6;
+}
+
+.cif__tile .icon {
+  width: 32px;
+  height: 32px;
+}
+
+.cif__tile img {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+}
+
+.cif__title {
+  margin: 0 0 8px;
+  font-size: 1.125rem;
+  font-weight: 500;
+}
+
+.cif__text {
+  margin: 0;
+  font-size: 0.875rem;
+  color: #4b5563;
+}
+
+.cif__text p {
+  margin: 0;
+}
