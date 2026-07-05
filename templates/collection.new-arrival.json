@@ -1,5 +1,15 @@
 {
   "sections": {
+    "new_arrival_header": {
+      "type": "c-page-header",
+      "settings": {
+        "title": "",
+        "use_h1": true,
+        "subtitle": "",
+        "background_color": "rgba(0,0,0,0)",
+        "show_border": false
+      }
+    },
     "c_main_collection_new_arrival": {
       "type": "c-main-collection",
       "name": "C Collection grid",
@@ -20,6 +30,7 @@
     }
   },
   "order": [
+    "new_arrival_header",
     "c_main_collection_new_arrival"
   ]
 }

@@ -4,6 +4,10 @@
   page-width container, with a per-section background color and optional bottom
   border. Covers the design's Knowledge/Journal/category header variants from
   settings alone. No JS; styles scoped to .cph in assets/c-page-header.css.
+
+  Contextual fallback: a blank title uses collection.title (collection
+  templates) or page.title (page templates); a blank subtitle on a collection
+  uses collection.description. Non-blank settings always win.
 {%- endcomment -%}
 <link rel="stylesheet" href="{{ 'c-page-header.css' | asset_url }}" {%- render 'lazy-stylesheet-attrs' %}>
 
@@ -12,14 +16,32 @@
   style="--cph-bg: {{ section.settings.background_color }};"
   {%- render 'animation-attrs', attrs: 'data-cc-animate' -%}>
   <div class="container">
-    {%- if section.settings.use_h1 -%}
-      <h1 class="cph__title">{{ section.settings.title | escape }}</h1>
-    {%- else -%}
-      <h2 class="cph__title">{{ section.settings.title | escape }}</h2>
+    {%- liquid
+      assign header_title = section.settings.title
+      if header_title == blank
+        if collection
+          assign header_title = collection.title
+        elsif page
+          assign header_title = page.title
+        endif
+      endif
+
+      assign header_subtitle = section.settings.subtitle
+      if header_subtitle == blank and collection
+        assign header_subtitle = collection.description
+      endif
+    -%}
+
+    {%- if header_title != blank -%}
+      {%- if section.settings.use_h1 -%}
+        <h1 class="cph__title">{{ header_title | escape }}</h1>
+      {%- else -%}
+        <h2 class="cph__title">{{ header_title | escape }}</h2>
+      {%- endif -%}
     {%- endif -%}
 
-    {%- if section.settings.subtitle != blank -%}
-      <div class="cph__subtitle rte">{{ section.settings.subtitle }}</div>
+    {%- if header_subtitle != blank -%}
+      <div class="cph__subtitle rte">{{ header_subtitle }}</div>
     {%- endif -%}
   </div>
 </div>

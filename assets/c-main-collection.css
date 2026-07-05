@@ -79,10 +79,12 @@
   margin-left: auto;
 }
 
-/* Make the reused link-dropdown read like the Figma bordered select */
+/* Make the reused link-dropdown read like the Figma bordered select.
+   Keep 40px end padding: the global chevron is absolutely positioned at the
+   button's end edge and needs the reserved space (see .link-dropdown__button-icon). */
 .cmc__sort .link-dropdown__button {
-  gap: 8px;
   padding: 8px 16px;
+  padding-inline-end: 40px;
   border: 1px solid #d1d1d1;
   font-size: 0.875rem;
   transition: border-color 200ms ease;
@@ -102,6 +104,11 @@
 /* ---- Empty state ---- */
 .cmc__empty {
   margin: 40px 0;
+}
+
+/* ---- Pagination: sits in the product column, below the grid ---- */
+.cmc__pagination {
+  margin-top: 40px;
 }
 
 /* ---- Filter UI (snippets/cmc-filters.liquid) — built from scratch to match the Figma:
