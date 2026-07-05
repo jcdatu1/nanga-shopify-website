@@ -11429,8 +11429,13 @@ model-viewer .container {
   padding: 16px;
 }
 
+/* Lifestyle shots (cover) sit on the design's gray-tinted frame. */
+.product-card--fit-cover .product-card__image {
+  background: #f3f4f6;
+}
+
 .product-card__image img {
-  transition: transform 0.5s ease;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .product-card:hover .product-card__image img {
@@ -11475,7 +11480,7 @@ model-viewer .container {
 
 .product-card__type {
   margin-bottom: 4px;
-  color: rgb(75, 98, 116);
+  color: #4b5563;
   font-size: var(--smaller-text-size-3);
 }
 
@@ -11488,16 +11493,16 @@ model-viewer .container {
   margin: 0 0 4px;
   font-size: inherit;
   font-weight: 500;
-  transition: color 0.2s ease;
+  transition: color 150ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .product-card:hover .product-card__title {
-  color: var(--text-color-secondary, #000000);
+  color: #4b5563;
 }
 
 .product-card__value-props {
   margin-bottom: 6px;
-  color: rgb(75, 98, 116);
+  color: #4b5563;
   font-size: var(--smaller-text-size-3);
 }
 

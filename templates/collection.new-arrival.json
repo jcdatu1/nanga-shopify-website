@@ -1,0 +1,25 @@
+{
+  "sections": {
+    "c_main_collection_new_arrival": {
+      "type": "c-main-collection",
+      "name": "C Collection grid",
+      "settings": {
+        "grid": 3,
+        "mobile_grid": "2",
+        "coll_num_per_page_int": 24,
+        "show_total": false,
+        "enable_filtering": false,
+        "show_sort": false,
+        "image_style": "contain",
+        "show_type": true,
+        "show_value_props": false,
+        "tag_style": "dark",
+        "tag_position": "overlay",
+        "show_border": true
+      }
+    }
+  },
+  "order": [
+    "c_main_collection_new_arrival"
+  ]
+}

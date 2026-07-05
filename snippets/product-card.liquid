@@ -10,13 +10,15 @@
   - badge_bg {String} - Badge background color (optional).
   - badge_text {String} - Badge text color (optional).
   - image_fit {String} - 'contain' or 'cover' (optional, default 'contain').
+  - show_type {Boolean} - Show the category line (product.type) above the title (optional, default true).
+  - show_value_props {Boolean} - Show the value-prop line below the title (optional, default true).
 
-  The product type (product.type) renders as a category line above the title when present.
+  The product type (product.type) renders as a category line above the title when present and show_type is not false.
   Badge text comes from product.metafields.custom.c_product_badge (single, replaces auto labels).
   Value props come from product.metafields.custom.c_card_value_prop (list, joined by ' • ').
 
   Usage:
-  {% render 'product-card', product: product, show_border: true, badge_bg: '#000', badge_text: '#fff' %}
+  {% render 'product-card', product: product, show_border: true, badge_bg: '#000', badge_text: '#fff', show_type: true, show_value_props: false %}
 {%- endcomment -%}
 {%- liquid
   assign product_url = product.url
@@ -31,6 +33,9 @@
   else
     assign image_crop = nil
   endif
+
+  assign show_type = show_type | default: true, allow_false: true
+  assign show_value_props = show_value_props | default: true, allow_false: true
 
   assign badge_label = product.metafields.custom.c_product_badge
   assign value_props = product.metafields.custom.c_card_value_prop.value | join: ' • '
@@ -52,7 +57,7 @@
   </div>
 
   <div class="product-card__detail">
-    {%- if product.type != blank -%}
+    {%- if show_type and product.type != blank -%}
       <div class="product-card__type">{{ product.type | escape }}</div>
     {%- endif -%}
 
@@ -60,7 +65,7 @@
       <h3 class="product-card__title">{{ product.title | escape }}</h3>
     </a>
 
-    {%- if value_props != blank -%}
+    {%- if show_value_props and value_props != blank -%}
       <div class="product-card__value-props">{{ value_props | escape }}</div>
     {%- endif -%}
 

@@ -124,7 +124,7 @@
         {% else %}
           <div class="product-grid cmc__grid product-grid--per-row-{{ section.settings.grid }} product-grid--per-row-mob-{{ section.settings.mobile_grid }}">
             {%- for product in collection.products -%}
-              {%- render 'product-card', product: product, badge_position: section.settings.tag_position, show_border: section.settings.show_border, badge_bg: badge_bg, badge_text: badge_text -%}
+              {%- render 'product-card', product: product, badge_position: section.settings.tag_position, show_border: section.settings.show_border, badge_bg: badge_bg, badge_text: badge_text, image_fit: section.settings.image_style, show_type: section.settings.show_type, show_value_props: section.settings.show_value_props -%}
             {%- endfor -%}
           </div>
         {% endif %}
@@ -261,6 +261,29 @@
     {
       "type": "header",
       "content": "Cards"
+    },
+    {
+      "type": "select",
+      "id": "image_style",
+      "label": "Image style",
+      "info": "Product shots sit contained on a white padded frame; lifestyle shots fill the frame on a gray tint.",
+      "default": "cover",
+      "options": [
+        { "value": "contain", "label": "Product (contained, white)" },
+        { "value": "cover", "label": "Lifestyle (cover, gray)" }
+      ]
+    },
+    {
+      "type": "checkbox",
+      "id": "show_type",
+      "label": "Show category line",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "show_value_props",
+      "label": "Show spec line",
+      "default": true
     },
     {
       "type": "select",
