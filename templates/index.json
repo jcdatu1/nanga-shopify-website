@@ -66,7 +66,7 @@
       "settings": {
         "title": "NEW ARRIVALS",
         "description": "Latest additions to our collection",
-        "collection": "sleeping-bags",
+        "collection": "new-arrivals",
         "limit": 12,
         "cards_desktop": 3,
         "cards_mobile": 1,
@@ -89,9 +89,9 @@
       ],
       "name": "C Featured collection",
       "settings": {
-        "title": "FEATURED COLLECTION",
+        "title": "DOWN WEAR",
         "description": "Latest additions to our collection",
-        "collection": "frontpage",
+        "collection": "down-wear",
         "limit": 12,
         "cards_desktop": 3,
         "cards_mobile": 1,
