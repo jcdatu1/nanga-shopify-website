@@ -1,0 +1,40 @@
+/* Page header — NANGA. Scoped to .cph. Background comes from the per-section
+   custom property --cph-bg set inline. */
+
+.cph {
+  padding: 48px 0;
+  background: var(--cph-bg, #f9fafb);
+}
+
+@media (min-width: 640px) {
+  .cph {
+    padding: 64px 0;
+  }
+}
+
+.cph--bordered {
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.cph__title {
+  margin: 0 0 16px;
+  font-size: clamp(2.25rem, 1.8rem + 1.5vw, 3rem);
+  line-height: 1.1;
+}
+
+/* Subtitle capped at reading width per the design (max-w-2xl). */
+.cph__subtitle {
+  max-width: 42rem;
+  color: #4b5563;
+  font-size: 1rem;
+}
+
+@media (min-width: 640px) {
+  .cph__subtitle {
+    font-size: 1.125rem;
+  }
+}
+
+.cph__subtitle p {
+  margin: 0;
+}

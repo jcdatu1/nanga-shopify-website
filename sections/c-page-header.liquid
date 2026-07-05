@@ -1,0 +1,74 @@
+{%- comment -%}
+  Page header — NANGA.
+  Flat page-title band: H1 title + reading-width subtitle, left-aligned in the
+  page-width container, with a per-section background color and optional bottom
+  border. Covers the design's Knowledge/Journal/category header variants from
+  settings alone. No JS; styles scoped to .cph in assets/c-page-header.css.
+{%- endcomment -%}
+<link rel="stylesheet" href="{{ 'c-page-header.css' | asset_url }}" {%- render 'lazy-stylesheet-attrs' %}>
+
+<div
+  class="section-id-{{ section.id }} cph{% if section.settings.show_border %} cph--bordered{% endif %}"
+  style="--cph-bg: {{ section.settings.background_color }};"
+  {%- render 'animation-attrs', attrs: 'data-cc-animate' -%}>
+  <div class="container">
+    {%- if section.settings.use_h1 -%}
+      <h1 class="cph__title">{{ section.settings.title | escape }}</h1>
+    {%- else -%}
+      <h2 class="cph__title">{{ section.settings.title | escape }}</h2>
+    {%- endif -%}
+
+    {%- if section.settings.subtitle != blank -%}
+      <div class="cph__subtitle rte">{{ section.settings.subtitle }}</div>
+    {%- endif -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "C Page header",
+  "class": "section-c-page-header",
+  "disabled_on": {
+    "templates": ["password"],
+    "groups": ["aside"]
+  },
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Page title"
+    },
+    {
+      "type": "checkbox",
+      "id": "use_h1",
+      "label": "Set as primary page heading",
+      "info": "Use <h1> tag. One per page recommended.",
+      "default": true
+    },
+    {
+      "type": "richtext",
+      "id": "subtitle",
+      "label": "Subtitle"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#f9fafb"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_border",
+      "label": "Show bottom border",
+      "default": true
+    }
+  ],
+  "presets": [
+    {
+      "name": "C Page header",
+      "category": "Info"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,76 @@
+{%- comment -%}
+  FAQ list — NANGA.
+  Flat, always-open question/answer list at reading width with light border
+  separators — the design's static FAQ presentation. Deliberately distinct from
+  the stock 'collapsible-tabs' accordion, which remains the option for long
+  FAQs (page.faq). No JS; styles scoped to .cfl in assets/c-faq-list.css.
+{%- endcomment -%}
+<link rel="stylesheet" href="{{ 'c-faq-list.css' | asset_url }}" {%- render 'lazy-stylesheet-attrs' %}>
+
+<div class="section-id-{{ section.id }} cfl" {%- render 'animation-attrs', attrs: 'data-cc-animate' -%}>
+  <div class="container container--reading-width">
+    {%- if section.settings.title != blank -%}
+      <h2 class="cfl__heading">{{ section.settings.title | escape }}</h2>
+    {%- endif -%}
+
+    <div class="cfl__items">
+      {%- for block in section.blocks -%}
+        <div class="cfl__item" {{ block.shopify_attributes }}>
+          <h3 class="cfl__question">{{ block.settings.title | escape }}</h3>
+          <div class="cfl__answer rte">{{ block.settings.answer }}</div>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "C FAQ list",
+  "class": "section-c-faq-list",
+  "disabled_on": {
+    "templates": ["password"],
+    "groups": ["aside"]
+  },
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Frequently Asked Questions"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Question",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Question",
+          "default": "Question"
+        },
+        {
+          "type": "richtext",
+          "id": "answer",
+          "label": "Answer",
+          "default": "<p>Answer the question in a sentence or two.</p>"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 20,
+  "presets": [
+    {
+      "name": "C FAQ list",
+      "category": "Info",
+      "blocks": [
+        { "type": "item" },
+        { "type": "item" },
+        { "type": "item" }
+      ]
+    }
+  ]
+}
+{% endschema %}

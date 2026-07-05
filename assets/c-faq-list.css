@@ -1,0 +1,44 @@
+/* FAQ list — NANGA. Scoped to .cfl. */
+
+.cfl {
+  margin: var(--section-vertical-spacing, 40px) 0;
+}
+
+.cfl__heading {
+  margin: 0 0 32px;
+  font-size: clamp(1.5rem, 1.1rem + 1.4vw, 1.875rem);
+  line-height: 1.15;
+}
+
+.cfl__item {
+  padding-bottom: 24px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.cfl__item + .cfl__item {
+  margin-top: 24px;
+}
+
+.cfl__item:last-child {
+  border-bottom: none;
+}
+
+.cfl__question {
+  margin: 0 0 8px;
+  font-size: 1.125rem;
+  font-weight: 500;
+}
+
+.cfl__answer {
+  font-size: 0.875rem;
+  color: #4b5563;
+  line-height: 1.625;
+}
+
+.cfl__answer p {
+  margin: 0 0 12px;
+}
+
+.cfl__answer p:last-child {
+  margin-bottom: 0;
+}
