@@ -116,24 +116,24 @@
         "menu_dake37": {
           "type": "menu",
           "settings": {
-            "title": "Quick links",
-            "menu": "footer",
+            "title": "Shop",
+            "menu": "shop",
             "link_layout": "collapse"
           }
         },
         "1601374621546": {
           "type": "menu",
           "settings": {
-            "title": "Quick links",
-            "menu": "footer",
+            "title": "Company",
+            "menu": "company",
             "link_layout": "collapse"
           }
         },
         "menu_pMWDAN": {
           "type": "menu",
           "settings": {
-            "title": "Quick links",
-            "menu": "footer",
+            "title": "Support",
+            "menu": "support",
             "link_layout": "collapse"
           }
         },
