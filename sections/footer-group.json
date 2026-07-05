@@ -118,7 +118,7 @@
           "settings": {
             "title": "Shop",
             "menu": "shop",
-            "link_layout": "collapse"
+            "link_layout": "columns"
           }
         },
         "1601374621546": {
@@ -126,7 +126,7 @@
           "settings": {
             "title": "Company",
             "menu": "company",
-            "link_layout": "collapse"
+            "link_layout": "columns"
           }
         },
         "menu_pMWDAN": {
@@ -134,7 +134,7 @@
           "settings": {
             "title": "Support",
             "menu": "support",
-            "link_layout": "collapse"
+            "link_layout": "columns"
           }
         },
         "text_t88MVY": {
