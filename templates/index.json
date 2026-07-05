@@ -15,22 +15,23 @@
         "image_hxX6UJ": {
           "type": "image",
           "settings": {
+            "image": "shopify://shop_images/hp_data_nz_0351_1.webp",
             "slide_link": "",
             "subheading": "",
-            "title": "Built for Extremes",
+            "title": "ZZZ Bag Debut",
             "heading_max_width": 13,
             "title_size": 72,
             "title_size_mobile": 48,
             "use_h1": true,
-            "text": "<h3>Premium Japanese down insulation, engineered for the coldest conditions on Earth.</h3>",
+            "text": "<h3>New synthetic sleeping bags now available</h3>",
             "enlarge_text": false,
-            "button_label_1": "SHOP NEW COLLECTION",
-            "button_url_1": "",
+            "button_label_1": "SHOP ZZZ BAG",
+            "button_url_1": "shopify://products/zzz-bag-0-hrz",
             "show_button_arrow_1": true,
             "button_label_2": "",
             "button_url_2": "",
             "show_button_arrow_2": false,
-            "text_alignment": "center center"
+            "text_alignment": "bottom center"
           }
         }
       },
@@ -63,9 +64,9 @@
       ],
       "name": "C Featured collection",
       "settings": {
-        "title": "NEW ARRIVAL",
+        "title": "NEW ARRIVALS",
         "description": "Latest additions to our collection",
-        "collection": "frontpage",
+        "collection": "sleeping-bags",
         "limit": 12,
         "cards_desktop": 3,
         "cards_mobile": 1,
