@@ -70,6 +70,9 @@
         "cards_desktop": 3,
         "cards_mobile": 1,
         "full_width": false,
+        "image_style": "contain",
+        "show_type": true,
+        "show_value_props": false,
         "tag_style": "dark",
         "tag_position": "inside",
         "show_border": false,
@@ -92,6 +95,9 @@
         "cards_desktop": 3,
         "cards_mobile": 1,
         "full_width": false,
+        "image_style": "contain",
+        "show_type": true,
+        "show_value_props": false,
         "tag_style": "light",
         "tag_position": "inside",
         "show_border": false,
@@ -156,14 +162,14 @@
         "collection_wear": {
           "type": "collection",
           "settings": {
-            "collection": "wear-1",
+            "collection": "wear",
             "label": "WEAR"
           }
         },
         "collection_sleeping_bag": {
           "type": "collection",
           "settings": {
-            "collection": "",
+            "collection": "sleeping-bags",
             "label": "SLEEPING BAG"
           }
         },
@@ -204,6 +210,9 @@
         "collection_down_wear",
         "collection_collaboration"
       ],
+      "custom_css": [
+        ".clc__media {background-color: #d7d7d7;}"
+      ],
       "settings": {
         "title": "CATEGORY",
         "description": "",
@@ -213,7 +222,7 @@
         "show_view_all": false,
         "view_all_link": "",
         "view_all_label": "View all",
-        "color_scheme": "default"
+        "color_scheme": "1"
       }
     }
   },
