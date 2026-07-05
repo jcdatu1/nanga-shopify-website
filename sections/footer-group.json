@@ -159,7 +159,7 @@
         ".section-footer__row-container {border-top: 1px solid gray !important;}"
       ],
       "settings": {
-        "lower_menu": "footer",
+        "lower_menu": "",
         "show_powered_by": true,
         "show_payment_icons": true,
         "enable_country_selector": true,
