@@ -149,7 +149,7 @@
         "p {color: #4a5565;}"
       ],
       "settings": {
-        "image": "shopify://shop_images/photo-1740720998607-825731e469b3.jpg",
+        "image": "shopify://shop_images/TOP_hero_membership.webp",
         "image_link": "",
         "full_width": true,
         "image_position": "left",
@@ -223,7 +223,7 @@
         "show_view_all": false,
         "view_all_link": "",
         "view_all_label": "View all",
-        "color_scheme": "1"
+        "color_scheme": "default"
       }
     }
   },
