@@ -163,7 +163,7 @@
           "type": "collection",
           "settings": {
             "collection": "wear",
-            "image": "shopify://shop_images/wear-collection.jpg",
+            "image": "shopify://shop_images/nanga-wear-hoodie.png",
             "label": "WEAR"
           }
         },
@@ -171,7 +171,7 @@
           "type": "collection",
           "settings": {
             "collection": "sleeping-bags",
-            "image": "shopify://shop_images/sleeping-bags-collection_a468e8d2-e38a-40f8-bf7c-5947819aa178.jpg",
+            "image": "shopify://shop_images/sleeping-bags.png",
             "label": "SLEEPING BAG"
           }
         },
@@ -212,9 +212,7 @@
         "collection_down_wear",
         "collection_collaboration"
       ],
-      "custom_css": [
-        ".clc__media {background-color: #d7d7d7;}"
-      ],
+      "custom_css": [],
       "settings": {
         "title": "CATEGORY",
         "description": "",
