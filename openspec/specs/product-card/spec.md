@@ -2,13 +2,13 @@
 
 ## Purpose
 
-Provide a reusable, lean product card snippet (`snippets/product-card.liquid`) driven by section parameters and product metafields, matching the NANGA design. It covers a border toggle, a single metafield-driven badge (content, position, and colors), an optional vendor line, value props, hover scale-zoom, compare-at price presentation, and image fit — without swatches, quick-buy, or hover image-swap.
+Provide a reusable, lean product card snippet (`snippets/product-card.liquid`) driven by section parameters and product metafields, matching the NANGA design. It covers a border toggle, a single metafield-driven badge (content, position, and colors), a section-controllable product-type line and value-prop line, hover scale-zoom, compare-at price presentation, and image fit — without swatches, quick-buy, or hover image-swap.
 
 ## Requirements
 
 ### Requirement: Lean product card snippet
 
-The theme SHALL provide a standalone snippet `snippets/product-card.liquid` that renders a single product as a lean card containing, in order: the product image, an optional badge, an optional vendor/category line, the product title, optional value props, and the price. The snippet SHALL NOT render swatches, quick-buy controls, or hover image-swap. The snippet SHALL accept a `product` object and link the image and title to the product URL.
+The theme SHALL provide a standalone snippet `snippets/product-card.liquid` that renders a single product as a lean card containing, in order: the product image, an optional badge, an optional product-type line, the product title, optional value props, and the price. The snippet SHALL NOT render swatches, quick-buy controls, or hover image-swap. The snippet SHALL accept a `product` object and link the image and title to the product URL.
 
 #### Scenario: Rendering a product card
 
@@ -74,40 +74,55 @@ The card SHALL accept `badge_bg` and `badge_text` parameters and apply them as t
 
 ### Requirement: Value props from metafield
 
-The card SHALL render the product metafield `custom.c_card_value_prop` (a list of single-line text) as a single line of values joined by ` • `, placed between the title and the price. When the metafield is blank or empty, no value-prop line SHALL be rendered.
+The card SHALL render the product metafield `custom.c_card_value_prop` (a list of single-line text) as a single line of values joined by ` • `, placed between the title and the price. The card SHALL accept a `show_value_props` boolean parameter gating the line: when `false`, no value-prop line SHALL be rendered regardless of metafield content; when `true` or omitted, the line renders whenever the metafield is non-empty.
 
-#### Scenario: Value props present
+#### Scenario: Value props present and enabled
 
-- **WHEN** `product.metafields.custom.c_card_value_prop` contains `["650 Fill Power", "900g"]`
-- **THEN** the card renders `650 Fill Power • 900g` between the title and the price
+- **WHEN** `product.metafields.custom.c_card_value_prop` contains `["760FP", "285g"]` and the snippet is rendered with `show_value_props: true` or without the parameter
+- **THEN** the card renders `760FP • 285g` between the title and the price
+
+#### Scenario: Value props suppressed by the caller
+
+- **WHEN** the metafield is non-empty and the snippet is rendered with `show_value_props: false`
+- **THEN** no value-prop line is rendered
 
 #### Scenario: Value props absent
 
 - **WHEN** `product.metafields.custom.c_card_value_prop` is blank or empty
 - **THEN** the card renders no value-prop line
 
-### Requirement: Optional vendor line
+### Requirement: Product type line
 
-The card SHALL accept a `show_vendor` boolean parameter. When true, the product vendor SHALL be displayed as a category line above the title; when false or omitted, the vendor SHALL NOT be displayed.
+The card SHALL display the product's type (`product.type`) as a category line above the title. The card SHALL accept a `show_type` boolean parameter gating the line: when `false`, no category line SHALL be rendered; when `true` or omitted, the line renders whenever the product has a non-blank type. The line's text color SHALL be the design gray (`#4b5563`).
 
-#### Scenario: Vendor shown
+#### Scenario: Product has a type and the line is enabled
 
-- **WHEN** the snippet is rendered with `show_vendor: true`
-- **THEN** the product vendor is displayed above the title
+- **WHEN** the product has a non-blank `product.type` and the snippet is rendered with `show_type: true` or without the parameter
+- **THEN** the card displays the product type as a category line above the title
 
-#### Scenario: Vendor hidden
+#### Scenario: Category line suppressed by the caller
 
-- **WHEN** the snippet is rendered with `show_vendor: false` or without the parameter
-- **THEN** no vendor line is displayed
+- **WHEN** the product has a non-blank type and the snippet is rendered with `show_type: false`
+- **THEN** no category line is rendered
+
+#### Scenario: Product has no type
+
+- **WHEN** `product.type` is blank
+- **THEN** no category line is displayed above the title
 
 ### Requirement: Hover scale-zoom
 
-The card SHALL apply a hover scale-zoom to the product image, smoothly scaling the image up on pointer hover and returning to its original scale, without overflowing the image container.
+The card SHALL apply a hover scale-zoom to the product image, scaling to 1.05 over 0.5s with the `cubic-bezier(0.4, 0, 0.2, 1)` easing, triggered by hovering anywhere on the card, without overflowing the image container. On the same hover, the title SHALL transition its color to the design gray (`#4b5563`) over 150ms. The hover colors SHALL be defined explicitly in card-scoped rules (not via undefined theme variables).
 
 #### Scenario: Hovering the card
 
-- **WHEN** a user hovers over the card image
-- **THEN** the image smoothly scales up and the container clips any overflow
+- **WHEN** a user hovers anywhere over the card
+- **THEN** the image smoothly scales up to 1.05 with the specified duration and easing, and the container clips any overflow
+
+#### Scenario: Title hover color is visible
+
+- **WHEN** a user hovers over the card
+- **THEN** the title color visibly transitions from its resting color to `#4b5563`
 
 ### Requirement: Compare-at price presentation
 
@@ -125,14 +140,15 @@ The card SHALL render price using the existing `snippets/price.liquid`, wrapped 
 
 ### Requirement: Image fit
 
-The card SHALL accept an `image_fit` parameter with values `contain` or `cover` controlling how the product image fits its container. When omitted, the snippet SHALL choose a sensible default.
+The card SHALL accept an `image_fit` parameter with values `contain` or `cover` controlling how the product image fits its container. When omitted, the snippet SHALL default to `contain` so the full product is visible (white background with padding) and not cropped. With `cover`, the image container's background SHALL be the design's light gray (`#f3f4f6`) so lazy-loading and transparent images match the design's tinted frame.
 
-#### Scenario: Contain fit
+#### Scenario: Default fit
 
-- **WHEN** the snippet is rendered with `image_fit: 'contain'`
-- **THEN** the image is scaled to fit fully within the container without cropping
+- **WHEN** the snippet is rendered without the `image_fit` parameter
+- **THEN** the image is scaled to fit fully within the container without cropping (contain) on a white, padded frame
 
-#### Scenario: Cover fit
+#### Scenario: Cover fit on gray
 
 - **WHEN** the snippet is rendered with `image_fit: 'cover'`
-- **THEN** the image fills the container and is cropped to its aspect ratio
+- **THEN** the image fills the container, cropped to its aspect ratio, with no padding
+- **AND** the image container background is `#f3f4f6`
