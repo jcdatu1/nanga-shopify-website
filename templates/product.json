@@ -111,6 +111,7 @@
     },
     "related-products": {
       "type": "related-products",
+      "disabled": true,
       "settings": {
         "title": "You may also like",
         "show_vendor": false,
