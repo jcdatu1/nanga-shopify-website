@@ -140,8 +140,8 @@
         "text_t88MVY": {
           "type": "text",
           "settings": {
-            "title": "Talk about your store",
-            "text": "<p>Use this text area to tell your customers about your brand and vision. You can change it in the theme editor.</p>",
+            "title": "Stay Updated",
+            "text": "<p>Get the latest news and exclusive offers.</p>",
             "image_width": 100,
             "show_social_icons": true,
             "soc_icons_large": false,
