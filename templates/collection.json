@@ -58,6 +58,7 @@
         "enable_filtering": true,
         "enable_sticky_filter": true,
         "show_filter_counts": false,
+        "price_brackets": "500,700,1000",
         "show_sort": true,
         "sort_show_featured": false,
         "sort_show_best": true,
@@ -69,7 +70,7 @@
         "show_value_props": true,
         "tag_style": "light",
         "tag_position": "overlay",
-        "show_border": false
+        "show_border": true
       }
     }
   },
