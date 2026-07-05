@@ -2,7 +2,7 @@
 
 ## Purpose
 
-Provide a reusable flat page-header section (`sections/c-page-header.liquid`, "C Page header"): an H1 title and reading-width subtitle on a per-section tinted band with an optional bottom border, reproducing the NANGA design's Knowledge/Journal/category page headers from settings alone; no JavaScript.
+Provide a reusable flat page-header section (`sections/c-page-header.liquid`, "C Page header"): an H1 title and reading-width subtitle on a per-section tinted band with an optional bottom border, reproducing the NANGA design's Knowledge/Journal/category page headers from settings alone — with blank settings falling back to the template context (collection title/description, page title) so the same section serves collection templates dynamically; no JavaScript.
 
 ## Requirements
 
@@ -47,3 +47,22 @@ The section's styles SHALL live in a dedicated lazily-loaded stylesheet scoped u
 
 - **WHEN** the section renders
 - **THEN** no script tag is emitted and no shared class or other section is affected
+
+### Requirement: Contextual title and subtitle fallback
+
+When the section's `title` setting is blank, the header SHALL fall back to the template context's title: `collection.title` on collection templates, else `page.title` on page templates. When the subtitle setting is blank on a collection template, the header SHALL fall back to `collection.description` (rendered as rich text). Instances with non-blank settings SHALL behave exactly as before; a blank fallback (e.g. a collection with no description) SHALL render cleanly with no empty-element artifacts.
+
+#### Scenario: Dynamic collection header
+
+- **WHEN** an instance with a blank title and blank subtitle renders on a collection template
+- **THEN** the header shows the current collection's title as the heading and its description as the subtitle
+
+#### Scenario: Static settings take precedence
+
+- **WHEN** an instance sets a non-blank title (e.g. "KNOWLEDGE")
+- **THEN** the configured text renders and no contextual fallback applies
+
+#### Scenario: Collection without a description
+
+- **WHEN** the current collection has no description and the subtitle setting is blank
+- **THEN** the header renders only the title, with no empty subtitle markup

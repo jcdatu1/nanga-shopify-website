@@ -156,7 +156,7 @@
         "collection_wear": {
           "type": "collection",
           "settings": {
-            "collection": "wear",
+            "collection": "wear-1",
             "label": "WEAR"
           }
         },

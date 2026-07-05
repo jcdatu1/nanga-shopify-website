@@ -128,10 +128,11 @@
             {%- endfor -%}
           </div>
         {% endif %}
+
+        {%- comment -%} Inside [data-ajax-container] so it refreshes with the grid — do not nest another container here. {%- endcomment -%}
+        <div class="cmc__pagination">{% render 'pagination-control', paginate: paginate %}</div>
       </div>
     </filter-container>
-
-    <div class="cmc__pagination" data-ajax-container>{% render 'pagination-control', paginate: paginate %}</div>
   </div>
 </div>
 {% endpaginate %}

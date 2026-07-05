@@ -47,6 +47,16 @@
         "rel_coll_grid_mobile": "2"
       }
     },
+    "collection_header": {
+      "type": "c-page-header",
+      "settings": {
+        "title": "",
+        "use_h1": true,
+        "subtitle": "",
+        "background_color": "#f9fafb",
+        "show_border": true
+      }
+    },
     "c_main_collection_rzhFtD": {
       "type": "c-main-collection",
       "name": "C Collection grid",
@@ -75,6 +85,7 @@
   },
   "order": [
     "main",
+    "collection_header",
     "c_main_collection_rzhFtD"
   ]
 }
