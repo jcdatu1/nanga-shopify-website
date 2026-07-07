@@ -49,6 +49,9 @@
     },
     "collection_header": {
       "type": "c-page-header",
+      "custom_css": [
+        "h1 {text-transform: uppercase;}"
+      ],
       "settings": {
         "title": "",
         "use_h1": true,
