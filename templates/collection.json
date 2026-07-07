@@ -49,6 +49,9 @@
     },
     "collection_header": {
       "type": "c-page-header",
+      "custom_css": [
+        "h1 {text-transform: uppercase;}"
+      ],
       "settings": {
         "title": "",
         "use_h1": true,
@@ -75,7 +78,7 @@
         "sort_show_alpha": true,
         "sort_show_price": true,
         "sort_show_date": true,
-        "image_style": "cover",
+        "image_style": "contain",
         "show_type": false,
         "show_value_props": true,
         "tag_style": "light",

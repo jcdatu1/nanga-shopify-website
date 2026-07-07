@@ -45,7 +45,7 @@
       "settings": {
         "height": "fixed",
         "height_desktop": 780,
-        "height_mobile": 640,
+        "height_mobile": 520,
         "full_width": true,
         "mobile_overlay_under": false,
         "overlay_style": "shadow",
@@ -69,11 +69,11 @@
         "collection": "new-arrivals",
         "limit": 12,
         "cards_desktop": 3,
-        "cards_mobile": 1,
+        "cards_mobile": 2,
         "full_width": false,
         "image_style": "contain",
         "show_type": true,
-        "show_value_props": false,
+        "show_value_props": true,
         "tag_style": "dark",
         "tag_position": "inside",
         "show_border": false,
@@ -94,11 +94,11 @@
         "collection": "down-wear",
         "limit": 12,
         "cards_desktop": 3,
-        "cards_mobile": 1,
+        "cards_mobile": 2,
         "full_width": false,
         "image_style": "contain",
         "show_type": true,
-        "show_value_props": false,
+        "show_value_props": true,
         "tag_style": "light",
         "tag_position": "inside",
         "show_border": false,
@@ -112,7 +112,7 @@
         "heading_craftsmanship": {
           "type": "heading",
           "settings": {
-            "title": "Japanese Craftsmanship",
+            "title": "JAPANESE CRAFTSMANSHIP",
             "use_h1": false
           }
         },

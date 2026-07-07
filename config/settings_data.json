@@ -76,7 +76,7 @@
     "letter_spacing_heading": -4,
     "type_base_font": "inter_n4",
     "type_nav_font": "inter_n4",
-    "bold_mobile_nav": false,
+    "bold_mobile_nav": true,
     "type_logo_font": "inter_n4",
     "font_size_heading_int": 34,
     "font_size_base_int": 14,
