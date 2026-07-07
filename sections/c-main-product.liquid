@@ -16,9 +16,10 @@
     per block in the theme editor.
   - Combined listing block: metaobject definition 'c_combined_listings' (fields:
     product_list - list of product references; variant_label - single line text)
-    plus two index-matched product metafield lists, custom.c_combined_listing_set
-    (metaobject references) and custom.c_combined_listing_name (single line text) —
-    name[i] is the product's display name within set[i]. Keys editable per block.
+    plus two single-value product metafields — custom.c_combined_listing_set
+    (metaobject reference; a product belongs to at most one set) and
+    custom.c_combined_listing_name (single line text, the product's display name
+    within the set). Keys editable per block.
 {%- endcomment -%}
 <link rel="stylesheet" href="{{ 'c-main-product.css' | asset_url }}" {%- render 'lazy-stylesheet-attrs' %}>
 <script src="{{ 'c-main-product.js' | asset_url }}" defer></script>
@@ -442,14 +443,14 @@
           "type": "text",
           "id": "set_metafield",
           "label": "Set metafield",
-          "info": "Product 'list of metaobject references' metafield, as 'namespace.key'.",
+          "info": "Product 'metaobject reference' metafield, as 'namespace.key'.",
           "default": "custom.c_combined_listing_set"
         },
         {
           "type": "text",
           "id": "name_metafield",
           "label": "Name metafield",
-          "info": "Product 'list of single line text' metafield, as 'namespace.key'. Entries pair with the set list by position.",
+          "info": "Product 'single line text' metafield, as 'namespace.key' — the product's display name within its set.",
           "default": "custom.c_combined_listing_name"
         }
       ]

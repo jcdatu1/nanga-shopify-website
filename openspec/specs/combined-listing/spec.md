@@ -2,64 +2,59 @@
 
 ## Purpose
 
-Provide a metafield/metaobject-driven sibling-product selector on the product page (`c-main-product` section) for stores without Shopify's native (Plus-only) Combined Listings. A merchant-defined `c_combined_listings` metaobject groups separate products (mostly colorways); the PDP renders one variant-picker-style row per set with the current product marked selected and sold-out siblings greyed, and switches products seamlessly via the Section Rendering API (`snippets/combined-listing.liquid` + `assets/combined-listing.js`), degrading to plain links.
+Provide a metafield/metaobject-driven sibling-product selector on the product page (`c-main-product` section) for stores without Shopify's native (Plus-only) Combined Listings. A merchant-defined `c_combined_listings` metaobject groups separate products (mostly colorways); the PDP renders a variant-picker-style row for the product's set with the current product marked selected and sold-out siblings greyed, and switches products seamlessly via the Section Rendering API (`snippets/combined-listing.liquid` + `assets/combined-listing.js`), degrading to plain links.
 
 ## Requirements
 
 ### Requirement: Metaobject-driven combined listing data model
 
-The feature SHALL be driven by a `c_combined_listings` metaobject (fields: `product_list`, a list of product references defining the set's members and their display order; `variant_label`, a single-line text axis label such as "Color") and two index-matched product metafield lists: `custom.c_combined_listing_set` (metaobject references) and `custom.c_combined_listing_name` (single-line text), where `name[i]` is the product's display name within `set[i]`. The block SHALL expose both metafield keys as text settings (defaults above, `namespace.key` format). A sibling's display name for a given set SHALL resolve by locating that set (by the metaobject's top-level `id` — Liquid metaobject drops do not expose `system.id`) in the sibling's own set list and reading the same index of the sibling's name list, falling back to the sibling's first name entry, then to the sibling's title.
+The feature SHALL be driven by a `c_combined_listings` metaobject (fields: `product_list`, a list of product references defining the set's members and their display order; `variant_label`, a single-line text axis label such as "Color") and two **single-value** product metafields: `custom.c_combined_listing_set` (metaobject reference — a product belongs to at most one set) and `custom.c_combined_listing_name` (single-line text, the product's display name within its set). The block SHALL expose both metafield keys as text settings (defaults above, `namespace.key` format). A member's display name SHALL resolve from that member's own name metafield, falling back to the member's title.
 
-#### Scenario: Sibling name resolution in a multi-set product
+#### Scenario: Member name resolution
 
-- **WHEN** a sibling belongs to sets `[Capacity, Color]` with names `["2-Person", "Navy"]` and a Color-set row is rendered
-- **THEN** the sibling's entry displays "Navy"
+- **WHEN** a member product's name metafield is "Navy"
+- **THEN** the member's entry displays "Navy"
 
-#### Scenario: Name list mismatch
+#### Scenario: Missing member name
 
-- **WHEN** a sibling's name list has no entry at the resolved set index
-- **THEN** the entry displays the sibling's first name entry when present, otherwise the sibling's product title, and the row still renders
+- **WHEN** a member product has no name metafield value
+- **THEN** the entry displays the member's product title, and the row still renders
 
 ### Requirement: Combined listing block on the product page
 
-The `c-main-product` section SHALL provide a `combined-listing` block (limit 1) that renders one selector row per set referenced by the current product, in metafield order, positioned by editor block order (above the variant picker in `templates/product.json`). Each row SHALL render a label line with the set's `variant_label` and, for image-swatch rows, the current product's display name for that set. Each set member SHALL render as a real anchor linking to the sibling product's URL, in `product_list` order. A product with no set references SHALL render nothing.
+The `c-main-product` section SHALL provide a `combined-listing` block (limit 1) that renders a selector row for the set referenced by the current product, positioned by editor block order (above the variant picker in `templates/product.json`). The row SHALL render a label line with the set's `variant_label` and, for image-swatch rows, the current product's display name. Each set member SHALL render as a real anchor linking to the sibling product's URL, in `product_list` order. A product with no set reference SHALL render nothing.
 
-#### Scenario: Product in one color set
+#### Scenario: Product in a color set
 
-- **WHEN** a product referencing one set (label "Color", members Navy/Sand/Moss) renders the block
-- **THEN** one row appears labeled with "Color" and the current product's name, containing three entries in `product_list` order, each an anchor to that sibling's product URL
-
-#### Scenario: Product in multiple sets
-
-- **WHEN** a product references a Color set and a Capacity set
-- **THEN** two rows render, one per set, in metafield order
+- **WHEN** a product referencing a set (label "Color", members Navy/Sand/Moss) renders the block
+- **THEN** a row appears labeled with "Color" and the current product's name, containing three entries in `product_list` order, each an anchor to that sibling's product URL
 
 #### Scenario: No set membership
 
-- **WHEN** a product has no `c_combined_listing_set` references
+- **WHEN** a product has no `c_combined_listing_set` reference
 - **THEN** the block renders no markup
 
 ### Requirement: Presentation by variant label
 
-A row whose `variant_label` matches `settings.swatch_option_name` (the same containment test the variant picker uses) SHALL render entries in the theme's listed image-swatch style — the sibling's featured image as a circular thumbnail beside the display name, reusing the existing `.opt-label--image` pattern. Any other row SHALL render entries as the theme's text button pills (`.opt-label--btn` pattern). Shared global classes SHALL be consumed without modification; new rules SHALL be scoped to the section's stylesheet.
+A row whose `variant_label` matches `settings.swatch_option_name` (the same containment test the variant picker uses) SHALL render entries in the theme's listed image-swatch style — the sibling's featured image as a thumbnail card beside the display name, reusing the existing `.opt-label--image` pattern. Any other label SHALL render entries as the theme's text button pills (`.opt-label--btn` pattern). Shared global classes SHALL be consumed without modification; new rules SHALL be scoped to the section's stylesheet.
 
 #### Scenario: Color set renders image swatches
 
-- **WHEN** `settings.swatch_option_name` contains "Color" and a row's `variant_label` is "Color"
-- **THEN** each entry shows the sibling's featured image as a circular thumbnail with the display name beside it
+- **WHEN** `settings.swatch_option_name` contains "Color" and the set's `variant_label` is "Color"
+- **THEN** each entry shows the sibling's featured image as a thumbnail with the display name beside it
 
 #### Scenario: Non-color set renders button pills
 
-- **WHEN** a row's `variant_label` is "Capacity" and it does not match `settings.swatch_option_name`
+- **WHEN** the set's `variant_label` is "Capacity" and it does not match `settings.swatch_option_name`
 - **THEN** entries render as text-only button pills showing display names, with no thumbnails
 
 ### Requirement: Entry states
 
-The entry for the current product SHALL be visually marked as selected (active border treatment consistent with the variant picker's checked state) and carry `aria-current="true"`. A sibling whose product is not available (all variants sold out) SHALL render with the theme's unavailable treatment (greyed) while remaining a functional link. Blank or inaccessible product references SHALL be skipped. A row with fewer than two visible products SHALL not render. When the current product is absent from a set's `product_list`, the row SHALL still render its members with no entry marked current.
+The entry for the current product SHALL be visually marked as selected (active border treatment consistent with the variant picker's checked state) and carry `aria-current="true"`. A sibling whose product is not available (all variants sold out) SHALL render with the theme's unavailable treatment (greyed) while remaining a functional link. Blank or inaccessible product references SHALL be skipped. A row with fewer than two visible products SHALL not render. When the current product is absent from the set's `product_list` (authoring mismatch), the row SHALL still render its members with no entry marked current.
 
 #### Scenario: Current product marked selected
 
-- **WHEN** a row renders and one member is the current product
+- **WHEN** the row renders and one member is the current product
 - **THEN** that entry shows the active treatment with `aria-current="true"` and the others do not
 
 #### Scenario: Sold-out sibling
@@ -69,8 +64,8 @@ The entry for the current product SHALL be visually marked as selected (active b
 
 #### Scenario: Set too small after filtering
 
-- **WHEN** filtering blank/inaccessible references leaves fewer than two visible products in a set
-- **THEN** that row does not render
+- **WHEN** filtering blank/inaccessible references leaves fewer than two visible products in the set
+- **THEN** the row does not render
 
 ### Requirement: Seamless product switching via the Section Rendering API
 
@@ -79,7 +74,7 @@ A `<combined-listing>` custom element (new `assets/combined-listing.js`, deferre
 #### Scenario: Clicking a sibling swaps the section
 
 - **WHEN** a shopper clicks a sibling entry and the fetch returns the section rendered for the sibling
-- **THEN** the section's content (gallery, title, price, description, variant picker, buy buttons, metafield blocks, and the combined-listing rows) reflects the sibling product without a page load
+- **THEN** the section's content (gallery, title, price, description, variant picker, buy buttons, metafield blocks, and the combined-listing row) reflects the sibling product without a page load
 - **AND** the address bar shows the sibling's URL via `history.pushState`
 
 #### Scenario: Hover preload

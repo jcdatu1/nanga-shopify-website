@@ -1,25 +1,25 @@
 {%- comment -%}
   Combined listing selector — metafield-driven sibling products (NANGA).
-  Renders one option-selector-style row per "set" the product belongs to. Members
-  are separate products, linked as real anchors; assets/combined-listing.js swaps
-  the whole section via the Section Rendering API for a seamless switch.
+  Renders one option-selector-style row for the "set" the product belongs to.
+  Members are separate products, linked as real anchors; assets/combined-listing.js
+  swaps the whole section via the Section Rendering API for a seamless switch.
 
   Store configuration this snippet expects (no code involved):
   - Metaobject definition 'c_combined_listings' with fields:
       product_list  - list of product references (members, in display order)
       variant_label - single line text (axis label, e.g. "Color")
-  - Product metafields (keys configurable via the block settings):
-      set_metafield  - list of 'c_combined_listings' metaobject references
-      name_metafield - list of single line text
-    The two lists are index-matched: name[i] is the product's display name
-    within set[i]. A row whose variant_label matches the theme's swatch option
-    name setting renders image cards; other rows render text buttons.
+  - Product metafields (keys configurable via the block settings), both SINGLE values —
+    a product belongs to at most one set:
+      set_metafield  - metaobject reference to its 'c_combined_listings' set
+      name_metafield - single line text, the product's display name within the set
+    A set whose variant_label matches the theme's swatch option name setting
+    renders image cards; any other label renders text buttons.
 
   Parameters:
   - product {Object} - Product object (required).
   - section_id {String} - Section ID for the Section Rendering API swap (required).
-  - set_metafield {String} - Product metafield holding the set references, as 'namespace.key'.
-  - name_metafield {String} - Product metafield holding the display names, as 'namespace.key'.
+  - set_metafield {String} - Product metafield holding the set reference, as 'namespace.key'.
+  - name_metafield {String} - Product metafield holding the display name, as 'namespace.key'.
 
   Usage:
   {% render 'combined-listing', product: product, section_id: section.id, set_metafield: 'custom.c_combined_listing_set', name_metafield: 'custom.c_combined_listing_name' %}
@@ -27,104 +27,75 @@
 {%- liquid
   assign set_ref = set_metafield | strip | split: '.'
   assign name_ref = name_metafield | strip | split: '.'
-  assign cl_sets = false
+  assign cl_set = false
   if set_ref.size == 2 and name_ref.size == 2
-    assign cl_sets = product.metafields[set_ref[0]][set_ref[1]].value
-    assign cl_names = product.metafields[name_ref[0]][name_ref[1]].value
+    assign cl_set = product.metafields[set_ref[0]][set_ref[1]].value
   endif
-
-  assign swatch_image_size_x2 = settings.swatch_picker_image_size | times: 2
-  assign img_sizes = settings.swatch_picker_image_size | append: 'px'
-  assign img_widths = swatch_image_size_x2 | append: ', ' | append: settings.swatch_picker_image_size
 -%}
-{%- if cl_sets and cl_sets.size > 0 -%}
-  {%- capture cl_rows -%}
-    {%- for cl_set in cl_sets -%}
-      {%- liquid
-        assign set_index0 = forloop.index0
+{%- if cl_set != blank -%}
+  {%- liquid
+    # Count members that resolve to an accessible product (drafts/deleted return blank)
+    assign visible_count = 0
+    for member in cl_set.product_list.value
+      if member != blank and member.id != blank
+        assign visible_count = visible_count | plus: 1
+      endif
+    endfor
+  -%}
 
-        # Count members that resolve to an accessible product (drafts/deleted return blank)
-        assign visible_count = 0
-        for member in cl_set.product_list.value
-          if member != blank and member.id != blank
-            assign visible_count = visible_count | plus: 1
-          endif
-        endfor
-      -%}
+  {%- comment -%} A set of one says nothing — render only with 2+ visible members {%- endcomment -%}
+  {%- if visible_count >= 2 -%}
+    {%- liquid
+      assign row_label = cl_set.variant_label
+      assign is_image_row = false
+      if settings.swatch_option_name contains row_label
+        assign is_image_row = true
+      endif
 
-      {%- comment -%} Only render rows that contain at least 2 visible items {%- endcomment -%}
-      {%- if visible_count >= 2 -%}
-        {%- liquid
-          assign row_label = cl_set.variant_label
-          assign is_image_row = false
-          if settings.swatch_option_name contains row_label
-            assign is_image_row = true
-          endif
+      assign current_name = product.metafields[name_ref[0]][name_ref[1]].value | default: product.title
 
-          assign current_name = cl_names[set_index0]
-          if current_name == blank
-            assign current_name = cl_names | first | default: product.title
-          endif
-        -%}
-        <div class="option-selector option-selector--custom cl-row">
-          <div class="label">
-            {{- row_label | escape -}}
-            {%- if is_image_row -%}
-              : <span class="option-selector__label-value">{{ current_name | escape }}</span>
-            {%- endif -%}
-          </div>
-          <div class="option-selector__btns flex flex-wrap">
-            {%- for member in cl_set.product_list.value -%}
-              {%- liquid
-                if member == blank or member.id == blank
-                  continue
-                endif
-
-                # Resolve display name: find this row's set inside the target sibling's own list 
-                # to extract its uniquely indexed localized display name.
-                assign member_sets = member.metafields[set_ref[0]][set_ref[1]].value
-                assign member_names = member.metafields[name_ref[0]][name_ref[1]].value
-                assign member_name = ''
-                
-                for member_set in member_sets
-                  if member_set.id != blank and member_set.id == cl_set.id
-                    assign name_target_index = forloop.index0
-                    assign member_name = member_names[name_target_index]
-                    break
-                  endif
-                endfor
-
-                if member_name == blank
-                  assign member_name = member_names | first | default: member.title
-                endif
-
-                assign is_current = false
-                if member.id == product.id
-                  assign is_current = true
-                endif
-
-                assign member_image = member.featured_media.preview_image
-              -%}
-              <a href="{{ member.url }}"
-                 class="cl-entry opt-label relative {% if is_image_row and member_image %}opt-label--image{% else %}opt-label--btn btn text-center{% endif %}{% if is_current %} cl-entry--current{% endif %}{% unless member.available %} opt-label--is-unavailable{% endunless %}"
-                 {%- if is_current %} aria-current="true"{% endif %}>
-                {%- if is_image_row and member_image -%}
-                  <div class="opt-label__media media img-ar img-ar--cover" style="--aspect-ratio: 1; --crop-align: {{ settings.swatch_crop_align }}">
-                    {{- member_image | image_url: width: swatch_image_size_x2 | image_tag: sizes: img_sizes, widths: img_widths, class: 'theme-img', loading: 'lazy' -}}
-                  </div>
-                {%- endif -%}
-                <span class="js-value">{{ member_name | escape }}</span>
-              </a>
-            {%- endfor -%}
-          </div>
-        </div>
-      {%- endif -%}
-    {%- endfor -%}
-  {%- endcapture -%}
-
-  {%- if cl_rows contains 'cl-row' -%}
+      assign swatch_image_size_x2 = settings.swatch_picker_image_size | times: 2
+      assign img_sizes = settings.swatch_picker_image_size | append: 'px'
+      assign img_widths = swatch_image_size_x2 | append: ', ' | append: settings.swatch_picker_image_size
+    -%}
     <combined-listing class="block" data-section-id="{{ section_id }}">
-      {{- cl_rows -}}
+      <div class="option-selector option-selector--custom cl-row">
+        <div class="label">
+          {{- row_label | escape -}}
+          {%- if is_image_row -%}
+            : <span class="option-selector__label-value">{{ current_name | escape }}</span>
+          {%- endif -%}
+        </div>
+        <div class="option-selector__btns flex flex-wrap">
+          {%- for member in cl_set.product_list.value -%}
+            {%- liquid
+              if member == blank or member.id == blank
+                continue
+              endif
+
+              # Display name: the member's own single name metafield, else its title
+              assign member_name = member.metafields[name_ref[0]][name_ref[1]].value | default: member.title
+
+              assign is_current = false
+              if member.id == product.id
+                assign is_current = true
+              endif
+
+              assign member_image = member.featured_media.preview_image
+            -%}
+            <a href="{{ member.url }}"
+               class="cl-entry opt-label relative {% if is_image_row and member_image %}opt-label--image{% else %}opt-label--btn btn text-center{% endif %}{% if is_current %} cl-entry--current{% endif %}{% unless member.available %} opt-label--is-unavailable{% endunless %}"
+               {%- if is_current %} aria-current="true"{% endif %}>
+              {%- if is_image_row and member_image -%}
+                <div class="opt-label__media media img-ar img-ar--cover" style="--aspect-ratio: 1; --crop-align: {{ settings.swatch_crop_align }}">
+                  {{- member_image | image_url: width: swatch_image_size_x2 | image_tag: sizes: img_sizes, widths: img_widths, class: 'theme-img', loading: 'lazy' -}}
+                </div>
+              {%- endif -%}
+              <span class="js-value">{{ member_name | escape }}</span>
+            </a>
+          {%- endfor -%}
+        </div>
+      </div>
     </combined-listing>
   {%- endif -%}
 {%- endif -%}
