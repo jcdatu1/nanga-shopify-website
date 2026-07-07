@@ -29,8 +29,8 @@
   assign name_ref = name_metafield | strip | split: '.'
   assign cl_sets = false
   if set_ref.size == 2 and name_ref.size == 2
-    assign cl_sets = product.metafields[set_ref[0]][set_ref[1]].value
-    assign cl_names = product.metafields[name_ref[0]][name_ref[1]].value
+    assign cl_sets = product.metafields.[set_ref[0]].[set_ref[1]].value
+    assign cl_names = product.metafields.[name_ref[0]].[name_ref[1]].value
   endif
 
   assign swatch_image_size_x2 = settings.swatch_picker_image_size | times: 2
