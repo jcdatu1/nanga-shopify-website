@@ -85,7 +85,7 @@
               assign member_names = member.metafields[name_ref[0]][name_ref[1]].value
               assign member_name = ''
               for member_set in member_sets
-                if member_set.system.id == cl_set.system.id
+                if member_set.id != blank and member_set.id == cl_set.id
                   assign member_name = member_names[forloop.index0]
                   break
                 endif
