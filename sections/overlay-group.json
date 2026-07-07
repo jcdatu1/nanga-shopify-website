@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "type": "aside",
   "name": "Overlay Group",
@@ -5,7 +14,7 @@
     "cart-drawer": {
       "type": "cart-drawer",
       "settings": {
-        "show_order_note": true,
+        "show_order_note": false,
         "show_tax_and_shipping": true,
         "enable_direct_cart": false,
         "cart_terms_page": "",
@@ -13,16 +22,16 @@
         "show_inventory_notice": "low",
         "show_inventory_count": "low",
         "inventory_threshold": 10,
-        "show_announcement": true,
+        "show_announcement": false,
         "announcement_position": "below-items",
-        "announcement_text": "<a href=\"#\" title=\"Clearance\"><strong>Summer Sale!<\/strong><\/a> Bag a bargain whilst stocks last!",
+        "announcement_text": "<a href=\"#\" title=\"Clearance\"><strong>Summer Sale!</strong></a> Bag a bargain whilst stocks last!",
         "announcement_icon": "price_tag",
         "announcement_icon_size": "small",
         "announcement_enable_box": true,
         "announcement_box_color": "#ececec",
         "empty_icon": "bag",
         "empty_heading": "Your bag is empty",
-        "empty_text": "<p>Looking for ideas?<\/p>",
+        "empty_text": "<p>Looking for ideas?</p>",
         "empty_button_text": "Start shopping",
         "empty_button_link": "",
         "empty_button_style": "primary",
@@ -50,7 +59,7 @@
         "text": {
           "type": "text",
           "settings": {
-            "text": "<p>Receive 15% OFF your first order and get priority access to sales & exclusive deals.<\/p>",
+            "text": "<p>Receive 15% OFF your first order and get priority access to sales & exclusive deals.</p>",
             "text_size": "small-text"
           }
         },
@@ -63,7 +72,6 @@
         "21558aaf-7983-4c39-a2d9-5e803d85df82": {
           "type": "image",
           "settings": {
-            "image": "",
             "image_position_desktop": "right",
             "image_position_mobile": "top"
           }
