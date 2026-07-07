@@ -2,7 +2,7 @@
 
 ## Purpose
 
-Provide a reusable section (`sections/c-content-panel.liquid`, "C Content panel") rendering a padded content panel with per-section background and text colors, composed from heading, text, stat, and button blocks. It covers both the NANGA design's tinted stats panel (e.g. Fill Power) and its full-width dark band (e.g. Responsible Sourcing) without touching the theme's global color schemes; no JavaScript.
+Provide a reusable section (`sections/c-content-panel.liquid`, "C Content panel") rendering a padded content panel with per-section background and text colors, composed from heading, subheading, text, stat, and button blocks. It covers both the NANGA design's tinted stats panel (e.g. Fill Power) and its full-width dark band (e.g. Responsible Sourcing) without touching the theme's global color schemes; no JavaScript.
 
 ## Requirements
 
@@ -22,7 +22,7 @@ The theme SHALL provide a section `sections/c-content-panel.liquid` ("C Content 
 
 ### Requirement: Composable content blocks
 
-The section SHALL compose its content from blocks consistent with the theme's established block model: `heading` (text), `text` (richtext), `stat` (label + description), and `button` (label, link, style select: primary/secondary/link). Blocks SHALL render in block order.
+The section SHALL compose its content from blocks consistent with the theme's established block model: `heading` (text), `subheading` (text), `text` (richtext), `stat` (label + description), and `button` (label, link, style select: primary/secondary/link). Blocks SHALL render in block order. The `subheading` block SHALL render as an `<h3>` scoped to the panel (`ccp__subheading`), colored with the panel's heading/stat color and sized between the panel heading and body text, so long-form content can express subsections beneath the panel's `<h2>` heading. Adding the `subheading` block SHALL NOT change the rendering of existing block types or existing section instances.
 
 #### Scenario: Heading and text blocks
 
@@ -33,6 +33,16 @@ The section SHALL compose its content from blocks consistent with the theme's es
 
 - **WHEN** a button block uses the `primary` style
 - **THEN** it renders as a standard theme button (`btn btn--primary`)
+
+#### Scenario: Subheading blocks between text blocks
+
+- **WHEN** the merchant composes a heading block, then alternating subheading and text blocks
+- **THEN** the panel renders one h2 followed by h3 subsections each above their paragraphs, in block order
+
+#### Scenario: Existing instances unaffected
+
+- **WHEN** a `c-content-panel` instance that uses no subheading blocks (e.g. the Technology template's panels) renders after this change
+- **THEN** its markup and styling are unchanged
 
 ### Requirement: Stat blocks render as bordered columns
 
