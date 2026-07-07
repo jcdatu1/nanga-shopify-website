@@ -3460,7 +3460,7 @@ body:not(.reveal-mobile-nav) .mobile-navigation-drawer .mobile-navigation-drawer
   justify-content: space-between;
   width: 100%;
   transition: background-color 175ms ease-in, color 175ms ease-in, border-color 175ms ease-in;
-  border-bottom: 1px solid var(--heading-divider-col);
+  /* border-bottom: 1px solid var(--heading-divider-col); */
   color: var(--header-text-col);
   font-size: var(--smaller-text-size-1);
 }
