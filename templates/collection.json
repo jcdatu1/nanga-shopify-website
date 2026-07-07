@@ -75,7 +75,7 @@
         "sort_show_alpha": true,
         "sort_show_price": true,
         "sort_show_date": true,
-        "image_style": "cover",
+        "image_style": "contain",
         "show_type": false,
         "show_value_props": true,
         "tag_style": "light",
