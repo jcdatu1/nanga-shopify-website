@@ -14,6 +14,11 @@
   - Product metafields: custom.key_features (rich text) and custom.specifications
     (list of single line text, each entry "Property|Value"). Both keys are editable
     per block in the theme editor.
+  - Combined listing block: metaobject definition 'c_combined_listings' (fields:
+    product_list - list of product references; variant_label - single line text)
+    plus two index-matched product metafield lists, custom.c_combined_listing_set
+    (metaobject references) and custom.c_combined_listing_name (single line text) —
+    name[i] is the product's display name within set[i]. Keys editable per block.
 {%- endcomment -%}
 <link rel="stylesheet" href="{{ 'c-main-product.css' | asset_url }}" {%- render 'lazy-stylesheet-attrs' %}>
 <script src="{{ 'c-main-product.js' | asset_url }}" defer></script>
@@ -137,6 +142,17 @@
                     {%- comment -%} Own styling (no theme .rte) — Figma: muted, relaxed leading, sm/base sizes {%- endcomment -%}
                     <div class="cmp__description" {{ block.shopify_attributes }}>
                       {{ product.description }}
+                    </div>
+                  {%- endif -%}
+
+                {%- when 'combined-listing' -%}
+                  {%- capture cl_html -%}
+                    {%- render 'combined-listing', product: product, section_id: section.id, set_metafield: block.settings.set_metafield, name_metafield: block.settings.name_metafield -%}
+                  {%- endcapture -%}
+                  {%- if cl_html contains '<combined-listing' -%}
+                    <script src="{{ 'combined-listing.js' | asset_url }}" defer></script>
+                    <div class="cmp__cl" {{ block.shopify_attributes }}>
+                      {{- cl_html -}}
                     </div>
                   {%- endif -%}
 
@@ -412,6 +428,31 @@
       "type": "description",
       "name": "Description",
       "limit": 1
+    },
+    {
+      "type": "combined-listing",
+      "name": "Combined listing",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "paragraph",
+          "content": "Links sibling products defined by a 'c_combined_listings' metaobject set. Renders nothing until the product references a set. Place above the variant picker."
+        },
+        {
+          "type": "text",
+          "id": "set_metafield",
+          "label": "Set metafield",
+          "info": "Product 'list of metaobject references' metafield, as 'namespace.key'.",
+          "default": "custom.c_combined_listing_set"
+        },
+        {
+          "type": "text",
+          "id": "name_metafield",
+          "label": "Name metafield",
+          "info": "Product 'list of single line text' metafield, as 'namespace.key'. Entries pair with the set list by position.",
+          "default": "custom.c_combined_listing_name"
+        }
+      ]
     },
     {
       "type": "variant-picker",

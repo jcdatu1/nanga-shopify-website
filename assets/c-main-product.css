@@ -371,6 +371,51 @@
   pointer-events: none;
 }
 
+/* ---- Combined listing (snippets/combined-listing.liquid) ----
+   Sibling-product rows reusing the option-selector/opt-label look above.
+   Entries are anchors (not radios), so the selected and sold-out states are
+   restated here for .cl-entry; global .opt-label* rules are untouched. */
+.cmp combined-listing.is-loading {
+  opacity: 0.6;
+  transition: opacity 0.15s;
+}
+
+.cmp .cl-row .cl-entry {
+  color: inherit;
+  text-decoration: none;
+}
+
+.cmp .cl-row .cl-entry--current {
+  cursor: default;
+}
+
+.cmp .cl-row .cl-entry--current.opt-label--image {
+  border: 2px solid #000;
+  box-shadow: none;
+}
+
+.cmp .cl-row .cl-entry--current.opt-label--btn {
+  border: 2px solid #000;
+  background-color: #000;
+  color: #fff;
+  box-shadow: none;
+}
+
+/* Sold-out sibling: same X strikethrough as unavailable variants, link stays live */
+.cmp .cl-row .cl-entry.opt-label--is-unavailable {
+  background: none;
+}
+
+.cmp .cl-row .cl-entry.opt-label--is-unavailable::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to top right, transparent calc(50% - 0.5px), #9ca3af calc(50% - 0.5px), #9ca3af calc(50% + 0.5px), transparent calc(50% + 0.5px)),
+    linear-gradient(to bottom right, transparent calc(50% - 0.5px), #9ca3af calc(50% - 0.5px), #9ca3af calc(50% + 0.5px), transparent calc(50% + 0.5px));
+  pointer-events: none;
+}
+
 /* ---- Quantity ---- */
 .cmp__qty {
   margin-bottom: 32px;
