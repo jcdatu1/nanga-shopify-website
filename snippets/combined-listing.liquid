@@ -43,77 +43,82 @@
       {%- liquid
         assign set_index0 = forloop.index0
 
-        # Members that resolve to an accessible product (drafts/deleted come back blank)
+        # Count members that resolve to an accessible product (drafts/deleted return blank)
         assign visible_count = 0
         for member in cl_set.product_list.value
           if member != blank and member.id != blank
             assign visible_count = visible_count | plus: 1
           endif
         endfor
-        if visible_count < 2
-          continue
-        endif
-
-        assign row_label = cl_set.variant_label
-        assign is_image_row = false
-        if settings.swatch_option_name contains row_label
-          assign is_image_row = true
-        endif
-
-        assign current_name = cl_names[set_index0]
-        if current_name == blank
-          assign current_name = cl_names | first | default: product.title
-        endif
       -%}
-      <div class="option-selector option-selector--custom cl-row">
-        <div class="label">
-          {{- row_label | escape -}}
-          {%- if is_image_row -%}
-            : <span class="option-selector__label-value">{{ current_name | escape }}</span>
-          {%- endif -%}
-        </div>
-        <div class="option-selector__btns flex flex-wrap">
-          {%- for member in cl_set.product_list.value -%}
-            {%- liquid
-              if member == blank or member.id == blank
-                continue
-              endif
 
-              # Display name: this set's index in the member's own set list, same
-              # index in its name list; fallback first name entry, then title.
-              assign member_sets = member.metafields[set_ref[0]][set_ref[1]].value
-              assign member_names = member.metafields[name_ref[0]][name_ref[1]].value
-              assign member_name = ''
-              for member_set in member_sets
-                if member_set.id != blank and member_set.id == cl_set.id
-                  assign member_name = member_names[forloop.index0]
-                  break
+      {%- comment -%} Only render rows that contain at least 2 visible items {%- endcomment -%}
+      {%- if visible_count >= 2 -%}
+        {%- liquid
+          assign row_label = cl_set.variant_label
+          assign is_image_row = false
+          if settings.swatch_option_name contains row_label
+            assign is_image_row = true
+          endif
+
+          assign current_name = cl_names[set_index0]
+          if current_name == blank
+            assign current_name = cl_names | first | default: product.title
+          endif
+        -%}
+        <div class="option-selector option-selector--custom cl-row">
+          <div class="label">
+            {{- row_label | escape -}}
+            {%- if is_image_row -%}
+              : <span class="option-selector__label-value">{{ current_name | escape }}</span>
+            {%- endif -%}
+          </div>
+          <div class="option-selector__btns flex flex-wrap">
+            {%- for member in cl_set.product_list.value -%}
+              {%- liquid
+                if member == blank or member.id == blank
+                  continue
                 endif
-              endfor
-              if member_name == blank
-                assign member_name = member_names | first | default: member.title
-              endif
 
-              assign is_current = false
-              if member.id == product.id
-                assign is_current = true
-              endif
+                # Resolve display name: find this row's set inside the target sibling's own list 
+                # to extract its uniquely indexed localized display name.
+                assign member_sets = member.metafields[set_ref[0]][set_ref[1]].value
+                assign member_names = member.metafields[name_ref[0]][name_ref[1]].value
+                assign member_name = ''
+                
+                for member_set in member_sets
+                  if member_set.id != blank and member_set.id == cl_set.id
+                    assign name_target_index = forloop.index0
+                    assign member_name = member_names[name_target_index]
+                    break
+                  endif
+                endfor
 
-              assign member_image = member.featured_media.preview_image
-            -%}
-            <a href="{{ member.url }}"
-               class="cl-entry opt-label relative {% if is_image_row and member_image %}opt-label--image{% else %}opt-label--btn btn text-center{% endif %}{% if is_current %} cl-entry--current{% endif %}{% unless member.available %} opt-label--is-unavailable{% endunless %}"
-               {%- if is_current %} aria-current="true"{% endif %}>
-              {%- if is_image_row and member_image -%}
-                <div class="opt-label__media media img-ar img-ar--cover" style="--aspect-ratio: 1; --crop-align: {{ settings.swatch_crop_align }}">
-                  {{- member_image | image_url: width: swatch_image_size_x2 | image_tag: sizes: img_sizes, widths: img_widths, class: 'theme-img', loading: 'lazy' -}}
-                </div>
-              {%- endif -%}
-              <span class="js-value">{{ member_name | escape }}</span>
-            </a>
-          {%- endfor -%}
+                if member_name == blank
+                  assign member_name = member_names | first | default: member.title
+                endif
+
+                assign is_current = false
+                if member.id == product.id
+                  assign is_current = true
+                endif
+
+                assign member_image = member.featured_media.preview_image
+              -%}
+              <a href="{{ member.url }}"
+                 class="cl-entry opt-label relative {% if is_image_row and member_image %}opt-label--image{% else %}opt-label--btn btn text-center{% endif %}{% if is_current %} cl-entry--current{% endif %}{% unless member.available %} opt-label--is-unavailable{% endunless %}"
+                 {%- if is_current %} aria-current="true"{% endif %}>
+                {%- if is_image_row and member_image -%}
+                  <div class="opt-label__media media img-ar img-ar--cover" style="--aspect-ratio: 1; --crop-align: {{ settings.swatch_crop_align }}">
+                    {{- member_image | image_url: width: swatch_image_size_x2 | image_tag: sizes: img_sizes, widths: img_widths, class: 'theme-img', loading: 'lazy' -}}
+                  </div>
+                {%- endif -%}
+                <span class="js-value">{{ member_name | escape }}</span>
+              </a>
+            {%- endfor -%}
+          </div>
         </div>
-      </div>
+      {%- endif -%}
     {%- endfor -%}
   {%- endcapture -%}
 
