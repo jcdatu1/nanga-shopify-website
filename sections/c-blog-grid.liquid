@@ -11,8 +11,6 @@
 <link rel="stylesheet" href="{{ 'c-blog-grid.css' | asset_url }}" {%- render 'lazy-stylesheet-attrs' %}>
 
 {%- liquid
-  # Resolve before {% paginate %} so blog.articles.first is the blog's true
-  # most recent post, not the first post of the current page.
   assign featured_article = blank
   if section.settings.skip_featured
     assign fa_url = section.settings.featured_article
