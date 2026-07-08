@@ -3071,7 +3071,8 @@ main-navigation {
   top: 0;
   left: -1px;
   box-sizing: border-box;
-  width: min(88%, 540px);
+  /* width: min(88%, 540px); */
+  width: min(88%, 310px);
   height: 100%;
   padding-bottom: calc(env(safe-area-inset-bottom, 0px) * 1.5 + 60px);
   overflow-x: hidden;
