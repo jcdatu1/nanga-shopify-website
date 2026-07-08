@@ -14,4 +14,4 @@
 
 ## 4. Verification
 
-- [ ] 4.1 Review rendered output against `context/NANGAv1/src/app/pages/Journal.tsx` (band order, card anatomy, hover behavior) and confirm the default configuration features the latest post in the hero and omits it from the grid, including on page 2+
+- [x] 4.1 Review rendered output against `context/NANGAv1/src/app/pages/Journal.tsx` (band order, card anatomy, hover behavior) and confirm the default configuration features the latest post in the hero and omits it from the grid, including on page 2+
