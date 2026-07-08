@@ -1,0 +1,38 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-blog",
+      "disabled": true,
+      "settings": {}
+    },
+    "jr_header": {
+      "type": "c-page-header",
+      "settings": {
+        "title": "Journal",
+        "use_h1": true,
+        "subtitle": "<p>Stories, guides, and insights from the field</p>",
+        "background_color": "#ffffff",
+        "show_border": true
+      }
+    },
+    "jr_featured": {
+      "type": "c-featured-article",
+      "settings": {
+        "read_more_label": "Read Article"
+      }
+    },
+    "jr_grid": {
+      "type": "c-blog-grid",
+      "settings": {
+        "posts_per_page": 9,
+        "skip_featured": true
+      }
+    }
+  },
+  "order": [
+    "main",
+    "jr_header",
+    "jr_featured",
+    "jr_grid"
+  ]
+}

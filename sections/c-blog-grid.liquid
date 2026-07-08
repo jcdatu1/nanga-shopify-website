@@ -1,0 +1,120 @@
+{%- comment -%}
+  Blog grid — NANGA.
+  Paginated article grid for the Journal design: whole-card links of 16:10
+  image (zoom hover), category • read-time meta (custom.c_category /
+  custom.c_minute_read metafields, each hidden when unset), title, excerpt,
+  and date. Skips the post shown by the companion "C Featured article"
+  section — keep both sections' Featured article settings in sync; blank
+  means the blog's most recent post. No JS; styles scoped to .cbg in
+  assets/c-blog-grid.css.
+{%- endcomment -%}
+<link rel="stylesheet" href="{{ 'c-blog-grid.css' | asset_url }}" {%- render 'lazy-stylesheet-attrs' %}>
+
+{%- liquid
+  # Resolve before {% paginate %} so blog.articles.first is the blog's true
+  # most recent post, not the first post of the current page.
+  assign featured_article = blank
+  if section.settings.skip_featured
+    assign fa_url = section.settings.featured_article
+    if fa_url != blank and fa_url contains '/blogs/'
+      assign fa_key = fa_url | split: '/blogs/' | last | split: '?' | first | split: '#' | first
+      assign featured_article = articles[fa_key]
+    endif
+    if featured_article.id == blank
+      assign featured_article = blog.articles.first
+    endif
+  endif
+-%}
+
+{% paginate blog.articles by section.settings.posts_per_page %}
+<div class="section-id-{{ section.id }} cbg">
+  <div class="container">
+    {%- if blog.articles.size > 0 -%}
+      <div class="cbg__grid">
+        {%- for article in blog.articles -%}
+          {%- if article.id == featured_article.id -%}{% continue %}{%- endif -%}
+          {%- assign animation_delay = forloop.index0 | modulo: 3 | times: 0.15 | append: 's' -%}
+          {%- assign animation_attrs = 'data-cc-animate data-cc-animate-delay="' | append: animation_delay | append: '"' -%}
+          <a class="cbg__card" href="{{ article.url }}" {%- render 'animation-attrs', attrs: animation_attrs, always: true -%}>
+            <div class="cbg__image">
+              {%- if article.image -%}
+                {%- render 'image' with article.image, loading: 'lazy', size_cols_mobile: 1, size_cols_desktop: 3, custom_aspect_ratio: 1.6 -%}
+              {%- else -%}
+                <div class="placeholder-image">{{ 'image' | placeholder_svg_tag }}</div>
+              {%- endif -%}
+            </div>
+
+            {%- liquid
+              assign meta_category = article.metafields.custom.c_category.value
+              assign meta_minutes = article.metafields.custom.c_minute_read.value
+            -%}
+            {%- if meta_category != blank or meta_minutes != blank -%}
+              <p class="cbg__meta">
+                {%- if meta_category != blank -%}<span>{{ meta_category | escape }}</span>{%- endif -%}
+                {%- if meta_category != blank and meta_minutes != blank -%}<span aria-hidden="true">&bull;</span>{%- endif -%}
+                {%- if meta_minutes != blank -%}<span class="cbg__meta-time">{% render 'icon', icon: 'clock', size: 'small', stroke_width: 2 %}{{ meta_minutes }} min read</span>{%- endif -%}
+              </p>
+            {%- endif -%}
+
+            <h3 class="cbg__title">{{ article.title | escape }}</h3>
+
+            <p class="cbg__excerpt">
+              {%- if article.excerpt.size > 0 -%}
+                {{ article.excerpt | strip_html }}
+              {%- else -%}
+                {{ article.content | strip_html | truncatewords: 30 }}
+              {%- endif -%}
+            </p>
+
+            <p class="cbg__date">{{ article.published_at | time_tag: format: 'date' }}</p>
+          </a>
+        {%- endfor -%}
+      </div>
+
+      <div class="cbg__pagination">{% render 'pagination-control', paginate: paginate %}</div>
+    {%- else -%}
+      <p class="cbg__empty align-centre">{{ 'blogs.article.no_matches' | t }}</p>
+    {%- endif -%}
+  </div>
+</div>
+{% endpaginate %}
+
+{% schema %}
+{
+  "name": "C Blog grid",
+  "class": "section-c-blog-grid",
+  "enabled_on": {
+    "templates": ["blog"]
+  },
+  "settings": [
+    {
+      "type": "range",
+      "id": "posts_per_page",
+      "label": "Posts per page",
+      "min": 6,
+      "max": 24,
+      "step": 3,
+      "default": 9
+    },
+    {
+      "type": "checkbox",
+      "id": "skip_featured",
+      "label": "Skip the featured article",
+      "info": "Hide the post shown by the C Featured article section.",
+      "default": true
+    },
+    {
+      "type": "url",
+      "id": "featured_article",
+      "label": "Featured article",
+      "info": "Pick the same post as the C Featured article section. Leave blank if that section features the most recent post."
+    }
+  ],
+  "presets": [
+    {
+      "name": "C Blog grid",
+      "category": "Blog"
+    }
+  ]
+}
+{% endschema %}

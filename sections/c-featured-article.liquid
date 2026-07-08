@@ -1,0 +1,96 @@
+{%- comment -%}
+  Featured article — NANGA.
+  Blog-template hero for the Journal design: one whole-card article link, 4:3
+  image (zoom hover) beside vertically centered meta / title / excerpt / arrow
+  label. Category and read time come from the article's custom.c_category and
+  custom.c_minute_read metafields (each hidden when unset). The article is
+  picked via a URL setting; blank falls back to the blog's most recent post.
+  Keep the companion "C Blog grid" section's Featured article setting in sync
+  so the grid skips the same post. No JS; styles scoped to .cfa in
+  assets/c-featured-article.css.
+{%- endcomment -%}
+{%- liquid
+  assign featured_article = blank
+  assign fa_url = section.settings.featured_article
+  if fa_url != blank and fa_url contains '/blogs/'
+    assign fa_key = fa_url | split: '/blogs/' | last | split: '?' | first | split: '#' | first
+    assign featured_article = articles[fa_key]
+  endif
+  if featured_article.id == blank
+    assign featured_article = blog.articles.first
+  endif
+-%}
+
+{%- if featured_article.id != blank -%}
+  <link rel="stylesheet" href="{{ 'c-featured-article.css' | asset_url }}" {%- render 'lazy-stylesheet-attrs' %}>
+
+  <div class="section-id-{{ section.id }} cfa">
+    <div class="container">
+      <a class="cfa__card" href="{{ featured_article.url }}" {%- render 'animation-attrs', attrs: 'data-cc-animate' -%}>
+        <div class="cfa__image">
+          {%- if featured_article.image -%}
+            {%- render 'image' with featured_article.image, loading: 'eager', fetchpriority: 'high', sizes: '(min-width: 1024px) 50vw, 100vw', custom_aspect_ratio: 1.33 -%}
+          {%- else -%}
+            <div class="placeholder-image">{{ 'lifestyle-1' | placeholder_svg_tag }}</div>
+          {%- endif -%}
+        </div>
+
+        <div class="cfa__body">
+          {%- liquid
+            assign meta_category = featured_article.metafields.custom.c_category.value
+            assign meta_minutes = featured_article.metafields.custom.c_minute_read.value
+          -%}
+          {%- if meta_category != blank or meta_minutes != blank -%}
+            <p class="cfa__meta">
+              {%- if meta_category != blank -%}<span>{{ meta_category | escape }}</span>{%- endif -%}
+              {%- if meta_category != blank and meta_minutes != blank -%}<span aria-hidden="true">&bull;</span>{%- endif -%}
+              {%- if meta_minutes != blank -%}<span class="cfa__meta-time">{% render 'icon', icon: 'clock', size: 'small', stroke_width: 2 %}{{ meta_minutes }} min read</span>{%- endif -%}
+            </p>
+          {%- endif -%}
+
+          <h2 class="cfa__title">{{ featured_article.title | escape }}</h2>
+
+          <p class="cfa__excerpt">
+            {%- if featured_article.excerpt.size > 0 -%}
+              {{ featured_article.excerpt | strip_html }}
+            {%- else -%}
+              {{ featured_article.content | strip_html | truncatewords: 40 }}
+            {%- endif -%}
+          </p>
+
+          <span class="cfa__more">{{ section.settings.read_more_label | escape }}{% render 'icon', icon: 'arrow-right', size: 'small', stroke_width: 2 %}</span>
+        </div>
+      </a>
+    </div>
+  </div>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "C Featured article",
+  "class": "section-c-featured-article",
+  "enabled_on": {
+    "templates": ["blog"]
+  },
+  "settings": [
+    {
+      "type": "url",
+      "id": "featured_article",
+      "label": "Featured article",
+      "info": "Pick a blog post. Leave blank to feature the most recent post. Keep the C Blog grid section's Featured article setting in sync so it skips the same post."
+    },
+    {
+      "type": "text",
+      "id": "read_more_label",
+      "label": "Link label",
+      "default": "Read Article"
+    }
+  ],
+  "presets": [
+    {
+      "name": "C Featured article",
+      "category": "Blog"
+    }
+  ]
+}
+{% endschema %}
