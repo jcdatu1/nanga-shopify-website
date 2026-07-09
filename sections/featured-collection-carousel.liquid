@@ -55,7 +55,7 @@
           {%- else -%}
             {%- for product in collection.products limit: product_limit -%}
               <div class="slider__item">
-                {%- render 'product-card', product: product, badge_position: section.settings.tag_position, show_border: section.settings.show_border, badge_bg: badge_bg, badge_text: badge_text, image_fit: section.settings.image_style, show_type: section.settings.show_type, show_value_props: section.settings.show_value_props -%}
+                {%- render 'product-card', product: product, badge_position: section.settings.tag_position, show_border: section.settings.show_border, badge_bg: badge_bg, badge_text: badge_text, image_fit: section.settings.image_style, show_type: section.settings.show_type, show_value_props: section.settings.show_value_props, hover_effect: section.settings.hover_effect -%}
               </div>
             {%- endfor -%}
           {%- endif -%}
@@ -159,6 +159,17 @@
       "options": [
         { "value": "contain", "label": "Product (contained, white)" },
         { "value": "cover", "label": "Lifestyle (cover, gray)" }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "hover_effect",
+      "label": "Hover effect",
+      "info": "'Change to lifestyle image' uses the product's custom.c_lifestyle_photo metafield; products without it keep the zoom.",
+      "default": "zoom",
+      "options": [
+        { "value": "zoom", "label": "Zoom" },
+        { "value": "image", "label": "Change to lifestyle image" }
       ]
     },
     {

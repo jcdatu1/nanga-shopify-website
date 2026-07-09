@@ -16,5 +16,5 @@
 
 ## 4. Verification
 
-- [ ] 4.1 With `shopify theme dev` on a mobile viewport: open the drawer — black panel, white links/icons, dark dividers, including tier-2/3 panels and footer clones; search row at the bottom; tapping it closes the drawer and opens the search overlay with the input focused; Esc/close returns cleanly
-- [ ] 4.2 Confirm no mobile loupe in the header bar, desktop header and navigation are pixel-identical, and the drawer with JS-disabled search row navigates to the search page
+- [x] 4.1 With `shopify theme dev` on a mobile viewport: open the drawer — black panel, white links/icons, dark dividers, including tier-2/3 panels and footer clones; search row at the bottom; tapping it closes the drawer and opens the search overlay with the input focused; Esc/close returns cleanly
+- [x] 4.2 Confirm no mobile loupe in the header bar, desktop header and navigation are pixel-identical, and the drawer with JS-disabled search row navigates to the search page

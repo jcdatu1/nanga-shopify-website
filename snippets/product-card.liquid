@@ -1,7 +1,7 @@
 {%- comment -%}
   Lean, design-faithful product card (NANGA). Standalone — does NOT render
-  swatches, quick-buy, hover image-swap, or reviews. For the feature-rich card
-  use 'product-block' instead.
+  swatches, quick-buy, or reviews. For the feature-rich card use
+  'product-block' instead.
 
   Parameters:
   - product {Object} - Product object (required).
@@ -12,13 +12,16 @@
   - image_fit {String} - 'contain' or 'cover' (optional, default 'contain').
   - show_type {Boolean} - Show the category line (product.type) above the title (optional, default true).
   - show_value_props {Boolean} - Show the value-prop line below the title (optional, default true).
+  - hover_effect {String} - 'zoom' or 'image' (optional, default 'zoom'). 'image' cross-fades to the
+    lifestyle photo on hover; products without the metafield fall back to the zoom.
 
   The product type (product.type) renders as a category line above the title when present and show_type is not false.
   Badge text comes from product.metafields.custom.c_product_badge (single, replaces auto labels).
   Value props come from product.metafields.custom.c_card_value_prop (list, joined by ' • ').
+  The hover swap image comes from product.metafields.custom.c_lifestyle_photo (file reference).
 
   Usage:
-  {% render 'product-card', product: product, show_border: true, badge_bg: '#000', badge_text: '#fff', show_type: true, show_value_props: false %}
+  {% render 'product-card', product: product, show_border: true, badge_bg: '#000', badge_text: '#fff', show_type: true, show_value_props: false, hover_effect: 'image' %}
 {%- endcomment -%}
 {%- liquid
   assign product_url = product.url
@@ -37,11 +40,16 @@
   assign show_type = show_type | default: true, allow_false: true
   assign show_value_props = show_value_props | default: true, allow_false: true
 
+  assign hover_effect = hover_effect | default: 'zoom'
+  if hover_effect == 'image'
+    assign swap_image = product.metafields.custom.c_lifestyle_photo.value.preview_image
+  endif
+
   assign badge_label = product.metafields.custom.c_product_badge
   assign value_props = product.metafields.custom.c_card_value_prop.value | join: ' • '
 -%}
 
-<div class="product-card{% if show_border %} product-card--bordered{% endif %} product-card--badge-{{ badge_position }} product-card--fit-{{ image_fit }}" data-product-id="{{ product.id }}">
+<div class="product-card{% if show_border %} product-card--bordered{% endif %} product-card--badge-{{ badge_position }} product-card--fit-{{ image_fit }}{% if swap_image != blank %} product-card--hover-image{% endif %}" data-product-id="{{ product.id }}">
   <div class="product-card__media">
     {%- if badge_label != blank -%}
       <span class="product-card__badge"{% if badge_bg != blank or badge_text != blank %} style="{% if badge_bg != blank %}--pc-badge-bg: {{ badge_bg }};{% endif %}{% if badge_text != blank %}--pc-badge-text: {{ badge_text }};{% endif %}"{% endif %}>{{ badge_label | escape }}</span>
@@ -52,6 +60,12 @@
         {%- render 'image' with product.featured_media.preview_image, loading: 'lazy', size_cols_mobile: 2, size_cols_desktop: 3, custom_aspect_ratio: 0.75, custom_crop: image_crop -%}
       {%- else -%}
         <div class="placeholder-image">{{ 'product-1' | placeholder_svg_tag }}</div>
+      {%- endif -%}
+
+      {%- if swap_image != blank -%}
+        <span class="product-card__image-swap">
+          {%- render 'image' with swap_image, loading: 'lazy', size_cols_mobile: 2, size_cols_desktop: 3, custom_aspect_ratio: 0.75 -%}
+        </span>
       {%- endif -%}
     </a>
   </div>

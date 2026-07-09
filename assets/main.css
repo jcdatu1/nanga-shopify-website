@@ -11472,6 +11472,32 @@ model-viewer .container {
   transform: scale(1.05);
 }
 
+/* Hover image swap (hover_effect: 'image' + custom.c_lifestyle_photo):
+   lifestyle photo cross-fades in edge-to-edge over the primary image
+   (covering the contain-fit padding); zoom suppressed so effects don't
+   compound. Positioned against .product-card__media. */
+.product-card__image-swap {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.product-card__image-swap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.product-card--hover-image:hover .product-card__image-swap {
+  opacity: 1;
+}
+
+.product-card--hover-image:hover .product-card__image img {
+  transform: none;
+}
+
 /* Badge -------------------------------------------------------------------- */
 .product-card__badge {
   display: inline-block;
