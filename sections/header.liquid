@@ -443,7 +443,14 @@
             {% endif %}
           </div>
         </div>
-        <div class="mobile-navigation-drawer__footer"></div>
+        <div class="mobile-navigation-drawer__footer">
+          {%- if section.settings.enable_search -%}
+            <a class="mobile-nav-search-link" href="{{ routes.search_url }}">
+              {%- render 'icon-search' -%}
+              <span>{{ 'sections.header.search' | t }}</span>
+            </a>
+          {%- endif -%}
+        </div>
       </div>
     </script>
   </main-navigation>

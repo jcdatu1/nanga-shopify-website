@@ -3064,6 +3064,11 @@ main-navigation {
 }
 
 .mobile-navigation-drawer {
+  /* NANGA: white-on-black drawer (context/NANGAv1 Header.tsx). These vars are
+     shared with the desktop nav, so they're overridden here, drawer-scoped. */
+  --main-nav-bg: #000;
+  --main-nav-link-col: #fff;
+  --heading-divider-col: #1f2937;
   display: none;
   visibility: hidden;
   position: fixed;
@@ -3330,6 +3335,24 @@ main-navigation {
   height: 20px;
 }
 .mobile-navigation-drawer__footer .social a img {
+  height: 20px;
+}
+.mobile-navigation-drawer__footer .header-localization .custom-select__option.is-focused {
+  background: rgb(255 255 255 / 0.2); /* --text-color overlay is invisible on the black drawer */
+}
+
+/* NANGA: search entry at the bottom of the drawer (context/NANGAv1 Header.tsx) */
+.mobile-navigation-drawer__footer .mobile-nav-search-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0 20px;
+  padding: 16px 0;
+  border-top: 1px solid var(--heading-divider-col);
+  color: inherit;
+}
+.mobile-navigation-drawer__footer .mobile-nav-search-link .icon {
+  width: 20px;
   height: 20px;
 }
 
@@ -3603,6 +3626,12 @@ shopify-account::part(signed-out-avatar) {
 
 .show-search-link__icon {
   margin: 0 0 2px;
+}
+@media (max-width: 767.98px) {
+  /* NANGA: on mobile, search lives at the bottom of the menu drawer instead */
+  .logo-area__left .show-search-link {
+    display: none;
+  }
 }
 @media (max-width: 767.98px) {
   .show-search-link__icon {

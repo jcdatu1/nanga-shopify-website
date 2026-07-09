@@ -2118,6 +2118,23 @@ const MainNavigation = class extends HTMLElement {
       mobileDrawerFooter.appendChild(clone);
     }
 
+    // drawer search link: close the drawer, then open the search overlay
+    // (the drawer sits outside page-header, so the .show-search-link delegate
+    // cannot handle it; without an overlay the link navigates to the search page)
+    theme.addDelegateEventListener(this.mobileDrawer, 'click', '.mobile-nav-search-link', (evt) => {
+      const mainSearch = document.querySelector('.main-search');
+      if (!mainSearch) return;
+      evt.preventDefault();
+      document.body.classList.remove('reveal-mobile-nav', 'reveal-mobile-nav--revealed');
+      setTimeout(() => document.body.classList.remove('enable-mobile-nav-transition'), 750);
+      theme.manuallyLoadImages(mainSearch);
+      document.body.classList.add('show-search');
+      setTimeout(() => {
+        theme.trapOpener = document.querySelector('.mobile-nav-toggle');
+        trapFocus(mainSearch, mainSearch.querySelector('.main-search__input'));
+      }, 500);
+    });
+
     // ensure ids are unique
     theme.suffixIds(this.mobileDrawer, 'MobileNav');
 
