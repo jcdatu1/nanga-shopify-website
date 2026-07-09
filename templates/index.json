@@ -98,7 +98,7 @@
         "cards_mobile": 2,
         "full_width": false,
         "image_style": "contain",
-        "hover_effect": "zoom",
+        "hover_effect": "image",
         "show_type": true,
         "show_value_props": true,
         "tag_style": "dark",
