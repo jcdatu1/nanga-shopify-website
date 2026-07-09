@@ -99,7 +99,7 @@
         "image_style": "contain",
         "show_type": true,
         "show_value_props": true,
-        "tag_style": "light",
+        "tag_style": "dark",
         "tag_position": "inside",
         "show_border": false,
         "show_view_all": true,
