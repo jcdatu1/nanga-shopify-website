@@ -2,6 +2,9 @@
 
 .fcc {
   margin: var(--section-vertical-spacing, 40px) 0;
+  /* Contain the nav arrows' edge overhang (20px on mobile vs 16px container
+     padding) so it can't widen the page; clip avoids a scroll container. */
+  overflow-x: clip;
 }
 
 /* ---- Heading row: left text + subtext, right "View All" (desktop) ---- */
