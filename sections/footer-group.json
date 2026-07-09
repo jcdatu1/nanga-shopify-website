@@ -137,15 +137,14 @@
             "link_layout": "columns"
           }
         },
-        "text_t88MVY": {
-          "type": "text",
+        "newsletter_GHUBxh": {
+          "type": "newsletter",
           "settings": {
             "title": "Stay Updated",
             "text": "<p>Get the latest news and exclusive offers.</p>",
-            "image_width": 100,
+            "button_style": "inherit",
             "show_social_icons": true,
-            "soc_icons_large": false,
-            "enable_follow_on_shop": false
+            "soc_icons_large": false
           }
         }
       },
@@ -153,7 +152,7 @@
         "menu_dake37",
         "1601374621546",
         "menu_pMWDAN",
-        "text_t88MVY"
+        "newsletter_GHUBxh"
       ],
       "custom_css": [
         ".section-footer__row-container {border-top: 1px solid gray !important;}"
