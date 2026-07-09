@@ -65,7 +65,7 @@
       "name": "C Featured collection",
       "settings": {
         "title": "NEW ARRIVALS",
-        "description": "Latest additions to our collection",
+        "description": "",
         "collection": "new-arrivals",
         "limit": 12,
         "cards_desktop": 3,
@@ -90,7 +90,7 @@
       "name": "C Featured collection",
       "settings": {
         "title": "DOWN WEAR",
-        "description": "Latest additions to our collection",
+        "description": "",
         "collection": "down-wear",
         "limit": 12,
         "cards_desktop": 3,
