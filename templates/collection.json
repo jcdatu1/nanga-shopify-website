@@ -56,7 +56,7 @@
         "title": "",
         "use_h1": true,
         "subtitle": "",
-        "background_color": "#f9fafb",
+        "background_color": "#FFFFFF",
         "show_border": true
       }
     },
@@ -79,6 +79,7 @@
         "sort_show_price": true,
         "sort_show_date": true,
         "image_style": "contain",
+        "hover_effect": "zoom",
         "show_type": false,
         "show_value_props": true,
         "tag_style": "light",
