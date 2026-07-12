@@ -215,7 +215,9 @@
         "collection_accessory",
         "collection_down_wear"
       ],
-      "custom_css": [],
+      "custom_css": [
+        ".clc__header {align-items: center; justify-content: center;}"
+      ],
       "settings": {
         "title": "CATEGORY",
         "description": "",
