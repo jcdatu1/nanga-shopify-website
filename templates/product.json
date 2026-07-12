@@ -20,16 +20,16 @@
           "type": "price",
           "settings": {}
         },
-        "description": {
-          "type": "description",
-          "settings": {}
-        },
         "combined-listing": {
           "type": "combined-listing",
           "settings": {
             "set_metafield": "custom.c_combined_listing_set",
             "name_metafield": "custom.c_combined_listing_name"
           }
+        },
+        "description": {
+          "type": "description",
+          "settings": {}
         },
         "variant-picker": {
           "type": "variant-picker",
@@ -94,8 +94,8 @@
       "block_order": [
         "title",
         "price",
-        "description",
         "combined-listing",
+        "description",
         "variant-picker",
         "buy-buttons",
         "trust-shipping",
