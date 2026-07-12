@@ -70,6 +70,7 @@
         },
         "trust-warranty": {
           "type": "trust-item",
+          "disabled": true,
           "settings": {
             "icon": "award",
             "heading": "Lifetime Warranty",
