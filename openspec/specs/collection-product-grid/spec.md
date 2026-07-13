@@ -2,7 +2,7 @@
 
 ## Purpose
 
-Provide a title-less collection section (`sections/c-main-collection.liquid`) that renders faceted filters and a responsive grid of the lean `product-card`, with dynamic (AJAX) filter, sort, and pagination via the theme's existing `<filter-container>` engine. Desktop is faithful to the NANGA Figma (left filter sidebar + product column with count/sort); mobile uses the theme's native filter drawer plus a Filter/Sort button row. Filter/sort/count visibility and desktop/mobile/per-page counts are configurable.
+Provide a title-less collection section (`sections/c-main-collection.liquid`) that renders faceted filters and a responsive grid of the lean `product-card`, with dynamic (AJAX) filter, sort, and pagination via the theme's existing `<filter-container>` engine. Desktop is faithful to the NANGA Figma (left filter sidebar + product column with count/sort); mobile uses the theme's native filter drawer (via a single Filter button) for filters only, with the same self-contained sort dropdown as desktop. Filters render in Search & Discovery's configured order. Filter/sort/count visibility and desktop/mobile/per-page counts are configurable.
 
 ## Requirements
 
