@@ -11506,7 +11506,7 @@ model-viewer .container {
   color: var(--pc-badge-text, #fff);
   font-size: var(--smaller-text-size-3);
   line-height: 1.2;
-  z-index: 2;
+  z-index: 1;
 }
 
 .product-card--badge-overlay .product-card__badge {
