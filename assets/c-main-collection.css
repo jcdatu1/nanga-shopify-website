@@ -89,10 +89,27 @@
   border: 1px solid #d1d1d1;
   font-size: 0.875rem;
   transition: border-color 200ms ease;
+  /* The LinkDropdown JS animates the button's inline width to merge it with the
+     options panel (the stock borderless text-link look). Its width math doesn't
+     account for this select's borders/start padding, so the label drifts on
+     open/close and collides with the chevron. Pin the width to opt out. */
+  width: auto !important;
 }
 
 .cmc__sort .link-dropdown__button:hover {
   border-color: #000;
+}
+
+/* Options panel: stock styling overlaps the button (top: -5px + 49px top padding)
+   to merge with the stretched button. For the bordered select, drop it just below
+   the button, aligned to its end edge, at least as wide as the button. */
+.cmc__sort .link-dropdown__options {
+  top: calc(100% + 4px);
+  right: 0;
+  min-width: 100%;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  border: 1px solid #d1d1d1;
 }
 
 /* ---- Empty state ---- */

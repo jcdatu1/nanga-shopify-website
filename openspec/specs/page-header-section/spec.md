@@ -2,7 +2,7 @@
 
 ## Purpose
 
-Provide a reusable flat page-header section (`sections/c-page-header.liquid`, "C Page header"): an H1 title and reading-width subtitle on a per-section tinted band with an optional bottom border, reproducing the NANGA design's Knowledge/Journal/category page headers from settings alone — with blank settings falling back to the template context (collection title/description, page title) so the same section serves collection templates dynamically; no JavaScript.
+Provide a reusable flat page-header section (`sections/c-page-header.liquid`, "C Page header"): an H1 title and reading-width subtitle on a per-section tinted band with an optional bottom border and configurable vertical spacing, reproducing the NANGA design's Knowledge/Journal/category page headers from settings alone — with blank settings falling back to the template context (collection title/description, page title) so the same section serves collection templates dynamically; no JavaScript.
 
 ## Requirements
 

@@ -16,6 +16,7 @@
 - [x] 3.2 In `sections/c-main-collection.liquid`, remove the mobile-bar Sort button (`{% if section.settings.show_sort %}` block inside `.cmc__mobile-bar`) — sort is no longer triggered from that row.
 - [x] 3.3 In `snippets/cmc-filters.liquid`, remove the "Mobile-only Sort" block (the `cmc-filter--sort mobile-only` radios) and its header comment reference.
 - [x] 3.4 Update the header comment in `sections/c-main-collection.liquid` (currently says "mobile uses the theme's native filter drawer with a Filter / Sort button row") to reflect that only Filter uses the drawer; Sort is a standalone dropdown at all sizes.
+- [x] 3.5 Fix the sort button's open/close jank: the stock LinkDropdown JS animates the button's inline width to merge it with the options panel (borderless text-link look), but its width math ignores the bordered select's start padding and borders — the label drifted left on open and collided with the chevron on close. Scoped CSS opt-out in `assets/c-main-collection.css`: pin `.cmc__sort .link-dropdown__button { width: auto !important }` and restyle `.cmc__sort .link-dropdown__options` to drop below the button (aligned to its end edge, `min-width: 100%`, bordered) instead of overlapping it. No `main.js` changes.
 
 ## 4. Verify on the live theme
 
