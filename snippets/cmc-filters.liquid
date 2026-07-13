@@ -1,11 +1,15 @@
 {%- comment -%}
   NANGA collection filters — built from scratch for Figma fidelity.
   Used ONLY by sections/c-main-collection.liquid (does not touch the shared
-  'faceted-filters' snippet). Renders, in this order, to match the design:
-    - Price Range as radio-style brackets (anchors; AJAX via the .link-dropdown__link hook)
-    - List filters (e.g. Size) as vertical checkbox lists inside #CollectionFilterForm
+  'faceted-filters' snippet). Renders filters in the order Search & Discovery
+  provides them (filter_context.filters), so admin ordering is respected:
+    - Price Range, wherever it falls, as radio-style brackets (anchors; AJAX via
+      the .link-dropdown__link hook)
+    - List filters (e.g. Size, Gender) as vertical checkbox lists inside #CollectionFilterForm
     - "Clear All Filters" link (AJAX via the .filter-group__clear-link hook)
-    - Mobile-only Sort radios (the native drawer holds sort on mobile)
+
+  Sort has no presence here — it lives entirely in the sort dropdown rendered by
+  sections/c-main-collection.liquid (shared markup at every breakpoint).
 
   Hooks into the theme's <filter-container> AJAX engine (assets/main.js) purely through
   the contract it already listens for: the #CollectionFilterForm id, a .filters element,
@@ -16,9 +20,8 @@
   what exposes the price_range filter object and its gte/lte params).
 
   Parameters:
-    - filter_context {Collection} - provides .filters, .sort_options, .sort_by, .url
+    - filter_context {Collection} - provides .filters, .url
     - clear_url {String} - URL that clears all filters
-    - current_sort {String} - the active sort value
 {%- endcomment -%}
 
 {%- liquid
@@ -81,81 +84,82 @@
         <input type="hidden" name="{{ price_filter.max_value.param_name }}" value="{{ price_filter.max_value.value | money_without_currency | remove: ',' | remove: ' ' | times: 1.0 | ceil }}">
       {%- endif -%}
 
-      {%- comment -%} ---- Price Range: radio brackets ---- {%- endcomment -%}
-      {%- if price_filter and section.settings.price_brackets != blank -%}
-        {%- assign thresholds = section.settings.price_brackets | split: ',' -%}
-        {%- assign tcount = thresholds.size -%}
-        {%- if tcount > 0 -%}
-          {%- liquid
-            assign cur_min = 0
-            assign cur_max = 0
-            if price_filter.min_value.value != nil
-              assign cur_min = price_filter.min_value.value | money_without_currency | remove: ',' | remove: ' ' | times: 1.0 | floor
-            endif
-            if price_filter.max_value.value != nil
-              assign cur_max = price_filter.max_value.value | money_without_currency | remove: ',' | remove: ' ' | times: 1.0 | floor
-            endif
-          -%}
-          <div class="cmc-filter">
-            <h3 class="cmc-filter__title">{{ price_filter.label | escape }}</h3>
-            <div class="cmc-filter__options">
-              {%- for i in (0..tcount) -%}
-                {%- liquid
-                  assign bmin = 0
-                  assign bmax = 0
-                  if i == 0
-                    assign bmax = thresholds[0] | strip | times: 1.0 | floor
-                    assign blabel = currency_symbol | append: bmax | prepend: 'Under '
-                  elsif i == tcount
-                    assign last_index = tcount | minus: 1
-                    assign bmin = thresholds[last_index] | strip | times: 1.0 | floor
-                    assign blabel = currency_symbol | append: bmin | prepend: 'Over '
-                  else
-                    assign prev_index = i | minus: 1
-                    assign bmin = thresholds[prev_index] | strip | times: 1.0 | floor
-                    assign bmax = thresholds[i] | strip | times: 1.0 | floor
-                    assign blabel = currency_symbol | append: bmin | append: ' – ' | append: currency_symbol | append: bmax
-                  endif
-
-                  assign is_active = false
-                  if cur_min == bmin and cur_max == bmax
-                    assign is_active = true
-                  endif
-
-                  capture bq
-                    if bmin > 0
-                      echo price_filter.min_value.param_name
-                      echo '='
-                      echo bmin
-                      echo '&'
-                    endif
-                    if bmax > 0
-                      echo price_filter.max_value.param_name
-                      echo '='
-                      echo bmax
-                      echo '&'
-                    endif
-                  endcapture
-                  assign full_q = preserved_q | append: bq | split: '&' | join: '&'
-                  assign bracket_url = filter_context.url
-                  if full_q != blank
-                    assign bracket_url = filter_context.url | append: '?' | append: full_q
-                  endif
-                -%}
-                <a class="cmc-filter__option cmc-filter__option--radio link-dropdown__link{% if is_active %} is-active{% endif %}" href="{{ bracket_url }}">
-                  <span class="cmc-control cmc-control--radio" aria-hidden="true"></span>
-                  <span class="cmc-filter__label">{{ blabel }}</span>
-                </a>
-              {%- endfor -%}
-            </div>
-          </div>
-        {%- endif -%}
-      {%- endif -%}
-
-      {%- comment -%} ---- List filters (Size, colour, …) as vertical checkboxes ---- {%- endcomment -%}
+      {%- comment -%} ---- Filters, in Search & Discovery's configured order (price rendered inline wherever it falls) ---- {%- endcomment -%}
       {%- for filter in filter_context.filters -%}
         {%- if filter.param_name == 'filter.v.availability' -%}{%- continue -%}{%- endif -%}
-        {%- if filter.type == 'list' or filter.type == 'boolean' -%}
+
+        {%- if filter.type == 'price_range' -%}
+          {%- if section.settings.price_brackets != blank -%}
+            {%- assign thresholds = section.settings.price_brackets | split: ',' -%}
+            {%- assign tcount = thresholds.size -%}
+            {%- if tcount > 0 -%}
+              {%- liquid
+                assign cur_min = 0
+                assign cur_max = 0
+                if filter.min_value.value != nil
+                  assign cur_min = filter.min_value.value | money_without_currency | remove: ',' | remove: ' ' | times: 1.0 | floor
+                endif
+                if filter.max_value.value != nil
+                  assign cur_max = filter.max_value.value | money_without_currency | remove: ',' | remove: ' ' | times: 1.0 | floor
+                endif
+              -%}
+              <div class="cmc-filter">
+                <h3 class="cmc-filter__title">{{ filter.label | escape }}</h3>
+                <div class="cmc-filter__options">
+                  {%- for i in (0..tcount) -%}
+                    {%- liquid
+                      assign bmin = 0
+                      assign bmax = 0
+                      if i == 0
+                        assign bmax = thresholds[0] | strip | times: 1.0 | floor
+                        assign blabel = currency_symbol | append: bmax | prepend: 'Under '
+                      elsif i == tcount
+                        assign last_index = tcount | minus: 1
+                        assign bmin = thresholds[last_index] | strip | times: 1.0 | floor
+                        assign blabel = currency_symbol | append: bmin | prepend: 'Over '
+                      else
+                        assign prev_index = i | minus: 1
+                        assign bmin = thresholds[prev_index] | strip | times: 1.0 | floor
+                        assign bmax = thresholds[i] | strip | times: 1.0 | floor
+                        assign blabel = currency_symbol | append: bmin | append: ' – ' | append: currency_symbol | append: bmax
+                      endif
+
+                      assign is_active = false
+                      if cur_min == bmin and cur_max == bmax
+                        assign is_active = true
+                      endif
+
+                      capture bq
+                        if bmin > 0
+                          echo filter.min_value.param_name
+                          echo '='
+                          echo bmin
+                          echo '&'
+                        endif
+                        if bmax > 0
+                          echo filter.max_value.param_name
+                          echo '='
+                          echo bmax
+                          echo '&'
+                        endif
+                      endcapture
+                      assign full_q = preserved_q | append: bq | split: '&' | join: '&'
+                      assign bracket_url = filter_context.url
+                      if full_q != blank
+                        assign bracket_url = filter_context.url | append: '?' | append: full_q
+                      endif
+                    -%}
+                    <a class="cmc-filter__option cmc-filter__option--radio link-dropdown__link{% if is_active %} is-active{% endif %}" href="{{ bracket_url }}">
+                      <span class="cmc-control cmc-control--radio" aria-hidden="true"></span>
+                      <span class="cmc-filter__label">{{ blabel }}</span>
+                    </a>
+                  {%- endfor -%}
+                </div>
+              </div>
+            {%- endif -%}
+          {%- endif -%}
+
+        {%- elsif filter.type == 'list' or filter.type == 'boolean' -%}
           {%- if filter.values.size > 0 -%}
             <div class="cmc-filter">
               <h3 class="cmc-filter__title">{{ filter.label | escape }}</h3>
@@ -172,48 +176,6 @@
           {%- endif -%}
         {%- endif -%}
       {%- endfor -%}
-
-      {%- comment -%} ---- Mobile-only Sort (native drawer holds sort on mobile) ---- {%- endcomment -%}
-      {%- if section.settings.show_sort -%}
-        <div class="cmc-filter cmc-filter--sort mobile-only">
-          <h3 class="cmc-filter__title">{{ 'products.sorting.sort_by_label' | t }}</h3>
-          <div class="cmc-filter__options">
-            {%- for option in filter_context.sort_options -%}
-              {%- liquid
-                if section.settings.sort_show_featured == false and option.value == 'manual' and filter_context.default_sort_by != 'manual'
-                  continue
-                endif
-                if section.settings.sort_show_best == false and option.value == 'best-selling' and filter_context.default_sort_by != 'best-selling'
-                  continue
-                endif
-                if section.settings.sort_show_alpha == false and option.value == 'title-ascending' and filter_context.default_sort_by != 'title-ascending'
-                  continue
-                endif
-                if section.settings.sort_show_alpha == false and option.value == 'title-descending' and filter_context.default_sort_by != 'title-descending'
-                  continue
-                endif
-                if section.settings.sort_show_price == false and option.value == 'price-ascending' and filter_context.default_sort_by != 'price-ascending'
-                  continue
-                endif
-                if section.settings.sort_show_price == false and option.value == 'price-descending' and filter_context.default_sort_by != 'price-descending'
-                  continue
-                endif
-                if section.settings.sort_show_date == false and option.value == 'created-ascending' and filter_context.default_sort_by != 'created-ascending'
-                  continue
-                endif
-                if section.settings.sort_show_date == false and option.value == 'created-descending' and filter_context.default_sort_by != 'created-descending'
-                  continue
-                endif
-              -%}
-              <label class="cmc-filter__option cmc-filter__option--radio">
-                <input class="cmc-filter__input" type="radio" name="sort_by" value="{{ option.value }}"{% if current_sort == option.value %} checked{% endif %}>
-                <span class="cmc-control cmc-control--radio" aria-hidden="true"></span>
-                <span class="cmc-filter__label">{{ option.name | escape }}</span>
-              </label>
-            {%- endfor -%}
-          </div>
-        </div>
-      {%- endif -%}
     </form>
 
     {%- if has_active -%}

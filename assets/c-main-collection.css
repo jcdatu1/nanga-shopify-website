@@ -1,7 +1,8 @@
 /* Collection product grid — NANGA. Scoped to .cmc. Reuses the theme's
    filter-container (sidebar + drawer), product-grid, product-card, link-dropdown,
    and pagination. Layout faithful to the Figma: desktop = filter sidebar + product
-   column (count + sort row); mobile = native filter drawer + Filter/Sort button row.
+   column (count + sort row); mobile = native filter drawer for filters (single
+   Filter button) plus the same count/sort toolbar shown at every breakpoint.
    Sidebar/drawer breakpoint matches the theme's .filter-container--side (1000px). */
 
 .cmc {
@@ -19,7 +20,7 @@
   }
 }
 
-/* ---- Mobile Filter / Sort button row (both open the native drawer) ---- */
+/* ---- Mobile Filter button row (opens the native drawer); sort lives in .cmc__toolbar ---- */
 .cmc__mobile-bar {
   display: flex;
   gap: 12px;
@@ -92,13 +93,6 @@
 
 .cmc__sort .link-dropdown__button:hover {
   border-color: #000;
-}
-
-/* Sort dropdown is desktop-only; on mobile, sort lives in the native drawer */
-@media (max-width: 999.98px) {
-  .cmc__sort {
-    display: none;
-  }
 }
 
 /* ---- Empty state ---- */

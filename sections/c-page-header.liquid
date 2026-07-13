@@ -13,7 +13,7 @@
 
 <div
   class="section-id-{{ section.id }} cph{% if section.settings.show_border %} cph--bordered{% endif %}"
-  style="--cph-bg: {{ section.settings.background_color }};"
+  style="--cph-bg: {{ section.settings.background_color }}; --cph-pad-top-mobile: {{ section.settings.padding_top_mobile }}px; --cph-pad-bottom-mobile: {{ section.settings.padding_bottom_mobile }}px; --cph-pad-top-desktop: {{ section.settings.padding_top_desktop }}px; --cph-pad-bottom-desktop: {{ section.settings.padding_bottom_desktop }}px;"
   {%- render 'animation-attrs', attrs: 'data-cc-animate' -%}>
   <div class="container">
     {%- liquid
@@ -84,6 +84,50 @@
       "id": "show_border",
       "label": "Show bottom border",
       "default": true
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "label": "Top padding (mobile)",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "label": "Bottom padding (mobile)",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "padding_top_desktop",
+      "label": "Top padding (desktop)",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "default": 64
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_desktop",
+      "label": "Bottom padding (desktop)",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "default": 64
     }
   ],
   "presets": [

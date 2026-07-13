@@ -5882,7 +5882,7 @@ input[type=text].main-search__input {
 }
 
 .section-footer__row-container {
-  border-top: 1px solid var(--footer-divider-col);
+  /* border-top: 1px solid var(--footer-divider-col); */
 }
 
 .section-footer__row-lower {

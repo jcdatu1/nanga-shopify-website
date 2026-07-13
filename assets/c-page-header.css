@@ -2,13 +2,15 @@
    custom property --cph-bg set inline. */
 
 .cph {
-  padding: 48px 0;
+  padding-top: var(--cph-pad-top-mobile, 48px);
+  padding-bottom: var(--cph-pad-bottom-mobile, 48px);
   background: var(--cph-bg, #f9fafb);
 }
 
 @media (min-width: 640px) {
   .cph {
-    padding: 64px 0;
+    padding-top: var(--cph-pad-top-desktop, 64px);
+    padding-bottom: var(--cph-pad-bottom-desktop, 64px);
   }
 }
 
