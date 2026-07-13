@@ -215,15 +215,13 @@
         "collection_accessory",
         "collection_down_wear"
       ],
-      "custom_css": [
-        ".clc__header {align-items: center; justify-content: center;}"
-      ],
+      "custom_css": [],
       "settings": {
         "title": "CATEGORY",
         "description": "",
-        "cards_desktop": 6,
+        "cards_desktop": 4,
         "cards_mobile": 2,
-        "full_width": true,
+        "full_width": false,
         "show_view_all": false,
         "view_all_link": "",
         "view_all_label": "View all",

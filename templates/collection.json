@@ -56,7 +56,7 @@
         "title": "",
         "use_h1": true,
         "subtitle": "",
-        "background_color": "#FFFFFF",
+        "background_color": "#ffffff",
         "show_border": true
       }
     },
@@ -82,7 +82,7 @@
         "hover_effect": "zoom",
         "show_type": false,
         "show_value_props": true,
-        "tag_style": "light",
+        "tag_style": "dark",
         "tag_position": "overlay",
         "show_border": true
       }
