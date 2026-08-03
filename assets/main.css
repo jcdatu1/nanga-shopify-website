@@ -11537,7 +11537,7 @@ model-viewer .container {
    visible members render — no entries are hidden behind a "+N" marker —
    the row scrolls horizontally instead when they don't fit the card width. */
 .product-card__combined-listing {
-  min-height: 32px;
+  min-height: 40px;
   margin-top: 8px;
   max-width: 100%;
   display: flex;
@@ -11591,8 +11591,8 @@ model-viewer .container {
 }
 
 .product-card__combined-listing .cl-entry.opt-label--image .opt-label__media {
-  width: 22px;
-  height: 22px;
+  width: 40px;
+  height: 40px;
   margin: 0;
 }
 
