@@ -6,7 +6,7 @@
 - The only PDP-specific parts of the snippet are: the label line (`variant_label` + current name, image rows only), the `<combined-listing>` custom-element wrapper + `data-section-id` (needed only for the Section Rendering API swap), and the lack of any entry cap (the PDP's info column has room for a full row).
 - The card's "currently selected listing" treatment already exists almost verbatim: `assets/c-main-product.css` marks `.cl-entry--current` with a literal `border: 2px solid #000` (image rows) or a black-filled pill (text rows) — scoped under `.cmp`. The user asked for exactly this look on cards, just without the "Color: Navy" label line. So the card doesn't need a new visual language, only a re-scoping of the same rule (the snippet already emits `cl-entry--current` regardless of context).
 - `product-card` has no dedicated stylesheet; its rules live inline in `assets/main.css` (`/* Scoped to .product-card*` block, ~line 11441). New card-scoped combined-listing rules belong there, not in a new file.
-- `product-block`'s existing `product-block-options__more-label` (`+N`) pattern is the theme's established answer to "too many swatches to show" — reused rather than inventing a new overflow affordance.
+- `.slider--no-scrollbar` (`assets/main.css`) already establishes the theme's pattern for a horizontally-scrollable strip with a hidden scrollbar — reused for the row's overflow behavior instead of a capped "+N" marker (see "Scroll instead of cap" below).
 - Both card call sites (`c-main-collection.liquid`, `featured-collection-carousel.liquid`) already thread per-card settings (`badge_position`, `image_fit`, `show_type`, `show_value_props`, `hover_effect`) from section settings into `product-card` one parameter at a time — `show_combined_listings` follows the identical idiom.
 
 ## Goals / Non-Goals
@@ -26,20 +26,19 @@
 
 ### Extend `combined-listing.liquid` with a `card_mode` parameter, rather than forking the snippet or extracting a data-only helper
 
-Liquid snippets can't return structured data to a caller (only render markup), so "extract the name-resolution logic into a shared helper" — as the original design anticipated — means keeping the resolution `{%- liquid ... -%}` block in one file and branching only at the point where PDP and card markup actually diverge. Concretely, `combined-listing.liquid` gains:
-- `card_mode` (boolean, default `false`).
-- `entry_limit` (number, default `4`) — only consulted when `card_mode` is true.
+Liquid snippets can't return structured data to a caller (only render markup), so "extract the name-resolution logic into a shared helper" — as the original design anticipated — means keeping the resolution `{%- liquid ... -%}` block in one file and branching only at the point where PDP and card markup actually diverge. Concretely, `combined-listing.liquid` gains a `card_mode` boolean parameter (default `false`).
 
 When `card_mode` is true:
 - The label line (`.label`, with the current name for image rows) is skipped entirely.
-- The outer wrapper is a plain `<div class="cl-row cl-row--card">` instead of `<combined-listing data-section-id="...">` — no custom element, no `section_id` parameter needed, no `combined-listing.js` script tag from the caller.
-- The member loop renders at most `entry_limit` entries; any remainder renders as a single non-interactive `<span class="cl-entry--more">+N</span>` (mirroring `product-block-options__more-label`'s existing `products.product.more_swatches` idiom), where N is the count of members past the limit.
-- Each entry keeps its existing `cl-entry`, `opt-label--image`/`opt-label--btn`, `cl-entry--current`, `opt-label--is-unavailable` classes and `aria-current="true"` unchanged — only the *label line* and *wrapper element* differ from PDP mode. The current-entry treatment (border/pill) and sold-out treatment are therefore identical in both modes for free.
+- The outer wrapper is a plain `<div class="cl-card-row">` instead of `<combined-listing data-section-id="...">` — no custom element, no `section_id` parameter needed, no `combined-listing.js` script tag from the caller.
+- Every visible member renders — no cap, no overflow marker (see "Scroll instead of cap" below).
+- Image-row entries render only the thumbnail; the name text stays in the markup with a `visually-hidden` class instead of being dropped, so the entry keeps an accessible name (see "Image-only entries" below). Text-pill entries (no image) are unaffected — they have nothing else to show.
+- Each entry keeps its existing `cl-entry`, `opt-label--image`/`opt-label--btn`, `cl-entry--current`, `opt-label--is-unavailable` classes and `aria-current="true"` unchanged — only the *label line*, *wrapper element*, and *image-entry text visibility* differ from PDP mode. The current-entry treatment (border/pill) and sold-out treatment are therefore identical in both modes for free.
 - *Alternative considered:* a separate `combined-listing-card.liquid` snippet duplicating the resolution logic — rejected, it would fork the set/visibility/name rules the moment either file changes them independently (e.g. a future "3+ sets" feature) and duplicates a `{%- liquid -%}` block that's already non-trivial. *Alternative considered:* pulling the resolution into a data-returning helper — not idiomatic Liquid (snippets render markup, not values); would need `capture` + custom delimiter parsing to smuggle structured data across a render boundary, adding fragility for no real benefit over an in-place branch.
 
 ### `product-card.liquid` always renders the row's wrapper element; the reserved-height slot lives in CSS, not in the snippet's render-nothing contract
 
-`combined-listing.liquid`'s existing contract — render nothing when the product has no set, or fewer than 2 visible members remain — is untouched. `product-card.liquid` wraps the render call in its own `<div class="product-card__combined-listing">` unconditionally (whenever `show_combined_listings` is true), and that wrapper gets a fixed `min-height` in CSS matching one row of capped entries. A product with no set renders an empty (but height-reserving) div; a product in a set renders entries inside it. This keeps the "reserve space" behavior entirely in the caller + CSS, so the snippet's existing "renders nothing" scenarios (already spec'd for the PDP) stay true verbatim in card mode too.
+`combined-listing.liquid`'s existing contract — render nothing when the product has no set, or fewer than 2 visible members remain — is untouched. `product-card.liquid` wraps the render call in its own `<div class="product-card__combined-listing">` unconditionally (whenever `show_combined_listings` is true), and that wrapper gets a fixed `min-height` in CSS matching one row of entries at their card thumbnail size. A product with no set renders an empty (but height-reserving) div; a product in a set renders entries inside it. This keeps the "reserve space" behavior entirely in the caller + CSS, so the snippet's existing "renders nothing" scenarios (already spec'd for the PDP) stay true verbatim in card mode too.
 
 ### Current-listing highlight reuses the PDP's literal black border/pill, re-scoped
 
@@ -53,15 +52,24 @@ Card entries are real `<a href="{{ member.url }}">` links with no JS attached in
 
 Both `c-main-collection.liquid` and `featured-collection-carousel.liquid` get a single `show_combined_listings` checkbox (default `true`) in their existing "Cards" settings group, threaded into `product-card` alongside the other per-card parameters. The metafield keys are not exposed as settings — `product-card.liquid` passes the same literal defaults the PDP block ships with. If a store ever needs different keys per section, that's a small follow-up (promote the two literals to parameters), not designed for now.
 
-### Entry cap defaults to 4
+### Scroll instead of cap
 
-Chosen as a reasonable fit for the narrowest card width the sections support (2-up mobile grid) without requiring a per-breakpoint cap; final pixel/count tuning happens visually during implementation, not fixed here.
+The first pass capped entries at a fixed `entry_limit` with a `+N` overflow marker (mirroring `product-block-options__more-label`). Live review preferred every sibling to stay reachable rather than some being hidden behind a count, so the cap was removed: `combined-listing.liquid` renders all visible members in both modes, and `product-card`'s CSS makes `.product-card__combined-listing`'s entry strip `overflow-x: auto` with `flex-wrap: nowrap` and `flex-shrink: 0` on entries, so a set that doesn't fit the card's width scrolls horizontally instead of wrapping, clipping, or stretching the card. The classic flex-nested-scroll pitfall (a flex item's default content-based minimum width preventing it from ever shrinking to trigger `overflow-x`) is avoided with an explicit `min-width: 0` on the intervening `.option-selector` flex item. The scrollbar itself is hidden (`scrollbar-width: none` + `::-webkit-scrollbar { display: none }`, the same technique `.slider--no-scrollbar` already uses) — touch/wheel scrolling still works.
+- *Alternative considered:* keep the cap but raise the limit — rejected, any fixed number is still an arbitrary cutoff; scrolling scales to any set size without a magic number.
+
+### Image-only entries in card mode
+
+Cards are narrow enough that an image swatch plus its name label side-by-side (the PDP's layout) doesn't fit well repeated across several entries. In card mode, image-row entries show only the thumbnail; the `<span class="js-value">` name text gets a `visually-hidden` class instead of being removed from the DOM, so the link keeps a meaningful accessible name for assistive tech even though nothing is shown visually. Text-pill entries (sets whose axis isn't the color/swatch option) have no image to fall back to, so their name stays visible exactly as before — there's nothing to hide.
+
+### No outer chip border on image entries; thumbnail size
+
+The global `.opt-label` base rule styles every entry as a bordered, backgrounded, padded "chip" (built for text/variant buttons). For image entries this doubled up with the thumbnail's own border treatment from the global swatch styles (a box-shadow ring, or a circular clip depending on the store's swatch-style setting) — redundant on a card where the image itself is the whole point. `product-card__combined-listing .cl-entry.opt-label--image` resets border/background/padding to nothing, leaving just the image (also forced square via `border-radius: 0`, overriding the circular/rounded treatment the global styles would otherwise apply, so the card doesn't inherit the PDP's swatch shape setting). Text-pill entries are untouched — they still need the chip to read as a button. Thumbnails render at 40px (up from an initial 22px, matched to the PDP's default swatch size) with the row's reserved `min-height` matched to it so nothing clips.
 
 ## Risks / Trade-offs
 
 - [Reserved-height slot adds a small empty gap to every card for stores that don't use combined listings at all] → Acceptable trade-off explicitly chosen over raggedness; the row is a single thin strip, not a large block.
-- [Text-pill rows (non-color sets) can vary more in width than image rows, and a capped set of pills might still overflow a very narrow card] → Bounded by `entry_limit`; visual QA during implementation can lower the cap for text rows specifically if needed, without a spec change.
-- [Two rendering modes in one snippet file adds branching] → Kept minimal (skip-label / wrapper-element / entry-cap are the only differences); the alternative (forking the file) duplicates far more surface (the whole resolution block) for less benefit.
+- [A large set scrolling horizontally inside a card is an easy-to-miss affordance — nothing but a hidden scrollbar hints there's more] → Accepted for this iteration; a visible peek/fade-edge cue would be a natural follow-up if real sets turn out to have many members, but wasn't asked for here.
+- [Two rendering modes in one snippet file adds branching] → Kept minimal (skip-label / wrapper-element / image-entry text-visibility are the only differences); the alternative (forking the file) duplicates far more surface (the whole resolution block) for less benefit.
 - [Store not using combined listings sees zero visible change] → By design; the feature is inert until the metaobject/metafields are populated, exactly like the PDP block today.
 
 ## Migration Plan
