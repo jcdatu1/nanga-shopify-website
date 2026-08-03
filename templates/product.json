@@ -79,6 +79,7 @@
         },
         "key-features": {
           "type": "key-features",
+          "disabled": true,
           "settings": {
             "heading": "Key Features",
             "metafield": "custom.key_features"
