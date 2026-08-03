@@ -11578,16 +11578,22 @@ model-viewer .container {
   text-decoration: none;
 }
 
+/* Image entries: no outer button chip (border/background/padding) — the
+   image's own ring (from the global swatch styles) is border enough. */
 .product-card__combined-listing .cl-entry.opt-label--image {
   width: auto;
-  padding: 2px 6px 2px 2px;
+  min-width: 0;
+  min-height: 0;
+  margin: 0 6px 0 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
 }
 
 .product-card__combined-listing .cl-entry.opt-label--image .opt-label__media {
   width: 22px;
   height: 22px;
   margin: 0;
-  margin-inline-end: 6px;
 }
 
 /* Square thumbnails regardless of the store's global swatch shape setting
