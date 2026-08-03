@@ -11528,6 +11528,85 @@ model-viewer .container {
   left: 1px;
 }
 
+/* Combined listing row (snippets/combined-listing.liquid, card_mode) -------
+   Always rendered (even for products with no set) so every card in a grid
+   reserves the same height. Reuses the global .opt-label*/.option-selector
+   look at card-appropriate size; the current-entry border and sold-out
+   strikethrough restate the PDP's own .cl-entry treatment
+   (assets/c-main-product.css), scoped here instead of under .cmp. */
+.product-card__combined-listing {
+  min-height: 32px;
+  margin-top: 8px;
+  display: flex;
+  align-items: center;
+}
+
+.product-card__combined-listing .option-selector__btns {
+  flex-wrap: nowrap;
+  overflow: hidden;
+  margin: 0;
+}
+
+.product-card__combined-listing .cl-entry {
+  min-width: 0;
+  min-height: 0;
+  margin: 0 6px 0 0;
+  padding: 3px 8px;
+  font-size: var(--smaller-text-size-3);
+  color: inherit;
+  text-decoration: none;
+}
+
+.product-card__combined-listing .cl-entry.opt-label--image {
+  width: auto;
+  padding: 2px 6px 2px 2px;
+}
+
+.product-card__combined-listing .cl-entry.opt-label--image .opt-label__media {
+  width: 22px;
+  height: 22px;
+  margin: 0;
+  margin-inline-end: 6px;
+}
+
+.product-card__combined-listing .cl-entry--current {
+  cursor: default;
+}
+
+.product-card__combined-listing .cl-entry--current.opt-label--image {
+  border: 2px solid #000;
+  box-shadow: none;
+}
+
+.product-card__combined-listing .cl-entry--current.opt-label--btn {
+  border: 2px solid #000;
+  background-color: #000;
+  color: #fff;
+  box-shadow: none;
+}
+
+/* Sold-out sibling: same X strikethrough as the PDP row, link stays live */
+.product-card__combined-listing .cl-entry.opt-label--is-unavailable {
+  background: none;
+}
+
+.product-card__combined-listing .cl-entry.opt-label--is-unavailable::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to top right, transparent calc(50% - 0.5px), #9ca3af calc(50% - 0.5px), #9ca3af calc(50% + 0.5px), transparent calc(50% + 0.5px)),
+    linear-gradient(to bottom right, transparent calc(50% - 0.5px), #9ca3af calc(50% - 0.5px), #9ca3af calc(50% + 0.5px), transparent calc(50% + 0.5px));
+  pointer-events: none;
+}
+
+.product-card__combined-listing .cl-entry--more {
+  display: inline-block;
+  color: #4b5563;
+  font-size: var(--smaller-text-size-3);
+  white-space: nowrap;
+}
+
 /* Detail ------------------------------------------------------------------- */
 .product-card__detail {
   margin-top: 12px;

@@ -1,8 +1,10 @@
 {%- comment -%}
   Combined listing selector — metafield-driven sibling products (NANGA).
   Renders one option-selector-style row for the "set" the product belongs to.
-  Members are separate products, linked as real anchors; assets/combined-listing.js
-  swaps the whole section via the Section Rendering API for a seamless switch.
+  Members are separate products, linked as real anchors. In the default (PDP)
+  mode, assets/combined-listing.js swaps the whole section via the Section
+  Rendering API for a seamless switch. In card_mode (product-card context)
+  entries are plain links with no swap wiring and no label line — see below.
 
   Store configuration this snippet expects (no code involved):
   - Metaobject definition 'c_combined_listings' with fields:
@@ -17,12 +19,20 @@
 
   Parameters:
   - product {Object} - Product object (required).
-  - section_id {String} - Section ID for the Section Rendering API swap (required).
+  - section_id {String} - Section ID for the Section Rendering API swap (required unless card_mode).
   - set_metafield {String} - Product metafield holding the set reference, as 'namespace.key'.
   - name_metafield {String} - Product metafield holding the display name, as 'namespace.key'.
+  - card_mode {Boolean} - Render for a product-card context instead of the PDP (optional, default
+    false). Omits the label line, skips the <combined-listing>/Section Rendering API wiring (entries
+    are plain links, no section_id needed), and caps visible entries to entry_limit with a "+N"
+    overflow marker for any remainder.
+  - entry_limit {Number} - Max entries shown before the "+N" marker; card_mode only (optional, default 4).
 
-  Usage:
+  Usage (PDP):
   {% render 'combined-listing', product: product, section_id: section.id, set_metafield: 'custom.c_combined_listing_set', name_metafield: 'custom.c_combined_listing_name' %}
+
+  Usage (product card):
+  {% render 'combined-listing', product: product, card_mode: true, set_metafield: 'custom.c_combined_listing_set', name_metafield: 'custom.c_combined_listing_name' %}
 {%- endcomment -%}
 {%- liquid
   assign set_ref = set_metafield | strip | split: '.'
@@ -31,6 +41,7 @@
   if set_ref.size == 2 and name_ref.size == 2
     assign cl_set = product.metafields[set_ref[0]][set_ref[1]].value
   endif
+  assign entry_limit = entry_limit | default: 4
 -%}
 {%- if cl_set != blank -%}
   {%- liquid
@@ -57,21 +68,41 @@
       assign swatch_image_size_x2 = settings.swatch_picker_image_size | times: 2
       assign img_sizes = settings.swatch_picker_image_size | append: 'px'
       assign img_widths = swatch_image_size_x2 | append: ', ' | append: settings.swatch_picker_image_size
+
+      # card_mode caps how many entries render; the rest collapse into a "+N" marker
+      assign shown_count = visible_count
+      assign overflow_count = 0
+      if card_mode and visible_count > entry_limit
+        assign shown_count = entry_limit
+        assign overflow_count = visible_count | minus: entry_limit
+      endif
     -%}
-    <combined-listing class="block" data-section-id="{{ section_id }}">
+    {%- if card_mode -%}
+      <div class="cl-card-row">
+    {%- else -%}
+      <combined-listing class="block" data-section-id="{{ section_id }}">
+    {%- endif -%}
       <div class="option-selector option-selector--custom cl-row">
-        <div class="label">
-          {{- row_label | escape -}}
-          {%- if is_image_row -%}
-            : <span class="option-selector__label-value">{{ current_name | escape }}</span>
-          {%- endif -%}
-        </div>
+        {%- unless card_mode -%}
+          <div class="label">
+            {{- row_label | escape -}}
+            {%- if is_image_row -%}
+              : <span class="option-selector__label-value">{{ current_name | escape }}</span>
+            {%- endif -%}
+          </div>
+        {%- endunless -%}
         <div class="option-selector__btns flex flex-wrap">
+          {%- assign rendered_count = 0 -%}
           {%- for member in cl_set.product_list.value -%}
             {%- liquid
               if member == blank or member.id == blank
                 continue
               endif
+
+              if card_mode and rendered_count >= shown_count
+                continue
+              endif
+              assign rendered_count = rendered_count | plus: 1
 
               # Display name: the member's own single name metafield, else its title
               assign member_name = member.metafields[name_ref[0]][name_ref[1]].value | default: member.title
@@ -94,8 +125,15 @@
               <span class="js-value">{{ member_name | escape }}</span>
             </a>
           {%- endfor -%}
+          {%- if card_mode and overflow_count > 0 -%}
+            <span class="cl-entry--more">+{{ overflow_count }}</span>
+          {%- endif -%}
         </div>
       </div>
+    {%- if card_mode -%}
+      </div>
+    {%- else -%}
     </combined-listing>
+    {%- endif -%}
   {%- endif -%}
 {%- endif -%}

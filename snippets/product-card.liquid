@@ -14,6 +14,11 @@
   - show_value_props {Boolean} - Show the value-prop line below the title (optional, default true).
   - hover_effect {String} - 'zoom' or 'image' (optional, default 'zoom'). 'image' cross-fades to the
     lifestyle photo on hover; products without the metafield fall back to the zoom.
+  - show_combined_listings {Boolean} - Show the combined-listing row below the image (optional,
+    default true). Renders 'combined-listing' in card_mode against the same metafield keys the
+    PDP block uses (custom.c_combined_listing_set / custom.c_combined_listing_name). The row's
+    wrapper always renders when this is true, even for products with no set, so cards in a grid
+    reserve equal height.
 
   The product type (product.type) renders as a category line above the title when present and show_type is not false.
   Badge text comes from product.metafields.custom.c_product_badge (single, replaces auto labels).
@@ -45,6 +50,8 @@
     assign swap_image = product.metafields.custom.c_lifestyle_photo.value.preview_image
   endif
 
+  assign show_combined_listings = show_combined_listings | default: true, allow_false: true
+
   assign badge_label = product.metafields.custom.c_product_badge
   assign value_props = product.metafields.custom.c_card_value_prop.value | join: ' • '
 -%}
@@ -69,6 +76,12 @@
       {%- endif -%}
     </a>
   </div>
+
+  {%- if show_combined_listings -%}
+    <div class="product-card__combined-listing">
+      {%- render 'combined-listing', product: product, card_mode: true, set_metafield: 'custom.c_combined_listing_set', name_metafield: 'custom.c_combined_listing_name' -%}
+    </div>
+  {%- endif -%}
 
   <div class="product-card__detail">
     {%- if show_type and product.type != blank -%}

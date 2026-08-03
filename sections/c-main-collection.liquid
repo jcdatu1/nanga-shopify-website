@@ -118,7 +118,7 @@
         {% else %}
           <div class="product-grid cmc__grid product-grid--per-row-{{ section.settings.grid }} product-grid--per-row-mob-{{ section.settings.mobile_grid }}">
             {%- for product in collection.products -%}
-              {%- render 'product-card', product: product, badge_position: section.settings.tag_position, show_border: section.settings.show_border, badge_bg: badge_bg, badge_text: badge_text, image_fit: section.settings.image_style, show_type: section.settings.show_type, show_value_props: section.settings.show_value_props, hover_effect: section.settings.hover_effect -%}
+              {%- render 'product-card', product: product, badge_position: section.settings.tag_position, show_border: section.settings.show_border, badge_bg: badge_bg, badge_text: badge_text, image_fit: section.settings.image_style, show_type: section.settings.show_type, show_value_props: section.settings.show_value_props, hover_effect: section.settings.hover_effect, show_combined_listings: section.settings.show_combined_listings -%}
             {%- endfor -%}
           </div>
         {% endif %}
@@ -318,6 +318,13 @@
       "id": "show_border",
       "label": "Show card border",
       "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "show_combined_listings",
+      "label": "Show combined listings",
+      "info": "Shows sibling colorways (custom.c_combined_listing_set) below the image, when the product belongs to a set.",
+      "default": true
     }
   ],
   "presets": [
