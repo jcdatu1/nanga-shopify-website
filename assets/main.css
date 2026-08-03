@@ -11530,24 +11530,45 @@ model-viewer .container {
 
 /* Combined listing row (snippets/combined-listing.liquid, card_mode) -------
    Always rendered (even for products with no set) so every card in a grid
-   reserves the same height. Reuses the global .opt-label*/.option-selector
+   reserves the same height. Reuses the global .opt-label / .option-selector
    look at card-appropriate size; the current-entry border and sold-out
    strikethrough restate the PDP's own .cl-entry treatment
-   (assets/c-main-product.css), scoped here instead of under .cmp. */
+   (assets/c-main-product.css), scoped here instead of under .cmp. All
+   visible members render — no entries are hidden behind a "+N" marker —
+   the row scrolls horizontally instead when they don't fit the card width. */
 .product-card__combined-listing {
   min-height: 32px;
   margin-top: 8px;
+  max-width: 100%;
   display: flex;
   align-items: center;
 }
 
+/* min-width: 0 overrides the flex item's default content-based minimum size
+   so the scroll region below can actually shrink to the card's width instead
+   of stretching the card to fit every swatch. */
+.product-card__combined-listing .option-selector {
+  min-width: 0;
+  width: 100%;
+}
+
 .product-card__combined-listing .option-selector__btns {
   flex-wrap: nowrap;
-  overflow: hidden;
+  align-items: center;
+  overflow-x: auto;
+  overflow-y: hidden;
   margin: 0;
+  max-width: 100%;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.product-card__combined-listing .option-selector__btns::-webkit-scrollbar {
+  display: none;
 }
 
 .product-card__combined-listing .cl-entry {
+  flex-shrink: 0;
   min-width: 0;
   min-height: 0;
   margin: 0 6px 0 0;
@@ -11607,13 +11628,6 @@ model-viewer .container {
     linear-gradient(to top right, transparent calc(50% - 0.5px), #9ca3af calc(50% - 0.5px), #9ca3af calc(50% + 0.5px), transparent calc(50% + 0.5px)),
     linear-gradient(to bottom right, transparent calc(50% - 0.5px), #9ca3af calc(50% - 0.5px), #9ca3af calc(50% + 0.5px), transparent calc(50% + 0.5px));
   pointer-events: none;
-}
-
-.product-card__combined-listing .cl-entry--more {
-  display: inline-block;
-  color: #4b5563;
-  font-size: var(--smaller-text-size-3);
-  white-space: nowrap;
 }
 
 /* Detail ------------------------------------------------------------------- */

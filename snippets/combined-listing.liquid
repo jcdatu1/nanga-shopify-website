@@ -4,7 +4,10 @@
   Members are separate products, linked as real anchors. In the default (PDP)
   mode, assets/combined-listing.js swaps the whole section via the Section
   Rendering API for a seamless switch. In card_mode (product-card context)
-  entries are plain links with no swap wiring and no label line — see below.
+  entries are plain links with no swap wiring, no label line, and no visible
+  name text on image entries (image only) — see below. All visible members
+  render; product-card.liquid's CSS makes the row horizontally scrollable
+  when there isn't room for all of them rather than capping the count here.
 
   Store configuration this snippet expects (no code involved):
   - Metaobject definition 'c_combined_listings' with fields:
@@ -24,9 +27,8 @@
   - name_metafield {String} - Product metafield holding the display name, as 'namespace.key'.
   - card_mode {Boolean} - Render for a product-card context instead of the PDP (optional, default
     false). Omits the label line, skips the <combined-listing>/Section Rendering API wiring (entries
-    are plain links, no section_id needed), and caps visible entries to entry_limit with a "+N"
-    overflow marker for any remainder.
-  - entry_limit {Number} - Max entries shown before the "+N" marker; card_mode only (optional, default 4).
+    are plain links, no section_id needed), and hides the name text on image entries (kept in the
+    DOM as visually-hidden, for the entry's accessible name).
 
   Usage (PDP):
   {% render 'combined-listing', product: product, section_id: section.id, set_metafield: 'custom.c_combined_listing_set', name_metafield: 'custom.c_combined_listing_name' %}
@@ -41,7 +43,6 @@
   if set_ref.size == 2 and name_ref.size == 2
     assign cl_set = product.metafields[set_ref[0]][set_ref[1]].value
   endif
-  assign entry_limit = entry_limit | default: 4
 -%}
 {%- if cl_set != blank -%}
   {%- liquid
@@ -68,14 +69,6 @@
       assign swatch_image_size_x2 = settings.swatch_picker_image_size | times: 2
       assign img_sizes = settings.swatch_picker_image_size | append: 'px'
       assign img_widths = swatch_image_size_x2 | append: ', ' | append: settings.swatch_picker_image_size
-
-      # card_mode caps how many entries render; the rest collapse into a "+N" marker
-      assign shown_count = visible_count
-      assign overflow_count = 0
-      if card_mode and visible_count > entry_limit
-        assign shown_count = entry_limit
-        assign overflow_count = visible_count | minus: entry_limit
-      endif
     -%}
     {%- if card_mode -%}
       <div class="cl-card-row">
@@ -92,17 +85,11 @@
           </div>
         {%- endunless -%}
         <div class="option-selector__btns flex flex-wrap">
-          {%- assign rendered_count = 0 -%}
           {%- for member in cl_set.product_list.value -%}
             {%- liquid
               if member == blank or member.id == blank
                 continue
               endif
-
-              if card_mode and rendered_count >= shown_count
-                continue
-              endif
-              assign rendered_count = rendered_count | plus: 1
 
               # Display name: the member's own single name metafield, else its title
               assign member_name = member.metafields[name_ref[0]][name_ref[1]].value | default: member.title
@@ -113,21 +100,22 @@
               endif
 
               assign member_image = member.featured_media.preview_image
+              assign is_image_entry = false
+              if is_image_row and member_image
+                assign is_image_entry = true
+              endif
             -%}
             <a href="{{ member.url }}"
-               class="cl-entry opt-label relative {% if is_image_row and member_image %}opt-label--image{% else %}opt-label--btn btn text-center{% endif %}{% if is_current %} cl-entry--current{% endif %}{% unless member.available %} opt-label--is-unavailable{% endunless %}"
+               class="cl-entry opt-label relative {% if is_image_entry %}opt-label--image{% else %}opt-label--btn btn text-center{% endif %}{% if is_current %} cl-entry--current{% endif %}{% unless member.available %} opt-label--is-unavailable{% endunless %}"
                {%- if is_current %} aria-current="true"{% endif %}>
-              {%- if is_image_row and member_image -%}
+              {%- if is_image_entry -%}
                 <div class="opt-label__media media img-ar img-ar--cover" style="--aspect-ratio: 1; --crop-align: {{ settings.swatch_crop_align }}">
                   {{- member_image | image_url: width: swatch_image_size_x2 | image_tag: sizes: img_sizes, widths: img_widths, class: 'theme-img', loading: 'lazy' -}}
                 </div>
               {%- endif -%}
-              <span class="js-value">{{ member_name | escape }}</span>
+              <span class="js-value{% if card_mode and is_image_entry %} visually-hidden{% endif %}">{{ member_name | escape }}</span>
             </a>
           {%- endfor -%}
-          {%- if card_mode and overflow_count > 0 -%}
-            <span class="cl-entry--more">+{{ overflow_count }}</span>
-          {%- endif -%}
         </div>
       </div>
     {%- if card_mode -%}
