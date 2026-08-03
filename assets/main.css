@@ -11569,6 +11569,15 @@ model-viewer .container {
   margin-inline-end: 6px;
 }
 
+/* Square thumbnails regardless of the store's global swatch shape setting
+   (swatch-style-listed / icon_circle both round these via global rules). */
+.product-card__combined-listing .cl-entry.opt-label--image,
+.product-card__combined-listing .cl-entry.opt-label--image::before,
+.product-card__combined-listing .cl-entry.opt-label--image::after,
+.product-card__combined-listing .cl-entry.opt-label--image .theme-img {
+  border-radius: 0;
+}
+
 .product-card__combined-listing .cl-entry--current {
   cursor: default;
 }
