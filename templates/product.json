@@ -41,7 +41,7 @@
             "size_chart_label": "Size Chart",
             "size_chart_variant": "Size",
             "size_chart_source": "page",
-            "size_chart_page": "contact"
+            "size_chart_page": "{{ product.metafields.custom.c_size_guide.value }}"
           }
         },
         "buy-buttons": {
@@ -54,6 +54,7 @@
         },
         "trust-shipping": {
           "type": "trust-item",
+          "disabled": true,
           "settings": {
             "icon": "truck",
             "heading": "Free Shipping",
@@ -62,6 +63,7 @@
         },
         "trust-returns": {
           "type": "trust-item",
+          "disabled": true,
           "settings": {
             "icon": "return",
             "heading": "Free Returns",
