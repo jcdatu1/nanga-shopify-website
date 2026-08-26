@@ -49,12 +49,32 @@
     "main": {
       "type": "faq-header",
       "settings": {
-        "title": "FAQ",
+        "title": "Frequently Asked Questions",
         "use_h1": false,
         "text": "",
         "show_search": true,
         "show_index": true,
         "index_heading": "How can we help?"
+      }
+    },
+    "collapsible_tabs_xD3Jft": {
+      "type": "collapsible-tabs",
+      "blocks": {
+        "content_YXiA7k": {
+          "type": "content",
+          "settings": {
+            "content": "<p>We can be reached by email between Monday through Friday at info@nanga-us.com. Please allow 24-48 hours to receive a reply.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "content_YXiA7k"
+      ],
+      "name": "Collapsible tabs",
+      "settings": {
+        "title": "Contact Us",
+        "open_tab": false,
+        "enable_faq_schema": false
       }
     },
     "collapsible_tabs_bL9cYd": {
@@ -202,6 +222,7 @@
   "order": [
     "heading",
     "main",
+    "collapsible_tabs_xD3Jft",
     "collapsible_tabs_bL9cYd",
     "faq-content-1",
     "faq-content-2"
