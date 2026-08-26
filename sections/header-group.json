@@ -17,7 +17,7 @@
         "e33df8e3-c667-49c7-9da7-a23fac96c44d": {
           "type": "announcement",
           "settings": {
-            "text": "<a href=\"#\" title=\"FAQs\">Free shipping</a> on orders over $50",
+            "text": "Free shipping on orders over $100",
             "show_countdown": false,
             "hide_on_end": false,
             "end_date": "",
@@ -25,7 +25,7 @@
             "number_font": "base",
             "countdown_separator": "box",
             "use_custom_colors": true,
-            "bg_color": "#FFFFFF",
+            "bg_color": "#ffffff",
             "bg_gradient": "",
             "text_color": "#000000"
           }
