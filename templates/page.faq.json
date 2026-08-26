@@ -1,1 +1,256 @@
-{"sections":{"heading":{"type":"image-with-text-overlay","blocks":{"heading":{"type":"heading","settings":{"title":"Customer Help","title_size":52}},"text":{"type":"text","settings":{"text":"<p>If talking to a real-life human is more your thing, you can reach our Customer Happiness Team via email (below).<\/p>"}}},"block_order":["heading","text"],"settings":{"height":"fixed","height_desktop":400,"height_mobile":300}},"main":{"type":"faq-header","settings":{}},"faq-content-1":{"type":"collapsible-tabs","blocks":{"question-1":{"type":"question","settings":{"title":"What size should I buy?","answer":"<p>If you’re not quite sure which size is right for you, refer to our size guides. They’re located underneath the available sizes for each of our products.<\/p>"}},"question-2":{"type":"question","settings":{"title":"Can I cancel my order?","answer":"<p>We completely get it, we change our minds too! While we wish could, once an order is placed, we are unable to alter or cancel it at this time. We hope to have a cancellation window one day in the future.<\/p><p>Should the item(s) not work out, make sure to exchange for a preferred style or return for a refund. As a reminder, domestic return shipping is free.<\/p>"}}},"block_order":["question-1","question-2"],"settings":{"title":"Ordering"}},"faq-content-2":{"type":"collapsible-tabs","blocks":{"para-1":{"type":"content","settings":{"content":"<p>We use all major carriers, and local courier partners. You’ll be asked to select a delivery method during checkout.<\/p>"}},"question-1":{"type":"question","settings":{"title":"What is the shipping policy?","answer":"<p>Once your order is placed, you will receive a confirmation email letting you know that our fulfillment team has received your order. Once your order is fulfilled, you will receive an email notification with your tracking information. Shipping fees are non-refundable in the case of returns.<\/p>"}},"question-2":{"type":"question","settings":{"title":"Do you ship overseas?","answer":"<p>Yes, we ship all over the world. Shipping costs will apply, and will be added at checkout.<\/p>"}}},"block_order":["para-1","question-1","question-2"],"settings":{"title":"Shipping, Returns & Exchanges"}},"contact":{"type":"rich-text","blocks":{"icon":{"type":"icon","settings":{"icon":"chat_bubble"}},"heading":{"type":"heading","settings":{"title":"Get in touch"}},"text":{"type":"text","settings":{"text":"<p>Have questions about your order, or a general enquiry?<\/p>"}},"button":{"type":"button","settings":{"button_label":"Contact us"}}},"block_order":["icon","heading","text","button"],"settings":{}}},"order":["heading","main","faq-content-1","faq-content-2","contact"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "heading": {
+      "type": "image-with-text-overlay",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "title": "Customer Help",
+            "heading_max_width": 15,
+            "title_size": 52,
+            "title_size_mobile": 32,
+            "use_h1": false
+          }
+        },
+        "text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>If talking to a real-life human is more your thing, you can reach our Customer Happiness Team via email (below).</p>",
+            "enlarge_text": true
+          }
+        }
+      },
+      "block_order": [
+        "heading",
+        "text"
+      ],
+      "disabled": true,
+      "settings": {
+        "height": "fixed",
+        "height_desktop": 400,
+        "height_mobile": 300,
+        "image_link": "",
+        "full_width": true,
+        "text_alignment": "center center",
+        "mobile_overlay_under": false,
+        "overlay_style": "shadow"
+      }
+    },
+    "main": {
+      "type": "faq-header",
+      "settings": {
+        "title": "FAQ",
+        "use_h1": false,
+        "text": "",
+        "show_search": true,
+        "show_index": true,
+        "index_heading": "How can we help?"
+      }
+    },
+    "collapsible_tabs_bL9cYd": {
+      "type": "collapsible-tabs",
+      "blocks": {
+        "question_hBU8yG": {
+          "type": "question",
+          "settings": {
+            "title": "I made a mistake with my order and would like it corrected.",
+            "answer": "<p>Orders cannot be canceled by the customer once confirmed. We will cancel the order on our end, so please place a new order for the correct item. Please contact the Online Shop support desk with your order number and the change you would like to make.</p>"
+          }
+        },
+        "question_UEQ8dL": {
+          "type": "question",
+          "settings": {
+            "title": "Can I return the item I purchased?",
+            "answer": "<p>For returns due to the customer's own circumstances, such as an incorrect size or a different look than expected, a return is possible if we determine, based on our standards, that the item has no issues. Returns are only accepted at the store where the item was purchased.</p><p>https://nanga.jp/store/</p><p>For items purchased at the NANGA Online Shop, please refer to the \"Returns and Exchanges\" page.</p>"
+          }
+        },
+        "question_QFYKgb": {
+          "type": "question",
+          "settings": {
+            "title": "I want to exchange an item due to size or appearance not matching my expectations.",
+            "answer": "<p>We are unable to process exchanges once an order is confirmed. Instead, we handle this as a return followed by a new order for the desired item, which functions as an exchange. We accept returns only for unused items with tags attached and the delivery slip included, provided the item is in good condition. Please contact the Online Shop support desk with your order number to begin the return process.</p>"
+          }
+        },
+        "question_qTf7k4": {
+          "type": "question",
+          "settings": {
+            "title": "I want to change the shipping date or shipping address.",
+            "answer": "<p>Depending on the shipping preparation status, we may not be able to accommodate the change. Please contact the Online Shop support desk with your order number and the details of the change you would like to make.</p>"
+          }
+        },
+        "question_d9wWaT": {
+          "type": "question",
+          "settings": {
+            "title": "About how long does shipping take?",
+            "answer": "<p>Orders are typically shipped within 3 business days of the order date. If no delivery date is specified, we generally ship the day after the order is placed, depending on the time the order was made. Please note that this may vary due to weekends, holidays, extended breaks such as New Year, or order volume.</p>"
+          }
+        },
+        "question_JwMRKY": {
+          "type": "question",
+          "settings": {
+            "title": "Do you ship internationally?",
+            "answer": "<p>Shipping is limited to within the United States.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "question_hBU8yG",
+        "question_UEQ8dL",
+        "question_QFYKgb",
+        "question_qTf7k4",
+        "question_d9wWaT",
+        "question_JwMRKY"
+      ],
+      "name": "Collapsible tabs",
+      "settings": {
+        "title": "Online Orders",
+        "open_tab": false,
+        "enable_faq_schema": false
+      }
+    },
+    "faq-content-1": {
+      "type": "collapsible-tabs",
+      "blocks": {
+        "question-1": {
+          "type": "question",
+          "settings": {
+            "title": "I no longer know how much down is in my sleeping bag. Is there a way to check?",
+            "answer": "<p>Please check the 2- to 3-digit number on the quality label near the foot area on the inside of the bag. Add one zero to that number to get the down weight. For example, \"45\" becomes 450g.</p>"
+          }
+        },
+        "question-2": {
+          "type": "question",
+          "settings": {
+            "title": "The anti-pinch zipper guard came off. Is this a manufacturing defect?",
+            "answer": "<p>The anti-pinch zipper guard is an attached accessory part, so it may come off if force is applied. Please check the clip. If it is not damaged, simply reattach it. If the clip breaks shortly after purchase, it may be a manufacturing defect.</p>"
+          }
+        },
+        "question_qkjYtj": {
+          "type": "question",
+          "settings": {
+            "title": "On sleeping bags, some areas appear dark. Is this mold or dirt?",
+            "answer": "<p>This is because the fabric used is thin, so the down and inner fabric are visible through it. Please rest assured that this is not mold. Areas with more down appear white, while areas where the down is naturally sparse or has shifted can appear dark. Try smoothing the down out evenly, as this should resolve the issue.</p>"
+          }
+        },
+        "question_6R6dBi": {
+          "type": "question",
+          "settings": {
+            "title": "What should I do if a down feather pokes out of the product?",
+            "answer": "<p>Pinch the feather from the back side of the fabric where it is poking through, and gently push it back inside. Pulling it out will cause more feathers to come out one after another.</p>"
+          }
+        },
+        "question_bkUyz4": {
+          "type": "question",
+          "settings": {
+            "title": "It feels like there is less down in certain areas.",
+            "answer": "<p>Down can shift depending on how the item is worn in the same position over time, or how it is stored. Laying the item flat and spreading the down out, or gently patting it to redistribute it, can help correct this. If you have used the item for a long time, the down may also be dirty, so please consider having it cleaned.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "question-1",
+        "question-2",
+        "question_qkjYtj",
+        "question_6R6dBi",
+        "question_bkUyz4"
+      ],
+      "settings": {
+        "title": "About Products",
+        "open_tab": false,
+        "enable_faq_schema": false
+      }
+    },
+    "faq-content-2": {
+      "type": "collapsible-tabs",
+      "blocks": {
+        "question-1": {
+          "type": "question",
+          "settings": {
+            "title": "Can a storage bag be repaired?",
+            "answer": "<p>Storage bags are not covered under After Care.</p>"
+          }
+        },
+        "question-2": {
+          "type": "question",
+          "settings": {
+            "title": "The item I purchased from another retailer had a manufacturing defect. Can I return or exchange it?",
+            "answer": "<p>For items purchased from other retailers or other online stores, we are unable to process returns or exchanges if we cannot verify the sales record on our end. We apologize for the inconvenience and ask that you contact the retailer where you made the purchase.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "question-1",
+        "question-2"
+      ],
+      "settings": {
+        "title": "About After Care",
+        "open_tab": false,
+        "enable_faq_schema": false
+      }
+    },
+    "contact": {
+      "type": "rich-text",
+      "blocks": {
+        "icon": {
+          "type": "icon",
+          "settings": {
+            "icon": "chat_bubble",
+            "icon_color": "rgba(0,0,0,0)"
+          }
+        },
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "title": "Get in touch",
+            "use_h1": false
+          }
+        },
+        "text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Have questions about your order, or a general enquiry?</p>",
+            "enlarge_text": true
+          }
+        },
+        "button": {
+          "type": "button",
+          "settings": {
+            "button_label": "Contact us",
+            "button_link": "",
+            "button_style": "primary"
+          }
+        }
+      },
+      "block_order": [
+        "icon",
+        "heading",
+        "text",
+        "button"
+      ],
+      "settings": {
+        "height": "medium",
+        "text_alignment": "center",
+        "full_width": false,
+        "color_scheme": "default"
+      }
+    }
+  },
+  "order": [
+    "heading",
+    "main",
+    "collapsible_tabs_bL9cYd",
+    "faq-content-1",
+    "faq-content-2",
+    "contact"
+  ]
+}
