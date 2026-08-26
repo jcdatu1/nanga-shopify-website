@@ -197,52 +197,6 @@
         "open_tab": false,
         "enable_faq_schema": false
       }
-    },
-    "contact": {
-      "type": "rich-text",
-      "blocks": {
-        "icon": {
-          "type": "icon",
-          "settings": {
-            "icon": "chat_bubble",
-            "icon_color": "rgba(0,0,0,0)"
-          }
-        },
-        "heading": {
-          "type": "heading",
-          "settings": {
-            "title": "Get in touch",
-            "use_h1": false
-          }
-        },
-        "text": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Have questions about your order, or a general enquiry?</p>",
-            "enlarge_text": true
-          }
-        },
-        "button": {
-          "type": "button",
-          "settings": {
-            "button_label": "Contact us",
-            "button_link": "",
-            "button_style": "primary"
-          }
-        }
-      },
-      "block_order": [
-        "icon",
-        "heading",
-        "text",
-        "button"
-      ],
-      "settings": {
-        "height": "medium",
-        "text_alignment": "center",
-        "full_width": false,
-        "color_scheme": "default"
-      }
     }
   },
   "order": [
@@ -250,7 +204,6 @@
     "main",
     "collapsible_tabs_bL9cYd",
     "faq-content-1",
-    "faq-content-2",
-    "contact"
+    "faq-content-2"
   ]
 }
