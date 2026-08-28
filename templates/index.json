@@ -39,6 +39,7 @@
           "type": "image",
           "settings": {
             "image": "shopify://shop_images/NANGA_top_image.webp",
+            "mobile_image": "shopify://shop_images/NANGA_top_image.webp",
             "slide_link": "",
             "subheading": "",
             "title": "",
