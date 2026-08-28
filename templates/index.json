@@ -15,17 +15,17 @@
         "image_hxX6UJ": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/NANGA_top_image.webp",
+            "image": "shopify://shop_images/hp_data_nz_0351_1.webp",
             "slide_link": "",
             "subheading": "",
-            "title": "",
+            "title": "ZZZ BAG DEBUT",
             "heading_max_width": 13,
             "title_size": 72,
             "title_size_mobile": 48,
             "use_h1": true,
             "text": "",
             "enlarge_text": false,
-            "button_label_1": "",
+            "button_label_1": "Shop Now",
             "button_url_1": "shopify://products/zzz-bag-0-hrz",
             "show_button_arrow_1": true,
             "button_label_2": "",
@@ -108,20 +108,6 @@
         "show_combined_listings": true,
         "show_view_all": true,
         "color_scheme": "default"
-      }
-    },
-    "image_with_text_overlay_Ti4gnX": {
-      "type": "image-with-text-overlay",
-      "name": "Image with text overlay",
-      "settings": {
-        "height": "adapt",
-        "height_desktop": 600,
-        "height_mobile": 460,
-        "image_link": "",
-        "full_width": true,
-        "text_alignment": "center center",
-        "mobile_overlay_under": false,
-        "overlay_style": "shadow"
       }
     },
     "split_content_craftsmanship": {
@@ -235,7 +221,6 @@
     "slideshow_yFaybj",
     "featured_collection_carousel_CbBpQp",
     "featured_collection_carousel_DG8aWb",
-    "image_with_text_overlay_Ti4gnX",
     "split_content_craftsmanship",
     "collection_list_carousel_category"
   ]
