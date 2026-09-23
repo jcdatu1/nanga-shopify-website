@@ -96,6 +96,15 @@
             "link": "/pages/spanish-down",
             "link_label": "READ"
           }
+        },
+        "card_hLTGcR": {
+          "type": "card",
+          "settings": {
+            "title": "DOWN CLEANING",
+            "text": "<p>Down Cleaning</p>",
+            "link": "/pages/down-cleaning",
+            "link_label": "READ"
+          }
         }
       },
       "block_order": [
@@ -105,7 +114,8 @@
         "card_yeUdLB",
         "card_n8qnRR",
         "card_eB4nFN",
-        "card_kLc9La"
+        "card_kLc9La",
+        "card_hLTGcR"
       ],
       "settings": {
         "title": "",
