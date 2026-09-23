@@ -38,18 +38,18 @@
           "type": "card",
           "settings": {
             "title": "NANGA MOVEMENT",
-            "text": "<p>Our commitment to outdoor culture and sustainable practices</p>",
+            "text": "<p>Circular Manufacturing at NANGA</p>",
             "link": "/pages/nanga-movement",
-            "link_label": "Learn More"
+            "link_label": "READ"
           }
         },
         "kn_grid_philosophy": {
           "type": "card",
           "settings": {
             "title": "QUALITY PHILOSOPHY",
-            "text": "<p>The principles behind our craftsmanship and materials</p>",
+            "text": "<p>For the Highest Quality</p>",
             "link": "/pages/quality-philosophy",
-            "link_label": "Learn More"
+            "link_label": "READ"
           }
         },
         "kn_grid_technology": {
