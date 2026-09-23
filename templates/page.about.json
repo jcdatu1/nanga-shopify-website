@@ -58,7 +58,7 @@
         "about_story_text": {
           "type": "text",
           "settings": {
-            "text": "<p>\"NANGA\" takes its name from Nanga Parbat, an 8,126-meter peak in the Himalayas known and feared as the \"Man-Eater Mountain.\" NANGA was founded in 1994 in Maibara, Shiga Prefecture, as a down product manufacturer. Named after a formidable peak that has claimed the lives of many climbers, the brand embodies the spirit of taking on difficult challenges. It carries the conviction of second-generation president Akira Yokota, who believed that difficulty is exactly the reason to take something on, and that NANGA should climb where others have not.</p>"
+            "text": "<p>\"NANGA\" takes its name from Nanga Parbat, an 8,126-meter peak in the Himalayas known and feared as the \"Man-Eater Mountain.\" NANGA was founded in 1994 in Maibara, Shiga Prefecture, as a down product manufacturer. Named after a formidable peak that has claimed the lives of many climbers, the brand embodies the spirit of taking on difficult challenges. It carries the conviction of second-generation president Akira Yokota, who believed that difficulty is exactly the reason to take something on, and that NANGA should climb where others have not.</p><p>In this region, long known for Omi silk floss futons, NANGA inherited the techniques and expertise of a futon manufacturer that supported the local industry for over 50 years, and has grown for 30 years since. This pride as a factory brand carries through into outdoor gear and apparel built for demanding conditions, and our down products are now making their way out into the world.</p>"
           }
         }
       },
@@ -73,44 +73,19 @@
         "full_width": true
       }
     },
-    "about_video": {
-      "type": "video",
-      "blocks": {
-        "about_video_play": {
-          "type": "play-button",
-          "settings": {}
-        }
-      },
-      "block_order": [
-        "about_video_play"
-      ],
-      "settings": {
-        "video_external": "https://www.youtube.com/watch?v=1TCP8EZ1gAU",
-        "video_description": "NANGA brand video — the story of our down manufacturing in Maibara, Shiga Prefecture",
-        "text_alignment": "center center",
-        "full_width": false,
-        "overlay_style": "shadow"
-      }
-    },
     "about_quality": {
       "type": "c-content-panel",
       "blocks": {
         "about_quality_heading": {
           "type": "heading",
           "settings": {
-            "title": "JAPAN QUALITY"
-          }
-        },
-        "about_quality_sub_pursuit": {
-          "type": "subheading",
-          "settings": {
-            "title": "Relentless Pursuit of Quality"
+            "title": "JAPAN QUALITY: An Unrelenting Pursuit of Quality"
           }
         },
         "about_quality_text_pursuit": {
           "type": "text",
           "settings": {
-            "text": "<p>Premium raw materials raised in the rugged Spanish landscape are carefully washed in Japan and refined into safe, high-quality down. To fully unlock the performance of this down, we employ design methods that combine know-how cultivated through years of experience with data from scientific research in our laboratory, and carefully manufacture products in our factory.</p><p>From material creation to product finishing, and even after-care once our products reach our customers, NANGA is constantly dedicated to the finest craftsmanship.</p>"
+            "text": "<p>High-quality raw down, raised in the rugged landscape of Spain, is carefully washed in Japan and refined into safe, high-quality down. To fully bring out the performance of this down, our factory carefully sews each product using designs that combine years of hands-on experience with data based on scientific research conducted in our lab.</p><p>From material development to final finishing, and through the aftercare we provide once a product reaches you, NANGA is always dedicated to the best possible craftsmanship.</p>"
           }
         },
         "about_quality_sub_washing": {
@@ -160,7 +135,6 @@
       },
       "block_order": [
         "about_quality_heading",
-        "about_quality_sub_pursuit",
         "about_quality_text_pursuit",
         "about_quality_sub_washing",
         "about_quality_text_washing",
@@ -220,7 +194,6 @@
     "main",
     "about_hero",
     "about_story",
-    "about_video",
     "about_quality",
     "about_cta"
   ]
