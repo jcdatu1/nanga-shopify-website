@@ -56,16 +56,56 @@
           "type": "card",
           "settings": {
             "title": "TECHNOLOGY",
-            "text": "<p>Innovation in down insulation and fabric technology</p>",
+            "text": "<p>NANGA's Technology</p>",
             "link": "/pages/technology",
-            "link_label": "Learn More"
+            "link_label": "READ"
+          }
+        },
+        "card_yeUdLB": {
+          "type": "card",
+          "settings": {
+            "title": "ABOUT THE MATERIAL",
+            "text": "<p>About NANGA's Products</p>",
+            "link": "/pages/materials",
+            "link_label": "READ"
+          }
+        },
+        "card_n8qnRR": {
+          "type": "card",
+          "settings": {
+            "title": "ABOUT THE DOWN",
+            "text": "<p>About NANGA's Down</p>",
+            "link": "/pages/down",
+            "link_label": "READ"
+          }
+        },
+        "card_eB4nFN": {
+          "type": "card",
+          "settings": {
+            "title": "EUROPEAN NORM",
+            "text": "<p>About Temperature Ratings</p>",
+            "link": "/pages/european-norm",
+            "link_label": "READ"
+          }
+        },
+        "card_kLc9La": {
+          "type": "card",
+          "settings": {
+            "title": "SPANISH DOWN",
+            "text": "<p>Our Dedication to Spanish Down</p>",
+            "link": "/pages/spanish-down",
+            "link_label": "READ"
           }
         }
       },
       "block_order": [
         "kn_grid_movement",
         "kn_grid_philosophy",
-        "kn_grid_technology"
+        "kn_grid_technology",
+        "card_yeUdLB",
+        "card_n8qnRR",
+        "card_eB4nFN",
+        "card_kLc9La"
       ],
       "settings": {
         "title": "",
