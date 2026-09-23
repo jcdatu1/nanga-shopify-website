@@ -23,24 +23,16 @@
         "about_hero_heading": {
           "type": "heading",
           "settings": {
-            "title": "ABOUT NANGA",
+            "title": "CONCEPT",
             "heading_max_width": 15,
             "title_size": 60,
             "title_size_mobile": 40,
             "use_h1": true
           }
-        },
-        "about_hero_text": {
-          "type": "text",
-          "settings": {
-            "text": "<p>A Passion for Taking on Challenges</p>",
-            "enlarge_text": true
-          }
         }
       },
       "block_order": [
-        "about_hero_heading",
-        "about_hero_text"
+        "about_hero_heading"
       ],
       "settings": {
         "image": "shopify://shop_images/1-1.webp",
@@ -60,13 +52,13 @@
         "about_story_heading": {
           "type": "heading",
           "settings": {
-            "title": "Passion to Challenge the Impossible"
+            "title": "ABOUT NANGA: A Passion for Taking on Challenges"
           }
         },
         "about_story_text": {
           "type": "text",
           "settings": {
-            "text": "<p>Named after Nanga Parbat, the 8,126-meter peak in the Himalayas feared as the \"Man-Eater Mountain,\" NANGA was founded in 1994 in Maibara, Shiga Prefecture as a down manufacturer. The brand name, inspired by this formidable mountain that has claimed countless lives, symbolizes the spirit of challenging severe mountains. It embodies the philosophy of our second-generation president, Akira Yokota: \"Precisely because it's difficult, we'll take it on. We'll climb where others won't dare.\"</p><p>In this region renowned for Omi cotton quilts, we have inherited the techniques and expertise of our predecessor futon manufacturer, which supported the local industry for over 50 years. For 30 years, NANGA has grown steadily. Our pride as a factory brand lives on in the outdoor gear and apparel that performs in harsh fields, and today our down products are taking flight around the world.</p>"
+            "text": "<p>\"NANGA\" takes its name from Nanga Parbat, an 8,126-meter peak in the Himalayas known and feared as the \"Man-Eater Mountain.\" NANGA was founded in 1994 in Maibara, Shiga Prefecture, as a down product manufacturer. Named after a formidable peak that has claimed the lives of many climbers, the brand embodies the spirit of taking on difficult challenges. It carries the conviction of second-generation president Akira Yokota, who believed that difficulty is exactly the reason to take something on, and that NANGA should climb where others have not.</p>"
           }
         }
       },
