@@ -67,7 +67,6 @@
         "card_yeUdLB": {
           "type": "card",
           "settings": {
-            "image": "shopify://shop_images/7-7.webp",
             "title": "ABOUT THE MATERIAL",
             "text": "<p>About NANGA's Products</p>",
             "link": "/pages/materials",
