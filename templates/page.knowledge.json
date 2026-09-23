@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "main": {
@@ -13,9 +22,13 @@
       "settings": {
         "title": "KNOWLEDGE",
         "use_h1": true,
-        "subtitle": "<p>Explore the expertise, innovation, and philosophy behind NANGA's premium outdoor gear</p>",
+        "subtitle": "<p>ABOUT NANGA: KNOWLEDGE CONTENTS,<br/>NANGA's Commitment</p>",
         "background_color": "#f9fafb",
-        "show_border": true
+        "show_border": true,
+        "padding_top_mobile": 48,
+        "padding_bottom_mobile": 48,
+        "padding_top_desktop": 64,
+        "padding_bottom_desktop": 64
       }
     },
     "kn_grid": {
@@ -49,8 +62,13 @@
           }
         }
       },
-      "block_order": ["kn_grid_movement", "kn_grid_philosophy", "kn_grid_technology"],
+      "block_order": [
+        "kn_grid_movement",
+        "kn_grid_philosophy",
+        "kn_grid_technology"
+      ],
       "settings": {
+        "title": "",
         "card_style": "image",
         "columns_desktop": 3,
         "columns_mobile": "1",
@@ -79,7 +97,10 @@
           }
         }
       },
-      "block_order": ["kn_care_down", "kn_care_warranty"],
+      "block_order": [
+        "kn_care_down",
+        "kn_care_warranty"
+      ],
       "settings": {
         "title": "Care & Maintenance",
         "card_style": "box",
@@ -120,7 +141,12 @@
           }
         }
       },
-      "block_order": ["kn_faq_fill_power", "kn_faq_temperature", "kn_faq_udd", "kn_faq_manufacturing"],
+      "block_order": [
+        "kn_faq_fill_power",
+        "kn_faq_temperature",
+        "kn_faq_udd",
+        "kn_faq_manufacturing"
+      ],
       "settings": {
         "title": "Frequently Asked Questions"
       }
