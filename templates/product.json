@@ -27,10 +27,6 @@
             "name_metafield": "custom.c_combined_listing_name"
           }
         },
-        "description": {
-          "type": "description",
-          "settings": {}
-        },
         "variant-picker": {
           "type": "variant-picker",
           "settings": {
@@ -43,6 +39,10 @@
             "size_chart_source": "page",
             "size_chart_page": "{{ product.metafields.custom.c_size_guide.value }}"
           }
+        },
+        "description": {
+          "type": "description",
+          "settings": {}
         },
         "buy-buttons": {
           "type": "buy-buttons",
@@ -99,8 +99,8 @@
         "title",
         "price",
         "combined-listing",
-        "description",
         "variant-picker",
+        "description",
         "buy-buttons",
         "trust-shipping",
         "trust-returns",
