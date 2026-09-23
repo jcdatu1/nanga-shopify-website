@@ -91,44 +91,32 @@
         "about_quality_sub_washing": {
           "type": "subheading",
           "settings": {
-            "title": "Commitment to Domestic Washing"
+            "title": "Down Washed in Japan"
           }
         },
         "about_quality_text_washing": {
           "type": "text",
           "settings": {
-            "text": "<p>To bring out the full performance of down, it must be clean and free of impurities. Therefore, we entrust the washing of our down to Kawada Feather, a feather processing manufacturer with proprietary specialized equipment and superior technology. Taking advantage of the ultra-soft underground water nurtured by the rich environment surrounded by mountains and the climate of the Ise Plain in Mie Prefecture, which is ideal for drying feathers, high-quality down is produced.</p>"
+            "text": "<p>To bring out the full performance of down, it must be clean and free of impurities. For this reason, the down we use is washed by Kawada Feather, a down processing company known for its custom designed equipment and advanced technical skill. High quality down is produced by making use of the ultra soft groundwater nurtured by the surrounding mountains, along with the climate of the Ise Plain in Mie Prefecture, which is well suited for drying down.</p>"
           }
         },
         "about_quality_sub_artisans": {
           "type": "subheading",
           "settings": {
-            "title": "Manufacturing by Skilled Artisans"
+            "title": "Crafted by Skilled Artisans"
           }
         },
         "about_quality_text_artisans": {
           "type": "text",
           "settings": {
-            "text": "<p>Attention to detail in areas customers cannot see is NANGA's standard. From down filling and sewing to maintenance, because we have our own factory, we can carefully perform each process one by one, creating safe and secure products. By utilizing the skills of experienced craftsmen, product precision is enhanced, leading to the provision of items that satisfy our customers.</p>"
-          }
-        },
-        "about_quality_sub_aftercare": {
-          "type": "subheading",
-          "settings": {
-            "title": "Precise and Prompt After-Care"
-          }
-        },
-        "about_quality_text_aftercare": {
-          "type": "text",
-          "settings": {
-            "text": "<p>The after-care of NANGA products, which has continued since our founding, is the identity of our factory brand. Having our own factory where we plan and manufacture ourselves creates an environment where detailed repair support is possible. This is the reason why customers can confidently choose NANGA products and continue to cherish them for many years.</p>"
+            "text": "<p>Attention to detail, even in the parts users never see, is the NANGA standard. Because everything, from down filling and sewing to maintenance, happens in our own factory, each step is carried out with care, resulting in safe and reliable products. The skill of our experienced artisans raises the precision of every product, allowing us to deliver items that satisfy our customers.</p>"
           }
         },
         "about_quality_link": {
           "type": "button",
           "settings": {
             "button_label": "Explore Our Technology",
-            "button_link": "/pages/technology",
+            "button_link": "shopify://pages/technologies",
             "button_style": "link"
           }
         }
@@ -140,8 +128,6 @@
         "about_quality_text_washing",
         "about_quality_sub_artisans",
         "about_quality_text_artisans",
-        "about_quality_sub_aftercare",
-        "about_quality_text_aftercare",
         "about_quality_link"
       ],
       "settings": {
@@ -150,51 +136,12 @@
         "body_text_color": "#4b5563",
         "full_width": true
       }
-    },
-    "about_cta": {
-      "type": "rich-text",
-      "blocks": {
-        "about_cta_heading": {
-          "type": "heading",
-          "settings": {
-            "title": "Experience NANGA",
-            "use_h1": false
-          }
-        },
-        "about_cta_text": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Discover why adventurers worldwide trust NANGA for their most demanding expeditions.</p>",
-            "enlarge_text": false
-          }
-        },
-        "about_cta_button": {
-          "type": "button",
-          "settings": {
-            "button_label": "Shop Collection",
-            "button_link": "/collections/down-jackets",
-            "button_style": "primary"
-          }
-        }
-      },
-      "block_order": [
-        "about_cta_heading",
-        "about_cta_text",
-        "about_cta_button"
-      ],
-      "settings": {
-        "height": "medium",
-        "text_alignment": "center",
-        "full_width": false,
-        "color_scheme": "1"
-      }
     }
   },
   "order": [
     "main",
     "about_hero",
     "about_story",
-    "about_quality",
-    "about_cta"
+    "about_quality"
   ]
 }
