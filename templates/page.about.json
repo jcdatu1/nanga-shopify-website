@@ -24,6 +24,7 @@
           "type": "heading",
           "settings": {
             "title": "ABOUT NANGA",
+            "heading_max_width": 15,
             "title_size": 60,
             "title_size_mobile": 40,
             "use_h1": true
@@ -32,13 +33,17 @@
         "about_hero_text": {
           "type": "text",
           "settings": {
-            "text": "<p>Passion to Challenge the Impossible</p>",
+            "text": "<p>A Passion for Taking on Challenges</p>",
             "enlarge_text": true
           }
         }
       },
-      "block_order": ["about_hero_heading", "about_hero_text"],
+      "block_order": [
+        "about_hero_heading",
+        "about_hero_text"
+      ],
       "settings": {
+        "image": "shopify://shop_images/1-1.webp",
         "height": "fixed",
         "height_desktop": 720,
         "height_mobile": 480,
@@ -65,7 +70,10 @@
           }
         }
       },
-      "block_order": ["about_story_heading", "about_story_text"],
+      "block_order": [
+        "about_story_heading",
+        "about_story_text"
+      ],
       "settings": {
         "background_color": "#ffffff",
         "text_color": "#000000",
@@ -81,7 +89,9 @@
           "settings": {}
         }
       },
-      "block_order": ["about_video_play"],
+      "block_order": [
+        "about_video_play"
+      ],
       "settings": {
         "video_external": "https://www.youtube.com/watch?v=1TCP8EZ1gAU",
         "video_description": "NANGA brand video — the story of our down manufacturing in Maibara, Shiga Prefecture",
@@ -201,7 +211,11 @@
           }
         }
       },
-      "block_order": ["about_cta_heading", "about_cta_text", "about_cta_button"],
+      "block_order": [
+        "about_cta_heading",
+        "about_cta_text",
+        "about_cta_button"
+      ],
       "settings": {
         "height": "medium",
         "text_alignment": "center",
