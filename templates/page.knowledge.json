@@ -37,6 +37,7 @@
         "kn_grid_movement": {
           "type": "card",
           "settings": {
+            "image": "shopify://shop_images/4-4.webp",
             "title": "NANGA MOVEMENT",
             "text": "<p>Circular Manufacturing at NANGA</p>",
             "link": "/pages/nanga-movement",
@@ -46,6 +47,7 @@
         "kn_grid_philosophy": {
           "type": "card",
           "settings": {
+            "image": "shopify://shop_images/5-5.jpg",
             "title": "QUALITY PHILOSOPHY",
             "text": "<p>For the Highest Quality</p>",
             "link": "/pages/quality-philosophy",
@@ -55,6 +57,7 @@
         "kn_grid_technology": {
           "type": "card",
           "settings": {
+            "image": "shopify://shop_images/6-6.webp",
             "title": "TECHNOLOGY",
             "text": "<p>NANGA's Technology</p>",
             "link": "/pages/technology",
@@ -64,6 +67,7 @@
         "card_yeUdLB": {
           "type": "card",
           "settings": {
+            "image": "shopify://shop_images/7-7.webp",
             "title": "ABOUT THE MATERIAL",
             "text": "<p>About NANGA's Products</p>",
             "link": "/pages/materials",
