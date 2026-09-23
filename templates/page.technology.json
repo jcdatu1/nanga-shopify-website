@@ -23,7 +23,8 @@
         "tech_hero_heading": {
           "type": "heading",
           "settings": {
-            "title": "Technology",
+            "title": "TECHNOLOGY",
+            "heading_max_width": 15,
             "title_size": 60,
             "title_size_mobile": 40,
             "use_h1": true
@@ -37,8 +38,12 @@
           }
         }
       },
-      "block_order": ["tech_hero_heading", "tech_hero_text"],
+      "block_order": [
+        "tech_hero_heading",
+        "tech_hero_text"
+      ],
       "settings": {
+        "image": "shopify://shop_images/2-2.webp",
         "height": "fixed",
         "height_desktop": 720,
         "height_mobile": 480,
@@ -67,7 +72,10 @@
           }
         }
       },
-      "block_order": ["tech_udd_heading", "tech_udd_text"],
+      "block_order": [
+        "tech_udd_heading",
+        "tech_udd_text"
+      ],
       "settings": {
         "image_link": "",
         "full_width": false,
@@ -112,7 +120,12 @@
           }
         }
       },
-      "block_order": ["tech_feature_water", "tech_feature_warmth", "tech_feature_fill", "tech_feature_tested"],
+      "block_order": [
+        "tech_feature_water",
+        "tech_feature_warmth",
+        "tech_feature_fill",
+        "tech_feature_tested"
+      ],
       "settings": {
         "columns_desktop": 4,
         "columns_mobile": "2",
@@ -157,7 +170,13 @@
           }
         }
       },
-      "block_order": ["tech_fp_heading", "tech_fp_text", "tech_fp_stat_1", "tech_fp_stat_2", "tech_fp_stat_3"],
+      "block_order": [
+        "tech_fp_heading",
+        "tech_fp_text",
+        "tech_fp_stat_1",
+        "tech_fp_stat_2",
+        "tech_fp_stat_3"
+      ],
       "settings": {
         "background_color": "#f9fafb",
         "text_color": "#000000",
@@ -189,7 +208,11 @@
           }
         }
       },
-      "block_order": ["tech_sourcing_heading", "tech_sourcing_text", "tech_sourcing_link"],
+      "block_order": [
+        "tech_sourcing_heading",
+        "tech_sourcing_text",
+        "tech_sourcing_link"
+      ],
       "settings": {
         "background_color": "#000000",
         "text_color": "#ffffff",
@@ -223,7 +246,11 @@
           }
         }
       },
-      "block_order": ["tech_cta_heading", "tech_cta_text", "tech_cta_button"],
+      "block_order": [
+        "tech_cta_heading",
+        "tech_cta_text",
+        "tech_cta_button"
+      ],
       "settings": {
         "height": "medium",
         "text_alignment": "center",
