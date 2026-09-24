@@ -422,29 +422,11 @@
           "settings": {
             "text": "<p>With technology cultivated in outdoor settings, combined with a design suited for everyday wear, this item has continued to be loved by everyone as something that is \"just right, anytime, anywhere.\"</p>"
           }
-        },
-        "button_4rLf9L": {
-          "type": "button",
-          "settings": {
-            "button_label": "SHOP AURORA TEX",
-            "button_link": "shopify://collections/aurora-tex®",
-            "button_style": "link"
-          }
-        },
-        "button_R9BetJ": {
-          "type": "button",
-          "settings": {
-            "button_label": "SHOP ALL",
-            "button_link": "shopify://collections/all",
-            "button_style": "link"
-          }
         }
       },
       "block_order": [
         "heading_EKti4K",
-        "text_cCiKLf",
-        "button_4rLf9L",
-        "button_R9BetJ"
+        "text_cCiKLf"
       ],
       "name": "C Content panel",
       "settings": {
@@ -452,6 +434,21 @@
         "text_color": "#000000",
         "body_text_color": "#4b5563",
         "full_width": false
+      }
+    },
+    "image_with_text_overlay_Ehgb3U": {
+      "type": "image-with-text-overlay",
+      "name": "Image with text overlay",
+      "settings": {
+        "image": "shopify://shop_images/AuroraDown_img2_pc.webp",
+        "height": "adapt",
+        "height_desktop": 600,
+        "height_mobile": 460,
+        "image_link": "",
+        "full_width": false,
+        "text_alignment": "center center",
+        "mobile_overlay_under": false,
+        "overlay_style": "no_background"
       }
     },
     "featured_collection_carousel_Lx7qyp": {
@@ -476,6 +473,38 @@
         "show_view_all": true,
         "color_scheme": "default"
       }
+    },
+    "c_content_panel_EBne69": {
+      "type": "c-content-panel",
+      "blocks": {
+        "button_QcqwFG": {
+          "type": "button",
+          "settings": {
+            "button_label": "SHOP AURORA TEX®",
+            "button_link": "",
+            "button_style": "link"
+          }
+        },
+        "button_qaJVFG": {
+          "type": "button",
+          "settings": {
+            "button_label": "NANGA ONLINE STORE",
+            "button_link": "shopify://collections/all",
+            "button_style": "link"
+          }
+        }
+      },
+      "block_order": [
+        "button_QcqwFG",
+        "button_qaJVFG"
+      ],
+      "name": "C Content panel",
+      "settings": {
+        "background_color": "#FFFFFF",
+        "text_color": "#000000",
+        "body_text_color": "#4b5563",
+        "full_width": false
+      }
     }
   },
   "order": [
@@ -494,6 +523,8 @@
     "multi_column_zizxRL",
     "video_p98jmM",
     "c_content_panel_Hidihb",
-    "featured_collection_carousel_Lx7qyp"
+    "image_with_text_overlay_Ehgb3U",
+    "featured_collection_carousel_Lx7qyp",
+    "c_content_panel_EBne69"
   ]
 }
