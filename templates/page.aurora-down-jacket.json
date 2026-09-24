@@ -342,6 +342,7 @@
           "type": "text_block",
           "settings": {
             "enable_media": true,
+            "image": "shopify://shop_images/data_n30tha_0055-1280x960.webp",
             "title": "3D DESIGN",
             "text": "<p>A three dimensional front panel design that prevents the down from flattening when the arms are bent.</p>",
             "button_label": "",
@@ -352,6 +353,7 @@
           "type": "text_block",
           "settings": {
             "enable_media": true,
+            "image": "shopify://shop_images/data_n30tha_0043-1280x960.webp",
             "title": "HOODIE DESIGN",
             "text": "<p>A tall hood and collar design that blocks cold air and wind from entering.</p>",
             "button_label": "",
@@ -362,6 +364,7 @@
           "type": "text_block",
           "settings": {
             "enable_media": true,
+            "image": "shopify://shop_images/data_n30tha_0049-1280x960.webp",
             "title": "WATER PROOF ZIPPER",
             "text": "<p>A water-repellent zipper on the front blocks out cold wind and rain.</p>",
             "button_label": "",
