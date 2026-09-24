@@ -387,6 +387,27 @@
         "color_scheme": "default"
       }
     },
+    "video_p98jmM": {
+      "type": "video",
+      "blocks": {
+        "play_button_L9Tn7n": {
+          "type": "play-button",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "play_button_L9Tn7n"
+      ],
+      "name": "Video",
+      "settings": {
+        "video_external": "https://www.youtube.com/watch?v=9_lIrP4Kld8&t=1s",
+        "video_description": "NANGA AURORA TEX",
+        "placeholder_image": "shopify://shop_images/Screenshot_2026-09-24_at_3.52.42_PM.png",
+        "text_alignment": "center center",
+        "full_width": false,
+        "overlay_style": "no_background"
+      }
+    },
     "c_content_panel_Hidihb": {
       "type": "c-content-panel",
       "blocks": {
@@ -448,6 +469,7 @@
     "image_with_text_overlay_3xEMXi",
     "c_content_panel_Ciim9w",
     "multi_column_zizxRL",
+    "video_p98jmM",
     "c_content_panel_Hidihb"
   ]
 }
