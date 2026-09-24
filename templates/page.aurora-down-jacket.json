@@ -267,8 +267,16 @@
         "button_4rLf9L": {
           "type": "button",
           "settings": {
-            "button_label": "AURORA TEX DOWN JACKET",
-            "button_link": "",
+            "button_label": "SHOP AURORA TEX",
+            "button_link": "shopify://collections/aurora-tex®",
+            "button_style": "link"
+          }
+        },
+        "button_R9BetJ": {
+          "type": "button",
+          "settings": {
+            "button_label": "SHOP ALL",
+            "button_link": "shopify://collections/all",
             "button_style": "link"
           }
         }
@@ -276,7 +284,8 @@
       "block_order": [
         "heading_EKti4K",
         "text_cCiKLf",
-        "button_4rLf9L"
+        "button_4rLf9L",
+        "button_R9BetJ"
       ],
       "name": "C Content panel",
       "settings": {
