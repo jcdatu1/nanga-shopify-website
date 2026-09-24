@@ -109,53 +109,71 @@
         "full_width": false
       }
     },
-    "c_content_panel_KXW9VC": {
+    "c_content_panel_zfKLGJ": {
       "type": "c-content-panel",
       "blocks": {
-        "heading_FWGBDh": {
+        "heading_qzN7Qw": {
           "type": "heading",
           "settings": {
-            "title": "Understanding Fill Power"
+            "title": "WATERPROOF & BREATHABLE: What Is NANGA's Original Material \"AURORA TEX®\"?"
           }
         },
-        "text_tQWe4a": {
+        "text_mnBykx": {
           "type": "text",
           "settings": {
-            "text": "<p>Fill power measures the loft (fluffiness) of down. One ounce of 800-fill-power down will expand to fill 800 cubic inches of space.</p>"
+            "text": "<p>NANGA's original fabric, \"AURORA TEX®,\" offers excellent waterproofing with a water pressure resistance (*Note 1) of 20,000mm, reliably blocking even heavy rain. In addition, its moisture permeability (*Note 2) of 6,000g/m²/24hrs allows internal humidity to escape appropriately, reducing uncomfortable dampness and providing a dry, comfortable wearing experience.</p><p></p>"
           }
         },
-        "stat_9Wazkw": {
-          "type": "stat",
+        "text_jUFM8H": {
+          "type": "text",
           "settings": {
-            "label": "760-800 FP",
-            "text": "Excellent warmth, versatile performance"
+            "text": "<p>*Note 1: A measurement of how much water pressure a fabric or material can withstand. As a general guide, light rain is about 500mm, moderate rain is about 2,000mm, and heavy rain is about 10,000mm.</p>"
           }
         },
-        "stat_axaAQK": {
-          "type": "stat",
+        "text_xhCqcm": {
+          "type": "text",
           "settings": {
-            "label": "860-900 FP",
-            "text": "Superior loft, ultralight construction"
-          }
-        },
-        "stat_63jcQP": {
-          "type": "stat",
-          "settings": {
-            "label": "1000 FP",
-            "text": "Maximum performance, expedition grade"
+            "text": "<p>*Note 2: A measurement of how many grams of moisture a fabric releases per square meter over 24 hours. AURORA TEX®'s moisture permeability value means it can release 6,000g of moisture per square meter over 24 hours.</p>"
           }
         }
       },
       "block_order": [
-        "heading_FWGBDh",
-        "text_tQWe4a",
-        "stat_9Wazkw",
-        "stat_axaAQK",
-        "stat_63jcQP"
+        "heading_qzN7Qw",
+        "text_mnBykx",
+        "text_jUFM8H",
+        "text_xhCqcm"
       ],
       "name": "C Content panel",
       "settings": {
-        "background_color": "#f9fafb",
+        "background_color": "#FFFFFF",
+        "text_color": "#000000",
+        "body_text_color": "#4b5563",
+        "full_width": false
+      }
+    },
+    "c_content_panel_JPzgYV": {
+      "type": "c-content-panel",
+      "blocks": {
+        "heading_tVPDhz": {
+          "type": "heading",
+          "settings": {
+            "title": "WATERPROOF & BREATHABLE: What Is NANGA's Original Material \"AURORA TEX®\"?"
+          }
+        },
+        "text_BTgxhB": {
+          "type": "text",
+          "settings": {
+            "text": "<p>NANGA's original fabric, \"AURORA TEX®,\" offers excellent waterproofing with a water pressure resistance (*Note 1) of 20,000mm, reliably blocking even heavy rain. In addition, its moisture permeability (*Note 2) of 6,000g/m²/24hrs allows internal humidity to escape appropriately, reducing uncomfortable dampness and providing a dry, comfortable wearing experience.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_tVPDhz",
+        "text_BTgxhB"
+      ],
+      "name": "C Content panel",
+      "settings": {
+        "background_color": "#FFFFFF",
         "text_color": "#000000",
         "body_text_color": "#4b5563",
         "full_width": false
@@ -167,6 +185,7 @@
     "tech_hero",
     "tech_fill_power",
     "c_content_panel_9rjkLi",
-    "c_content_panel_KXW9VC"
+    "c_content_panel_zfKLGJ",
+    "c_content_panel_JPzgYV"
   ]
 }
