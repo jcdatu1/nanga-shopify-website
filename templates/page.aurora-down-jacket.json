@@ -157,19 +157,126 @@
         "heading_tVPDhz": {
           "type": "heading",
           "settings": {
-            "title": "WATERPROOF & BREATHABLE: What Is NANGA's Original Material \"AURORA TEX®\"?"
+            "title": "HEAT RETAINING: Superior Warmth from High Quality Down"
           }
         },
         "text_BTgxhB": {
           "type": "text",
           "settings": {
-            "text": "<p>NANGA's original fabric, \"AURORA TEX®,\" offers excellent waterproofing with a water pressure resistance (*Note 1) of 20,000mm, reliably blocking even heavy rain. In addition, its moisture permeability (*Note 2) of 6,000g/m²/24hrs allows internal humidity to escape appropriately, reducing uncomfortable dampness and providing a dry, comfortable wearing experience.</p>"
+            "text": "<p>The AURORA TEX Down Jacket is filled with 150g of high fill power down rated at 760FP, making it versatile enough to wear from outdoor settings to everyday life. Since the brand's launch, NANGA has used down from Kawada Feather, a down material manufacturer founded in 1891. Today, the jacket uses premium down from the Moulard breed sourced from Spanish farms under a partnership contract with Kawada Feather. Moulard down is known for its dense structure and large down clusters. Combined with world leading cleaning technology, the result is down that is lightweight, highly resilient, and resistant to flattening over time. This dedication to down is what creates the jacket's warmth.</p>"
           }
         }
       },
       "block_order": [
         "heading_tVPDhz",
         "text_BTgxhB"
+      ],
+      "name": "C Content panel",
+      "settings": {
+        "background_color": "#FFFFFF",
+        "text_color": "#000000",
+        "body_text_color": "#4b5563",
+        "full_width": false
+      }
+    },
+    "c_content_panel_Ciim9w": {
+      "type": "c-content-panel",
+      "blocks": {
+        "heading_LCJytf": {
+          "type": "heading",
+          "settings": {
+            "title": "COMMITMENT TO DESIGN: Design That Evolves with the Times"
+          }
+        },
+        "text_waMWBX": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Born in 2003, the AURORA TEX Down Jacket marks its 20th year this year. Its design has incorporated the needs of the times and technologies developed through product development, undergoing various updates in both function and style, and now stands at its 6th generation.</p>"
+          }
+        },
+        "subheading_LeyJcR": {
+          "type": "subheading",
+          "settings": {
+            "title": "3D DESIGN"
+          }
+        },
+        "text_BLyhPY": {
+          "type": "text",
+          "settings": {
+            "text": "<p>A three dimensional front panel design that prevents the down from flattening when the arms are bent.</p>"
+          }
+        },
+        "subheading_fdcYzz": {
+          "type": "subheading",
+          "settings": {
+            "title": "HOODIE DESIGN"
+          }
+        },
+        "text_6VbPkL": {
+          "type": "text",
+          "settings": {
+            "text": "<p>A tall hood and collar design that blocks cold air and wind from entering.</p>"
+          }
+        },
+        "subheading_CqVzi7": {
+          "type": "subheading",
+          "settings": {
+            "title": "WATER PROOF ZIPPER"
+          }
+        },
+        "text_kTtERK": {
+          "type": "text",
+          "settings": {
+            "text": "<p>A water repellent zipper on the front blocks out cold wind and rain.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_LCJytf",
+        "text_waMWBX",
+        "subheading_LeyJcR",
+        "text_BLyhPY",
+        "subheading_fdcYzz",
+        "text_6VbPkL",
+        "subheading_CqVzi7",
+        "text_kTtERK"
+      ],
+      "name": "C Content panel",
+      "settings": {
+        "background_color": "#FFFFFF",
+        "text_color": "#000000",
+        "body_text_color": "#4b5563",
+        "full_width": false
+      }
+    },
+    "c_content_panel_Hidihb": {
+      "type": "c-content-panel",
+      "blocks": {
+        "heading_EKti4K": {
+          "type": "heading",
+          "settings": {
+            "title": "\"Just Right, Anytime, Anywhere\""
+          }
+        },
+        "text_cCiKLf": {
+          "type": "text",
+          "settings": {
+            "text": "<p>With technology cultivated in outdoor settings, combined with a design suited for everyday wear, this item has continued to be loved by everyone as something that is \"just right, anytime, anywhere.\"</p>"
+          }
+        },
+        "button_4rLf9L": {
+          "type": "button",
+          "settings": {
+            "button_label": "AURORA TEX DOWN JACKET",
+            "button_link": "",
+            "button_style": "link"
+          }
+        }
+      },
+      "block_order": [
+        "heading_EKti4K",
+        "text_cCiKLf",
+        "button_4rLf9L"
       ],
       "name": "C Content panel",
       "settings": {
@@ -186,6 +293,8 @@
     "tech_fill_power",
     "c_content_panel_9rjkLi",
     "c_content_panel_zfKLGJ",
-    "c_content_panel_JPzgYV"
+    "c_content_panel_JPzgYV",
+    "c_content_panel_Ciim9w",
+    "c_content_panel_Hidihb"
   ]
 }
