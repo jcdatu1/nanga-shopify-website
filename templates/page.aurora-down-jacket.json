@@ -116,11 +116,18 @@
           "settings": {
             "text": "<p>This year marks 30 years since the brand's founding, 30 years spent devoted to down and to the craft of making products with unwavering dedication. Built on decades of history and knowledge, and continually updated alongside the brand's growth, the AURORA TEX Down Jacket now reaches its 6th generation with this release.</p>"
           }
+        },
+        "subheading_cpXnhr": {
+          "type": "subheading",
+          "settings": {
+            "title": "Subheading"
+          }
         }
       },
       "block_order": [
         "heading_DTWLge",
-        "text_jbBt3m"
+        "text_jbBt3m",
+        "subheading_cpXnhr"
       ],
       "name": "C Content panel",
       "settings": {
@@ -314,35 +321,11 @@
           "settings": {
             "text": "<p>Born in 2003, the AURORA TEX Down Jacket marks its 20th year this year. Its design has incorporated the needs of the times and technologies developed through product development, undergoing various updates in both function and style, and now stands at its 6th generation.</p>"
           }
-        },
-        "stat_L4DDfL": {
-          "type": "stat",
-          "settings": {
-            "label": "3D DESIGN",
-            "text": "A three dimensional front panel design that prevents the down from flattening when the arms are bent."
-          }
-        },
-        "stat_t4yL9Y": {
-          "type": "stat",
-          "settings": {
-            "label": "HOODIE DESIGN",
-            "text": "A tall hood and collar design that blocks cold air and wind from entering."
-          }
-        },
-        "stat_HUhqwU": {
-          "type": "stat",
-          "settings": {
-            "label": "WATER PROOF ZIPPER",
-            "text": "A water-repellent zipper on the front blocks out cold wind and rain."
-          }
         }
       },
       "block_order": [
         "heading_LCJytf",
-        "text_waMWBX",
-        "stat_L4DDfL",
-        "stat_t4yL9Y",
-        "stat_HUhqwU"
+        "text_waMWBX"
       ],
       "name": "C Content panel",
       "settings": {
@@ -350,6 +333,55 @@
         "text_color": "#000000",
         "body_text_color": "#4b5563",
         "full_width": false
+      }
+    },
+    "multi_column_zizxRL": {
+      "type": "multi-column",
+      "blocks": {
+        "text_block_Dgnw6t": {
+          "type": "text_block",
+          "settings": {
+            "enable_media": true,
+            "title": "3D DESIGN",
+            "text": "<p>A three dimensional front panel design that prevents the down from flattening when the arms are bent.</p>",
+            "button_label": "",
+            "link": ""
+          }
+        },
+        "text_block_KAtfJx": {
+          "type": "text_block",
+          "settings": {
+            "enable_media": true,
+            "title": "HOODIE DESIGN",
+            "text": "<p>A tall hood and collar design that blocks cold air and wind from entering.</p>",
+            "button_label": "",
+            "link": ""
+          }
+        },
+        "text_block_8BdRaR": {
+          "type": "text_block",
+          "settings": {
+            "enable_media": true,
+            "title": "WATER PROOF ZIPPER",
+            "text": "<p>A water-repellent zipper on the front blocks out cold wind and rain.</p>",
+            "button_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "text_block_Dgnw6t",
+        "text_block_KAtfJx",
+        "text_block_8BdRaR"
+      ],
+      "name": "Multi-column",
+      "settings": {
+        "title": "",
+        "media_aspect_ratio": "1",
+        "media_width": 700,
+        "text_alignment": "left",
+        "button_style": "primary",
+        "color_scheme": "default"
       }
     },
     "c_content_panel_Hidihb": {
@@ -412,6 +444,7 @@
     "c_content_panel_JPzgYV",
     "image_with_text_overlay_3xEMXi",
     "c_content_panel_Ciim9w",
+    "multi_column_zizxRL",
     "c_content_panel_Hidihb"
   ]
 }
