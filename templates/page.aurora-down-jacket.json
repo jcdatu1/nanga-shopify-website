@@ -75,10 +75,31 @@
         "tech_fp_text"
       ],
       "settings": {
-        "background_color": "#FFFFFF",
+        "background_color": "#ffffff",
         "text_color": "#000000",
         "body_text_color": "#4b5563",
         "full_width": false
+      }
+    },
+    "video_nwTN3D": {
+      "type": "video",
+      "blocks": {
+        "play_button_WJxwYA": {
+          "type": "play-button",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "play_button_WJxwYA"
+      ],
+      "name": "Video",
+      "settings": {
+        "video_external": "https://www.youtube.com/watch?v=H7AP4PMqNUs",
+        "video_description": "NANGA \"AURORA TEX\" JACKET",
+        "placeholder_image": "shopify://shop_images/Screenshot_2026-09-24_at_3.40.07_PM.png",
+        "text_alignment": "center center",
+        "full_width": false,
+        "overlay_style": "shadow"
       }
     },
     "c_content_panel_9rjkLi": {
@@ -103,10 +124,80 @@
       ],
       "name": "C Content panel",
       "settings": {
-        "background_color": "#FFFFFF",
+        "background_color": "#ffffff",
         "text_color": "#000000",
         "body_text_color": "#4b5563",
         "full_width": false
+      }
+    },
+    "image_with_text_overlay_wJGMeN": {
+      "type": "image-with-text-overlay",
+      "name": "Image with text overlay",
+      "settings": {
+        "image": "shopify://shop_images/data_n30tha_0308-scaled.webp",
+        "height": "fixed",
+        "height_desktop": 600,
+        "height_mobile": 460,
+        "image_link": "",
+        "full_width": false,
+        "text_alignment": "center center",
+        "mobile_overlay_under": false,
+        "overlay_style": "no_background"
+      }
+    },
+    "custom_content_tPrJ83": {
+      "type": "custom-content",
+      "blocks": {
+        "image_Mp7xzz": {
+          "type": "image",
+          "settings": {
+            "width": "half",
+            "image": "shopify://shop_images/data_n30tha_0320-scaled.webp",
+            "height": "adapt",
+            "height_desktop": 600,
+            "height_mobile": 500,
+            "subheading": "",
+            "title": "",
+            "text": "",
+            "enlarge_text": false,
+            "button_label": "",
+            "button_style": "primary",
+            "image_link": "",
+            "text_alignment": "center center",
+            "mobile_overlay_under": false,
+            "overlay_style": "no_background"
+          }
+        },
+        "image_g6jK9c": {
+          "type": "image",
+          "settings": {
+            "width": "half",
+            "image": "shopify://shop_images/data_n30tha_0342-1152x1536.webp",
+            "height": "adapt",
+            "height_desktop": 600,
+            "height_mobile": 500,
+            "subheading": "",
+            "title": "",
+            "text": "",
+            "enlarge_text": false,
+            "button_label": "",
+            "button_style": "primary",
+            "image_link": "",
+            "text_alignment": "center center",
+            "mobile_overlay_under": false,
+            "overlay_style": "no_background"
+          }
+        }
+      },
+      "block_order": [
+        "image_Mp7xzz",
+        "image_g6jK9c"
+      ],
+      "name": "Custom content",
+      "settings": {
+        "spacing": "medium",
+        "alignment": "middle",
+        "color_scheme": "default"
       }
     },
     "c_content_panel_zfKLGJ": {
@@ -145,10 +236,25 @@
       ],
       "name": "C Content panel",
       "settings": {
-        "background_color": "#FFFFFF",
+        "background_color": "#ffffff",
         "text_color": "#000000",
         "body_text_color": "#4b5563",
         "full_width": false
+      }
+    },
+    "image_with_text_overlay_wDGRDD": {
+      "type": "image-with-text-overlay",
+      "name": "Image with text overlay",
+      "settings": {
+        "image": "shopify://shop_images/honbun_6_4-2048x1138.webp",
+        "height": "adapt",
+        "height_desktop": 600,
+        "height_mobile": 460,
+        "image_link": "",
+        "full_width": false,
+        "text_alignment": "center center",
+        "mobile_overlay_under": false,
+        "overlay_style": "no_background"
       }
     },
     "c_content_panel_JPzgYV": {
@@ -173,10 +279,25 @@
       ],
       "name": "C Content panel",
       "settings": {
-        "background_color": "#FFFFFF",
+        "background_color": "#ffffff",
         "text_color": "#000000",
         "body_text_color": "#4b5563",
         "full_width": false
+      }
+    },
+    "image_with_text_overlay_3xEMXi": {
+      "type": "image-with-text-overlay",
+      "name": "Image with text overlay",
+      "settings": {
+        "image": "shopify://shop_images/data_n30tha_0076-2048x1536.webp",
+        "height": "fixed",
+        "height_desktop": 600,
+        "height_mobile": 460,
+        "image_link": "",
+        "full_width": false,
+        "text_alignment": "center center",
+        "mobile_overlay_under": false,
+        "overlay_style": "no_background"
       }
     },
     "c_content_panel_Ciim9w": {
@@ -194,56 +315,38 @@
             "text": "<p>Born in 2003, the AURORA TEX Down Jacket marks its 20th year this year. Its design has incorporated the needs of the times and technologies developed through product development, undergoing various updates in both function and style, and now stands at its 6th generation.</p>"
           }
         },
-        "subheading_LeyJcR": {
-          "type": "subheading",
+        "stat_L4DDfL": {
+          "type": "stat",
           "settings": {
-            "title": "3D DESIGN"
+            "label": "3D DESIGN",
+            "text": "A three dimensional front panel design that prevents the down from flattening when the arms are bent."
           }
         },
-        "text_BLyhPY": {
-          "type": "text",
+        "stat_t4yL9Y": {
+          "type": "stat",
           "settings": {
-            "text": "<p>A three dimensional front panel design that prevents the down from flattening when the arms are bent.</p>"
+            "label": "HOODIE DESIGN",
+            "text": "A tall hood and collar design that blocks cold air and wind from entering."
           }
         },
-        "subheading_fdcYzz": {
-          "type": "subheading",
+        "stat_HUhqwU": {
+          "type": "stat",
           "settings": {
-            "title": "HOODIE DESIGN"
-          }
-        },
-        "text_6VbPkL": {
-          "type": "text",
-          "settings": {
-            "text": "<p>A tall hood and collar design that blocks cold air and wind from entering.</p>"
-          }
-        },
-        "subheading_CqVzi7": {
-          "type": "subheading",
-          "settings": {
-            "title": "WATER PROOF ZIPPER"
-          }
-        },
-        "text_kTtERK": {
-          "type": "text",
-          "settings": {
-            "text": "<p>A water repellent zipper on the front blocks out cold wind and rain.</p>"
+            "label": "WATER PROOF ZIPPER",
+            "text": "A water-repellent zipper on the front blocks out cold wind and rain."
           }
         }
       },
       "block_order": [
         "heading_LCJytf",
         "text_waMWBX",
-        "subheading_LeyJcR",
-        "text_BLyhPY",
-        "subheading_fdcYzz",
-        "text_6VbPkL",
-        "subheading_CqVzi7",
-        "text_kTtERK"
+        "stat_L4DDfL",
+        "stat_t4yL9Y",
+        "stat_HUhqwU"
       ],
       "name": "C Content panel",
       "settings": {
-        "background_color": "#FFFFFF",
+        "background_color": "#ffffff",
         "text_color": "#000000",
         "body_text_color": "#4b5563",
         "full_width": false
@@ -289,7 +392,7 @@
       ],
       "name": "C Content panel",
       "settings": {
-        "background_color": "#FFFFFF",
+        "background_color": "#ffffff",
         "text_color": "#000000",
         "body_text_color": "#4b5563",
         "full_width": false
@@ -300,9 +403,14 @@
     "main",
     "tech_hero",
     "tech_fill_power",
+    "video_nwTN3D",
     "c_content_panel_9rjkLi",
+    "image_with_text_overlay_wJGMeN",
+    "custom_content_tPrJ83",
     "c_content_panel_zfKLGJ",
+    "image_with_text_overlay_wDGRDD",
     "c_content_panel_JPzgYV",
+    "image_with_text_overlay_3xEMXi",
     "c_content_panel_Ciim9w",
     "c_content_panel_Hidihb"
   ]
