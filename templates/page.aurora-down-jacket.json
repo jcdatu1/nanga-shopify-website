@@ -453,6 +453,29 @@
         "body_text_color": "#4b5563",
         "full_width": false
       }
+    },
+    "featured_collection_carousel_Lx7qyp": {
+      "type": "featured-collection-carousel",
+      "name": "C Featured collection",
+      "settings": {
+        "title": "AURORA TEX®",
+        "description": "",
+        "collection": "aurora-tex®",
+        "limit": 12,
+        "cards_desktop": 4,
+        "cards_mobile": 2,
+        "full_width": true,
+        "image_style": "cover",
+        "hover_effect": "image",
+        "show_type": true,
+        "show_value_props": true,
+        "tag_style": "dark",
+        "tag_position": "overlay",
+        "show_border": false,
+        "show_combined_listings": false,
+        "show_view_all": true,
+        "color_scheme": "default"
+      }
     }
   },
   "order": [
@@ -470,6 +493,7 @@
     "c_content_panel_Ciim9w",
     "multi_column_zizxRL",
     "video_p98jmM",
-    "c_content_panel_Hidihb"
+    "c_content_panel_Hidihb",
+    "featured_collection_carousel_Lx7qyp"
   ]
 }
