@@ -23,7 +23,7 @@
         "tech_hero_heading": {
           "type": "heading",
           "settings": {
-            "title": "TECHNOLOGY",
+            "title": "NANGA \"AURORA TEX®\"",
             "heading_max_width": 15,
             "title_size": 60,
             "title_size_mobile": 40,
@@ -33,7 +33,7 @@
         "tech_hero_text": {
           "type": "text",
           "settings": {
-            "text": "<p>Engineered for the world's most extreme conditions</p>",
+            "text": "<p>The Flagship Model Built on NANGA's Legacy</p>",
             "enlarge_text": true
           }
         }
@@ -43,7 +43,7 @@
         "tech_hero_text"
       ],
       "settings": {
-        "image": "shopify://shop_images/2-2.webp",
+        "image": "shopify://shop_images/data_n30tha_0067.webp",
         "height": "fixed",
         "height_desktop": 720,
         "height_mobile": 480,
@@ -54,116 +54,91 @@
         "overlay_style": "full image-overlay--bg-shadow"
       }
     },
-    "tech_udd": {
-      "type": "split-content",
-      "blocks": {
-        "tech_udd_heading": {
-          "type": "heading",
-          "settings": {
-            "title": "UDD™ Water-Resistant Down",
-            "use_h1": false
-          }
-        },
-        "tech_udd_text": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Our proprietary Ultra Dry Down (UDD) treatment revolutionizes down performance in wet conditions. Traditional down loses its insulating properties when wet, but UDD maintains warmth even in high humidity and light precipitation.</p><p>Through a specialized coating process applied to each individual feather, we create a hydrophobic barrier that repels water while maintaining the down's natural loft and breathability.</p><p>In laboratory tests, UDD down retains 90% of its insulating power even after exposure to moisture, compared to just 30% for untreated down.</p>",
-            "enlarge_text": false
-          }
-        }
-      },
-      "block_order": [
-        "tech_udd_heading",
-        "tech_udd_text"
-      ],
-      "settings": {
-        "image": "shopify://shop_images/3.webp",
-        "image_link": "",
-        "full_width": false,
-        "image_position": "right",
-        "text_alignment": "left",
-        "color_scheme": "default"
-      }
-    },
-    "tech_features": {
-      "type": "c-icon-features",
-      "blocks": {
-        "tech_feature_water": {
-          "type": "feature",
-          "settings": {
-            "icon": "droplet",
-            "title": "Water Resistance",
-            "text": "<p>Hydrophobic coating repels moisture while maintaining breathability</p>"
-          }
-        },
-        "tech_feature_warmth": {
-          "type": "feature",
-          "settings": {
-            "icon": "thermometer",
-            "title": "Superior Warmth",
-            "text": "<p>760-1000 fill power down for maximum warmth-to-weight ratio</p>"
-          }
-        },
-        "tech_feature_fill": {
-          "type": "feature",
-          "settings": {
-            "icon": "feather",
-            "title": "Premium Fill",
-            "text": "<p>Hand-selected Spanish duck and European goose down</p>"
-          }
-        },
-        "tech_feature_tested": {
-          "type": "feature",
-          "settings": {
-            "icon": "mountain",
-            "title": "Tested Extreme",
-            "text": "<p>Field-tested in conditions from -30°C to alpine environments</p>"
-          }
-        }
-      },
-      "block_order": [
-        "tech_feature_water",
-        "tech_feature_warmth",
-        "tech_feature_fill",
-        "tech_feature_tested"
-      ],
-      "settings": {
-        "columns_desktop": 4,
-        "columns_mobile": "2",
-        "full_width": false,
-        "color_scheme": "default"
-      }
-    },
     "tech_fill_power": {
       "type": "c-content-panel",
       "blocks": {
         "tech_fp_heading": {
           "type": "heading",
           "settings": {
-            "title": "Understanding Fill Power"
+            "title": "What Is the Flagship \"AURORA TEX Down Jacket\"?"
           }
         },
         "tech_fp_text": {
           "type": "text",
           "settings": {
-            "text": "<p>Fill power measures the loft (fluffiness) of down. One ounce of 800-fill-power down will expand to fill 800 cubic inches of space. Higher fill power means lighter weight and better compressibility while maintaining the same warmth.</p><p>NANGA uses only premium down ranging from 760 to 1000 fill power, sourced from mature birds and hand-sorted to remove impurities. This ensures optimal performance, durability, and warmth retention over years of use.</p>"
+            "text": "<p>The \"AURORA TEX Down Jacket\" is NANGA's most popular product and the piece synonymous with the brand. Here is an introduction to the flagship model that has been loved for many years.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "tech_fp_heading",
+        "tech_fp_text"
+      ],
+      "settings": {
+        "background_color": "#FFFFFF",
+        "text_color": "#000000",
+        "body_text_color": "#4b5563",
+        "full_width": false
+      }
+    },
+    "c_content_panel_9rjkLi": {
+      "type": "c-content-panel",
+      "blocks": {
+        "heading_DTWLge": {
+          "type": "heading",
+          "settings": {
+            "title": "Reflecting Years of Accumulated Expertise in Our Products"
           }
         },
-        "tech_fp_stat_1": {
+        "text_jbBt3m": {
+          "type": "text",
+          "settings": {
+            "text": "<p>This year marks 30 years since the brand's founding, 30 years spent devoted to down and to the craft of making products with unwavering dedication. Built on decades of history and knowledge, and continually updated alongside the brand's growth, the AURORA TEX Down Jacket now reaches its 6th generation with this release.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_DTWLge",
+        "text_jbBt3m"
+      ],
+      "name": "C Content panel",
+      "settings": {
+        "background_color": "#FFFFFF",
+        "text_color": "#000000",
+        "body_text_color": "#4b5563",
+        "full_width": false
+      }
+    },
+    "c_content_panel_KXW9VC": {
+      "type": "c-content-panel",
+      "blocks": {
+        "heading_FWGBDh": {
+          "type": "heading",
+          "settings": {
+            "title": "Understanding Fill Power"
+          }
+        },
+        "text_tQWe4a": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Fill power measures the loft (fluffiness) of down. One ounce of 800-fill-power down will expand to fill 800 cubic inches of space.</p>"
+          }
+        },
+        "stat_9Wazkw": {
           "type": "stat",
           "settings": {
             "label": "760-800 FP",
             "text": "Excellent warmth, versatile performance"
           }
         },
-        "tech_fp_stat_2": {
+        "stat_axaAQK": {
           "type": "stat",
           "settings": {
             "label": "860-900 FP",
             "text": "Superior loft, ultralight construction"
           }
         },
-        "tech_fp_stat_3": {
+        "stat_63jcQP": {
           "type": "stat",
           "settings": {
             "label": "1000 FP",
@@ -172,101 +147,26 @@
         }
       },
       "block_order": [
-        "tech_fp_heading",
-        "tech_fp_text",
-        "tech_fp_stat_1",
-        "tech_fp_stat_2",
-        "tech_fp_stat_3"
+        "heading_FWGBDh",
+        "text_tQWe4a",
+        "stat_9Wazkw",
+        "stat_axaAQK",
+        "stat_63jcQP"
       ],
+      "name": "C Content panel",
       "settings": {
         "background_color": "#f9fafb",
         "text_color": "#000000",
         "body_text_color": "#4b5563",
         "full_width": false
       }
-    },
-    "tech_sourcing": {
-      "type": "c-content-panel",
-      "blocks": {
-        "tech_sourcing_heading": {
-          "type": "heading",
-          "settings": {
-            "title": "Responsible Sourcing"
-          }
-        },
-        "tech_sourcing_text": {
-          "type": "text",
-          "settings": {
-            "text": "<p>All NANGA down is certified by the Responsible Down Standard (RDS), ensuring ethical treatment of animals throughout the supply chain. We maintain complete traceability from farm to finished product.</p><p>Our commitment extends beyond sourcing—we offer lifetime warranty and repair services to ensure your NANGA gear lasts for decades, not seasons.</p>"
-          }
-        },
-        "tech_sourcing_link": {
-          "type": "button",
-          "settings": {
-            "button_label": "Learn More About NANGA",
-            "button_link": "/pages/about",
-            "button_style": "link"
-          }
-        }
-      },
-      "block_order": [
-        "tech_sourcing_heading",
-        "tech_sourcing_text",
-        "tech_sourcing_link"
-      ],
-      "settings": {
-        "background_color": "#000000",
-        "text_color": "#ffffff",
-        "body_text_color": "#cccccc",
-        "full_width": true
-      }
-    },
-    "tech_cta": {
-      "type": "rich-text",
-      "blocks": {
-        "tech_cta_heading": {
-          "type": "heading",
-          "settings": {
-            "title": "Experience the Difference",
-            "use_h1": false
-          }
-        },
-        "tech_cta_text": {
-          "type": "text",
-          "settings": {
-            "text": "<p>See how NANGA technology performs in real-world conditions.</p>",
-            "enlarge_text": false
-          }
-        },
-        "tech_cta_button": {
-          "type": "button",
-          "settings": {
-            "button_label": "Shop Collection",
-            "button_link": "/collections/down-jackets",
-            "button_style": "primary"
-          }
-        }
-      },
-      "block_order": [
-        "tech_cta_heading",
-        "tech_cta_text",
-        "tech_cta_button"
-      ],
-      "settings": {
-        "height": "medium",
-        "text_alignment": "center",
-        "full_width": false,
-        "color_scheme": "default"
-      }
     }
   },
   "order": [
     "main",
     "tech_hero",
-    "tech_udd",
-    "tech_features",
     "tech_fill_power",
-    "tech_sourcing",
-    "tech_cta"
+    "c_content_panel_9rjkLi",
+    "c_content_panel_KXW9VC"
   ]
 }
