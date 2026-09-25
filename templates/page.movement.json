@@ -314,31 +314,31 @@
         "subheading_THiCBR": {
           "type": "subheading",
           "settings": {
-            "title": "Eco Friendly, Nature Derived Recycled Materials: \"Re:CYCLE DOWN\" and \"Fellayarn\""
+            "title": "Before Recycling: The Idea of \"Repair and Keep Using\""
           }
         },
         "text_wXHbhi": {
           "type": "text",
           "settings": {
-            "text": "<p>Because it requires specialized technology, there are still few examples of this in practice, but NANGA actively adopts recycled textile materials as a way to reduce the environmental impact of our products. Recycled down is one of the most representative of these materials.</p><p></p>"
+            "text": "<p>NANGA products are designed from the development stage to be as durable as possible and to withstand long term use, whether in harsh outdoor conditions or through everyday repeated use. Even so, performance naturally declines over years of use, and items can sometimes become damaged. So that customers can choose to repair and keep using their products in these situations, NANGA offers a comprehensive after care service that users can rely on with confidence.</p><p></p>"
           }
         },
         "text_ztQBDx": {
           "type": "text",
           "settings": {
-            "text": "<p>As you may know, down is a natural material that is light and warm, offering functionality that synthetic fibers can never fully replicate. At the same time, only about 10 to 20 grams of down can be collected per bird, so a single down jacket requires down from at least several birds, and a sleeping bag requires down from dozens of birds. These feathers are, of course, a byproduct of meat production, but from the perspective of stable material supply and environmental conservation, there are significant benefits to reusing down.</p><p></p>"
+            "text": "<p>There are many sustainable actions individuals can take, but as a manufacturer, there is something only we can do: make products built to last, and repair them. The warranty we have offered on our down products since our founding is part of our identity, and something we take pride in.</p><p></p>"
           }
         },
         "text_mcYBCY": {
           "type": "text",
           "settings": {
-            "text": "<p>To spread the understanding that \"down is a resource,\" we offer free collection of unwanted down products at NANGA Shop locations nationwide as part of this effort. The collected down is rewashed and reprocessed at our domestic factory, and the renewed \"Re:CYCLE DOWN\" is used in our basic grade products. We also offer \"Re:ACT SONAE BAG,\" which repurposes down comforters sitting unused at home into emergency disaster sleeping bags, expanding the range of circular options available.<strong> (Service available only within Japan)</strong></p><p></p>"
+            "text": "<p>In some cases, materials or other factors mean an item cannot be fully restored to its original condition, but all NANGA down products are eligible for after care. Items we receive are repaired directly at our own domestic factory, the same facility where our down products are made. This includes minor fabric tears in sleeping bags and repairs for down leakage, as well as paid services for adding down, more extensive repairs, and down jacket repairs. We also offer down cleaning as a service option. If the down inside a product has flattened over time, washing it can restore its loft, allowing customers to enjoy the product for even longer.</p><p></p>"
           }
         },
         "text_xrzrqh": {
           "type": "text",
           "settings": {
-            "text": "<p>It is easy to overlook because it is a natural material, but cotton production carries a significant environmental burden, requiring vast fields, large amounts of water, and fertilizer. To address this issue, we are replacing NANGA apparel materials with a recycled material called \"Fellayarn.\" This is made by shredding fabric scraps that would otherwise be discarded using a proprietary process, then respinning them into yarn. The spinning mill that produces this yarn also runs on solar power, significantly reducing the environmental cost of production.</p>"
+            "text": "<p>In 2024, to make it easier for customers to care for their down products at home, we also released maintenance products developed in partnership with STORM, a British care product manufacturer known for its environmental consideration. Making a habit of washing waterproof breathable materials and down wear to maintain their original performance is, we believe, also part of after care, and we continue to share the importance of this with as many people as possible.</p><p></p>"
           }
         }
       },
@@ -356,6 +356,118 @@
         "body_text_color": "#4b5563",
         "full_width": false
       }
+    },
+    "c_content_panel_gCFtaP": {
+      "type": "c-content-panel",
+      "blocks": {
+        "heading_89dd7i": {
+          "type": "heading",
+          "settings": {
+            "title": "NANGA×STORM Cleaner: A Home Cleaning Kit Designed with the Environment in Mind"
+          }
+        },
+        "text_TXRcgJ": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Outdoor wear does not have to be sent to a cleaner only at the end of the season. Maintaining it at home whenever it gets dirty during the season also helps preserve its performance and extend its lifespan. NANGA has partnered with STORM, a UK based company that creates environmentally conscious products, to offer a down maintenance kit that completes in a single wash cycle, saving time, water, and electricity. The packaging uses a custom aluminum bottle designed with microplastic pollution in mind.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_89dd7i",
+        "text_TXRcgJ"
+      ],
+      "disabled": true,
+      "name": "C Content panel",
+      "settings": {
+        "background_color": "#ffffff",
+        "text_color": "#000000",
+        "body_text_color": "#4b5563",
+        "full_width": false
+      }
+    },
+    "featured_product_R4GCET": {
+      "type": "featured-product",
+      "blocks": {
+        "title_xddAML": {
+          "type": "title",
+          "settings": {}
+        },
+        "price_gPUaQe": {
+          "type": "price",
+          "settings": {
+            "show_installments": false,
+            "show_tax_and_shipping": false,
+            "enable_product_reviews_by_price": true
+          }
+        },
+        "vendor_QFHg36": {
+          "type": "vendor",
+          "settings": {}
+        },
+        "divider_pdrDXe": {
+          "type": "divider",
+          "settings": {}
+        },
+        "variant_picker_fpTwBi": {
+          "type": "variant-picker",
+          "settings": {
+            "show_single": false,
+            "selector_style": "listed",
+            "dynamic_availability": "show",
+            "enable_size_chart": false,
+            "size_chart_label": "Size guide",
+            "size_chart_variant": "Size",
+            "size_chart_source": "page",
+            "size_chart_page": ""
+          }
+        },
+        "buy_buttons_GpKGne": {
+          "type": "buy-buttons",
+          "settings": {
+            "show_quantity_selector": true,
+            "enable_payment_button": true,
+            "show_backorder_text": false,
+            "show_gift_card_recipient": false
+          }
+        },
+        "description_BedHL4": {
+          "type": "description",
+          "settings": {
+            "show_in_tab": false,
+            "open_tab": false,
+            "icon": ""
+          }
+        }
+      },
+      "block_order": [
+        "title_xddAML",
+        "price_gPUaQe",
+        "vendor_QFHg36",
+        "divider_pdrDXe",
+        "variant_picker_fpTwBi",
+        "buy_buttons_GpKGne",
+        "description_BedHL4"
+      ],
+      "disabled": true,
+      "name": "Featured product",
+      "settings": {
+        "product": "",
+        "select_first_variant": true,
+        "inventory_transfers_enable": true,
+        "enable_sticky_columns": false,
+        "gallery_size": "medium",
+        "gallery_layout": "carousel-under",
+        "collage_highlight_on_variant_change": true,
+        "enable_zoom": true,
+        "show_alt_text": false,
+        "alt_text_icon": "",
+        "show_variant_media_label": true,
+        "enable_video_autoplay": false,
+        "enable_video_looping": false,
+        "enable_media_grouping": false,
+        "media_grouping_option": "Color,Colour,Couleur,Farbe"
+      }
     }
   },
   "order": [
@@ -370,6 +482,8 @@
     "c_content_panel_CPzYMj",
     "rich_text_AL7Wrp",
     "image_with_text_overlay_dT6yVD",
-    "c_content_panel_gbed8L"
+    "c_content_panel_gbed8L",
+    "c_content_panel_gCFtaP",
+    "featured_product_R4GCET"
   ]
 }
