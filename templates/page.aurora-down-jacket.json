@@ -51,7 +51,7 @@
         "full_width": true,
         "text_alignment": "center center",
         "mobile_overlay_under": false,
-        "overlay_style": "full image-overlay--bg-shadow"
+        "overlay_style": "no_background"
       }
     },
     "tech_fill_power": {
@@ -500,7 +500,7 @@
       ],
       "name": "C Content panel",
       "settings": {
-        "background_color": "#FFFFFF",
+        "background_color": "#ffffff",
         "text_color": "#000000",
         "body_text_color": "#4b5563",
         "full_width": false
