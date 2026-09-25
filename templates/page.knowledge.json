@@ -40,7 +40,7 @@
             "image": "shopify://shop_images/4-4.webp",
             "title": "NANGA MOVEMENT",
             "text": "<p>Circular Manufacturing at NANGA</p>",
-            "link": "/pages/nanga-movement",
+            "link": "shopify://pages/movement",
             "link_label": "READ"
           }
         },
@@ -60,7 +60,7 @@
             "image": "shopify://shop_images/6-6.webp",
             "title": "TECHNOLOGY",
             "text": "<p>NANGA's Technology</p>",
-            "link": "/pages/technology",
+            "link": "shopify://pages/technologies",
             "link_label": "READ"
           }
         },
