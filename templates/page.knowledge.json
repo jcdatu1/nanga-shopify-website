@@ -22,7 +22,7 @@
       "settings": {
         "title": "KNOWLEDGE",
         "use_h1": true,
-        "subtitle": "<p>ABOUT NANGA: KNOWLEDGE CONTENTS,<br/>NANGA's Commitment</p>",
+        "subtitle": "<p>ABOUT NANGA: KNOWLEDGE CONTENTS<br/>NANGA's Commitment</p>",
         "background_color": "#f9fafb",
         "show_border": true,
         "padding_top_mobile": 48,
