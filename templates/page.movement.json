@@ -23,24 +23,24 @@
         "tech_hero_heading": {
           "type": "heading",
           "settings": {
-            "title": "NANGA \"AURORA TEX®\"",
+            "title": "NANGA MOVEMENT",
             "heading_max_width": 15,
             "title_size": 60,
             "title_size_mobile": 40,
             "use_h1": true
           }
         },
-        "tech_hero_text": {
+        "text_6EjJDm": {
           "type": "text",
           "settings": {
-            "text": "<p>The Flagship Model Built on NANGA's Legacy</p>",
+            "text": "<h2>We Want to Share the Joy of Being in Nature Through Our Products: Circular Manufacturing at NANGA</h2>",
             "enlarge_text": true
           }
         }
       },
       "block_order": [
         "tech_hero_heading",
-        "tech_hero_text"
+        "text_6EjJDm"
       ],
       "settings": {
         "image": "shopify://shop_images/NANGA-26SS_movement_il_251222_fix_pc_2.webp",
@@ -49,7 +49,7 @@
         "height_mobile": 480,
         "image_link": "",
         "full_width": true,
-        "text_alignment": "center center",
+        "text_alignment": "top center",
         "mobile_overlay_under": false,
         "overlay_style": "no_background"
       }
