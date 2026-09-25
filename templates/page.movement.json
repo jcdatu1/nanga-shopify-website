@@ -76,10 +76,16 @@
     "rich_text_BrPPey": {
       "type": "rich-text",
       "blocks": {
+        "subheading_7bcX9j": {
+          "type": "subheading",
+          "settings": {
+            "subheading": "NANGA TOPICS 01:"
+          }
+        },
         "heading_6Jpi96": {
           "type": "heading",
           "settings": {
-            "title": "NANGA TOPICS 01: Re:ACT",
+            "title": "Re:ACT",
             "use_h1": false
           }
         },
@@ -87,11 +93,12 @@
           "type": "text",
           "settings": {
             "text": "<p>(Service available only within Japan)</p>",
-            "enlarge_text": true
+            "enlarge_text": false
           }
         }
       },
       "block_order": [
+        "subheading_7bcX9j",
         "heading_6Jpi96",
         "text_VdLFNx"
       ],
@@ -157,10 +164,16 @@
     "rich_text_yPi6GP": {
       "type": "rich-text",
       "blocks": {
+        "subheading_NF3UBg": {
+          "type": "subheading",
+          "settings": {
+            "subheading": "NANGA TOPICS 02:"
+          }
+        },
         "heading_4xqk7Q": {
           "type": "heading",
           "settings": {
-            "title": "NANGA TOPICS 02: Re:CYCLE MATERIAL",
+            "title": "Re:CYCLE MATERIAL",
             "use_h1": false
           }
         },
@@ -168,11 +181,12 @@
           "type": "text",
           "settings": {
             "text": "<p>(Service available only within Japan)</p>",
-            "enlarge_text": true
+            "enlarge_text": false
           }
         }
       },
       "block_order": [
+        "subheading_NF3UBg",
         "heading_4xqk7Q",
         "text_AH7qb4"
       ],
@@ -248,6 +262,100 @@
         "body_text_color": "#4b5563",
         "full_width": false
       }
+    },
+    "rich_text_AL7Wrp": {
+      "type": "rich-text",
+      "blocks": {
+        "subheading_8bM7rw": {
+          "type": "subheading",
+          "settings": {
+            "subheading": "NANGA TOPICS 03:"
+          }
+        },
+        "heading_7QedKt": {
+          "type": "heading",
+          "settings": {
+            "title": "AFTER CARE",
+            "use_h1": false
+          }
+        }
+      },
+      "block_order": [
+        "subheading_8bM7rw",
+        "heading_7QedKt"
+      ],
+      "name": "Rich text",
+      "settings": {
+        "height": "medium",
+        "text_alignment": "center",
+        "full_width": false,
+        "color_scheme": "default"
+      }
+    },
+    "image_with_text_overlay_dT6yVD": {
+      "type": "image-with-text-overlay",
+      "custom_css": [],
+      "name": "Image with text overlay",
+      "settings": {
+        "image": "shopify://shop_images/NANGA-26SS_aftercare_il_251222_fix-1280x1280.webp",
+        "height": "adapt",
+        "height_desktop": 600,
+        "height_mobile": 460,
+        "image_link": "",
+        "full_width": false,
+        "text_alignment": "center center",
+        "mobile_overlay_under": false,
+        "overlay_style": "no_background"
+      }
+    },
+    "c_content_panel_gbed8L": {
+      "type": "c-content-panel",
+      "blocks": {
+        "subheading_THiCBR": {
+          "type": "subheading",
+          "settings": {
+            "title": "Eco Friendly, Nature Derived Recycled Materials: \"Re:CYCLE DOWN\" and \"Fellayarn\""
+          }
+        },
+        "text_wXHbhi": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Because it requires specialized technology, there are still few examples of this in practice, but NANGA actively adopts recycled textile materials as a way to reduce the environmental impact of our products. Recycled down is one of the most representative of these materials.</p><p></p>"
+          }
+        },
+        "text_ztQBDx": {
+          "type": "text",
+          "settings": {
+            "text": "<p>As you may know, down is a natural material that is light and warm, offering functionality that synthetic fibers can never fully replicate. At the same time, only about 10 to 20 grams of down can be collected per bird, so a single down jacket requires down from at least several birds, and a sleeping bag requires down from dozens of birds. These feathers are, of course, a byproduct of meat production, but from the perspective of stable material supply and environmental conservation, there are significant benefits to reusing down.</p><p></p>"
+          }
+        },
+        "text_mcYBCY": {
+          "type": "text",
+          "settings": {
+            "text": "<p>To spread the understanding that \"down is a resource,\" we offer free collection of unwanted down products at NANGA Shop locations nationwide as part of this effort. The collected down is rewashed and reprocessed at our domestic factory, and the renewed \"Re:CYCLE DOWN\" is used in our basic grade products. We also offer \"Re:ACT SONAE BAG,\" which repurposes down comforters sitting unused at home into emergency disaster sleeping bags, expanding the range of circular options available.<strong> (Service available only within Japan)</strong></p><p></p>"
+          }
+        },
+        "text_xrzrqh": {
+          "type": "text",
+          "settings": {
+            "text": "<p>It is easy to overlook because it is a natural material, but cotton production carries a significant environmental burden, requiring vast fields, large amounts of water, and fertilizer. To address this issue, we are replacing NANGA apparel materials with a recycled material called \"Fellayarn.\" This is made by shredding fabric scraps that would otherwise be discarded using a proprietary process, then respinning them into yarn. The spinning mill that produces this yarn also runs on solar power, significantly reducing the environmental cost of production.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_THiCBR",
+        "text_wXHbhi",
+        "text_ztQBDx",
+        "text_mcYBCY",
+        "text_xrzrqh"
+      ],
+      "name": "C Content panel",
+      "settings": {
+        "background_color": "#ffffff",
+        "text_color": "#000000",
+        "body_text_color": "#4b5563",
+        "full_width": false
+      }
     }
   },
   "order": [
@@ -259,6 +367,9 @@
     "c_content_panel_9rjkLi",
     "rich_text_yPi6GP",
     "image_with_text_overlay_RnBTWA",
-    "c_content_panel_CPzYMj"
+    "c_content_panel_CPzYMj",
+    "rich_text_AL7Wrp",
+    "image_with_text_overlay_dT6yVD",
+    "c_content_panel_gbed8L"
   ]
 }
