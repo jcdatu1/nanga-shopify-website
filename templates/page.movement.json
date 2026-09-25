@@ -29,18 +29,10 @@
             "title_size_mobile": 40,
             "use_h1": true
           }
-        },
-        "text_6EjJDm": {
-          "type": "text",
-          "settings": {
-            "text": "<h2>We Want to Share the Joy of Being in Nature Through Our Products: Circular Manufacturing at NANGA</h2>",
-            "enlarge_text": true
-          }
         }
       },
       "block_order": [
-        "tech_hero_heading",
-        "text_6EjJDm"
+        "tech_hero_heading"
       ],
       "settings": {
         "image": "shopify://shop_images/NANGA-26SS_movement_il_251222_fix_pc_2.webp",
@@ -60,13 +52,13 @@
         "tech_fp_heading": {
           "type": "heading",
           "settings": {
-            "title": "What Is the Flagship \"AURORA TEX Down Jacket\"?"
+            "title": "We Want to Share the Joy of Being in Nature Through Our Products: Circular Manufacturing at NANGA"
           }
         },
         "tech_fp_text": {
           "type": "text",
           "settings": {
-            "text": "<p>The \"AURORA TEX Down Jacket\" is NANGA's most popular product and the piece synonymous with the brand. Here is an introduction to the flagship model that has been loved for many years.</p>"
+            "text": "<p>Creating products that reduce environmental impact, and that give back to nature, is a natural responsibility for NANGA, a brand whose field is nature itself. We believe that valuing resources and reusing them is a fundamental yet essential action. \"Re:ACT\" transforms old down products into new NANGA down products. \"Re:CYCLE MATERIAL\" hands limited resources on to the future. \"AFTER CARE\" helps customers enjoy their products for longer. By taking the lead in these actions, NANGA continues to work toward a future where taking care of things and using them for a long time is simply the norm.</p>"
           }
         }
       },
@@ -81,422 +73,173 @@
         "full_width": false
       }
     },
-    "video_nwTN3D": {
-      "type": "video",
+    "rich_text_BrPPey": {
+      "type": "rich-text",
       "blocks": {
-        "play_button_WJxwYA": {
-          "type": "play-button",
-          "settings": {}
+        "heading_6Jpi96": {
+          "type": "heading",
+          "settings": {
+            "title": "NANGA TOPICS 01: Re:ACT",
+            "use_h1": false
+          }
+        },
+        "text_VdLFNx": {
+          "type": "text",
+          "settings": {
+            "text": "<p>(Service available only within Japan)</p>",
+            "enlarge_text": true
+          }
         }
       },
       "block_order": [
-        "play_button_WJxwYA"
+        "heading_6Jpi96",
+        "text_VdLFNx"
       ],
-      "name": "Video",
+      "name": "Rich text",
       "settings": {
-        "video_external": "https://www.youtube.com/watch?v=H7AP4PMqNUs",
-        "video_description": "NANGA \"AURORA TEX\" JACKET",
-        "placeholder_image": "shopify://shop_images/Screenshot_2026-09-24_at_3.40.07_PM.png",
-        "text_alignment": "center center",
+        "height": "medium",
+        "text_alignment": "center",
         "full_width": false,
-        "overlay_style": "shadow"
+        "color_scheme": "default"
+      }
+    },
+    "image_with_text_overlay_td4xth": {
+      "type": "image-with-text-overlay",
+      "custom_css": [],
+      "name": "Image with text overlay",
+      "settings": {
+        "image": "shopify://shop_images/NANGA-26SS_react_il_251222_fix-1280x1280.webp",
+        "height": "adapt",
+        "height_desktop": 600,
+        "height_mobile": 460,
+        "image_link": "",
+        "full_width": false,
+        "text_alignment": "center center",
+        "mobile_overlay_under": false,
+        "overlay_style": "no_background"
       }
     },
     "c_content_panel_9rjkLi": {
       "type": "c-content-panel",
       "blocks": {
-        "heading_DTWLge": {
-          "type": "heading",
+        "subheading_bxKrEt": {
+          "type": "subheading",
           "settings": {
-            "title": "Reflecting Years of Accumulated Expertise in Our Products"
+            "title": "Giving Down New Life and a Future: NANGA's Original Upcycling Project"
           }
         },
         "text_jbBt3m": {
           "type": "text",
           "settings": {
-            "text": "<p>This year marks 30 years since the brand's founding, 30 years spent devoted to down and to the craft of making products with unwavering dedication. Built on decades of history and knowledge, and continually updated alongside the brand's growth, the AURORA TEX Down Jacket now reaches its 6th generation with this release.</p>"
+            "text": "<p>Down, the feathers of waterfowl, is an excellent material that can last over 100 years with proper care, though this fact is not widely known. As a leading down products company, NANGA started an upcycling service for down comforters, driven by the belief that down should not be treated as a simple consumable, but should be cared for and used for many years. This project, named \"Re:ACT,\" draws on shitatenaoshi, Japan's traditional culture of remaking futons for reuse, and launched in earnest in 2022. We collect worn down comforters from customers, wash the down, and remake it into new NANGA comforters, sleeping bags, or down jackets, then return the finished product to the customer. <strong>(Service available only within Japan)</strong></p><p></p>"
           }
         },
-        "subheading_cpXnhr": {
+        "text_3CwgH3": {
+          "type": "text",
+          "settings": {
+            "text": "<p>We offer a bedding series called \"GOOD SLEEPING,\" but we do not want existing futons to be thrown away simply because customers are buying new ones. According to one statistic, the average person in Japan owns the equivalent of 1.8 futons. Considering the environment, we believe existing futons should be actively reused. That is why NANGA offers \"Re:ACT\" as a new option, and we want to grow it into a service that benefits and delights even more users. By reusing down as a resource, we hope to connect it to a future where it can accompany people through outdoor adventures and everyday life, and even serve as an emergency disaster supply when needed. We believe this initiative is meaningful for both the brand and society, and that it can help change attitudes toward reuse.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_bxKrEt",
+        "text_jbBt3m",
+        "text_3CwgH3"
+      ],
+      "name": "C Content panel",
+      "settings": {
+        "background_color": "#ffffff",
+        "text_color": "#000000",
+        "body_text_color": "#4b5563",
+        "full_width": false
+      }
+    },
+    "rich_text_yPi6GP": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_4xqk7Q": {
+          "type": "heading",
+          "settings": {
+            "title": "NANGA TOPICS 02: Re:CYCLE MATERIAL",
+            "use_h1": false
+          }
+        },
+        "text_AH7qb4": {
+          "type": "text",
+          "settings": {
+            "text": "<p>(Service available only within Japan)</p>",
+            "enlarge_text": true
+          }
+        }
+      },
+      "block_order": [
+        "heading_4xqk7Q",
+        "text_AH7qb4"
+      ],
+      "name": "Rich text",
+      "settings": {
+        "height": "medium",
+        "text_alignment": "center",
+        "full_width": false,
+        "color_scheme": "default"
+      }
+    },
+    "image_with_text_overlay_RnBTWA": {
+      "type": "image-with-text-overlay",
+      "custom_css": [],
+      "name": "Image with text overlay",
+      "settings": {
+        "image": "shopify://shop_images/NANGA-26SS_recycle_il_251222_fix-1280x1280.webp",
+        "height": "adapt",
+        "height_desktop": 600,
+        "height_mobile": 460,
+        "image_link": "",
+        "full_width": false,
+        "text_alignment": "center center",
+        "mobile_overlay_under": false,
+        "overlay_style": "no_background"
+      }
+    },
+    "c_content_panel_CPzYMj": {
+      "type": "c-content-panel",
+      "blocks": {
+        "subheading_e6bY3r": {
           "type": "subheading",
           "settings": {
-            "title": "Subheading"
-          }
-        }
-      },
-      "block_order": [
-        "heading_DTWLge",
-        "text_jbBt3m",
-        "subheading_cpXnhr"
-      ],
-      "name": "C Content panel",
-      "settings": {
-        "background_color": "#ffffff",
-        "text_color": "#000000",
-        "body_text_color": "#4b5563",
-        "full_width": false
-      }
-    },
-    "image_with_text_overlay_wJGMeN": {
-      "type": "image-with-text-overlay",
-      "name": "Image with text overlay",
-      "settings": {
-        "image": "shopify://shop_images/data_n30tha_0308-scaled.webp",
-        "height": "fixed",
-        "height_desktop": 600,
-        "height_mobile": 460,
-        "image_link": "",
-        "full_width": false,
-        "text_alignment": "center center",
-        "mobile_overlay_under": false,
-        "overlay_style": "no_background"
-      }
-    },
-    "custom_content_tPrJ83": {
-      "type": "custom-content",
-      "blocks": {
-        "image_Mp7xzz": {
-          "type": "image",
-          "settings": {
-            "width": "half",
-            "image": "shopify://shop_images/data_n30tha_0320-scaled.webp",
-            "height": "adapt",
-            "height_desktop": 600,
-            "height_mobile": 500,
-            "subheading": "",
-            "title": "",
-            "text": "",
-            "enlarge_text": false,
-            "button_label": "",
-            "button_style": "primary",
-            "image_link": "",
-            "text_alignment": "center center",
-            "mobile_overlay_under": false,
-            "overlay_style": "no_background"
+            "title": "Eco Friendly, Nature Derived Recycled Materials: \"Re:CYCLE DOWN\" and \"Fellayarn\""
           }
         },
-        "image_g6jK9c": {
-          "type": "image",
-          "settings": {
-            "width": "half",
-            "image": "shopify://shop_images/data_n30tha_0342-1152x1536.webp",
-            "height": "adapt",
-            "height_desktop": 600,
-            "height_mobile": 500,
-            "subheading": "",
-            "title": "",
-            "text": "",
-            "enlarge_text": false,
-            "button_label": "",
-            "button_style": "primary",
-            "image_link": "",
-            "text_alignment": "center center",
-            "mobile_overlay_under": false,
-            "overlay_style": "no_background"
-          }
-        }
-      },
-      "block_order": [
-        "image_Mp7xzz",
-        "image_g6jK9c"
-      ],
-      "name": "Custom content",
-      "settings": {
-        "spacing": "medium",
-        "alignment": "middle",
-        "color_scheme": "default"
-      }
-    },
-    "c_content_panel_zfKLGJ": {
-      "type": "c-content-panel",
-      "blocks": {
-        "heading_qzN7Qw": {
-          "type": "heading",
-          "settings": {
-            "title": "WATERPROOF & BREATHABLE: What Is NANGA's Original Material \"AURORA TEX®\"?"
-          }
-        },
-        "text_mnBykx": {
+        "text_FnTQzj": {
           "type": "text",
           "settings": {
-            "text": "<p>NANGA's original fabric, \"AURORA TEX®,\" offers excellent waterproofing with a water pressure resistance (*Note 1) of 20,000mm, reliably blocking even heavy rain. In addition, its moisture permeability (*Note 2) of 6,000g/m²/24hrs allows internal humidity to escape appropriately, reducing uncomfortable dampness and providing a dry, comfortable wearing experience.</p><p></p>"
+            "text": "<p>Because it requires specialized technology, there are still few examples of this in practice, but NANGA actively adopts recycled textile materials as a way to reduce the environmental impact of our products. Recycled down is one of the most representative of these materials.</p><p></p>"
           }
         },
-        "text_jUFM8H": {
+        "text_PUUqxV": {
           "type": "text",
           "settings": {
-            "text": "<p>*Note 1: A measurement of how much water pressure a fabric or material can withstand. As a general guide, light rain is about 500mm, moderate rain is about 2,000mm, and heavy rain is about 10,000mm.</p><p></p>"
+            "text": "<p>As you may know, down is a natural material that is light and warm, offering functionality that synthetic fibers can never fully replicate. At the same time, only about 10 to 20 grams of down can be collected per bird, so a single down jacket requires down from at least several birds, and a sleeping bag requires down from dozens of birds. These feathers are, of course, a byproduct of meat production, but from the perspective of stable material supply and environmental conservation, there are significant benefits to reusing down.</p><p></p>"
           }
         },
-        "text_xhCqcm": {
+        "text_Jwpqz4": {
           "type": "text",
           "settings": {
-            "text": "<p>*Note 2: A measurement of how many grams of moisture a fabric releases per square meter over 24 hours. AURORA TEX®'s moisture permeability value means it can release 6,000g of moisture per square meter over 24 hours.</p>"
-          }
-        }
-      },
-      "block_order": [
-        "heading_qzN7Qw",
-        "text_mnBykx",
-        "text_jUFM8H",
-        "text_xhCqcm"
-      ],
-      "name": "C Content panel",
-      "settings": {
-        "background_color": "#ffffff",
-        "text_color": "#000000",
-        "body_text_color": "#4b5563",
-        "full_width": false
-      }
-    },
-    "image_with_text_overlay_wDGRDD": {
-      "type": "image-with-text-overlay",
-      "name": "Image with text overlay",
-      "settings": {
-        "image": "shopify://shop_images/honbun_6_4-2048x1138.webp",
-        "height": "adapt",
-        "height_desktop": 600,
-        "height_mobile": 460,
-        "image_link": "",
-        "full_width": false,
-        "text_alignment": "center center",
-        "mobile_overlay_under": false,
-        "overlay_style": "no_background"
-      }
-    },
-    "c_content_panel_JPzgYV": {
-      "type": "c-content-panel",
-      "blocks": {
-        "heading_tVPDhz": {
-          "type": "heading",
-          "settings": {
-            "title": "HEAT RETAINING: Superior Warmth from High Quality Down"
+            "text": "<p>To spread the understanding that \"down is a resource,\" we offer free collection of unwanted down products at NANGA Shop locations nationwide as part of this effort. The collected down is rewashed and reprocessed at our domestic factory, and the renewed \"Re:CYCLE DOWN\" is used in our basic grade products. We also offer \"Re:ACT SONAE BAG,\" which repurposes down comforters sitting unused at home into emergency disaster sleeping bags, expanding the range of circular options available.<strong> (Service available only within Japan)</strong></p><p></p>"
           }
         },
-        "text_BTgxhB": {
+        "text_3VA6WQ": {
           "type": "text",
           "settings": {
-            "text": "<p>The AURORA TEX Down Jacket is filled with 150g of high fill power down rated at 760FP, making it versatile enough to wear from outdoor settings to everyday life. Since the brand's launch, NANGA has used down from Kawada Feather, a down material manufacturer founded in 1891. Today, the jacket uses premium down from the Moulard breed sourced from Spanish farms under a partnership contract with Kawada Feather. Moulard down is known for its dense structure and large down clusters. Combined with world leading cleaning technology, the result is down that is lightweight, highly resilient, and resistant to flattening over time. This dedication to down is what creates the jacket's warmth.</p>"
+            "text": "<p>It is easy to overlook because it is a natural material, but cotton production carries a significant environmental burden, requiring vast fields, large amounts of water, and fertilizer. To address this issue, we are replacing NANGA apparel materials with a recycled material called \"Fellayarn.\" This is made by shredding fabric scraps that would otherwise be discarded using a proprietary process, then respinning them into yarn. The spinning mill that produces this yarn also runs on solar power, significantly reducing the environmental cost of production.</p>"
           }
         }
       },
       "block_order": [
-        "heading_tVPDhz",
-        "text_BTgxhB"
-      ],
-      "name": "C Content panel",
-      "settings": {
-        "background_color": "#ffffff",
-        "text_color": "#000000",
-        "body_text_color": "#4b5563",
-        "full_width": false
-      }
-    },
-    "image_with_text_overlay_3xEMXi": {
-      "type": "image-with-text-overlay",
-      "name": "Image with text overlay",
-      "settings": {
-        "image": "shopify://shop_images/data_n30tha_0076-2048x1536.webp",
-        "height": "fixed",
-        "height_desktop": 600,
-        "height_mobile": 460,
-        "image_link": "",
-        "full_width": false,
-        "text_alignment": "center center",
-        "mobile_overlay_under": false,
-        "overlay_style": "no_background"
-      }
-    },
-    "c_content_panel_Ciim9w": {
-      "type": "c-content-panel",
-      "blocks": {
-        "heading_LCJytf": {
-          "type": "heading",
-          "settings": {
-            "title": "COMMITMENT TO DESIGN: Design That Evolves with the Times"
-          }
-        },
-        "text_waMWBX": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Born in 2003, the AURORA TEX Down Jacket marks its 20th year this year. Its design has incorporated the needs of the times and technologies developed through product development, undergoing various updates in both function and style, and now stands at its 6th generation.</p>"
-          }
-        }
-      },
-      "block_order": [
-        "heading_LCJytf",
-        "text_waMWBX"
-      ],
-      "name": "C Content panel",
-      "settings": {
-        "background_color": "#ffffff",
-        "text_color": "#000000",
-        "body_text_color": "#4b5563",
-        "full_width": false
-      }
-    },
-    "multi_column_zizxRL": {
-      "type": "multi-column",
-      "blocks": {
-        "text_block_Dgnw6t": {
-          "type": "text_block",
-          "settings": {
-            "enable_media": true,
-            "image": "shopify://shop_images/data_n30tha_0055-1280x960.webp",
-            "title": "3D DESIGN",
-            "text": "<p>A three dimensional front panel design that prevents the down from flattening when the arms are bent.</p>",
-            "button_label": "",
-            "link": ""
-          }
-        },
-        "text_block_KAtfJx": {
-          "type": "text_block",
-          "settings": {
-            "enable_media": true,
-            "image": "shopify://shop_images/data_n30tha_0043-1280x960.webp",
-            "title": "HOODIE DESIGN",
-            "text": "<p>A tall hood and collar design that blocks cold air and wind from entering.</p>",
-            "button_label": "",
-            "link": ""
-          }
-        },
-        "text_block_8BdRaR": {
-          "type": "text_block",
-          "settings": {
-            "enable_media": true,
-            "image": "shopify://shop_images/data_n30tha_0049-1280x960.webp",
-            "title": "WATER PROOF ZIPPER",
-            "text": "<p>A water-repellent zipper on the front blocks out cold wind and rain.</p>",
-            "button_label": "",
-            "link": ""
-          }
-        }
-      },
-      "block_order": [
-        "text_block_Dgnw6t",
-        "text_block_KAtfJx",
-        "text_block_8BdRaR"
-      ],
-      "name": "Multi-column",
-      "settings": {
-        "title": "",
-        "media_aspect_ratio": "1",
-        "media_width": 700,
-        "text_alignment": "left",
-        "button_style": "primary",
-        "color_scheme": "default"
-      }
-    },
-    "video_p98jmM": {
-      "type": "video",
-      "blocks": {
-        "play_button_L9Tn7n": {
-          "type": "play-button",
-          "settings": {}
-        }
-      },
-      "block_order": [
-        "play_button_L9Tn7n"
-      ],
-      "name": "Video",
-      "settings": {
-        "video_external": "https://www.youtube.com/watch?v=9_lIrP4Kld8&t=1s",
-        "video_description": "NANGA AURORA TEX",
-        "placeholder_image": "shopify://shop_images/Screenshot_2026-09-24_at_3.52.42_PM.png",
-        "text_alignment": "center center",
-        "full_width": false,
-        "overlay_style": "no_background"
-      }
-    },
-    "c_content_panel_Hidihb": {
-      "type": "c-content-panel",
-      "blocks": {
-        "heading_EKti4K": {
-          "type": "heading",
-          "settings": {
-            "title": "\"Just Right, Anytime, Anywhere\""
-          }
-        },
-        "text_cCiKLf": {
-          "type": "text",
-          "settings": {
-            "text": "<p>With technology cultivated in outdoor settings, combined with a design suited for everyday wear, this item has continued to be loved by everyone as something that is \"just right, anytime, anywhere.\"</p>"
-          }
-        }
-      },
-      "block_order": [
-        "heading_EKti4K",
-        "text_cCiKLf"
-      ],
-      "name": "C Content panel",
-      "settings": {
-        "background_color": "#ffffff",
-        "text_color": "#000000",
-        "body_text_color": "#4b5563",
-        "full_width": false
-      }
-    },
-    "image_with_text_overlay_Ehgb3U": {
-      "type": "image-with-text-overlay",
-      "name": "Image with text overlay",
-      "settings": {
-        "image": "shopify://shop_images/AuroraDown_img2_pc.webp",
-        "height": "adapt",
-        "height_desktop": 600,
-        "height_mobile": 460,
-        "image_link": "",
-        "full_width": false,
-        "text_alignment": "center center",
-        "mobile_overlay_under": false,
-        "overlay_style": "no_background"
-      }
-    },
-    "featured_collection_carousel_Lx7qyp": {
-      "type": "featured-collection-carousel",
-      "name": "C Featured collection",
-      "settings": {
-        "title": "AURORA TEX®",
-        "description": "",
-        "collection": "aurora-tex®",
-        "limit": 12,
-        "cards_desktop": 4,
-        "cards_mobile": 2,
-        "full_width": true,
-        "image_style": "cover",
-        "hover_effect": "image",
-        "show_type": true,
-        "show_value_props": true,
-        "tag_style": "dark",
-        "tag_position": "overlay",
-        "show_border": false,
-        "show_combined_listings": false,
-        "show_view_all": true,
-        "color_scheme": "default"
-      }
-    },
-    "c_content_panel_EBne69": {
-      "type": "c-content-panel",
-      "blocks": {
-        "button_QcqwFG": {
-          "type": "button",
-          "settings": {
-            "button_label": "SHOP AURORA TEX®",
-            "button_link": "",
-            "button_style": "link"
-          }
-        },
-        "button_qaJVFG": {
-          "type": "button",
-          "settings": {
-            "button_label": "NANGA ONLINE STORE",
-            "button_link": "shopify://collections/all",
-            "button_style": "link"
-          }
-        }
-      },
-      "block_order": [
-        "button_QcqwFG",
-        "button_qaJVFG"
+        "subheading_e6bY3r",
+        "text_FnTQzj",
+        "text_PUUqxV",
+        "text_Jwpqz4",
+        "text_3VA6WQ"
       ],
       "name": "C Content panel",
       "settings": {
@@ -511,20 +254,11 @@
     "main",
     "tech_hero",
     "tech_fill_power",
-    "video_nwTN3D",
+    "rich_text_BrPPey",
+    "image_with_text_overlay_td4xth",
     "c_content_panel_9rjkLi",
-    "image_with_text_overlay_wJGMeN",
-    "custom_content_tPrJ83",
-    "c_content_panel_zfKLGJ",
-    "image_with_text_overlay_wDGRDD",
-    "c_content_panel_JPzgYV",
-    "image_with_text_overlay_3xEMXi",
-    "c_content_panel_Ciim9w",
-    "multi_column_zizxRL",
-    "video_p98jmM",
-    "c_content_panel_Hidihb",
-    "image_with_text_overlay_Ehgb3U",
-    "featured_collection_carousel_Lx7qyp",
-    "c_content_panel_EBne69"
+    "rich_text_yPi6GP",
+    "image_with_text_overlay_RnBTWA",
+    "c_content_panel_CPzYMj"
   ]
 }
