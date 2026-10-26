@@ -127,7 +127,14 @@
     "after_add_to_cart": "drawer",
     "product_currency_code_enabled": false,
     "image_quality": "1.25",
-    "content_for_index": []
+    "content_for_index": [],
+    "blocks": {
+      "4804304946286255945": {
+        "type": "shopify://apps/avada-cookie-consent/blocks/app-embed/deacc407-65bc-4a4e-84d9-f90e9e492cf3",
+        "disabled": false,
+        "settings": {}
+      }
+    }
   },
   "installed_preset_name": "Symmetry",
   "presets": {
