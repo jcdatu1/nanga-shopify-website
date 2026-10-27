@@ -83,12 +83,13 @@
         "sort_show_price": true,
         "sort_show_date": true,
         "image_style": "contain",
-        "hover_effect": "zoom",
+        "hover_effect": "image",
         "show_type": false,
         "show_value_props": true,
         "tag_style": "dark",
         "tag_position": "overlay",
-        "show_border": true
+        "show_border": true,
+        "show_combined_listings": true
       }
     }
   },
