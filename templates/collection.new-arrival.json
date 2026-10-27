@@ -16,7 +16,11 @@
         "use_h1": true,
         "subtitle": "",
         "background_color": "rgba(0,0,0,0)",
-        "show_border": false
+        "show_border": false,
+        "padding_top_mobile": 48,
+        "padding_bottom_mobile": 48,
+        "padding_top_desktop": 64,
+        "padding_bottom_desktop": 64
       }
     },
     "c_main_collection_new_arrival": {
@@ -28,13 +32,23 @@
         "coll_num_per_page_int": 24,
         "show_total": false,
         "enable_filtering": false,
+        "enable_sticky_filter": true,
+        "show_filter_counts": false,
+        "price_brackets": "500,700,1000",
         "show_sort": false,
+        "sort_show_featured": false,
+        "sort_show_best": true,
+        "sort_show_alpha": true,
+        "sort_show_price": true,
+        "sort_show_date": true,
         "image_style": "contain",
+        "hover_effect": "image",
         "show_type": true,
         "show_value_props": false,
         "tag_style": "dark",
         "tag_position": "overlay",
-        "show_border": true
+        "show_border": true,
+        "show_combined_listings": true
       }
     }
   },
