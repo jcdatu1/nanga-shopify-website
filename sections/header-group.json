@@ -11,6 +11,36 @@
   "type": "header",
   "name": "Header Group",
   "sections": {
+    "header": {
+      "type": "header",
+      "settings": {
+        "logo": "shopify://shop_images/NANGA_LOGO.png",
+        "logo_img_width_int": 100,
+        "mobile_logo_img_width_int": 135,
+        "logo_h1": true,
+        "enable_sticky": true,
+        "enable_transparent": false,
+        "transparent_color": "#ffffff",
+        "transparent_fade": "#000000",
+        "transparent_fade_strength": 25,
+        "menu_linklist": "main-menu",
+        "menu_layout": "inline-menu-center",
+        "nav_featured_link": "Clearance",
+        "enable_legacy_customer_account_link": false,
+        "customer_account_menu": "customer-account-main-menu",
+        "menu_linklist_mobile": "",
+        "mobile_expand_with_entire_link": true,
+        "enable_mobile_promo_carousel": true,
+        "enable_nav_mob_products": false,
+        "nav_mob_products_title": "",
+        "nav_mob_products_collection": "",
+        "enable_search": true,
+        "search_recommendations_title": "",
+        "search_recommendations_menu": "",
+        "icon_strategy": "icons_only",
+        "cart_icon": "bag"
+      }
+    },
     "announcement-bar": {
       "type": "announcement-bar",
       "blocks": {
@@ -45,36 +75,6 @@
         "enable_language_selector": true
       }
     },
-    "header": {
-      "type": "header",
-      "settings": {
-        "logo": "shopify://shop_images/NANGA_LOGO.png",
-        "logo_img_width_int": 100,
-        "mobile_logo_img_width_int": 135,
-        "logo_h1": true,
-        "enable_sticky": true,
-        "enable_transparent": false,
-        "transparent_color": "#ffffff",
-        "transparent_fade": "#000000",
-        "transparent_fade_strength": 25,
-        "menu_linklist": "main-menu",
-        "menu_layout": "inline-menu-center",
-        "nav_featured_link": "Clearance",
-        "enable_legacy_customer_account_link": false,
-        "customer_account_menu": "customer-account-main-menu",
-        "menu_linklist_mobile": "",
-        "mobile_expand_with_entire_link": true,
-        "enable_mobile_promo_carousel": true,
-        "enable_nav_mob_products": false,
-        "nav_mob_products_title": "",
-        "nav_mob_products_collection": "",
-        "enable_search": true,
-        "search_recommendations_title": "",
-        "search_recommendations_menu": "",
-        "icon_strategy": "icons_only",
-        "cart_icon": "bag"
-      }
-    },
     "store-messages": {
       "type": "store-messages",
       "blocks": {
@@ -103,8 +103,8 @@
     }
   },
   "order": [
-    "announcement-bar",
     "header",
+    "announcement-bar",
     "store-messages"
   ]
 }
