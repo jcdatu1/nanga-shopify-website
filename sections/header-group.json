@@ -47,7 +47,7 @@
         "e33df8e3-c667-49c7-9da7-a23fac96c44d": {
           "type": "announcement",
           "settings": {
-            "text": "Free shipping on orders over $100",
+            "text": "Free Shipping on Orders Over $100 and Free 60-day <a href=\"/policies/refund-policy\" target=\"_blank\" title=\"Refund Policy\">Returns*</a>&nbsp;",
             "show_countdown": false,
             "hide_on_end": false,
             "end_date": "",
