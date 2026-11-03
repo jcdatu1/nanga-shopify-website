@@ -600,3 +600,18 @@
 .cmp__spec-val {
   text-align: right;
 }
+/* Price alignment: cards fill the row; price sits at the bottom */
+.cmc__grid {
+  align-items: stretch;
+}
+
+.cmc .product-card,
+.cmc .product-card__detail {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.cmc .product-card__price {
+  margin-top: auto;
+}
