@@ -11697,4 +11697,5 @@ input.signup-form__email {
   text-decoration: none !important;
   text-transform: var(--btn-text-transform);
   vertical-align: left;
+  opacity: 75%;
 }
