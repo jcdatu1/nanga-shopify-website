@@ -743,7 +743,7 @@ button svg {
   pointer-events: none;
 }
 
-.btn, input.signup-form__email {
+.btn {
   display: inline-block;
   height: auto;
   margin: 0;
@@ -11685,4 +11685,16 @@ model-viewer .container {
 
 .product-card__price .price--on-sale .price__current {
   color: var(--product-label-sale-text);
+}
+input.signup-form__email {
+  font-family: var(--base-font-family);
+  font-size: var(--button-text-size);
+  font-style: var(--base-font-style);
+  font-weight: var(--base-font-weight);
+  letter-spacing: var(--btn-letter-spacing);
+  line-height: 1em;
+  text-align: center;
+  text-decoration: none !important;
+  text-transform: var(--btn-text-transform);
+  vertical-align: left;
 }
