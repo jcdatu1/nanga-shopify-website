@@ -155,14 +155,16 @@ carousel-slider .fcc__nav-btn[disabled] {
     display: flex;
   }
 }
-/* Price alignment: cards fill the slide; price sits at the bottom */
-.fcc .product-card,
-.fcc .product-card__detail {
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-}
+/* Price alignment (mobile only): cards fill the slide; price sits at the bottom */
+@media (max-width: 767.98px) {
+  .fcc .product-card,
+  .fcc .product-card__detail {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
 
-.fcc .product-card__price {
-  margin-top: auto;
+  .fcc .product-card__price {
+    margin-top: auto;
+  }
 }
