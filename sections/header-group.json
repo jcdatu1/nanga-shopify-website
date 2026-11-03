@@ -16,7 +16,6 @@
       "blocks": {
         "e33df8e3-c667-49c7-9da7-a23fac96c44d": {
           "type": "announcement",
-          "disabled": true,
           "settings": {
             "text": "Free Shipping on Orders Over $100 and Free &nbsp;<a href=\"/policies/refund-policy\" target=\"_blank\" title=\"Refund Policy\">Returns*</a>&nbsp;",
             "show_countdown": false,
