@@ -11693,9 +11693,7 @@ input.signup-form__email {
   font-weight: var(--base-font-weight);
   letter-spacing: var(--btn-letter-spacing);
   line-height: 1em;
-  text-align: center;
+  text-align: left;
   text-decoration: none !important;
   text-transform: var(--btn-text-transform);
-  vertical-align: left;
-  opacity: 75%;
 }
