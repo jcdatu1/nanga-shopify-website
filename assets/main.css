@@ -743,7 +743,7 @@ button svg {
   pointer-events: none;
 }
 
-.btn {
+.btn, input.signup-form__email {
   display: inline-block;
   height: auto;
   margin: 0;
