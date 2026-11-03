@@ -168,6 +168,7 @@
           "type": "collection",
           "settings": {
             "collection": "jackets",
+            "image": "shopify://shop_images/category-jackets.webp",
             "label": ""
           }
         },
@@ -175,6 +176,7 @@
           "type": "collection",
           "settings": {
             "collection": "tops",
+            "image": "shopify://shop_images/category-tops.webp",
             "label": ""
           }
         },
@@ -182,6 +184,7 @@
           "type": "collection",
           "settings": {
             "collection": "pants",
+            "image": "shopify://shop_images/category-pants.webp",
             "label": ""
           }
         },
@@ -197,7 +200,7 @@
           "type": "collection",
           "settings": {
             "collection": "accessories",
-            "image": "shopify://shop_images/acccessories.png",
+            "image": "shopify://shop_images/category-accessory.webp",
             "label": "ACCESSORY"
           }
         },
