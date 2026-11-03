@@ -841,7 +841,7 @@ button svg {
   padding: 0.9em 20px;
 }
 
-.btn--inherit {
+.btn--inherit, input.signup-form__email {
   --btn-text-color: var(--bg-color);
   --btn-text-hover-color: var(--bg-color);
   --btn-bg-color: var(--text-color);
