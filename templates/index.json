@@ -93,7 +93,7 @@
       "settings": {
         "title": "BEST SELLERS",
         "description": "",
-        "collection": "down-wear",
+        "collection": "best-sellers",
         "limit": 12,
         "cards_desktop": 3,
         "cards_mobile": 2,
