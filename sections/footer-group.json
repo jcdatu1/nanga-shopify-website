@@ -143,7 +143,7 @@
             "title": "Stay Updated",
             "text": "<p>Get the latest news and exclusive offers.</p>",
             "button_style": "inherit",
-            "show_social_icons": true,
+            "show_social_icons": false,
             "soc_icons_large": false
           }
         }
