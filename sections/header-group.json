@@ -11,6 +11,42 @@
   "type": "header",
   "name": "Header Group",
   "sections": {
+    "announcement-bar": {
+      "type": "announcement-bar",
+      "blocks": {
+        "e33df8e3-c667-49c7-9da7-a23fac96c44d": {
+          "type": "announcement",
+          "disabled": true,
+          "settings": {
+            "text": "Free Shipping on Orders Over $100 and Free &nbsp;<a href=\"/policies/refund-policy\" target=\"_blank\" title=\"Refund Policy\">Returns*</a>&nbsp;",
+            "show_countdown": false,
+            "hide_on_end": false,
+            "end_date": "",
+            "end_time": "",
+            "number_font": "base",
+            "countdown_separator": "box",
+            "use_custom_colors": true,
+            "bg_color": "#ffffff",
+            "bg_gradient": "",
+            "text_color": "#000000"
+          }
+        }
+      },
+      "block_order": [
+        "e33df8e3-c667-49c7-9da7-a23fac96c44d"
+      ],
+      "disabled": true,
+      "settings": {
+        "message_font_size": 12,
+        "announcement_bar_col": "#232323",
+        "announcement_bar_gradient": "",
+        "announcement_text_col": "#ffffff",
+        "show_social_icons": false,
+        "menu": "",
+        "enable_country_selector": true,
+        "enable_language_selector": true
+      }
+    },
     "header": {
       "type": "header",
       "settings": {
@@ -41,48 +77,14 @@
         "cart_icon": "bag"
       }
     },
-    "announcement-bar": {
-      "type": "announcement-bar",
-      "blocks": {
-        "e33df8e3-c667-49c7-9da7-a23fac96c44d": {
-          "type": "announcement",
-          "settings": {
-            "text": "Free Shipping on Orders Over $100 and Free &nbsp;<a href=\"/policies/refund-policy\" target=\"_blank\" title=\"Refund Policy\">Returns*</a>&nbsp;",
-            "show_countdown": false,
-            "hide_on_end": false,
-            "end_date": "",
-            "end_time": "",
-            "number_font": "base",
-            "countdown_separator": "box",
-            "use_custom_colors": true,
-            "bg_color": "#ffffff",
-            "bg_gradient": "",
-            "text_color": "#000000"
-          }
-        }
-      },
-      "block_order": [
-        "e33df8e3-c667-49c7-9da7-a23fac96c44d"
-      ],
-      "settings": {
-        "message_font_size": 12,
-        "announcement_bar_col": "#232323",
-        "announcement_bar_gradient": "",
-        "announcement_text_col": "#ffffff",
-        "show_social_icons": false,
-        "menu": "",
-        "enable_country_selector": true,
-        "enable_language_selector": true
-      }
-    },
     "store-messages": {
       "type": "store-messages",
       "blocks": {
         "message_ey38Gx": {
           "type": "message",
           "settings": {
-            "heading": "Store message",
-            "subheading": "Add important information here",
+            "heading": "",
+            "subheading": "Free Shipping on Orders Over $100",
             "link_url": ""
           }
         }
@@ -90,7 +92,6 @@
       "block_order": [
         "message_ey38Gx"
       ],
-      "disabled": true,
       "settings": {
         "head_not_home_only": false,
         "head_not_col_bg": "#f4f6f8",
@@ -103,8 +104,8 @@
     }
   },
   "order": [
-    "header",
     "announcement-bar",
+    "header",
     "store-messages"
   ]
 }
