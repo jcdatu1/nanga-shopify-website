@@ -678,5 +678,10 @@
       "product_currency_code_enabled": false,
       "image_quality": "1.25"
     }
+  },
+  "platform_customizations": {
+    "custom_css": [
+      "/* Drawer menu only: divider + extra space above ABOUT */.mobile-navigation-drawer .navigation__tier-1 > .navigation__item:has(> .navigation__link[href=\"/pages/about-us\"]) {margin-top: 12px; padding-top: 12px; background: linear-gradient(var(--heading-divider-col), var(--heading-divider-col)) no-repeat 20px 0 / calc(100% - 40px) 1px;}"
+    ]
   }
 }
