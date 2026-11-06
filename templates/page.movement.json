@@ -334,20 +334,13 @@
           "settings": {
             "text": "<p>In some cases, materials or other factors mean an item cannot be fully restored to its original condition, but all NANGA down products are eligible for after care. Items we receive are repaired directly at our own domestic factory, the same facility where our down products are made. This includes minor fabric tears in sleeping bags and repairs for down leakage, as well as paid services for adding down, more extensive repairs, and down jacket repairs. We also offer down cleaning as a service option. If the down inside a product has flattened over time, washing it can restore its loft, allowing customers to enjoy the product for even longer.</p><p></p>"
           }
-        },
-        "text_xrzrqh": {
-          "type": "text",
-          "settings": {
-            "text": "<p>In 2024, to make it easier for customers to care for their down products at home, we also released maintenance products developed in partnership with STORM, a British care product manufacturer known for its environmental consideration. Making a habit of washing waterproof breathable materials and down wear to maintain their original performance is, we believe, also part of after care, and we continue to share the importance of this with as many people as possible.</p><p></p>"
-          }
         }
       },
       "block_order": [
         "subheading_THiCBR",
         "text_wXHbhi",
         "text_ztQBDx",
-        "text_mcYBCY",
-        "text_xrzrqh"
+        "text_mcYBCY"
       ],
       "name": "C Content panel",
       "settings": {
