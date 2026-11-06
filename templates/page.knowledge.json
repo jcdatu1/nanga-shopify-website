@@ -66,6 +66,7 @@
         },
         "card_yeUdLB": {
           "type": "card",
+          "disabled": true,
           "settings": {
             "title": "ABOUT THE MATERIAL",
             "text": "<p>About NANGA's Products</p>",
@@ -75,6 +76,7 @@
         },
         "card_n8qnRR": {
           "type": "card",
+          "disabled": true,
           "settings": {
             "title": "ABOUT THE DOWN",
             "text": "<p>About NANGA's Down</p>",
@@ -84,6 +86,7 @@
         },
         "card_eB4nFN": {
           "type": "card",
+          "disabled": true,
           "settings": {
             "title": "EUROPEAN NORM",
             "text": "<p>About Temperature Ratings</p>",
@@ -93,6 +96,7 @@
         },
         "card_kLc9La": {
           "type": "card",
+          "disabled": true,
           "settings": {
             "title": "SPANISH DOWN",
             "text": "<p>Our Dedication to Spanish Down</p>",
@@ -102,6 +106,7 @@
         },
         "card_hLTGcR": {
           "type": "card",
+          "disabled": true,
           "settings": {
             "title": "DOWN CLEANING",
             "text": "<p>Down Cleaning</p>",
@@ -120,6 +125,32 @@
         "card_kLc9La",
         "card_hLTGcR"
       ],
+      "settings": {
+        "title": "",
+        "card_style": "image",
+        "columns_desktop": 3,
+        "columns_mobile": "1",
+        "background_color": "rgba(0,0,0,0)"
+      }
+    },
+    "c_link_cards_pWbkp4": {
+      "type": "c-link-cards",
+      "blocks": {
+        "card_w6L3wh": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/data_n30tha_0043-1280x960.webp",
+            "title": "AURORA TEX®",
+            "text": "",
+            "link": "shopify://collections/aurora-tex",
+            "link_label": "Learn More"
+          }
+        }
+      },
+      "block_order": [
+        "card_w6L3wh"
+      ],
+      "name": "C Link cards",
       "settings": {
         "title": "",
         "card_style": "image",
@@ -209,6 +240,7 @@
     "main",
     "kn_header",
     "kn_grid",
+    "c_link_cards_pWbkp4",
     "kn_care",
     "kn_faq"
   ]
