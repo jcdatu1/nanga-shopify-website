@@ -67,45 +67,30 @@
         "card_yeUdLB": {
           "type": "card",
           "settings": {
+            "image": "shopify://shop_images/knowledge-material-hero.jpg",
             "title": "ABOUT THE MATERIAL",
             "text": "<p>About NANGA's Products</p>",
-            "link": "/pages/materials",
+            "link": "shopify://pages/about-the-material",
             "link_label": "READ"
           }
         },
         "card_n8qnRR": {
           "type": "card",
           "settings": {
+            "image": "shopify://shop_images/knowledge-down-quality.jpg",
             "title": "ABOUT THE DOWN",
             "text": "<p>About NANGA's Down</p>",
-            "link": "/pages/down",
+            "link": "shopify://pages/about-the-down",
             "link_label": "READ"
           }
         },
         "card_eB4nFN": {
           "type": "card",
           "settings": {
+            "image": "shopify://shop_images/knowledge-european-norm-hero.jpg",
             "title": "EUROPEAN NORM",
             "text": "<p>About Temperature Ratings</p>",
-            "link": "/pages/european-norm",
-            "link_label": "READ"
-          }
-        },
-        "card_kLc9La": {
-          "type": "card",
-          "settings": {
-            "title": "SPANISH DOWN",
-            "text": "<p>Our Dedication to Spanish Down</p>",
-            "link": "/pages/spanish-down",
-            "link_label": "READ"
-          }
-        },
-        "card_hLTGcR": {
-          "type": "card",
-          "settings": {
-            "title": "DOWN CLEANING",
-            "text": "<p>Down Cleaning</p>",
-            "link": "/pages/down-cleaning",
+            "link": "shopify://pages/european-norm",
             "link_label": "READ"
           }
         }
@@ -116,9 +101,7 @@
         "kn_grid_technology",
         "card_yeUdLB",
         "card_n8qnRR",
-        "card_eB4nFN",
-        "card_kLc9La",
-        "card_hLTGcR"
+        "card_eB4nFN"
       ],
       "settings": {
         "title": "",
@@ -131,6 +114,26 @@
     "c_link_cards_pWbkp4": {
       "type": "c-link-cards",
       "blocks": {
+        "card_kLc9La": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/knowledge-spanish-down-hero.jpg",
+            "title": "SPANISH DOWN",
+            "text": "<p>Our Dedication to Spanish Down</p>",
+            "link": "shopify://pages/spanish-down",
+            "link_label": "READ"
+          }
+        },
+        "card_hLTGcR": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/knowledge-down-cleaning-hero.jpg",
+            "title": "DOWN CLEANING",
+            "text": "<p>Down Cleaning</p>",
+            "link": "shopify://pages/down-cleaning",
+            "link_label": "READ"
+          }
+        },
         "card_w6L3wh": {
           "type": "card",
           "settings": {
@@ -143,6 +146,8 @@
         }
       },
       "block_order": [
+        "card_kLc9La",
+        "card_hLTGcR",
         "card_w6L3wh"
       ],
       "name": "C Link cards",
