@@ -11,12 +11,239 @@
   "sections": {
     "main": {
       "type": "main-page",
+      "disabled": true,
       "settings": {
+        "show_page_title": true,
+        "full_width": false
+      }
+    },
+    "en_hero": {
+      "type": "image-with-text-overlay",
+      "blocks": {
+        "hero_heading": {
+          "type": "heading",
+          "settings": {
+            "title": "EUROPEAN NORM",
+            "heading_max_width": 15,
+            "title_size": 60,
+            "title_size_mobile": 40,
+            "use_h1": true
+          }
+        },
+        "hero_text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>How we rate sleeping bag temperatures</p>",
+            "enlarge_text": true
+          }
+        }
+      },
+      "block_order": [
+        "hero_heading",
+        "hero_text"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/knowledge-european-norm-hero.jpg",
+        "height": "fixed",
+        "height_desktop": 720,
+        "height_mobile": 480,
+        "image_link": "",
+        "full_width": true,
+        "text_alignment": "center center",
+        "mobile_overlay_under": false,
+        "overlay_style": "full image-overlay--bg-shadow"
+      }
+    },
+    "en_t1": {
+      "type": "rich-text",
+      "blocks": {
+        "en_t1_sub": {
+          "type": "subheading",
+          "settings": {
+            "subheading": "ABOUT EUROPEAN NORM 01:"
+          }
+        },
+        "en_t1_head": {
+          "type": "heading",
+          "settings": {
+            "title": "EUROPEAN NORM",
+            "use_h1": false
+          }
+        }
+      },
+      "block_order": [
+        "en_t1_sub",
+        "en_t1_head"
+      ],
+      "settings": {
+        "height": "medium",
+        "text_alignment": "center",
+        "full_width": false,
+        "color_scheme": "default"
+      }
+    },
+    "en_intro": {
+      "type": "c-content-panel",
+      "blocks": {
+        "en_intro_subheading_0": {
+          "type": "subheading",
+          "settings": {
+            "title": "NANGA uses the European Norm, the EU's unified standard for temperature ratings"
+          }
+        },
+        "en_intro_text_1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>EN (European Norm), also called the European Standard, is the name for standards adopted across the EU. For sleeping bags, EN 13537 defines how temperature ratings are calculated.</p><p>Brands used to calculate temperature ratings with their own methods. EN ratings put every bag on the same scale. Testing is done by accredited third-party labs, which sets EN ratings apart from ratings based on a brand's own standards.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "en_intro_subheading_0",
+        "en_intro_text_1"
+      ],
+      "settings": {
+        "background_color": "#ffffff",
+        "text_color": "#000000",
+        "body_text_color": "#4b5563",
+        "full_width": false
+      }
+    },
+    "en_test": {
+      "type": "split-content",
+      "blocks": {
+        "en_test_head": {
+          "type": "heading",
+          "settings": {
+            "title": "How EN 13537 testing works",
+            "use_h1": false
+          }
+        },
+        "en_test_text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>A mannequin fitted with temperature sensors is dressed in a long-sleeve base layer and full-length long underwear, placed inside the sleeping bag, and laid on a camping pad.</p><p>Sensors at five points on the mannequin measure how much heat it loses. Those readings and the lab's air temperature go into a formula that calculates the ratings.</p><p>A sleeping bag's warmth depends on more than the amount of fill. Fabric type and thickness, zippers, and other details all play a part, so the test evaluates the bag as a whole.</p>",
+            "enlarge_text": false
+          }
+        }
+      },
+      "block_order": [
+        "en_test_head",
+        "en_test_text"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/knowledge-european-norm-ducks.jpg",
+        "image_link": "",
+        "full_width": false,
+        "image_position": "left",
+        "text_alignment": "left",
+        "color_scheme": "default"
+      }
+    },
+    "en_ratings": {
+      "type": "multi-column",
+      "blocks": {
+        "en_rate_0": {
+          "type": "text_block",
+          "settings": {
+            "enable_media": false,
+            "title": "COMFORT",
+            "text": "<p>The temperature at which a typical adult woman can sleep without feeling cold.</p><p>Women generally feel the cold more than men, so this rating is set about 5°C (9°F) warmer than the Limit rating.</p>",
+            "button_label": "",
+            "link": ""
+          }
+        },
+        "en_rate_1": {
+          "type": "text_block",
+          "settings": {
+            "enable_media": false,
+            "title": "LIMIT",
+            "text": "<p>The lowest temperature at which a typical adult man can sleep curled up for 8 hours. Below this temperature, you're in the risk range.</p>",
+            "button_label": "",
+            "link": ""
+          }
+        },
+        "en_rate_2": {
+          "type": "text_block",
+          "settings": {
+            "enable_media": false,
+            "title": "EXTREME",
+            "text": "<p>The lowest temperature a typical adult woman can endure for up to 6 hours, curled up tightly with her knees drawn in. The body shivers to generate heat. At this temperature there is a serious risk of hypothermia, and it is extremely dangerous.</p>",
+            "button_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "en_rate_0",
+        "en_rate_1",
+        "en_rate_2"
+      ],
+      "settings": {
+        "title": "Reading the European Norm Ratings",
+        "media_aspect_ratio": "s",
+        "media_width": 700,
+        "text_alignment": "left",
+        "button_style": "primary",
+        "color_scheme": "default"
+      },
+      "custom_css": [
+        ".column:nth-child(1) .text-column__title {color: #d0342c;}",
+        ".column:nth-child(2) .text-column__title {color: #3c9a3f;}",
+        ".column:nth-child(3) .text-column__title {color: #2f6db5;}"
+      ]
+    },
+    "en_notes": {
+      "type": "c-content-panel",
+      "blocks": {
+        "en_notes_text_0": {
+          "type": "text",
+          "settings": {
+            "text": "<p><em>Temperature ratings are a guide only. How warm you feel varies widely with experience, fitness, and body size.</em></p><p><em>Women should refer to the Comfort rating, and men to the Limit rating.</em></p>"
+          }
+        }
+      },
+      "block_order": [
+        "en_notes_text_0"
+      ],
+      "settings": {
+        "background_color": "#f9fafb",
+        "text_color": "#000000",
+        "body_text_color": "#4b5563",
+        "full_width": false
+      }
+    },
+    "en_back": {
+      "type": "c-content-panel",
+      "blocks": {
+        "en_back_button_0": {
+          "type": "button",
+          "settings": {
+            "button_label": "Back to Knowledge",
+            "button_link": "/pages/knowledge",
+            "button_style": "link"
+          }
+        }
+      },
+      "block_order": [
+        "en_back_button_0"
+      ],
+      "settings": {
+        "background_color": "#ffffff",
+        "text_color": "#000000",
+        "body_text_color": "#4b5563",
         "full_width": false
       }
     }
   },
   "order": [
-    "main"
+    "main",
+    "en_hero",
+    "en_t1",
+    "en_intro",
+    "en_test",
+    "en_ratings",
+    "en_notes",
+    "en_back"
   ]
 }
