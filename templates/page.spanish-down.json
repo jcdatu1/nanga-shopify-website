@@ -11,12 +11,390 @@
   "sections": {
     "main": {
       "type": "main-page",
+      "disabled": true,
       "settings": {
+        "show_page_title": true,
+        "full_width": false
+      }
+    },
+    "sp_hero": {
+      "type": "image-with-text-overlay",
+      "blocks": {
+        "hero_heading": {
+          "type": "heading",
+          "settings": {
+            "title": "SPANISH DOWN",
+            "heading_max_width": 15,
+            "title_size": 60,
+            "title_size_mobile": 40,
+            "use_h1": true
+          }
+        },
+        "hero_text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Our Material and Technology Report</p>",
+            "enlarge_text": true
+          }
+        }
+      },
+      "block_order": [
+        "hero_heading",
+        "hero_text"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/knowledge-spanish-down-hero.jpg",
+        "height": "fixed",
+        "height_desktop": 720,
+        "height_mobile": 480,
+        "image_link": "",
+        "full_width": true,
+        "text_alignment": "center center",
+        "mobile_overlay_under": false,
+        "overlay_style": "full image-overlay--bg-shadow"
+      }
+    },
+    "sp_intro": {
+      "type": "c-content-panel",
+      "blocks": {
+        "sp_intro_heading_0": {
+          "type": "heading",
+          "settings": {
+            "title": "Uncompromising sourcing and processing, built on Spanish down"
+          }
+        }
+      },
+      "block_order": [
+        "sp_intro_heading_0"
+      ],
+      "settings": {
+        "background_color": "#ffffff",
+        "text_color": "#000000",
+        "body_text_color": "#4b5563",
+        "full_width": false
+      }
+    },
+    "sp_lead": {
+      "type": "split-content",
+      "blocks": {
+        "sp_lead_sub": {
+          "type": "subheading",
+          "settings": {
+            "subheading": "SPANISH WHITE DUCK DOWN"
+          }
+        },
+        "sp_lead_head": {
+          "type": "heading",
+          "settings": {
+            "title": "From the farm to the finished product",
+            "use_h1": false
+          }
+        },
+        "sp_lead_text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>NANGA pursues high-quality down and manufacturing in Japan to create the finest down products. Here we report on the raw down that determines a product's performance, and on the refining technology, among the best in Japan, that brings that performance to its peak.</p>",
+            "enlarge_text": false
+          }
+        }
+      },
+      "block_order": [
+        "sp_lead_sub",
+        "sp_lead_head",
+        "sp_lead_text"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/knowledge-spanish-down-flock.jpg",
+        "image_link": "",
+        "full_width": false,
+        "image_position": "left",
+        "text_alignment": "left",
+        "color_scheme": "default"
+      }
+    },
+    "sp_why": {
+      "type": "c-content-panel",
+      "blocks": {
+        "sp_why_text_0": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Every NANGA down product carries a certificate of origin stating where its down comes from. Products we used to label simply as “white duck down” now use Spanish white duck down exclusively. Until now, we blended down from France, Spain, Hungary, and elsewhere and labeled it “European.” So what's the advantage of narrowing the source from Europe as a whole to Spain alone?</p><p>“Today, most down on the market comes from Pekin ducks raised in China, but we mainly use European white duck down from France and Spain. For NANGA products, we've switched all of our raw down to Spanish,” says Masahiro Kawada of Kawada Feather, which processes the down for NANGA products.</p><p>Down's quality and performance depend not only on the breed of waterfowl, but also on how and how long the birds are raised. For this switch, Kawada traveled with NANGA President Tomoyuki Yokota to visit producers on a mountainside in Spain.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "sp_why_text_0"
+      ],
+      "settings": {
+        "background_color": "#ffffff",
+        "text_color": "#000000",
+        "body_text_color": "#4b5563",
+        "full_width": false
+      }
+    },
+    "sp_landscape": {
+      "type": "split-content",
+      "blocks": {
+        "sp_land_text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>“France has a long history of raising waterfowl and still uses traditional methods, so French down has a great reputation. But because that history is so long, when you actually visit the producers, the facilities often show their age.</p><p>Spanish producers are newer to the industry. They've installed modern equipment on large properties and raise their birds in a very clean, open environment. Even with that many birds, there's barely any smell. Between the facilities, the environment, and the scale of production, I expect Spanish down to keep gaining market share.”</p>",
+            "enlarge_text": false
+          }
+        }
+      },
+      "block_order": [
+        "sp_land_text"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/knowledge-spanish-down-landscape.jpg",
+        "image_link": "",
+        "full_width": false,
+        "image_position": "right",
+        "text_alignment": "left",
+        "color_scheme": "default"
+      }
+    },
+    "sp_mature": {
+      "type": "split-content",
+      "blocks": {
+        "sp_mature_text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Down is a by-product of the meat industry. Spain's main customers are countries like France that care deeply about food, so producers raise their ducks longer to improve the meat. That's another advantage of Spanish down.</p><p>Much Pekin down comes from young birds raised for less than 40 days, while Spanish ducks are raised for about 80. Larger, mature birds produce down that is stronger, more resilient, and higher lofting. The difference shows over time: products made with mature down flatten less and keep their loft through years of use.</p>",
+            "enlarge_text": false
+          }
+        }
+      },
+      "block_order": [
+        "sp_mature_text"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/knowledge-spanish-down-farm-visit.jpg",
+        "image_link": "",
+        "full_width": false,
+        "image_position": "left",
+        "text_alignment": "left",
+        "color_scheme": "default"
+      }
+    },
+    "sp_health": {
+      "type": "split-content",
+      "blocks": {
+        "sp_health_text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>“Spain is also off the migration routes of wild birds, so it's less affected by avian influenza. The farms sit on mountainsides far from towns, so there's less risk of exposure to viruses. That environment is another advantage of Spanish down.”</p><p>This premium raw down is then turned into high-quality down by Kawada Feather, which has some of the best facilities and expertise in the world.</p>",
+            "enlarge_text": false
+          }
+        }
+      },
+      "block_order": [
+        "sp_health_text"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/knowledge-spanish-down-presentation.jpg",
+        "image_link": "",
+        "full_width": false,
+        "image_position": "right",
+        "text_alignment": "left",
+        "color_scheme": "default"
+      }
+    },
+    "sp_refine_hero": {
+      "type": "image-with-text-overlay",
+      "blocks": {
+        "sp_rh_head": {
+          "type": "heading",
+          "settings": {
+            "title": "Flawless washing and refining create the finest down",
+            "heading_max_width": 15,
+            "title_size": 44,
+            "title_size_mobile": 28,
+            "use_h1": false
+          }
+        }
+      },
+      "block_order": [
+        "sp_rh_head"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/knowledge-spanish-down-facility.jpg",
+        "height": "fixed",
+        "height_desktop": 600,
+        "height_mobile": 420,
+        "image_link": "",
+        "full_width": true,
+        "text_alignment": "center center",
+        "mobile_overlay_under": false,
+        "overlay_style": "full image-overlay--bg-shadow"
+      }
+    },
+    "sp_factory": {
+      "type": "split-content",
+      "blocks": {
+        "sp_fac_text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Kawada Feather's factory is in Meiwa, in Japan's Mie Prefecture. The company chose the location for its dry climate and some of the softest water in Japan, ideal conditions for processing down.</p><p>“Clean down is essential to a high-quality down product. Using techniques refined over many years, we completely remove invisible dust and debris, along with the dirt and oils from the birds themselves. Clean down flattens less and lasts longer, and water-repellent treatments bond to it more easily. Because we remove the dust and allergens that harbor bacteria, it's also less likely to cause allergies.”</p>",
+            "enlarge_text": false
+          }
+        }
+      },
+      "block_order": [
+        "sp_fac_text"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/knowledge-spanish-down-cleaned.jpg",
+        "image_link": "",
+        "full_width": false,
+        "image_position": "left",
+        "text_alignment": "left",
+        "color_scheme": "default"
+      }
+    },
+    "sp_wash": {
+      "type": "split-content",
+      "blocks": {
+        "sp_wash_text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Here's how Kawada Feather refines down. Before washing, the raw down is dedusted to remove fine debris, oxidized oils, and sand. Getting the heavy dirt out here is key, Kawada says. About 20% of the dirt comes off at this stage.</p><p>The down is then washed in large drum machines with ultra-soft water and a down-specific detergent. Complex currents rub the clusters against each other, polishing the down the way you'd rinse rice. That's the Kawada method. He describes it as peeling one thin layer off the surface of each feather, and the washed down really does come out a shade whiter.</p><p>“We draw ultra-soft water, with a hardness of 3, from the Ōdaigahara mountains. Its fine particles mean we need less detergent, and it penetrates deep into the down to lift out fine dirt and oils. The slightly alkaline water also helps reverse oxidation and repair damaged areas of the down. It's the ideal water for processing down, which is why we moved our factory here.”</p>",
+            "enlarge_text": false
+          }
+        }
+      },
+      "block_order": [
+        "sp_wash_text"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/knowledge-spanish-down-factory.jpg",
+        "image_link": "",
+        "full_width": false,
+        "image_position": "right",
+        "text_alignment": "left",
+        "color_scheme": "default"
+      }
+    },
+    "sp_dry": {
+      "type": "split-content",
+      "blocks": {
+        "sp_dry_text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>After two washes and four rinses, the down is dried quickly at 140–150°C (284–302°F). Once it cools, it's dedusted again to remove the dirt, dust, and feather fragments loosened in the wash, then air is used to separate the down from the feathers.</p><p>The down is quality-tested, and only down that meets Kawada's in-house standards, which are stricter than those of the Japan Down Products Cooperative Association, moves on to final blending.</p><p>To keep quality consistent all year, down of the same species, origin, and grade from different lots is blended in a mixing machine. As a natural material, down varies in ways numbers don't capture, like how it lofts and how it holds up over time. Kawada's own techniques bring it to a consistent standard.</p>",
+            "enlarge_text": false
+          }
+        }
+      },
+      "block_order": [
+        "sp_dry_text"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/knowledge-spanish-down-inspection.jpg",
+        "image_link": "",
+        "full_width": false,
+        "image_position": "left",
+        "text_alignment": "left",
+        "color_scheme": "default"
+      }
+    },
+    "sp_close": {
+      "type": "c-content-panel",
+      "blocks": {
+        "sp_close_text_0": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Down refined this way is known as “Kawada-standard down.” It's shipped to manufacturers in anti-static bags and made into apparel and comforters at factories in Japan and abroad.</p><p>“Down is made of hard keratin, so it's strong to begin with. It can last more than 100 years, and 200 if you keep washing it in soft water. It's a natural resource with remarkable performance. We want people to use it carefully for a long time, so we never compromise on quality. Our goal is to deliver down that's safe and that people can trust.”</p>"
+          }
+        }
+      },
+      "block_order": [
+        "sp_close_text_0"
+      ],
+      "settings": {
+        "background_color": "#ffffff",
+        "text_color": "#000000",
+        "body_text_color": "#4b5563",
+        "full_width": false
+      }
+    },
+    "sp_profile": {
+      "type": "image-with-text",
+      "blocks": {
+        "sp_prof_sub": {
+          "type": "subheading",
+          "settings": {
+            "subheading": "PROFILE"
+          }
+        },
+        "sp_prof_head": {
+          "type": "heading",
+          "settings": {
+            "title": "Kawada Feather Co., Ltd.",
+            "use_h1": false
+          }
+        },
+        "sp_prof_text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Founded in 1891, Kawada Feather is a down specialist and the first company in Japan to make down wear for skiing and everyday wear. It selects high-quality raw down from Japan and abroad, then washes and refines it at its own factories in Japan to deliver down that is safe, reliable, and clean.</p><p>More than a century of working with down has given the company its own techniques and know-how, and its technical strength has made it No. 1 in market share in Japan. Today it also recycles down as a renewable resource.</p>",
+            "enlarge_text": false
+          }
+        }
+      },
+      "block_order": [
+        "sp_prof_sub",
+        "sp_prof_head",
+        "sp_prof_text"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/knowledge-kawada-feather.jpg",
+        "image_width": 460,
+        "image_link": "",
+        "image_position": "left",
+        "text_alignment": "left",
+        "color_scheme": "default"
+      }
+    },
+    "sp_back": {
+      "type": "c-content-panel",
+      "blocks": {
+        "sp_back_button_0": {
+          "type": "button",
+          "settings": {
+            "button_label": "Back to Knowledge",
+            "button_link": "/pages/knowledge",
+            "button_style": "link"
+          }
+        }
+      },
+      "block_order": [
+        "sp_back_button_0"
+      ],
+      "settings": {
+        "background_color": "#ffffff",
+        "text_color": "#000000",
+        "body_text_color": "#4b5563",
         "full_width": false
       }
     }
   },
   "order": [
-    "main"
+    "main",
+    "sp_hero",
+    "sp_intro",
+    "sp_lead",
+    "sp_why",
+    "sp_landscape",
+    "sp_mature",
+    "sp_health",
+    "sp_refine_hero",
+    "sp_factory",
+    "sp_wash",
+    "sp_dry",
+    "sp_close",
+    "sp_profile",
+    "sp_back"
   ]
 }
