@@ -66,7 +66,6 @@
         },
         "card_yeUdLB": {
           "type": "card",
-          "disabled": true,
           "settings": {
             "title": "ABOUT THE MATERIAL",
             "text": "<p>About NANGA's Products</p>",
@@ -76,7 +75,6 @@
         },
         "card_n8qnRR": {
           "type": "card",
-          "disabled": true,
           "settings": {
             "title": "ABOUT THE DOWN",
             "text": "<p>About NANGA's Down</p>",
@@ -86,7 +84,6 @@
         },
         "card_eB4nFN": {
           "type": "card",
-          "disabled": true,
           "settings": {
             "title": "EUROPEAN NORM",
             "text": "<p>About Temperature Ratings</p>",
@@ -96,7 +93,6 @@
         },
         "card_kLc9La": {
           "type": "card",
-          "disabled": true,
           "settings": {
             "title": "SPANISH DOWN",
             "text": "<p>Our Dedication to Spanish Down</p>",
@@ -106,7 +102,6 @@
         },
         "card_hLTGcR": {
           "type": "card",
-          "disabled": true,
           "settings": {
             "title": "DOWN CLEANING",
             "text": "<p>Down Cleaning</p>",
