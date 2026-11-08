@@ -50,7 +50,7 @@
             "image": "shopify://shop_images/5-5.jpg",
             "title": "QUALITY PHILOSOPHY",
             "text": "<p>For the Highest Quality</p>",
-            "link": "/pages/quality-philosophy",
+            "link": "shopify://pages/quality-philosophy",
             "link_label": "READ"
           }
         },
@@ -167,7 +167,7 @@
           "settings": {
             "title": "Down Care Guide",
             "text": "<p>Learn how to properly clean, dry, and store your down products to maintain their performance for years.</p>",
-            "link": "/pages/down-care",
+            "link": "shopify://pages/down-cleaning",
             "link_label": "Read Guide"
           }
         },
