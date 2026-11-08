@@ -11,12 +11,436 @@
   "sections": {
     "main": {
       "type": "main-page",
+      "disabled": true,
       "settings": {
+        "show_page_title": true,
+        "full_width": false
+      }
+    },
+    "qp_hero": {
+      "type": "image-with-text-overlay",
+      "blocks": {
+        "hero_heading": {
+          "type": "heading",
+          "settings": {
+            "title": "QUALITY PHILOSOPHY",
+            "heading_max_width": 15,
+            "title_size": 60,
+            "title_size_mobile": 40,
+            "use_h1": true
+          }
+        },
+        "hero_text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>For the Highest Quality</p>",
+            "enlarge_text": true
+          }
+        }
+      },
+      "block_order": [
+        "hero_heading",
+        "hero_text"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/knowledge-philosophy-hero.jpg",
+        "height": "fixed",
+        "height_desktop": 720,
+        "height_mobile": 480,
+        "image_link": "",
+        "full_width": true,
+        "text_alignment": "center center",
+        "mobile_overlay_under": false,
+        "overlay_style": "full image-overlay--bg-shadow"
+      }
+    },
+    "qp_lead": {
+      "type": "split-content",
+      "blocks": {
+        "qp_lead_sub": {
+          "type": "subheading",
+          "settings": {
+            "subheading": "SPANISH DOWN FROM KAWADA FEATHER"
+          }
+        },
+        "qp_lead_head": {
+          "type": "heading",
+          "settings": {
+            "title": "Spanish down from Kawada Feather, supplied for NANGA",
+            "use_h1": false
+          }
+        },
+        "qp_lead_text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Kawada Feather has supplied NANGA with down ever since we launched as a down products brand. Founded in 1891, Kawada Feather set its own down testing standards and rigorous quality control at a time when there were no international quality standards for down. For 30 years it has backed the quality of NANGA products, and now that NANGA is one of Japan's leading down brands, the two companies continue to push for even higher quality together.</p><p>The duck down NANGA uses today is premium Spanish down from a farm under joint contract with Kawada Feather. Down from waterfowl raised with care for their environment and growing period is imported, then washed and refined at Kawada's factory in Japan using techniques developed over many years before it goes into our products.</p>",
+            "enlarge_text": false
+          }
+        }
+      },
+      "block_order": [
+        "qp_lead_sub",
+        "qp_lead_head",
+        "qp_lead_text"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/knowledge-philosophy-ducks.jpg",
+        "image_link": "",
+        "full_width": false,
+        "image_position": "left",
+        "text_alignment": "left",
+        "color_scheme": "default"
+      }
+    },
+    "qp_t1": {
+      "type": "rich-text",
+      "blocks": {
+        "qp_t1_sub": {
+          "type": "subheading",
+          "settings": {
+            "subheading": "QUALITY PHILOSOPHY 01:"
+          }
+        },
+        "qp_t1_head": {
+          "type": "heading",
+          "settings": {
+            "title": "Premium-Grade Cleanliness of Down",
+            "use_h1": false
+          }
+        }
+      },
+      "block_order": [
+        "qp_t1_sub",
+        "qp_t1_head"
+      ],
+      "settings": {
+        "height": "medium",
+        "text_alignment": "center",
+        "full_width": false,
+        "color_scheme": "default"
+      }
+    },
+    "qp_clean1": {
+      "type": "split-content",
+      "blocks": {
+        "qp_c1_text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>High-quality down needs more than loft. It also has to be clean. Only when it's both can it deliver warmth and release moisture properly. Raw down contains dust, dirt, and other impurities, and Kawada Feather's factory, the largest of its kind in Japan, removes nearly all of them to bring out the down's performance.</p><p>Before any washing, the raw down is dedusted to remove fine debris, oxidized oils, and sand. Next, it's washed in large drum machines with ultra-soft water and a down-specific detergent. It's then dried quickly at 140–150°C (284–302°F), cooled, dedusted again, and sorted. Every machine in the process is Kawada Feather's own design, built on know-how developed over more than a century.</p>",
+            "enlarge_text": false
+          }
+        }
+      },
+      "block_order": [
+        "qp_c1_text"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/knowledge-philosophy-farm.jpg",
+        "image_link": "",
+        "full_width": false,
+        "image_position": "right",
+        "text_alignment": "left",
+        "color_scheme": "default"
+      }
+    },
+    "qp_clean2": {
+      "type": "split-content",
+      "blocks": {
+        "qp_c2_text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>The washing stage stands out. Complex water currents rub the down clusters against each other, removing every kind of dirt without damaging the down. Two washes and four rinses help it reach a cleanliness (transparency) rating of 2,000 mm, far above European standards and the shipping standards set by the U.S. and Japanese industries.</p><p>That's why down refined by Kawada Feather is clean and odor-free, so you can feel the down's natural performance.</p>",
+            "enlarge_text": false
+          }
+        }
+      },
+      "block_order": [
+        "qp_c2_text"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/knowledge-philosophy-clean-down.jpg",
+        "image_link": "",
+        "full_width": false,
+        "image_position": "left",
+        "text_alignment": "left",
+        "color_scheme": "default"
+      }
+    },
+    "qp_stats": {
+      "type": "c-content-panel",
+      "blocks": {
+        "qp_stats_head": {
+          "type": "subheading",
+          "settings": {
+            "title": "Down cleanliness (transparency test)"
+          }
+        },
+        "qp_stat_0": {
+          "type": "stat",
+          "settings": {
+            "label": "2,000 mm",
+            "text": "Kawada Feather down for NANGA"
+          }
+        },
+        "qp_stat_1": {
+          "type": "stat",
+          "settings": {
+            "label": "500–1,000 mm",
+            "text": "European standard"
+          }
+        },
+        "qp_stat_2": {
+          "type": "stat",
+          "settings": {
+            "label": "300 mm",
+            "text": "U.S. and Japanese industry shipping standards"
+          }
+        },
+        "qp_stats_note": {
+          "type": "text",
+          "settings": {
+            "text": "<p><em>The higher the number, the cleaner the down.</em></p>"
+          }
+        }
+      },
+      "block_order": [
+        "qp_stats_head",
+        "qp_stat_0",
+        "qp_stat_1",
+        "qp_stat_2",
+        "qp_stats_note"
+      ],
+      "settings": {
+        "background_color": "#f9fafb",
+        "text_color": "#000000",
+        "body_text_color": "#4b5563",
+        "full_width": false
+      }
+    },
+    "qp_t2": {
+      "type": "rich-text",
+      "blocks": {
+        "qp_t2_sub": {
+          "type": "subheading",
+          "settings": {
+            "subheading": "QUALITY PHILOSOPHY 02:"
+          }
+        },
+        "qp_t2_head": {
+          "type": "heading",
+          "settings": {
+            "title": "Spanish Duck Down",
+            "use_h1": false
+          }
+        }
+      },
+      "block_order": [
+        "qp_t2_sub",
+        "qp_t2_head"
+      ],
+      "settings": {
+        "height": "medium",
+        "text_alignment": "center",
+        "full_width": false,
+        "color_scheme": "default"
+      }
+    },
+    "qp_duck1": {
+      "type": "split-content",
+      "blocks": {
+        "qp_d1_text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Most down sold in the apparel industry today comes from Pekin ducks raised in China. The duck down in NANGA products comes from Mulard ducks raised in Spain, which have more barbs and longer barbules. The result is dense down with large down clusters.</p><p>The farm under joint contract with Kawada Feather and NANGA is on the eastern side of the Pyrenees, on the border between France and Spain. Big swings between day and night temperatures make the birds hardy, yielding high quality both as meat and in their by-product, down. The farm is also off the migration routes of wild birds, so there's less risk of disease, which helps keep supply stable.</p>",
+            "enlarge_text": false
+          }
+        }
+      },
+      "block_order": [
+        "qp_d1_text"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/knowledge-philosophy-flock.jpg",
+        "image_link": "",
+        "full_width": false,
+        "image_position": "right",
+        "text_alignment": "left",
+        "color_scheme": "default"
+      }
+    },
+    "qp_duck2": {
+      "type": "split-content",
+      "blocks": {
+        "qp_d2_text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Modern facilities, a clean environment, and free-range grazing on wide-open land are part of the secret to strong, high-quality down. So is a much longer growing period.</p><p>Much Chinese down comes from young birds raised for less than 40 days, while these Spanish farms raise their birds for 80 days or more, something only about 10% of farms worldwide do. The result is down with excellent resilience and loft.</p>",
+            "enlarge_text": false
+          }
+        }
+      },
+      "block_order": [
+        "qp_d2_text"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/knowledge-spanish-down-farm-visit.jpg",
+        "image_link": "",
+        "full_width": false,
+        "image_position": "left",
+        "text_alignment": "left",
+        "color_scheme": "default"
+      }
+    },
+    "qp_t3": {
+      "type": "rich-text",
+      "blocks": {
+        "qp_t3_sub": {
+          "type": "subheading",
+          "settings": {
+            "subheading": "QUALITY PHILOSOPHY 03:"
+          }
+        },
+        "qp_t3_head": {
+          "type": "heading",
+          "settings": {
+            "title": "Exceptional Refining Environment",
+            "use_h1": false
+          }
+        }
+      },
+      "block_order": [
+        "qp_t3_sub",
+        "qp_t3_head"
+      ],
+      "settings": {
+        "height": "medium",
+        "text_alignment": "center",
+        "full_width": false,
+        "color_scheme": "default"
+      }
+    },
+    "qp_env1": {
+      "type": "split-content",
+      "blocks": {
+        "qp_e1_text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>World-class washing technology and premium Spanish raw down are two parts of the story. The third is the Ise Plain, whose climate is ideal for refining down.</p><p>In Meiwa, Mie Prefecture, where Kawada Feather's factory is located, the groundwater is ultra-soft, with a hardness of just 3–5 mg/L. It comes from the Ōdaigahara mountains, one of the rainiest areas in Japan, and the factory uses it generously to wash down. Close to pure water, with very fine particles, ultra-soft water reaches every part of the down to remove dirt, and its strong antioxidant power helps repair damaged areas of the down.</p>",
+            "enlarge_text": false
+          }
+        }
+      },
+      "block_order": [
+        "qp_e1_text"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/knowledge-philosophy-ise.jpg",
+        "image_link": "",
+        "full_width": false,
+        "image_position": "right",
+        "text_alignment": "left",
+        "color_scheme": "default"
+      }
+    },
+    "qp_env2": {
+      "type": "split-content",
+      "blocks": {
+        "qp_e2_text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Meanwhile, after the wind drops its rain over the Ōdaigahara mountains, it reaches the Ise Plain dry. Rainfall is low all year, and the air is very dry.</p><p>Down's fine branches open up as it dries, so this climate lets the factory remove even more impurities.</p>",
+            "enlarge_text": false
+          }
+        }
+      },
+      "block_order": [
+        "qp_e2_text"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/knowledge-philosophy-testing.jpg",
+        "image_link": "",
+        "full_width": false,
+        "image_position": "left",
+        "text_alignment": "left",
+        "color_scheme": "default"
+      }
+    },
+    "qp_profile": {
+      "type": "image-with-text",
+      "blocks": {
+        "qp_prof_sub": {
+          "type": "subheading",
+          "settings": {
+            "subheading": "PROFILE"
+          }
+        },
+        "qp_prof_head": {
+          "type": "heading",
+          "settings": {
+            "title": "Kawada Feather Co., Ltd.",
+            "use_h1": false
+          }
+        },
+        "qp_prof_text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Founded in 1891, Kawada Feather is a down specialist and the first company in Japan to make down wear for skiing and everyday wear. It selects high-quality raw down from Japan and abroad, then washes and refines it at its own factories in Japan to deliver down that is safe, reliable, and clean.</p><p>More than a century of working with down has given the company its own techniques and know-how, and its technical strength has made it No. 1 in market share in Japan. Today it also recycles down as a renewable resource.</p>",
+            "enlarge_text": false
+          }
+        }
+      },
+      "block_order": [
+        "qp_prof_sub",
+        "qp_prof_head",
+        "qp_prof_text"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/knowledge-kawada-feather.jpg",
+        "image_width": 460,
+        "image_link": "",
+        "image_position": "left",
+        "text_alignment": "left",
+        "color_scheme": "default"
+      }
+    },
+    "qp_back": {
+      "type": "c-content-panel",
+      "blocks": {
+        "qp_back_button_0": {
+          "type": "button",
+          "settings": {
+            "button_label": "Back to Knowledge",
+            "button_link": "/pages/knowledge",
+            "button_style": "link"
+          }
+        }
+      },
+      "block_order": [
+        "qp_back_button_0"
+      ],
+      "settings": {
+        "background_color": "#ffffff",
+        "text_color": "#000000",
+        "body_text_color": "#4b5563",
         "full_width": false
       }
     }
   },
   "order": [
-    "main"
+    "main",
+    "qp_hero",
+    "qp_lead",
+    "qp_t1",
+    "qp_clean1",
+    "qp_clean2",
+    "qp_stats",
+    "qp_t2",
+    "qp_duck1",
+    "qp_duck2",
+    "qp_t3",
+    "qp_env1",
+    "qp_env2",
+    "qp_profile",
+    "qp_back"
   ]
 }
