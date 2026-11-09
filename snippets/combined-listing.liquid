@@ -104,8 +104,18 @@
               if is_image_row and member_image
                 assign is_image_entry = true
               endif
+             # Display name: the member's own single name metafield, else its title
+              assign member_name = member.metafields[name_ref[0]][name_ref[1]].value | default: member.title
+
+              # Keep collection context so the PDP "Back to <Collection>" link survives a
+              # colorway switch. Only when the sibling is in that collection; otherwise plain URL.
+              if collection and member.collections contains collection
+                assign member_url = member.url | within: collection
+              else
+                assign member_url = member.url
+              endif
             -%}
-            <a href="{{ member.url }}"
+            <a href="{{ member_url }}"
                class="cl-entry opt-label relative {% if is_image_entry %}opt-label--image{% else %}opt-label--btn btn text-center{% endif %}{% if is_current %} cl-entry--current{% endif %}{% unless member.available %} opt-label--is-unavailable{% endunless %}"
                {%- if is_current %} aria-current="true"{% endif %}>
               {%- if is_image_entry -%}
