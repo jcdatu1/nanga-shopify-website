@@ -63,46 +63,6 @@
     },
     "cross-page-promos": {
       "type": "cross-page-promos",
-      "blocks": {
-        "1478526632862": {
-          "type": "icon",
-          "settings": {
-            "icon": "truck",
-            "text": "Free shipping",
-            "link_url": ""
-          }
-        },
-        "1478526645605": {
-          "type": "icon",
-          "settings": {
-            "icon": "price_tag",
-            "text": "New styles",
-            "link_url": ""
-          }
-        },
-        "1478526647261": {
-          "type": "icon",
-          "settings": {
-            "icon": "gift",
-            "text": "Gift cards",
-            "link_url": ""
-          }
-        },
-        "1478527611164": {
-          "type": "icon",
-          "settings": {
-            "icon": "star",
-            "text": "5.0 star rating",
-            "link_url": ""
-          }
-        }
-      },
-      "block_order": [
-        "1478526632862",
-        "1478526645605",
-        "1478526647261",
-        "1478527611164"
-      ],
       "disabled": true,
       "settings": {
         "cross_page_promo_bg": "#fbf9f4",
