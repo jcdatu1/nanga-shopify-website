@@ -59,7 +59,7 @@
         "text": {
           "type": "text",
           "settings": {
-            "text": "<p>Receive 15% OFF your first order and get priority access to sales & exclusive deals.</p>",
+            "text": "<p>Receive&nbsp;15% OFF&nbsp;your first order and get priority access to sales & exclusive deals.</p>",
             "text_size": "small-text"
           }
         },
@@ -72,6 +72,7 @@
         "21558aaf-7983-4c39-a2d9-5e803d85df82": {
           "type": "image",
           "settings": {
+            "image": "shopify://shop_images/data_n30tha_0067_bdc1a3f7-53da-4479-b557-d41bab34faa7.webp",
             "image_position_desktop": "right",
             "image_position_mobile": "top"
           }
