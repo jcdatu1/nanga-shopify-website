@@ -52,33 +52,6 @@
             "preselection_text": "Select a Size"
           }
         },
-        "trust-shipping": {
-          "type": "trust-item",
-          "disabled": true,
-          "settings": {
-            "icon": "truck",
-            "heading": "Free Shipping",
-            "text": "Orders over $150"
-          }
-        },
-        "trust-returns": {
-          "type": "trust-item",
-          "disabled": true,
-          "settings": {
-            "icon": "return",
-            "heading": "Free Returns",
-            "text": "Within 30 days"
-          }
-        },
-        "trust-warranty": {
-          "type": "trust-item",
-          "disabled": true,
-          "settings": {
-            "icon": "award",
-            "heading": "Lifetime Warranty",
-            "text": "All down products"
-          }
-        },
         "key-features": {
           "type": "key-features",
           "disabled": true,
@@ -110,9 +83,6 @@
         "variant-picker",
         "description",
         "buy-buttons",
-        "trust-shipping",
-        "trust-returns",
-        "trust-warranty",
         "key-features",
         "size-fit",
         "specifications"
