@@ -1,0 +1,398 @@
+/* Size chart — NANGA. Table + in/cm toggle (.csc), Size Guide drawer / bottom sheet (.csd),
+   and the Size & Fit block (.cmp__sizefit). Colours and rules match c-main-product.css
+   (#e5e7eb hairlines, #4b5563 muted text, black selected state). No font-family is set. */
+
+/* ---- Unit visibility: both units are rendered; data-unit picks one ---- */
+.csc[data-unit="in"] [data-cm],
+.csc[data-unit="cm"] [data-in] {
+  display: none;
+}
+
+.csc {
+  display: block;
+  font-size: 0.875rem;
+}
+
+.csc__bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+
+.csc__title {
+  margin: 0;
+  color: #4b5563;
+}
+
+.csc__units {
+  display: inline-flex;
+  flex: 0 0 auto;
+  margin-left: auto;
+  border: 1px solid #d1d5db;
+}
+
+.csc__unit {
+  min-width: 44px;
+  min-height: 32px;
+  padding: 4px 12px;
+  border: 0;
+  background: #fff;
+  color: inherit;
+  font: inherit;
+  font-size: 0.8125rem;
+  cursor: pointer;
+  transition: background-color 200ms ease, color 200ms ease;
+}
+
+.csc__unit + .csc__unit {
+  border-left: 1px solid #d1d5db;
+}
+
+.csc__unit[aria-pressed="true"] {
+  background: #000;
+  color: #fff;
+}
+
+.csc__unit:focus-visible {
+  outline: 2px solid #000;
+  outline-offset: 2px;
+}
+
+.csc__note {
+  margin: 0 0 16px;
+  color: #4b5563;
+  line-height: 1.6;
+}
+
+.csc__note--after {
+  margin: 16px 0 0;
+  font-size: 0.8125rem;
+}
+
+/* ---- Table: Size column stays put, measurements scroll sideways on narrow screens ---- */
+.csc__scroll {
+  max-width: 100%;
+  overflow-x: auto;
+  scrollbar-width: thin;
+  border: 1px solid #e5e7eb;
+  -webkit-overflow-scrolling: touch;
+}
+
+.csc__scroll:focus-visible {
+  outline: 2px solid #000;
+  outline-offset: 2px;
+}
+
+.csc__table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-variant-numeric: tabular-nums;
+}
+
+.csc__caption {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.csc__table th,
+.csc__table td {
+  padding: 10px 12px;
+  border-bottom: 1px solid #e5e7eb;
+  text-align: center;
+  vertical-align: middle;
+  background: #fff;
+}
+
+.csc__table thead th {
+  min-width: 76px;
+  max-width: 120px;
+  background: #f9fafb;
+  color: #4b5563;
+  font-size: 0.75rem;
+  font-weight: normal;
+  line-height: 1.3;
+  white-space: normal;
+}
+
+.csc__table tbody tr:last-child th,
+.csc__table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.csc__table th:first-child {
+  position: sticky;
+  left: 0;
+  z-index: 1;
+  min-width: 56px;
+  border-right: 1px solid #e5e7eb;
+  text-align: left;
+}
+
+.csc__table tbody th {
+  font-weight: 600;
+}
+
+.csc__table td {
+  white-space: nowrap;
+}
+
+/* Selected size (from the variant picker) */
+.csc__table tr.is-selected th,
+.csc__table tr.is-selected td {
+  background: #000;
+  color: #fff;
+  border-bottom-color: #000;
+}
+
+/* ---- One-size dimensions: label / value rows like Specifications ---- */
+.csc__dims {
+  margin: 0;
+}
+
+.csc__dim {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 8px 0;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.csc__dim dt {
+  color: #4b5563;
+}
+
+.csc__dim dd {
+  margin: 0;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.csc__diagram {
+  margin-top: 16px;
+}
+
+.csc__diagram img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* ---- Size Guide drawer: right panel ≥768px, bottom sheet below ---- */
+html.csd-lock {
+  overflow: hidden;
+}
+
+.csd {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+}
+
+.csd[hidden] {
+  display: none;
+}
+
+.csd__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  transition: opacity 300ms ease;
+}
+
+.csd.is-open .csd__backdrop {
+  opacity: 1;
+}
+
+.csd__panel {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  color: #000;
+  transition: transform 300ms ease;
+}
+
+.csd__head {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex: 0 0 auto;
+  padding: 20px 24px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.csd__heading {
+  margin: 0;
+  font-size: 1rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.csd__close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  margin: -8px -8px -8px 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.csd__close svg {
+  width: 20px;
+  height: 20px;
+}
+
+.csd__close:focus-visible {
+  outline: 2px solid #000;
+  outline-offset: 0;
+}
+
+.csd__body {
+  flex: 1 1 auto;
+  padding: 24px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+@media (min-width: 768px) {
+  .csd__panel {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: min(560px, 100vw);
+    transform: translateX(100%);
+  }
+
+  .csd.is-open .csd__panel {
+    transform: translateX(0);
+  }
+}
+
+@media (max-width: 767.98px) {
+  .csd__panel {
+    left: 0;
+    right: 0;
+    bottom: 0;
+    max-height: 88vh;
+    max-height: 88dvh;
+    border-radius: 12px 12px 0 0;
+    transform: translateY(100%);
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  .csd.is-open .csd__panel {
+    transform: translateY(0);
+  }
+
+  /* grab handle */
+  .csd__head {
+    padding: 22px 16px 14px;
+    touch-action: none;
+    cursor: grab;
+  }
+
+  .csd__head::before {
+    content: "";
+    position: absolute;
+    top: 8px;
+    left: 50%;
+    width: 40px;
+    height: 4px;
+    margin-left: -20px;
+    border-radius: 2px;
+    background: #d1d5db;
+  }
+
+  .csd__body {
+    padding: 16px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .csd__panel,
+  .csd__backdrop {
+    transition: none;
+  }
+}
+
+/* ---- Size & Fit block on the product page ---- */
+.cmp__sizefit {
+  margin-bottom: 32px;
+}
+
+.cmp__sizefit-details {
+  border-top: 1px solid #e5e7eb;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.cmp__sizefit-summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 0;
+  cursor: pointer;
+  list-style: none;
+}
+
+.cmp__sizefit-summary::-webkit-details-marker {
+  display: none;
+}
+
+.cmp__sizefit-summary .cmp__group-heading {
+  margin: 0;
+}
+
+.cmp__sizefit-icon {
+  position: relative;
+  width: 12px;
+  height: 12px;
+  flex: 0 0 auto;
+}
+
+.cmp__sizefit-icon::before,
+.cmp__sizefit-icon::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 12px;
+  height: 1.5px;
+  margin-top: -0.75px;
+  background: currentColor;
+  transition: transform 200ms ease;
+}
+
+.cmp__sizefit-icon::after {
+  transform: rotate(90deg);
+}
+
+.cmp__sizefit-details[open] .cmp__sizefit-icon::after {
+  transform: rotate(0deg);
+}
+
+.cmp__sizefit-content {
+  padding-bottom: 20px;
+}
+
+.cmp .size-chart-link[data-csc-open] {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  cursor: pointer;
+}
