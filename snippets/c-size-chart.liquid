@@ -1,0 +1,111 @@
+{%- comment -%}
+  Size chart / dimensions for a product — NANGA.
+  Reads a 'c_size_chart' metaobject (product metafield custom.c_size_chart). All values are
+  stored in cm; both inch and cm values are rendered server-side and the in/cm toggle
+  (assets/c-size-chart.js) only flips data-unit, so there is no flash or client-side maths.
+  Used by the Size Guide drawer and the Size & Fit block in sections/c-main-product.liquid.
+
+  Parameters:
+  - chart {Object} - The c_size_chart metaobject.
+  - uid {String} - Unique id prefix for this instance.
+  - size_option {String} - Variant option name(s) for the selected-row highlight. Default 'Size'.
+  - show_title {Boolean} - Show the chart title above the content.
+
+  Metaobject fields: title, columns (list), rows (list, 'SIZE|cm|cm…'), dimensions (list,
+  'Label|cm'), fit_note, measuring_note, diagram (image).
+{%- endcomment -%}
+{%- liquid
+  assign columns = chart.columns.value
+  assign rows = chart.rows.value
+  assign dimensions = chart.dimensions.value
+  assign has_table = false
+  if rows != blank and rows.size > 0
+    assign has_table = true
+  endif
+  assign has_dims = false
+  if dimensions != blank and dimensions.size > 0
+    assign has_dims = true
+  endif
+-%}
+{%- if has_table or has_dims -%}
+  <c-size-chart class="csc" data-unit="in" data-size-option="{{ size_option | default: 'Size' | escape }}">
+    <div class="csc__bar">
+      {%- if show_title and chart.title.value != blank -%}
+        <p class="csc__title">{{ chart.title.value | escape }}</p>
+      {%- endif -%}
+      <div class="csc__units" role="group" aria-label="Measurement units">
+        <button type="button" class="csc__unit" data-unit-btn="in" aria-pressed="true">in</button>
+        <button type="button" class="csc__unit" data-unit-btn="cm" aria-pressed="false">cm</button>
+      </div>
+    </div>
+
+    {%- if chart.fit_note.value != blank -%}
+      <p class="csc__note">{{ chart.fit_note.value | escape | newline_to_br }}</p>
+    {%- endif -%}
+
+    {%- if has_table -%}
+      <div class="csc__scroll" tabindex="0" role="region" aria-labelledby="{{ uid }}-caption">
+        <table class="csc__table">
+          <caption id="{{ uid }}-caption" class="csc__caption">
+            {{ chart.title.value | default: 'Size chart' | escape }} —
+            <span data-in>measurements in inches</span><span data-cm>measurements in centimeters</span>
+          </caption>
+          <thead>
+            <tr>
+              <th scope="col">Size</th>
+              {%- for col in columns -%}
+                <th scope="col">{{ col | escape }}</th>
+              {%- endfor -%}
+            </tr>
+          </thead>
+          <tbody>
+            {%- for row in rows -%}
+              {%- assign cells = row | split: '|' -%}
+              {%- assign size_label = cells | first | strip -%}
+              <tr data-size="{{ size_label | downcase | escape }}">
+                <th scope="row">{{ size_label | escape }}</th>
+                {%- for cell in cells offset: 1 -%}
+                  <td>{%- render 'c-size-chart-value', value: cell, suffix: false -%}</td>
+                {%- endfor -%}
+              </tr>
+            {%- endfor -%}
+          </tbody>
+        </table>
+      </div>
+    {%- endif -%}
+
+    {%- if has_dims -%}
+      <dl class="csc__dims">
+        {%- for entry in dimensions -%}
+          {%- assign parts = entry | split: '|' -%}
+          <div class="csc__dim">
+            {%- if parts.size > 1 -%}
+              <dt>{{ parts | first | strip | escape }}</dt>
+              <dd>{%- render 'c-size-chart-value', value: parts[1], suffix: true -%}</dd>
+            {%- else -%}
+              <dd>{{ entry | strip | escape }}</dd>
+            {%- endif -%}
+          </div>
+        {%- endfor -%}
+      </dl>
+    {%- endif -%}
+
+    {%- if chart.measuring_note.value != blank -%}
+      <p class="csc__note csc__note--after">{{ chart.measuring_note.value | escape | newline_to_br }}</p>
+    {%- endif -%}
+
+    {%- if chart.diagram.value != blank -%}
+      <div class="csc__diagram">
+        {{-
+          chart.diagram.value
+          | image_url: width: 1000
+          | image_tag:
+            widths: '400, 700, 1000',
+            sizes: '(min-width: 768px) 480px, calc(100vw - 32px)',
+            loading: 'lazy',
+            alt: 'How to measure'
+        -}}
+      </div>
+    {%- endif -%}
+  </c-size-chart>
+{%- endif -%}
