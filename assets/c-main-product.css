@@ -151,10 +151,13 @@
 }
 
 /* ---- Info column rhythm ---- */
+/* Titles are stored in ALL CAPS. Caps need positive tracking; the theme's global
+   heading letter-spacing (-0.04em) makes the letters collide, so override it here. */
 .cmp__title {
   margin: 0 0 16px;
   font-size: 1.875rem;
-  line-height: 1.2;
+  line-height: 1.25;
+  letter-spacing: 0.02em;
 }
 
 @media (min-width: 640px) {
@@ -177,17 +180,13 @@
   }
 }
 
+/* 16px at every width. Child elements inherit the size (no em multipliers —
+   nested 1.12em rules compounded list items up to ~20px). */
 .cmp__description {
   margin-bottom: 32px;
   color: #4b5563;
-  font-size: 0.875rem;
-  line-height: 1.625;
-}
-
-@media (min-width: 640px) {
-  .cmp__description {
-    font-size: 1rem;
-  }
+  font-size: 1rem;
+  line-height: 1.6;
 }
 
 /* Own paragraph rhythm (no theme .rte): no stray gap after the last element */
@@ -195,6 +194,33 @@
 .cmp__description ul,
 .cmp__description ol {
   margin: 0 0 1em;
+}
+
+/* Descriptions are bullet lists; the theme's base reset strips list markers
+   outside .rte, so restore them (same marker treatment as Key Features). */
+.cmp__description ul,
+.cmp__description ol {
+  padding-left: 1.25em;
+}
+
+.cmp__description ul {
+  list-style: disc;
+}
+
+.cmp__description ol {
+  list-style: decimal;
+}
+
+.cmp__description li {
+  margin-bottom: 8px;
+}
+
+.cmp__description li:last-child {
+  margin-bottom: 0;
+}
+
+.cmp__description li::marker {
+  color: #000;
 }
 
 .cmp__description > :last-child {
