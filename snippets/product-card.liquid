@@ -28,9 +28,32 @@
   Usage:
   {% render 'product-card', product: product, show_border: true, badge_bg: '#000', badge_text: '#fff', show_type: true, show_value_props: false, hover_effect: 'image' %}
 {%- endcomment -%}
+
+{%- comment -%}
+  Collection-aware product URLs
+  -----------------------------
+  On a collection page, card links point to /collections/<collection>/products/<product>
+  (via the 'within' filter) instead of /products/<product>. Shopify only sets the
+  'collection' object on the product page when the URL carries that collection, and
+  sections/c-main-product.liquid uses it for the "Back to <Collection>" link. Without
+  it, the back link falls back to the product's first collection, which is often
+  the wrong one.
+
+  The guard keeps plain /products/ URLs when there's no collection in context
+  (search, home page, related products) or the product isn't in the current
+  collection. SEO is unaffected: the product page's canonical tag still points
+  to /products/<product>.
+
+  Same pattern as snippets/product-block.liquid and snippets/combined-listing.liquid.
+{%- endcomment -%}
+ 
 {%- liquid
-  assign product_url = product.url
-  assign cheapest_variant = product.variants | sort: 'price' | first
+  if collection and product.collections contains collection
+    assign product_url = product.url | within: collection
+  else
+    assign product_url = product.url
+  endif
+    assign cheapest_variant = product.variants | sort: 'price' | first
 
   assign badge_position = badge_position | default: 'overlay'
 
