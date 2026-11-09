@@ -87,6 +87,14 @@
             "metafield": "custom.key_features"
           }
         },
+        "size-fit": {
+          "type": "size-fit",
+          "settings": {
+            "heading": "Size & Fit",
+            "collapsible": true,
+            "open": false
+          }
+        },
         "specifications": {
           "type": "specifications",
           "settings": {
@@ -106,10 +114,10 @@
         "trust-returns",
         "trust-warranty",
         "key-features",
+        "size-fit",
         "specifications"
       ],
       "custom_css": [
-        ".cmp__description * {font-size: 1.12em;}",
         ".size-chart-link__text {color: black; text-decoration-color: black;}"
       ],
       "settings": {
