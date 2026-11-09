@@ -1,0 +1,33 @@
+{%- comment -%}
+  One measurement rendered in both units. The parent .csc[data-unit] decides which shows.
+  Parameters:
+  - value {String} - Value in cm: a number ("76", "88.5") or a range ("63–66" / "63-66").
+                     Non-numeric text passes through unchanged in both units.
+  - suffix {Boolean} - Append " in" / " cm" (used in the dimensions list; the table states units in its header).
+
+  Usage:
+  {% render 'c-size-chart-value', value: '88.5', suffix: false %}
+{%- endcomment -%}
+{%- liquid
+  assign raw = value | strip | replace: '-', '–'
+  assign parts = raw | split: '–'
+  capture inch
+    for p in parts
+      assign ps = p | strip
+      assign n = ps | times: 1.0
+      if n == 0 and ps != '0'
+        echo ps
+      else
+        assign in_val = n | divided_by: 2.54 | round: 1 | append: ''
+        unless in_val contains '.'
+          assign in_val = in_val | append: '.0'
+        endunless
+        echo in_val
+      endif
+      unless forloop.last
+        echo '–'
+      endunless
+    endfor
+  endcapture
+-%}
+<span class="csc-v" data-in>{{ inch }}{% if suffix %} in{% endif %}</span><span class="csc-v" data-cm>{{ raw }}{% if suffix %} cm{% endif %}</span>
