@@ -58,6 +58,7 @@
         },
         "text": {
           "type": "text",
+          "disabled": true,
           "settings": {
             "text": "<p>Receive&nbsp;15% OFF&nbsp;your first order and get priority access to sales & exclusive deals.</p>",
             "text_size": "small-text"
@@ -76,18 +77,13 @@
             "image_position_desktop": "right",
             "image_position_mobile": "top"
           }
-        },
-        "b8e4317d-d3d2-4b4c-818a-cd6ee79463b2": {
-          "type": "social",
-          "settings": {}
         }
       },
       "block_order": [
         "heading",
         "text",
         "newsletter-signup",
-        "21558aaf-7983-4c39-a2d9-5e803d85df82",
-        "b8e4317d-d3d2-4b4c-818a-cd6ee79463b2"
+        "21558aaf-7983-4c39-a2d9-5e803d85df82"
       ],
       "settings": {
         "trigger": "delay",
