@@ -20,9 +20,28 @@
     (metaobject reference; a product belongs to at most one set) and
     custom.c_combined_listing_name (single line text, the product's display name
     within the set). Keys editable per block.
+  - Size chart: metaobject definition 'c_size_chart' (title, columns, rows, dimensions,
+    fit_note, measuring_note, diagram — all measurements in cm) plus the product metafield
+    custom.c_size_chart (metaobject reference). When a product's chart has size rows, the
+    variant picker's size chart link opens the Size Guide drawer (bottom sheet on mobile)
+    instead of the page modal; the Size & Fit block shows the same chart inline, or the
+    dimensions for one-size items. Rendering: snippets/c-size-chart.liquid,
+    assets/c-size-chart.js, assets/c-size-chart.css.
 {%- endcomment -%}
 <link rel="stylesheet" href="{{ 'c-main-product.css' | asset_url }}" {%- render 'lazy-stylesheet-attrs' %}>
 <script src="{{ 'c-main-product.js' | asset_url }}" defer></script>
+
+{%- liquid
+  assign size_chart = product.metafields.custom.c_size_chart.value
+  assign size_chart_has_table = false
+  if size_chart != blank and size_chart.rows.value.size > 0
+    assign size_chart_has_table = true
+  endif
+-%}
+{%- if size_chart != blank -%}
+  <link rel="stylesheet" href="{{ 'c-size-chart.css' | asset_url }}" {%- render 'lazy-stylesheet-attrs' %}>
+  <script src="{{ 'c-size-chart.js' | asset_url }}" defer></script>
+{%- endif -%}
 
 {%- liquid
   assign current_variant = product.selected_or_first_available_variant
@@ -161,7 +180,12 @@
                   <div class="cmp__variants" data-dynamic-variant-content="{{ block.id }}"{% if product.has_only_default_variant %} hidden{% endif %} {{ block.shopify_attributes }}>
                     {%- capture size_chart_link -%}
                       {%- if block.settings.enable_size_chart -%}
-                        {%- if block.settings.size_chart_source == 'section' or block.settings.size_chart_page != blank -%}
+                        {%- if size_chart_has_table -%}
+                          {%- comment -%} Metaobject chart → Size Guide drawer (takes priority over the page modal) {%- endcomment -%}
+                          <button type="button" class="link block text-sm size-chart-link" data-csc-open="size-guide-{{ section.id }}" aria-haspopup="dialog" aria-expanded="false" aria-controls="size-guide-{{ section.id }}">
+                            <span class="size-chart-link__text underline">{{- block.settings.size_chart_label -}}</span>
+                          </button>
+                        {%- elsif block.settings.size_chart_source == 'section' or block.settings.size_chart_page != blank -%}
                           <script src="{{ 'open-or-scroll-to.js' | asset_url }}" defer></script>
                           <open-or-scroll-to data-target-id="size-chart-{{ product.id }}">
                             <button type="button" class="link block text-sm size-chart-link">
@@ -303,6 +327,36 @@
                     </div>
                   {%- endif -%}
 
+                {%- when 'size-fit' -%}
+                  {%- if size_chart != blank -%}
+                    {%- liquid
+                      assign sf_vp_block = section.blocks | where: 'type', 'variant-picker' | first
+                      assign sf_size_option = sf_vp_block.settings.size_chart_variant | default: 'Size'
+                      assign sf_uid = 'size-fit-' | append: block.id
+                    -%}
+                    {%- capture sizefit_html -%}
+                      {%- render 'c-size-chart', chart: size_chart, uid: sf_uid, size_option: sf_size_option, show_title: false -%}
+                    {%- endcapture -%}
+                    {%- if sizefit_html contains '<c-size-chart' -%}
+                      <div class="cmp__sizefit" {{ block.shopify_attributes }}>
+                        {%- if block.settings.collapsible -%}
+                          <details class="cmp__sizefit-details"{% if block.settings.open %} open{% endif %}>
+                            <summary class="cmp__sizefit-summary">
+                              <h3 class="cmp__group-heading">{{ block.settings.heading | escape }}</h3>
+                              <span class="cmp__sizefit-icon" aria-hidden="true"></span>
+                            </summary>
+                            <div class="cmp__sizefit-content">{{ sizefit_html }}</div>
+                          </details>
+                        {%- else -%}
+                          {%- if block.settings.heading != blank -%}
+                            <h3 class="cmp__group-heading">{{ block.settings.heading | escape }}</h3>
+                          {%- endif -%}
+                          {{ sizefit_html }}
+                        {%- endif -%}
+                      </div>
+                    {%- endif -%}
+                  {%- endif -%}
+
                 {%- when 'specifications' -%}
                   {%- liquid
                     assign mf_ref = block.settings.metafield | strip | split: '.'
@@ -347,6 +401,31 @@
       </div>
     </div>
   </product-form>
+
+  {%- if size_chart_has_table -%}
+    {%- comment -%} Size Guide: right-hand drawer ≥768px, bottom sheet below (assets/c-size-chart.css) {%- endcomment -%}
+    {%- liquid
+      assign vp_block = section.blocks | where: 'type', 'variant-picker' | first
+      assign guide_heading = vp_block.settings.size_chart_label | default: 'Size Guide'
+      assign guide_size_option = vp_block.settings.size_chart_variant | default: 'Size'
+      assign guide_uid = 'size-guide-' | append: section.id | append: '-chart'
+    -%}
+    <c-size-chart-drawer class="csd" id="size-guide-{{ section.id }}" hidden>
+      <div class="csd__backdrop" data-csc-close></div>
+      <div class="csd__panel" role="dialog" aria-modal="true" aria-labelledby="size-guide-{{ section.id }}-heading">
+        <div class="csd__head">
+          <h2 class="csd__heading" id="size-guide-{{ section.id }}-heading">{{ guide_heading | escape }}</h2>
+          <button type="button" class="csd__close" data-csc-close>
+            {% render 'icon-close' %}
+            <span class="visually-hidden">{{ 'accessibility.close' | t }}</span>
+          </button>
+        </div>
+        <div class="csd__body">
+          {%- render 'c-size-chart', chart: size_chart, uid: guide_uid, size_option: guide_size_option, show_title: true -%}
+        </div>
+      </div>
+    </c-size-chart-drawer>
+  {%- endif -%}
 
   {%- render 'product-popups', product: product, current_variant: current_variant -%}
   {%- render 'structured-data-product', product: product, current_variant: product.selected_or_first_available_variant -%}
@@ -547,6 +626,40 @@
           "id": "size_chart_page",
           "label": "Page containing size guide",
           "info": "Used when the content source is 'Page'. For 'Section', add a Size guide companion section below this one."
+        },
+        {
+          "type": "paragraph",
+          "content": "Products with a C Size Chart (metafield custom.c_size_chart) that has size rows open the Size Guide drawer instead, whatever the content source."
+        }
+      ]
+    },
+    {
+      "type": "size-fit",
+      "name": "Size & Fit",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "paragraph",
+          "content": "Shows the product's C Size Chart (metafield custom.c_size_chart): the size table, or the dimensions of one-size items, with an in/cm toggle. Renders nothing when the product has no chart."
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "Size & Fit"
+        },
+        {
+          "type": "checkbox",
+          "id": "collapsible",
+          "label": "Collapsible",
+          "default": true
+        },
+        {
+          "type": "checkbox",
+          "id": "open",
+          "label": "Open by default",
+          "info": "Applies when collapsible.",
+          "default": false
         }
       ]
     },
