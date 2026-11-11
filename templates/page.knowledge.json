@@ -186,6 +186,7 @@
         "kn_care_down",
         "kn_care_warranty"
       ],
+      "disabled": true,
       "settings": {
         "title": "Care & Maintenance",
         "card_style": "box",
