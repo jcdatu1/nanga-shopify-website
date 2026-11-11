@@ -204,7 +204,7 @@
           "type": "button",
           "settings": {
             "button_label": "Learn More About NANGA",
-            "button_link": "/pages/about",
+            "button_link": "shopify://pages/about-us",
             "button_style": "link"
           }
         }
