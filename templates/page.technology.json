@@ -197,7 +197,7 @@
         "tech_sourcing_text": {
           "type": "text",
           "settings": {
-            "text": "<p>All NANGA down is certified by the Responsible Down Standard (RDS), ensuring ethical treatment of animals throughout the supply chain. We maintain complete traceability from farm to finished product.</p><p>Our commitment extends beyond sourcing—we offer lifetime warranty and repair services to ensure your NANGA gear lasts for decades, not seasons.</p>"
+            "text": "<p>All NANGA down is certified by the Responsible Down Standard (RDS), ensuring ethical treatment of animals throughout the supply chain. We maintain complete traceability from farm to finished product.</p>"
           }
         },
         "tech_sourcing_link": {
