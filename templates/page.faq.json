@@ -138,6 +138,43 @@
         "enable_faq_schema": false
       }
     },
+    "faq-content-2": {
+      "type": "collapsible-tabs",
+      "blocks": {
+        "question-1": {
+          "type": "question",
+          "disabled": true,
+          "settings": {
+            "title": "Can a storage bag be repaired?",
+            "answer": "<p>Storage bags are not covered under After Care.</p>"
+          }
+        },
+        "question-2": {
+          "type": "question",
+          "settings": {
+            "title": "The item I purchased from another retailer had a manufacturing defect. Can I return or exchange it?",
+            "answer": "<p>For items purchased from other retailers or other online stores, we are unable to process returns or exchanges if we cannot verify the sales record on our end. We apologize for the inconvenience and ask that you contact the retailer where you made the purchase.</p>"
+          }
+        },
+        "question_HBWrXL": {
+          "type": "question",
+          "settings": {
+            "title": "Can I return the item I purchased?",
+            "answer": "<p>For returns due to the customer's own circumstances, such as an incorrect size or a different look than expected, a return is possible if we determine, based on our standards, that the item has no issues. Returns are only accepted at the store where the item was purchased.</p><p>For items purchased at the NANGA Online Shop, please refer to the \"Returns and Exchanges\" page.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "question-1",
+        "question-2",
+        "question_HBWrXL"
+      ],
+      "settings": {
+        "title": "About After Care",
+        "open_tab": false,
+        "enable_faq_schema": false
+      }
+    },
     "faq-content-1": {
       "type": "collapsible-tabs",
       "blocks": {
@@ -189,35 +226,6 @@
         "open_tab": false,
         "enable_faq_schema": false
       }
-    },
-    "faq-content-2": {
-      "type": "collapsible-tabs",
-      "blocks": {
-        "question-1": {
-          "type": "question",
-          "disabled": true,
-          "settings": {
-            "title": "Can a storage bag be repaired?",
-            "answer": "<p>Storage bags are not covered under After Care.</p>"
-          }
-        },
-        "question-2": {
-          "type": "question",
-          "settings": {
-            "title": "The item I purchased from another retailer had a manufacturing defect. Can I return or exchange it?",
-            "answer": "<p>For items purchased from other retailers or other online stores, we are unable to process returns or exchanges if we cannot verify the sales record on our end. We apologize for the inconvenience and ask that you contact the retailer where you made the purchase.</p>"
-          }
-        }
-      },
-      "block_order": [
-        "question-1",
-        "question-2"
-      ],
-      "settings": {
-        "title": "About After Care",
-        "open_tab": false,
-        "enable_faq_schema": false
-      }
     }
   },
   "order": [
@@ -225,7 +233,7 @@
     "main",
     "collapsible_tabs_xD3Jft",
     "collapsible_tabs_bL9cYd",
-    "faq-content-1",
-    "faq-content-2"
+    "faq-content-2",
+    "faq-content-1"
   ]
 }
