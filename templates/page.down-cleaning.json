@@ -88,7 +88,7 @@
         "dc_intro_text_0": {
           "type": "text",
           "settings": {
-            "text": "<p>At NANGA, we believe true sustainability starts with knowing how to care for what you own. That's why, since 2020, we've been expanding our care and repair services.</p><p>To help you keep your down in top condition for as long as possible, we're also creating videos and products that make it easy to clean and maintain your gear yourself. As a first step, here's how to wash down jackets, vests, and sleeping bags at home.</p><p>If your down seems to have lost some of its loft, try the steps below.</p>"
+            "text": "<p>At NANGA, we believe true sustainability starts with knowing how to care for what you own.</p><p>To help you keep your down in top condition for as long as possible, we're also creating videos and products that make it easy to clean and maintain your gear yourself. As a first step, here's how to wash down jackets, vests, and sleeping bags at home.</p><p>If your down seems to have lost some of its loft, try the steps below.</p><p></p>"
           }
         },
         "dc_intro_text_1": {
@@ -172,13 +172,13 @@
         "dc_service_text_1",
         "dc_service_button_2"
       ],
+      "disabled": true,
       "settings": {
         "background_color": "#ffffff",
         "text_color": "#000000",
         "body_text_color": "#4b5563",
         "full_width": false
-      },
-      "disabled": true
+      }
     },
     "dc_back": {
       "type": "c-content-panel",
