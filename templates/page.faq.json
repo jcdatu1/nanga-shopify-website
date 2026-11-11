@@ -89,6 +89,7 @@
         },
         "question_UEQ8dL": {
           "type": "question",
+          "disabled": true,
           "settings": {
             "title": "Can I return the item I purchased?",
             "answer": "<p>For returns due to the customer's own circumstances, such as an incorrect size or a different look than expected, a return is possible if we determine, based on our standards, that the item has no issues. Returns are only accepted at the store where the item was purchased.</p><p>https://nanga.jp/store/</p><p>For items purchased at the NANGA Online Shop, please refer to the \"Returns and Exchanges\" page.</p>"
@@ -170,7 +171,7 @@
         "question_HBWrXL"
       ],
       "settings": {
-        "title": "About After Care",
+        "title": "Returns & Defects",
         "open_tab": false,
         "enable_faq_schema": false
       }
