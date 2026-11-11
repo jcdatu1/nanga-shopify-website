@@ -173,6 +173,7 @@
         },
         "kn_care_warranty": {
           "type": "card",
+          "disabled": true,
           "settings": {
             "title": "Warranty & Repair",
             "text": "<p>Our lifetime warranty coverage and professional repair services to keep your gear in peak condition.</p>",
