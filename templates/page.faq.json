@@ -195,6 +195,7 @@
       "blocks": {
         "question-1": {
           "type": "question",
+          "disabled": true,
           "settings": {
             "title": "Can a storage bag be repaired?",
             "answer": "<p>Storage bags are not covered under After Care.</p>"
