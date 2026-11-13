@@ -96,8 +96,8 @@
         "head_not_col_bg": "#f4f6f8",
         "head_not_col_txt1": "#171717",
         "head_not_col_txt2": "#4c4c4b",
-        "head_not_mob_show": false,
-        "head_not_mob_text": "Free shipping on orders over $50",
+        "head_not_mob_show": true,
+        "head_not_mob_text": "Free Shipping on Orders Over $100",
         "head_not_mob_url": ""
       }
     }
