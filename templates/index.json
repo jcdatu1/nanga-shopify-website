@@ -99,7 +99,7 @@
         "cards_mobile": 2,
         "full_width": false,
         "image_style": "contain",
-        "hover_effect": "image",
+        "hover_effect": "zoom",
         "show_type": true,
         "show_value_props": true,
         "tag_style": "dark",
