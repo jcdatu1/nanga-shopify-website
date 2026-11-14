@@ -83,7 +83,7 @@
         "sort_show_price": true,
         "sort_show_date": true,
         "image_style": "contain",
-        "hover_effect": "image",
+        "hover_effect": "zoom",
         "show_type": false,
         "show_value_props": true,
         "tag_style": "dark",
