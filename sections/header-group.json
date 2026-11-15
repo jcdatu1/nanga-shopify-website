@@ -25,9 +25,9 @@
             "number_font": "base",
             "countdown_separator": "box",
             "use_custom_colors": true,
-            "bg_color": "#F4F6F8",
+            "bg_color": "#000000",
             "bg_gradient": "",
-            "text_color": "#000000"
+            "text_color": "#FFFFFF"
           }
         },
         "e33df8e3-c667-49c7-9da7-a23fac96c44d": {
@@ -41,9 +41,9 @@
             "number_font": "base",
             "countdown_separator": "box",
             "use_custom_colors": true,
-            "bg_color": "#F4F6F8",
+            "bg_color": "#000000",
             "bg_gradient": "",
-            "text_color": "#000000"
+            "text_color": "#FFFFFF"
           }
         }
       },
